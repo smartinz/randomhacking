@@ -1,0 +1,1701 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <definitions xmlns="http://schemas.nexida.com/codegeneration/definitions/1" xmlns:mergens="http://schemas.nexida.com/xmlmerger/1" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema">
+      <types>
+        <type name="Employee" namespace="http://www.northwind.com">
+          <fields>
+            <field name="EmployeeID">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>int</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <isTypeId>true</isTypeId>
+            </field>
+            <field name="LastName">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="FirstName">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Title">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="TitleOfCourtesy">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="BirthDate">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>dateTime</type>
+                <nullable>true</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="HireDate">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>dateTime</type>
+                <nullable>true</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Address">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="City">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Region">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="PostalCode">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Country">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="HomePhone">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Extension">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Notes">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="PhotoPath">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+          </fields>
+          <repository>
+            <create>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>CreateEmployee</operationName>
+              </operationReference>
+            </create>
+            <read>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>ReadEmployee</operationName>
+              </operationReference>
+            </read>
+            <update>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>UpdateEmployee</operationName>
+              </operationReference>
+            </update>
+            <delete>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>DeleteEmployee</operationName>
+              </operationReference>
+            </delete>
+            <search>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>SearchEmployee</operationName>
+              </operationReference>
+            </search>
+          </repository>
+        </type>
+        <type name="Order" namespace="http://www.northwind.com">
+          <fields>
+            <field name="OrderID">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>int</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <isTypeId>true</isTypeId>
+            </field>
+            <field name="OrderDate">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>dateTime</type>
+                <nullable>true</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="RequiredDate">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>dateTime</type>
+                <nullable>true</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ShippedDate">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>dateTime</type>
+                <nullable>true</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Freight">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>decimal</type>
+                <nullable>true</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ShipName">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ShipAddress">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ShipCity">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ShipRegion">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ShipPostalCode">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ShipCountry">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="OrderDetails">
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>OrderDetail</type>
+                <nullable>true</nullable>
+                <array>true</array>
+              </reference>
+            </field>
+            <field name="Customer">
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Customer</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Employee">
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Employee</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Shipper">
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Shipper</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+          </fields>
+          <repository>
+            <create>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>CreateOrder</operationName>
+              </operationReference>
+            </create>
+            <read>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>ReadOrder</operationName>
+              </operationReference>
+            </read>
+            <update>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>UpdateOrder</operationName>
+              </operationReference>
+            </update>
+            <delete>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>DeleteOrder</operationName>
+              </operationReference>
+            </delete>
+            <search>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>SearchOrder</operationName>
+              </operationReference>
+            </search>
+          </repository>
+        </type>
+        <type name="OrderDetail" namespace="http://www.northwind.com">
+          <fields>
+            <field name="OrderDetailID">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>int</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="UnitPrice">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>decimal</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Quantity">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>short</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Discount">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>float</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Product">
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Product</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+          </fields>
+        </type>
+        <type name="Product" namespace="http://www.northwind.com">
+          <fields>
+            <field name="ProductID">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>int</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <isTypeId>true</isTypeId>
+            </field>
+            <field name="ProductName">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="QuantityPerUnit">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="UnitPrice">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>decimal</type>
+                <nullable>true</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="UnitsInStock">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>short</type>
+                <nullable>true</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="UnitsOnOrder">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>short</type>
+                <nullable>true</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ReorderLevel">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>short</type>
+                <nullable>true</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Discontinued">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>boolean</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Supplier">
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Supplier</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Category">
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Category</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+          </fields>
+          <repository>
+            <create>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>CreateProduct</operationName>
+              </operationReference>
+            </create>
+            <read>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>ReadProduct</operationName>
+              </operationReference>
+            </read>
+            <update>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>UpdateProduct</operationName>
+              </operationReference>
+            </update>
+            <delete>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>DeleteProduct</operationName>
+              </operationReference>
+            </delete>
+            <search>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>SearchProduct</operationName>
+              </operationReference>
+            </search>
+          </repository>
+        </type>
+        <type name="Supplier" namespace="http://www.northwind.com">
+          <fields>
+            <field name="SupplierID">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>int</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <isTypeId>true</isTypeId>
+            </field>
+            <field name="CompanyName">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ContactName">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ContactTitle">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Address">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="City">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Region">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="PostalCode">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Country">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Phone">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Fax">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="HomePage">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+          </fields>
+          <repository>
+            <create>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>CreateSupplier</operationName>
+              </operationReference>
+            </create>
+            <read>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>ReadSupplier</operationName>
+              </operationReference>
+            </read>
+            <update>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>UpdateSupplier</operationName>
+              </operationReference>
+            </update>
+            <delete>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>DeleteSupplier</operationName>
+              </operationReference>
+            </delete>
+            <search>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>SearchSupplier</operationName>
+              </operationReference>
+            </search>
+          </repository>
+        </type>
+        <type name="Category" namespace="http://www.northwind.com">
+          <fields>
+            <field name="CategoryID">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>int</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <isTypeId>true</isTypeId>
+            </field>
+            <field name="CategoryName">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Description">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+          </fields>
+          <repository>
+            <create>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>CreateCategory</operationName>
+              </operationReference>
+            </create>
+            <read>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>ReadCategory</operationName>
+              </operationReference>
+            </read>
+            <update>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>UpdateCategory</operationName>
+              </operationReference>
+            </update>
+            <delete>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>DeleteCategory</operationName>
+              </operationReference>
+            </delete>
+            <search>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>SearchCategory</operationName>
+              </operationReference>
+            </search>
+          </repository>
+        </type>
+        <type name="Customer" namespace="http://www.northwind.com">
+          <fields>
+            <field name="CustomerID">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <isTypeId>true</isTypeId>
+            </field>
+            <field name="CompanyName">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ContactName">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="ContactTitle">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Address">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="City">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Region">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="PostalCode">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Country">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Phone">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Fax">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+          </fields>
+          <repository>
+            <create>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>CreateCustomer</operationName>
+              </operationReference>
+            </create>
+            <read>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>ReadCustomer</operationName>
+              </operationReference>
+            </read>
+            <update>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>UpdateCustomer</operationName>
+              </operationReference>
+            </update>
+            <delete>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>DeleteCustomer</operationName>
+              </operationReference>
+            </delete>
+            <search>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>SearchCustomer</operationName>
+              </operationReference>
+            </search>
+          </repository>
+        </type>
+        <type name="Shipper" namespace="http://www.northwind.com">
+          <fields>
+            <field name="ShipperID">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>int</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <isTypeId>true</isTypeId>
+            </field>
+            <field name="CompanyName">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+            <field name="Phone">
+              <reference>
+                <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                <type>string</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+            </field>
+          </fields>
+          <repository>
+            <create>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>CreateShipper</operationName>
+              </operationReference>
+            </create>
+            <read>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>ReadShipper</operationName>
+              </operationReference>
+            </read>
+            <update>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>UpdateShipper</operationName>
+              </operationReference>
+            </update>
+            <delete>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>DeleteShipper</operationName>
+              </operationReference>
+            </delete>
+            <search>
+              <operationReference>
+                <serviceName>NorthwindWebService</serviceName>
+                <serviceNamespace>http://www.northwind.com</serviceNamespace>
+                <operationName>SearchShipper</operationName>
+              </operationReference>
+            </search>
+          </repository>
+        </type>
+      </types>
+      <services>
+        <service name="NorthwindWebService" namespace="http://www.northwind.com">
+          <portName>NorthwindWebServiceSoap</portName>
+          <location>http://localhost:53172/NorthwindWebService.asmx</location>
+          <operations>
+            <operation name="CreateEmployee">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/CreateEmployee</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Employee</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="employee">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Employee</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="ReadEmployee">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/ReadEmployee</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Employee</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="employeeId">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>int</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="UpdateEmployee">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/UpdateEmployee</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Employee</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="employee">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Employee</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="DeleteEmployee">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/DeleteEmployee</soapAction>
+              <parameters>
+                <parameter name="employee">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Employee</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="SearchEmployee">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/SearchEmployee</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Employee</type>
+                <nullable>true</nullable>
+                <array>true</array>
+              </reference>
+              <parameters>
+                <parameter name="lastName">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="firstName">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="title">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="CreateOrder">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/CreateOrder</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Order</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="order">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Order</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="ReadOrder">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/ReadOrder</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Order</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="orderId">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>int</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="UpdateOrder">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/UpdateOrder</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Order</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="order">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Order</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="DeleteOrder">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/DeleteOrder</soapAction>
+              <parameters>
+                <parameter name="order">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Order</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="SearchOrder">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/SearchOrder</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Order</type>
+                <nullable>true</nullable>
+                <array>true</array>
+              </reference>
+              <parameters>
+                <parameter name="employee">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Employee</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="dateFrom">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>dateTime</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="dateTo">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>dateTime</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="CreateCustomer">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/CreateCustomer</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Customer</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="customer">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Customer</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="ReadCustomer">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/ReadCustomer</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Customer</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="customerId">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="UpdateCustomer">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/UpdateCustomer</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Customer</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="customer">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Customer</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="DeleteCustomer">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/DeleteCustomer</soapAction>
+              <parameters>
+                <parameter name="customer">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Customer</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="SearchCustomer">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/SearchCustomer</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Customer</type>
+                <nullable>true</nullable>
+                <array>true</array>
+              </reference>
+              <parameters>
+                <parameter name="companyName">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="contactName">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="contactTitle">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="CreateShipper">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/CreateShipper</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Shipper</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="shipper">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Shipper</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="ReadShipper">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/ReadShipper</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Shipper</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="shipperId">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>int</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="UpdateShipper">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/UpdateShipper</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Shipper</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="shipper">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Shipper</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="DeleteShipper">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/DeleteShipper</soapAction>
+              <parameters>
+                <parameter name="shipper">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Shipper</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="SearchShipper">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/SearchShipper</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Shipper</type>
+                <nullable>true</nullable>
+                <array>true</array>
+              </reference>
+              <parameters>
+                <parameter name="companyName">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="phone">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="CreateProduct">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/CreateProduct</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Product</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="product">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Product</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="ReadProduct">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/ReadProduct</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Product</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="productId">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>int</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="UpdateProduct">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/UpdateProduct</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Product</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="product">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Product</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="DeleteProduct">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/DeleteProduct</soapAction>
+              <parameters>
+                <parameter name="product">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Product</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="SearchProduct">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/SearchProduct</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Product</type>
+                <nullable>true</nullable>
+                <array>true</array>
+              </reference>
+              <parameters>
+                <parameter name="category">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Category</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="supplier">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Supplier</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="CreateSupplier">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/CreateSupplier</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Supplier</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="supplier">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Supplier</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="ReadSupplier">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/ReadSupplier</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Supplier</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="supplierId">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>int</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="UpdateSupplier">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/UpdateSupplier</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Supplier</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="supplier">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Supplier</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="DeleteSupplier">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/DeleteSupplier</soapAction>
+              <parameters>
+                <parameter name="supplier">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Supplier</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="SearchSupplier">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/SearchSupplier</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Supplier</type>
+                <nullable>true</nullable>
+                <array>true</array>
+              </reference>
+              <parameters>
+                <parameter name="companyName">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="contactName">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="counrty">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="CreateCategory">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/CreateCategory</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Category</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="category">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Category</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="ReadCategory">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/ReadCategory</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Category</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="categoryId">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>int</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="UpdateCategory">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/UpdateCategory</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Category</type>
+                <nullable>false</nullable>
+                <array>false</array>
+              </reference>
+              <parameters>
+                <parameter name="category">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Category</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="DeleteCategory">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/DeleteCategory</soapAction>
+              <parameters>
+                <parameter name="category">
+                  <reference>
+                    <namespace>http://www.northwind.com</namespace>
+                    <type>Category</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+            <operation name="SearchCategory">
+              <requestNamespace>http://www.northwind.com</requestNamespace>
+              <responseNamespace>http://www.northwind.com</responseNamespace>
+              <soapAction>http://www.northwind.com/SearchCategory</soapAction>
+              <reference>
+                <namespace>http://www.northwind.com</namespace>
+                <type>Category</type>
+                <nullable>true</nullable>
+                <array>true</array>
+              </reference>
+              <parameters>
+                <parameter name="categoryName">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+                <parameter name="description">
+                  <reference>
+                    <namespace>http://www.w3.org/2001/XMLSchema</namespace>
+                    <type>string</type>
+                    <nullable>false</nullable>
+                    <array>false</array>
+                  </reference>
+                </parameter>
+              </parameters>
+            </operation>
+          </operations>
+        </service>
+      </services>
+      <namespaceMappings>
+        <namespaceMapping source="http://www.northwind.com">
+          <destination></destination>
+        </namespaceMapping>
+      </namespaceMappings>
+      <settings>
+        <baseNamespace>NorthwindWeb</baseNamespace>
+      </settings>
+    </definitions>
+  

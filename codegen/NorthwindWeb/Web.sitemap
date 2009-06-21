@@ -1,0 +1,18 @@
+<siteMap>
+  <siteMapNode title="Menu">
+    <siteMapNode title="Search Employee" url="~/UI/SearchEmployeeForm.aspx" />
+    <siteMapNode title="Create Employee" url="~/UI/EmployeeDetailForm.aspx" />
+    <siteMapNode title="Search Order" url="~/UI/SearchOrderForm.aspx" />
+    <siteMapNode title="Create Order" url="~/UI/OrderDetailForm.aspx" />
+    <siteMapNode title="Search Product" url="~/UI/SearchProductForm.aspx" />
+    <siteMapNode title="Create Product" url="~/UI/ProductDetailForm.aspx" />
+    <siteMapNode title="Search Supplier" url="~/UI/SearchSupplierForm.aspx" />
+    <siteMapNode title="Create Supplier" url="~/UI/SupplierDetailForm.aspx" />
+    <siteMapNode title="Search Category" url="~/UI/SearchCategoryForm.aspx" />
+    <siteMapNode title="Create Category" url="~/UI/CategoryDetailForm.aspx" />
+    <siteMapNode title="Search Customer" url="~/UI/SearchCustomerForm.aspx" />
+    <siteMapNode title="Create Customer" url="~/UI/CustomerDetailForm.aspx" />
+    <siteMapNode title="Search Shipper" url="~/UI/SearchShipperForm.aspx" />
+    <siteMapNode title="Create Shipper" url="~/UI/ShipperDetailForm.aspx" />
+  </siteMapNode>
+</siteMap>

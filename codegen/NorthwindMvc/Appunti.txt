@@ -1,0 +1,2 @@
+﻿Walkthrough: Adding ASP.NET AJAX Scripting to an MVC Project
+	http://msdn.microsoft.com/en-us/library/dd381533.aspx

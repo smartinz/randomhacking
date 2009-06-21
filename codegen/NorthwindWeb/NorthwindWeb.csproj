@@ -1,0 +1,486 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6F213B73-CD7A-4E27-A16B-29ECE7643973}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NorthwindWeb</RootNamespace>
+    <AssemblyName>NorthwindWeb</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions.Design, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DateTimeControl.ascx" />
+    <Content Include="DecimalControl.ascx" />
+    <Content Include="DoubleControl.ascx" />
+    <Content Include="Int32Control.ascx" />
+    <Content Include="Properties\Definitions.xml" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Category.cs" />
+    <Compile Include="Business\Customer.cs" />
+    <Compile Include="Business\Employee.cs" />
+    <Compile Include="Business\Order.cs" />
+    <Compile Include="Business\OrderDetail.cs" />
+    <Compile Include="Business\Product.cs" />
+    <Compile Include="Business\Shipper.cs" />
+    <Compile Include="Business\Supplier.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="Data\CategoryRepository.cs" />
+    <Compile Include="Data\CustomerRepository.cs" />
+    <Compile Include="Data\EmployeeRepository.cs" />
+    <Compile Include="Data\NorthwindWebService.cs" />
+    <Compile Include="Data\OrderRepository.cs" />
+    <Compile Include="Data\ProductRepository.cs" />
+    <Compile Include="Data\ShipperRepository.cs" />
+    <Compile Include="Data\SupplierRepository.cs" />
+    <Compile Include="DateTimeControl.ascx.cs">
+      <DependentUpon>DateTimeControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DateTimeControl.ascx.designer.cs">
+      <DependentUpon>DateTimeControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DecimalControl.ascx.cs">
+      <DependentUpon>DecimalControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DecimalControl.ascx.designer.cs">
+      <DependentUpon>DecimalControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DoubleControl.ascx.cs">
+      <DependentUpon>DoubleControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DoubleControl.ascx.designer.cs">
+      <DependentUpon>DoubleControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Int16Control.ascx.cs">
+      <DependentUpon>Int16Control.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Int16Control.ascx.designer.cs">
+      <DependentUpon>Int16Control.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Int32Control.ascx.cs">
+      <DependentUpon>Int32Control.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Int32Control.ascx.designer.cs">
+      <DependentUpon>Int32Control.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Lazy.cs" />
+    <Compile Include="ParamEventArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CategoryDetailForm.aspx.cs">
+      <DependentUpon>CategoryDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CategoryDetailForm.aspx.designer.cs">
+      <DependentUpon>CategoryDetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CategoryListControl.ascx.cs">
+      <DependentUpon>CategoryListControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CategoryListControl.ascx.designer.cs">
+      <DependentUpon>CategoryListControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CategoryReferenceControl.ascx.cs">
+      <DependentUpon>CategoryReferenceControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CategoryReferenceControl.ascx.designer.cs">
+      <DependentUpon>CategoryReferenceControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomerDetailForm.aspx.cs">
+      <DependentUpon>CustomerDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CustomerDetailForm.aspx.designer.cs">
+      <DependentUpon>CustomerDetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomerListControl.ascx.cs">
+      <DependentUpon>CustomerListControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CustomerListControl.ascx.designer.cs">
+      <DependentUpon>CustomerListControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomerReferenceControl.ascx.cs">
+      <DependentUpon>CustomerReferenceControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CustomerReferenceControl.ascx.designer.cs">
+      <DependentUpon>CustomerReferenceControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeDetailForm.aspx.cs">
+      <DependentUpon>EmployeeDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeDetailForm.aspx.designer.cs">
+      <DependentUpon>EmployeeDetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeListControl.ascx.cs">
+      <DependentUpon>EmployeeListControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeListControl.ascx.designer.cs">
+      <DependentUpon>EmployeeListControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EmployeeReferenceControl.ascx.cs">
+      <DependentUpon>EmployeeReferenceControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\EmployeeReferenceControl.ascx.designer.cs">
+      <DependentUpon>EmployeeReferenceControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrderDetailDetailControl.ascx.cs">
+      <DependentUpon>OrderDetailDetailControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\OrderDetailDetailControl.ascx.designer.cs">
+      <DependentUpon>OrderDetailDetailControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrderDetailForm.aspx.cs">
+      <DependentUpon>OrderDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\OrderDetailForm.aspx.designer.cs">
+      <DependentUpon>OrderDetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrderDetailListControl.ascx.cs">
+      <DependentUpon>OrderDetailListControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\OrderDetailListControl.ascx.designer.cs">
+      <DependentUpon>OrderDetailListControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrderListControl.ascx.cs">
+      <DependentUpon>OrderListControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\OrderListControl.ascx.designer.cs">
+      <DependentUpon>OrderListControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\OrderReferenceControl.ascx.cs">
+      <DependentUpon>OrderReferenceControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\OrderReferenceControl.ascx.designer.cs">
+      <DependentUpon>OrderReferenceControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductDetailForm.aspx.cs">
+      <DependentUpon>ProductDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ProductDetailForm.aspx.designer.cs">
+      <DependentUpon>ProductDetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductListControl.ascx.cs">
+      <DependentUpon>ProductListControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ProductListControl.ascx.designer.cs">
+      <DependentUpon>ProductListControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ProductReferenceControl.ascx.cs">
+      <DependentUpon>ProductReferenceControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ProductReferenceControl.ascx.designer.cs">
+      <DependentUpon>ProductReferenceControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchCategoryControl.ascx.cs">
+      <DependentUpon>SearchCategoryControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchCategoryControl.ascx.designer.cs">
+      <DependentUpon>SearchCategoryControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchCategoryForm.aspx.cs">
+      <DependentUpon>SearchCategoryForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchCategoryForm.aspx.designer.cs">
+      <DependentUpon>SearchCategoryForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchCustomerControl.ascx.cs">
+      <DependentUpon>SearchCustomerControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchCustomerControl.ascx.designer.cs">
+      <DependentUpon>SearchCustomerControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchCustomerForm.aspx.cs">
+      <DependentUpon>SearchCustomerForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchCustomerForm.aspx.designer.cs">
+      <DependentUpon>SearchCustomerForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchEmployeeControl.ascx.cs">
+      <DependentUpon>SearchEmployeeControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchEmployeeControl.ascx.designer.cs">
+      <DependentUpon>SearchEmployeeControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchEmployeeForm.aspx.cs">
+      <DependentUpon>SearchEmployeeForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchEmployeeForm.aspx.designer.cs">
+      <DependentUpon>SearchEmployeeForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchOrderControl.ascx.cs">
+      <DependentUpon>SearchOrderControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchOrderControl.ascx.designer.cs">
+      <DependentUpon>SearchOrderControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchOrderForm.aspx.cs">
+      <DependentUpon>SearchOrderForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchOrderForm.aspx.designer.cs">
+      <DependentUpon>SearchOrderForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchProductControl.ascx.cs">
+      <DependentUpon>SearchProductControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchProductControl.ascx.designer.cs">
+      <DependentUpon>SearchProductControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchProductForm.aspx.cs">
+      <DependentUpon>SearchProductForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchProductForm.aspx.designer.cs">
+      <DependentUpon>SearchProductForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchShipperControl.ascx.cs">
+      <DependentUpon>SearchShipperControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchShipperControl.ascx.designer.cs">
+      <DependentUpon>SearchShipperControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchShipperForm.aspx.cs">
+      <DependentUpon>SearchShipperForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchShipperForm.aspx.designer.cs">
+      <DependentUpon>SearchShipperForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchSupplierControl.ascx.cs">
+      <DependentUpon>SearchSupplierControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchSupplierControl.ascx.designer.cs">
+      <DependentUpon>SearchSupplierControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SearchSupplierForm.aspx.cs">
+      <DependentUpon>SearchSupplierForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SearchSupplierForm.aspx.designer.cs">
+      <DependentUpon>SearchSupplierForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ShipperDetailForm.aspx.cs">
+      <DependentUpon>ShipperDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ShipperDetailForm.aspx.designer.cs">
+      <DependentUpon>ShipperDetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ShipperListControl.ascx.cs">
+      <DependentUpon>ShipperListControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ShipperListControl.ascx.designer.cs">
+      <DependentUpon>ShipperListControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ShipperReferenceControl.ascx.cs">
+      <DependentUpon>ShipperReferenceControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ShipperReferenceControl.ascx.designer.cs">
+      <DependentUpon>ShipperReferenceControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SupplierDetailForm.aspx.cs">
+      <DependentUpon>SupplierDetailForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SupplierDetailForm.aspx.designer.cs">
+      <DependentUpon>SupplierDetailForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SupplierListControl.ascx.cs">
+      <DependentUpon>SupplierListControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SupplierListControl.ascx.designer.cs">
+      <DependentUpon>SupplierListControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SupplierReferenceControl.ascx.cs">
+      <DependentUpon>SupplierReferenceControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\SupplierReferenceControl.ascx.designer.cs">
+      <DependentUpon>SupplierReferenceControl.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.sitemap" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\Site.css" />
+    <Content Include="css\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="css\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="css\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="css\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="css\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="css\smoothness\jquery-ui-1.7.1.custom.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Int16Control.ascx" />
+    <Content Include="js\jquery-1.3.2.min.js" />
+    <Content Include="js\jquery-ui-1.7.1.custom.min.js" />
+    <Content Include="Site.Master" />
+    <Content Include="UI\CategoryDetailForm.aspx" />
+    <Content Include="UI\CategoryListControl.ascx" />
+    <Content Include="UI\CategoryReferenceControl.ascx" />
+    <Content Include="UI\CustomerDetailForm.aspx" />
+    <Content Include="UI\CustomerListControl.ascx" />
+    <Content Include="UI\CustomerReferenceControl.ascx" />
+    <Content Include="UI\EmployeeDetailForm.aspx" />
+    <Content Include="UI\EmployeeListControl.ascx" />
+    <Content Include="UI\EmployeeReferenceControl.ascx" />
+    <Content Include="UI\OrderDetailDetailControl.ascx" />
+    <Content Include="UI\OrderDetailForm.aspx" />
+    <Content Include="UI\OrderDetailListControl.ascx" />
+    <Content Include="UI\OrderListControl.ascx" />
+    <Content Include="UI\OrderReferenceControl.ascx" />
+    <Content Include="UI\ProductDetailForm.aspx" />
+    <Content Include="UI\ProductListControl.ascx" />
+    <Content Include="UI\ProductReferenceControl.ascx" />
+    <Content Include="UI\SearchCategoryControl.ascx" />
+    <Content Include="UI\SearchCategoryForm.aspx" />
+    <Content Include="UI\SearchCustomerControl.ascx" />
+    <Content Include="UI\SearchCustomerForm.aspx" />
+    <Content Include="UI\SearchEmployeeControl.ascx" />
+    <Content Include="UI\SearchEmployeeForm.aspx" />
+    <Content Include="UI\SearchOrderControl.ascx" />
+    <Content Include="UI\SearchOrderForm.aspx" />
+    <Content Include="UI\SearchProductControl.ascx" />
+    <Content Include="UI\SearchProductForm.aspx" />
+    <Content Include="UI\SearchShipperControl.ascx" />
+    <Content Include="UI\SearchShipperForm.aspx" />
+    <Content Include="UI\SearchSupplierControl.ascx" />
+    <Content Include="UI\SearchSupplierForm.aspx" />
+    <Content Include="UI\ShipperDetailForm.aspx" />
+    <Content Include="UI\ShipperListControl.ascx" />
+    <Content Include="UI\ShipperReferenceControl.ascx" />
+    <Content Include="UI\SupplierDetailForm.aspx" />
+    <Content Include="UI\SupplierListControl.ascx" />
+    <Content Include="UI\SupplierReferenceControl.ascx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52418</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
