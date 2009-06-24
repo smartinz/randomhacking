@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestRecord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <UnitTestResult>
+      <TestDate>2009-02-01T09:29:44</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+  </Results>
+  <Tests>
+    <TestRecord Name="PersonalMoneyTest">
+      <Results>
+        <UnitTestResult>
+          <TestDate>2009-02-01T09:29:44</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+      </Results>
+      <Tests>
+        <TestRecord Name="Test">
+          <Results>
+            <UnitTestResult>
+              <TestDate>2009-02-01T09:29:44</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+          </Results>
+          <Tests>
+            <TestRecord Name="TestCase">
+              <Results>
+                <UnitTestResult>
+                  <TestDate>2009-02-01T09:29:44</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.52ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '1'
+NHibernate: SELECT expense0_.Id as Id0_0_, expense0_.Date as Date0_0_, expense0_.Description as Descript3_0_0_, expense0_.Amount as Amount0_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_0_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '2'
+NHibernate: SELECT expensetyp0_.Id as Id1_0_, expensetyp0_.Description as Descript2_1_0_ FROM EXPENSE_TYPES expensetyp0_ WHERE expensetyp0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+              </Results>
+            </TestRecord>
+          </Tests>
+        </TestRecord>
+      </Tests>
+    </TestRecord>
+  </Tests>
+</TestRecord>

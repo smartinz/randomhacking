@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" default-access="field.camelcase-underscore" >
+	<class name="PersonalMoney.Expense, PersonalMoney" table="Expenses">
+		<id name="Id" type="Int32">
+			<generator class="identity" /> <!-- con "native" mi da l'errore descritto qui http://forum.hibernate.org/viewtopic.php?p=2281208&sid=1dae950809e5c69db960b5709c37e6d5 -->
+		</id>
+		<property name="Date" not-null="true" />
+		<property name="Description" type="String" not-null="true" />
+		<property name="Amount" type="Int32" not-null="true" />
+		<many-to-one name="Type" column="EXPENSE_TYPE_ID" not-null="true" />
+	</class>
+</hibernate-mapping>

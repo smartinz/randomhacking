@@ -1,0 +1,824 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestRecord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <UnitTestResult>
+      <TestDate>2009-01-25T13:11:14</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T13:11:56</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T16:16:23</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T16:17:43</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T16:20:48</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T16:23:53</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T16:24:14</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T16:25:57</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T16:40:53</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T16:41:55</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T16:42:42</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T18:26:05</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T20:37:20</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T20:38:23</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T20:39:04</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T20:41:31</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T20:44:42</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-25T20:49:06</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+  </Results>
+  <Tests>
+    <TestRecord Name="PersonalMoneyTest">
+      <Results>
+        <UnitTestResult>
+          <TestDate>2009-01-25T13:11:14</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T13:11:56</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T16:16:23</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T16:17:43</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T16:20:48</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T16:23:53</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T16:24:14</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T16:25:57</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T16:40:53</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T16:41:55</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T16:42:42</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T18:26:05</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T20:37:20</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T20:38:23</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T20:39:04</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T20:41:31</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T20:44:42</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-25T20:49:06</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+      </Results>
+      <Tests>
+        <TestRecord Name="Test">
+          <Results>
+            <UnitTestResult>
+              <TestDate>2009-01-25T13:11:14</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T13:11:56</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>NHibernate.HibernateException : Could not create the driver from NHibernate.Driver.MonoSQLiteDriver, PersonalMoney.
+  ----&gt; System.Reflection.TargetInvocationException : Exception has been thrown by the target of an invocation.
+  ----&gt; NHibernate.HibernateException : The IDbCommand and IDbConnection implementation in the assembly Mono.Data.Sqlite could not be found. Ensure that the assembly Mono.Data.Sqlite is located in the application directory or in the Global Assembly Cache. If the assembly is in the GAC, use &lt;qualifyAssembly/&gt; element in the application configuration file to specify the full name of the assembly.</Message>
+              <StackTrace>  at NHibernate.Connection.ConnectionProvider.ConfigureDriver (IDictionary settings) [0x00000] 
+  at NHibernate.Connection.ConnectionProvider.Configure (IDictionary settings) [0x00000] 
+  at NHibernate.Connection.ConnectionProviderFactory.NewConnectionProvider (IDictionary settings) [0x00000] 
+  at NHibernate.Cfg.SettingsFactory.BuildSettings (IDictionary properties) [0x00000] 
+  at NHibernate.Cfg.Configuration.BuildSettings () [0x00000] 
+  at NHibernate.Cfg.Configuration.BuildSessionFactory () [0x00000] 
+  at PersonalMoneyTest.Test.TestFixtureSetUp () [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoneyTest/Test.cs:18 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+--TargetInvocationException
+  at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+  at System.Reflection.MonoCMethod.Invoke (BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+  at System.Reflection.ConstructorInfo.Invoke (System.Object[] parameters) [0x00000] 
+  at System.Activator.CreateInstance (System.Type type, Boolean nonPublic) [0x00000] 
+  at System.Activator.CreateInstance (System.Type type) [0x00000] 
+  at NHibernate.Connection.ConnectionProvider.ConfigureDriver (IDictionary settings) [0x00000] 
+--HibernateException
+  at NHibernate.Driver.ReflectionBasedDriver..ctor (System.String driverAssemblyName, System.String connectionTypeName, System.String commandTypeName) [0x00000] 
+  at NHibernate.Driver.MonoSQLiteDriver..ctor () [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoney/gtk-gui/generated.cs:1 
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] </StackTrace>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T16:16:23</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>NHibernate.MappingException : Could not compile the mapping document: Expense.hbm.xml
+  ----&gt; NHibernate.MappingException : Problem trying to set association type by reflection
+  ----&gt; NHibernate.PropertyNotFoundException : Could not find field '_type' in class 'PersonalMoney.Expense'</Message>
+              <StackTrace>  at NHibernate.Cfg.Configuration.LogAndThrow (NHibernate.MappingException me) [0x00000] 
+  at NHibernate.Cfg.Configuration.AddValidatedDocument (NHibernate.Cfg.NamedXmlDocument doc) [0x00000] 
+  at NHibernate.Cfg.Configuration.ProcessMappingsQueue () [0x00000] 
+  at NHibernate.Cfg.Configuration.AddDocumentThroughQueue (NHibernate.Cfg.NamedXmlDocument document) [0x00000] 
+  at NHibernate.Cfg.Configuration.AddXmlReader (System.Xml.XmlTextReader hbmReader, System.String name) [0x00000] 
+  at NHibernate.Cfg.Configuration.AddInputStream (System.IO.Stream xmlInputStream, System.String name) [0x00000] 
+--MappingException
+  at NHibernate.Mapping.ManyToOne.SetTypeByReflection (System.Type propertyClass, System.String propertyName, System.String propertyAccess) [0x00000] 
+  at NHibernate.Cfg.HbmBinder.CreateProperty (IValue value, System.String propertyName, System.Type parentClass, System.Xml.XmlNode subnode, NHibernate.Cfg.Mappings mappings) [0x00000] 
+  at NHibernate.Cfg.HbmBinder.PropertiesFromXML (System.Xml.XmlNode node, NHibernate.Mapping.PersistentClass model, NHibernate.Cfg.Mappings mappings) [0x00000] 
+  at NHibernate.Cfg.HbmBinder.BindRootClass (System.Xml.XmlNode node, NHibernate.Mapping.RootClass model, NHibernate.Cfg.Mappings mappings) [0x00000] 
+  at NHibernate.Cfg.HbmBinder.BindRoot (System.Xml.XmlDocument doc, NHibernate.Cfg.Mappings mappings) [0x00000] 
+  at NHibernate.Cfg.Configuration.AddValidatedDocument (NHibernate.Cfg.NamedXmlDocument doc) [0x00000] 
+--PropertyNotFoundException
+  at NHibernate.Property.FieldAccessor.GetField (System.Type type, System.String fieldName, System.Type originalType) [0x00000] 
+  at NHibernate.Property.FieldAccessor.GetField (System.Type type, System.String fieldName, System.Type originalType) [0x00000] 
+  at NHibernate.Property.FieldAccessor.GetField (System.Type type, System.String fieldName) [0x00000] 
+  at NHibernate.Property.FieldAccessor.GetGetter (System.Type theClass, System.String propertyName) [0x00000] 
+  at NHibernate.Util.ReflectHelper.GetGetter (System.Type theClass, System.String propertyName, System.String propertyAccessorName) [0x00000] 
+  at NHibernate.Util.ReflectHelper.ReflectedPropertyClass (System.Type theClass, System.String name, System.String access) [0x00000] 
+  at NHibernate.Mapping.ManyToOne.SetTypeByReflection (System.Type propertyClass, System.String propertyName, System.String propertyAccess) [0x00000] </StackTrace>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T16:17:43</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>NHibernate.MappingException : An association from the table Expenses refers to an unmapped class: ExpenseType</Message>
+              <StackTrace>  at NHibernate.Cfg.Configuration.LogAndThrow (NHibernate.MappingException me) [0x00000] 
+  at NHibernate.Cfg.Configuration.SecondPassCompileForeignKeys (NHibernate.Mapping.Table table, ISet done) [0x00000] 
+  at NHibernate.Cfg.Configuration.SecondPassCompile () [0x00000] 
+  at NHibernate.Cfg.Configuration.BuildSessionFactory () [0x00000] 
+  at PersonalMoneyTest.Test.TestFixtureSetUp () [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoneyTest/Test.cs:18 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] </StackTrace>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T16:20:48</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>Child test failed</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T16:23:53</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>Child test failed</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T16:24:14</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T16:25:57</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>Child test failed</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T16:40:53</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T16:41:55</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T16:42:42</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T18:26:05</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T20:37:20</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>Child test failed</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T20:38:23</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>Child test failed</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T20:39:04</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T20:41:31</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T20:44:42</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-25T20:49:06</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+          </Results>
+          <Tests>
+            <TestRecord Name="TestCase">
+              <Results>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T13:11:14</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.26ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '0'
+NHibernate: SELECT expense0_.Id as Id1_0_, expense0_.Date as Date1_0_, expense0_.Description as Descript3_1_0_, expense0_.Amount as Amount1_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_1_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T13:11:56</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>TestFixtureSetUp failed in Test</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T16:16:23</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>TestFixtureSetUp failed in Test</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T16:17:43</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>TestFixtureSetUp failed in Test</Message>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T16:20:48</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>NHibernate.PropertyValueException : not-null property references a null or transient value: PersonalMoney.Expense.Type</Message>
+                  <StackTrace>  at NHibernate.Impl.SessionImpl.CheckNullability (System.Object[] values, IEntityPersister persister, Boolean isUpdate) [0x00000] 
+  at NHibernate.Impl.SessionImpl.DoSave (System.Object theObj, NHibernate.Engine.EntityKey key, IEntityPersister persister, Boolean replicate, Boolean useIdentityColumn, NHibernate.Engine.CascadingAction cascadeAction, System.Object anything) [0x00000] 
+  at NHibernate.Impl.SessionImpl.DoSave (System.Object obj, System.Object id, IEntityPersister persister, Boolean useIdentityColumn, NHibernate.Engine.CascadingAction cascadeAction, System.Object anything) [0x00000] 
+  at NHibernate.Impl.SessionImpl.SaveWithGeneratedIdentifier (System.Object obj, NHibernate.Engine.CascadingAction action, System.Object anything) [0x00000] </StackTrace>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T16:23:53</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>NHibernate.PropertyValueException : not-null property references a null or transient value: PersonalMoney.Expense.Type</Message>
+                  <StackTrace>  at NHibernate.Impl.SessionImpl.CheckNullability (System.Object[] values, IEntityPersister persister, Boolean isUpdate) [0x00000] 
+  at NHibernate.Impl.SessionImpl.DoSave (System.Object theObj, NHibernate.Engine.EntityKey key, IEntityPersister persister, Boolean replicate, Boolean useIdentityColumn, NHibernate.Engine.CascadingAction cascadeAction, System.Object anything) [0x00000] 
+  at NHibernate.Impl.SessionImpl.DoSave (System.Object obj, System.Object id, IEntityPersister persister, Boolean useIdentityColumn, NHibernate.Engine.CascadingAction cascadeAction, System.Object anything) [0x00000] 
+  at NHibernate.Impl.SessionImpl.SaveWithGeneratedIdentifier (System.Object obj, NHibernate.Engine.CascadingAction action, System.Object anything) [0x00000] </StackTrace>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T16:24:14</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.34ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '1'
+NHibernate: SELECT expense0_.Id as Id2_0_, expense0_.Date as Date2_0_, expense0_.Description as Descript3_2_0_, expense0_.Amount as Amount2_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_2_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T16:25:57</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>NHibernate.PropertyValueException : not-null property references a null or transient value: PersonalMoney.Expense.Type</Message>
+                  <StackTrace>  at NHibernate.Impl.SessionImpl.CheckNullability (System.Object[] values, IEntityPersister persister, Boolean isUpdate) [0x00000] 
+  at NHibernate.Impl.SessionImpl.DoSave (System.Object theObj, NHibernate.Engine.EntityKey key, IEntityPersister persister, Boolean replicate, Boolean useIdentityColumn, NHibernate.Engine.CascadingAction cascadeAction, System.Object anything) [0x00000] 
+  at NHibernate.Impl.SessionImpl.DoSave (System.Object obj, System.Object id, IEntityPersister persister, Boolean useIdentityColumn, NHibernate.Engine.CascadingAction cascadeAction, System.Object anything) [0x00000] 
+  at NHibernate.Impl.SessionImpl.SaveWithGeneratedIdentifier (System.Object obj, NHibernate.Engine.CascadingAction action, System.Object anything) [0x00000] </StackTrace>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T16:40:53</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.33ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '1'
+NHibernate: SELECT expense0_.Id as Id2_0_, expense0_.Date as Date2_0_, expense0_.Description as Descript3_2_0_, expense0_.Amount as Amount2_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_2_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T16:41:55</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.86ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '1'
+NHibernate: SELECT expense0_.Id as Id2_0_, expense0_.Date as Date2_0_, expense0_.Description as Descript3_2_0_, expense0_.Amount as Amount2_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_2_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '1'
+NHibernate: SELECT expensetyp0_.Id as Id3_0_, expensetyp0_.Description as Descript2_3_0_ FROM EXPENSE_TYPES expensetyp0_ WHERE expensetyp0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T16:42:42</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.33ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '2'
+NHibernate: SELECT expense0_.Id as Id2_0_, expense0_.Date as Date2_0_, expense0_.Description as Descript3_2_0_, expense0_.Amount as Amount2_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_2_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '1'
+NHibernate: SELECT expensetyp0_.Id as Id3_0_, expensetyp0_.Description as Descript2_3_0_ FROM EXPENSE_TYPES expensetyp0_ WHERE expensetyp0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T18:26:05</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 1.50ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '3'
+NHibernate: SELECT expense0_.Id as Id2_0_, expense0_.Date as Date2_0_, expense0_.Description as Descript3_2_0_, expense0_.Amount as Amount2_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_2_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '1'
+NHibernate: SELECT expensetyp0_.Id as Id3_0_, expensetyp0_.Description as Descript2_3_0_ FROM EXPENSE_TYPES expensetyp0_ WHERE expensetyp0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T20:37:20</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>
+	expected:&lt;1&gt;
+	 but was:&lt;2&gt;</Message>
+                  <StackTrace>  at NUnit.Framework.Assert.Fail (System.String message, System.Object[] args) [0x00000] 
+  at NUnit.Framework.Assert.Fail (System.String message) [0x00000] 
+  at NUnit.Framework.Assert.FailNotEquals (System.Object expected, System.Object actual, System.String message, System.Object[] args) [0x00000] 
+  at NUnit.Framework.Assert.AreEqual (Int32 expected, Int32 actual, System.String message, System.Object[] args) [0x00000] 
+  at NUnit.Framework.Assert.AreEqual (Int32 expected, Int32 actual) [0x00000] 
+  at PersonalMoneyTest.Test.TestCase () [0x000ce] in /home/gimmi/workspace/PersonalMoney/PersonalMoneyTest/Test.cs:45 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] </StackTrace>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '1'
+NHibernate: SELECT expense0_.Id as Id0_0_, expense0_.Date as Date0_0_, expense0_.Description as Descript3_0_0_, expense0_.Amount as Amount0_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_0_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '2'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T20:38:23</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>NHibernate.LazyInitializationException : Could not initialize proxy - the owning Session was closed.</Message>
+                  <StackTrace>  at NHibernate.Proxy.LazyInitializer.Initialize () [0x00000] 
+  at NHibernate.Proxy.LazyInitializer.GetImplementation () [0x00000] 
+  at NHibernate.Proxy.CastleLazyInitializer.Intercept (IInvocation invocation, System.Object[] args) [0x00000] 
+  at CProxyTypePersonalMoneyExpenseTypePersonalMoney_NHibernate_ProxyINHibernateProxy1.get_Description () [0x00000] 
+  at PersonalMoneyTest.Test.TestCase () [0x000ef] in /home/gimmi/workspace/PersonalMoney/PersonalMoneyTest/Test.cs:47 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] </StackTrace>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '1'
+NHibernate: SELECT expense0_.Id as Id0_0_, expense0_.Date as Date0_0_, expense0_.Description as Descript3_0_0_, expense0_.Amount as Amount0_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_0_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '2'
+</ConsoleOutput>
+                  <ConsoleError>20:38:26,006 ERROR [TestRunnerThread] LazyInitializationException [(null)]- Could not initialize proxy - the owning Session was closed.
+NHibernate.LazyInitializationException: Could not initialize proxy - the owning Session was closed.
+</ConsoleError>
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T20:39:04</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.29ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '1'
+NHibernate: SELECT expense0_.Id as Id0_0_, expense0_.Date as Date0_0_, expense0_.Description as Descript3_0_0_, expense0_.Amount as Amount0_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_0_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '2'
+NHibernate: SELECT expensetyp0_.Id as Id1_0_, expensetyp0_.Description as Descript2_1_0_ FROM EXPENSE_TYPES expensetyp0_ WHERE expensetyp0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T20:41:31</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.30ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '1'
+NHibernate: SELECT expense0_.Id as Id0_0_, expense0_.Date as Date0_0_, expense0_.Description as Descript3_0_0_, expense0_.Amount as Amount0_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_0_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '2'
+NHibernate: SELECT expensetyp0_.Id as Id1_0_, expensetyp0_.Description as Descript2_1_0_ FROM EXPENSE_TYPES expensetyp0_ WHERE expensetyp0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T20:44:42</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.43ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '1'
+NHibernate: SELECT expense0_.Id as Id0_0_, expense0_.Date as Date0_0_, expense0_.Description as Descript3_0_0_, expense0_.Amount as Amount0_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_0_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '2'
+NHibernate: SELECT expensetyp0_.Id as Id1_0_, expensetyp0_.Description as Descript2_1_0_ FROM EXPENSE_TYPES expensetyp0_ WHERE expensetyp0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-25T20:49:06</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>Test successful
+
+Execution time: 0.29ms</Message>
+                  <ConsoleOutput>NHibernate: INSERT INTO EXPENSE_TYPES (Description) VALUES (@p0); select last_insert_rowid(); @p0 = 'Auto'
+NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '1'
+NHibernate: SELECT expense0_.Id as Id0_0_, expense0_.Date as Date0_0_, expense0_.Description as Descript3_0_0_, expense0_.Amount as Amount0_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_0_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '2'
+NHibernate: SELECT expensetyp0_.Id as Id1_0_, expensetyp0_.Description as Descript2_1_0_ FROM EXPENSE_TYPES expensetyp0_ WHERE expensetyp0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+              </Results>
+              <Tests />
+            </TestRecord>
+          </Tests>
+        </TestRecord>
+      </Tests>
+    </TestRecord>
+  </Tests>
+</TestRecord>

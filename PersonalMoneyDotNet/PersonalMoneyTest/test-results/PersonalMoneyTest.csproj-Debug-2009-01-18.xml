@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TestRecord xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Results>
+    <UnitTestResult>
+      <TestDate>2009-01-18T13:00:39</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-18T13:02:08</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-18T13:03:01</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-18T14:04:20</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-18T14:07:56</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-18T14:09:31</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-18T17:26:40</TestDate>
+      <Status>Failure</Status>
+      <TotalFailures>1</TotalFailures>
+      <TotalSuccess>0</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+      <Message>Child test failed</Message>
+    </UnitTestResult>
+    <UnitTestResult>
+      <TestDate>2009-01-18T18:11:55</TestDate>
+      <Status>Success</Status>
+      <TotalFailures>0</TotalFailures>
+      <TotalSuccess>1</TotalSuccess>
+      <TotalIgnored>0</TotalIgnored>
+      <Time />
+    </UnitTestResult>
+  </Results>
+  <Tests>
+    <TestRecord Name="PersonalMoneyTest">
+      <Results>
+        <UnitTestResult>
+          <TestDate>2009-01-18T13:00:39</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-18T13:02:08</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-18T13:03:01</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-18T14:04:20</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-18T14:07:56</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-18T14:09:31</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-18T17:26:40</TestDate>
+          <Status>Failure</Status>
+          <TotalFailures>1</TotalFailures>
+          <TotalSuccess>0</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+          <Message>Child test failed</Message>
+        </UnitTestResult>
+        <UnitTestResult>
+          <TestDate>2009-01-18T18:11:55</TestDate>
+          <Status>Success</Status>
+          <TotalFailures>0</TotalFailures>
+          <TotalSuccess>1</TotalSuccess>
+          <TotalIgnored>0</TotalIgnored>
+          <Time />
+        </UnitTestResult>
+      </Results>
+      <Tests>
+        <TestRecord Name="Test">
+          <Results>
+            <UnitTestResult>
+              <TestDate>2009-01-18T13:00:39</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-18T13:00:51</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-18T13:02:08</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>Child test failed</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-18T13:03:01</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>Child test failed</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-18T14:04:20</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>Child test failed</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-18T14:07:56</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-18T14:09:31</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-18T17:26:40</TestDate>
+              <Status>Failure</Status>
+              <TotalFailures>1</TotalFailures>
+              <TotalSuccess>0</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+              <Message>Child test failed</Message>
+            </UnitTestResult>
+            <UnitTestResult>
+              <TestDate>2009-01-18T18:11:55</TestDate>
+              <Status>Success</Status>
+              <TotalFailures>0</TotalFailures>
+              <TotalSuccess>1</TotalSuccess>
+              <TotalIgnored>0</TotalIgnored>
+              <Time />
+            </UnitTestResult>
+          </Results>
+          <Tests>
+            <TestRecord Name="TestCase">
+              <Results>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T13:00:39</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T13:00:51</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T13:00:55</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T13:00:56</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T13:01:17</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message />
+                  <StackTrace>  at NUnit.Framework.Assert.Fail (System.String message, System.Object[] args) [0x00000] 
+  at NUnit.Framework.Assert.Fail () [0x00000] 
+  at PersonalMoneyTest.Test.TestCase () [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoneyTest/Test.cs:1 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] </StackTrace>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T13:01:42</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message />
+                  <StackTrace>  at NUnit.Framework.Assert.Fail (System.String message, System.Object[] args) [0x00000] 
+  at NUnit.Framework.Assert.Fail () [0x00000] 
+  at PersonalMoneyTest.Test.TestCase () [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoneyTest/Test.cs:1 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] </StackTrace>
+                  <ConsoleOutput />
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T13:02:08</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>NHibernate.HibernateException : Could not create the driver from NHibernate.Driver.MonoSQLiteDriver, PersonalMoney.
+  ----&gt; System.Reflection.TargetInvocationException : Exception has been thrown by the target of an invocation.
+  ----&gt; NHibernate.HibernateException : The IDbCommand and IDbConnection implementation in the assembly Mono.Data.Sqlite could not be found. Ensure that the assembly Mono.Data.Sqlite is located in the application directory or in the Global Assembly Cache. If the assembly is in the GAC, use &lt;qualifyAssembly/&gt; element in the application configuration file to specify the full name of the assembly.</Message>
+                  <StackTrace>  at NHibernate.Connection.ConnectionProvider.ConfigureDriver (IDictionary settings) [0x00000] 
+  at NHibernate.Connection.ConnectionProvider.Configure (IDictionary settings) [0x00000] 
+  at NHibernate.Connection.ConnectionProviderFactory.NewConnectionProvider (IDictionary settings) [0x00000] 
+  at NHibernate.Cfg.SettingsFactory.BuildSettings (IDictionary properties) [0x00000] 
+  at NHibernate.Cfg.Configuration.BuildSettings () [0x00000] 
+  at NHibernate.Cfg.Configuration.BuildSessionFactory () [0x00000] 
+  at PersonalMoney.Provider.GetExpenseById (Int32 id) [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoney/Provider.cs:12 
+  at PersonalMoneyTest.Test.TestCase () [0x00006] in /home/gimmi/workspace/PersonalMoney/PersonalMoneyTest/Test.cs:14 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+--TargetInvocationException
+  at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+  at System.Reflection.MonoCMethod.Invoke (BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+  at System.Reflection.ConstructorInfo.Invoke (System.Object[] parameters) [0x00000] 
+  at System.Activator.CreateInstance (System.Type type, Boolean nonPublic) [0x00000] 
+  at System.Activator.CreateInstance (System.Type type) [0x00000] 
+  at NHibernate.Connection.ConnectionProvider.ConfigureDriver (IDictionary settings) [0x00000] 
+--HibernateException
+  at NHibernate.Driver.ReflectionBasedDriver..ctor (System.String driverAssemblyName, System.String connectionTypeName, System.String commandTypeName) [0x00000] 
+  at NHibernate.Driver.MonoSQLiteDriver..ctor () [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoney/gtk-gui/generated.cs:1 
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] </StackTrace>
+                  <ConsoleOutput />
+                  <ConsoleError>13:02:09,979 ERROR [TestRunnerThread] ReflectHelper [(null)]- Could not load type Mono.Data.Sqlite.SqliteConnection, Mono.Data.Sqlite.
+System.IO.FileNotFoundException: Could not load file or assembly 'Mono.Data.Sqlite' or one of its dependencies. The system cannot find the file specified.
+File name: 'Mono.Data.Sqlite'
+  at (wrapper managed-to-native) System.AppDomain:LoadAssembly (string,System.Security.Policy.Evidence,bool)
+  at System.AppDomain.Load (System.String assemblyString) [0x00000] 
+  at (wrapper remoting-invoke-with-check) System.AppDomain:Load (string)
+  at System.Reflection.Assembly.Load (System.String assemblyString) [0x00000] 
+  at NHibernate.Util.ReflectHelper.TypeFromAssembly (NHibernate.Util.AssemblyQualifiedTypeName name, Boolean throwOnError) [0x00000] 
+13:02:10,019 ERROR [TestRunnerThread] ReflectHelper [(null)]- Could not load type Mono.Data.Sqlite.SqliteCommand, Mono.Data.Sqlite.
+System.IO.FileNotFoundException: Could not load file or assembly 'Mono.Data.Sqlite' or one of its dependencies. The system cannot find the file specified.
+File name: 'Mono.Data.Sqlite'
+  at (wrapper managed-to-native) System.AppDomain:LoadAssembly (string,System.Security.Policy.Evidence,bool)
+  at System.AppDomain.Load (System.String assemblyString) [0x00000] 
+  at (wrapper remoting-invoke-with-check) System.AppDomain:Load (string)
+  at System.Reflection.Assembly.Load (System.String assemblyString) [0x00000] 
+  at NHibernate.Util.ReflectHelper.TypeFromAssembly (NHibernate.Util.AssemblyQualifiedTypeName name, Boolean throwOnError) [0x00000] 
+</ConsoleError>
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T13:03:01</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>NHibernate.HibernateException : Could not create the driver from NHibernate.Driver.MonoSQLiteDriver, PersonalMoney.
+  ----&gt; System.Reflection.TargetInvocationException : Exception has been thrown by the target of an invocation.
+  ----&gt; NHibernate.HibernateException : The IDbCommand and IDbConnection implementation in the assembly Mono.Data.Sqlite could not be found. Ensure that the assembly Mono.Data.Sqlite is located in the application directory or in the Global Assembly Cache. If the assembly is in the GAC, use &lt;qualifyAssembly/&gt; element in the application configuration file to specify the full name of the assembly.</Message>
+                  <StackTrace>  at NHibernate.Connection.ConnectionProvider.ConfigureDriver (IDictionary settings) [0x00000] 
+  at NHibernate.Connection.ConnectionProvider.Configure (IDictionary settings) [0x00000] 
+  at NHibernate.Connection.ConnectionProviderFactory.NewConnectionProvider (IDictionary settings) [0x00000] 
+  at NHibernate.Cfg.SettingsFactory.BuildSettings (IDictionary properties) [0x00000] 
+  at NHibernate.Cfg.Configuration.BuildSettings () [0x00000] 
+  at NHibernate.Cfg.Configuration.BuildSessionFactory () [0x00000] 
+  at PersonalMoney.Provider.GetExpenseById (Int32 id) [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoney/Provider.cs:12 
+  at PersonalMoneyTest.Test.TestCase () [0x00006] in /home/gimmi/workspace/PersonalMoney/PersonalMoneyTest/Test.cs:14 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+--TargetInvocationException
+  at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+  at System.Reflection.MonoCMethod.Invoke (BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+  at System.Reflection.ConstructorInfo.Invoke (System.Object[] parameters) [0x00000] 
+  at System.Activator.CreateInstance (System.Type type, Boolean nonPublic) [0x00000] 
+  at System.Activator.CreateInstance (System.Type type) [0x00000] 
+  at NHibernate.Connection.ConnectionProvider.ConfigureDriver (IDictionary settings) [0x00000] 
+--HibernateException
+  at NHibernate.Driver.ReflectionBasedDriver..ctor (System.String driverAssemblyName, System.String connectionTypeName, System.String commandTypeName) [0x00000] 
+  at NHibernate.Driver.MonoSQLiteDriver..ctor () [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoney/gtk-gui/generated.cs:1 
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] </StackTrace>
+                  <ConsoleOutput />
+                  <ConsoleError>13:03:03,287 ERROR [TestRunnerThread] ReflectHelper [(null)]- Could not load type Mono.Data.Sqlite.SqliteConnection, Mono.Data.Sqlite.
+System.IO.FileNotFoundException: Could not load file or assembly 'Mono.Data.Sqlite' or one of its dependencies. The system cannot find the file specified.
+File name: 'Mono.Data.Sqlite'
+  at (wrapper managed-to-native) System.AppDomain:LoadAssembly (string,System.Security.Policy.Evidence,bool)
+  at System.AppDomain.Load (System.String assemblyString) [0x00000] 
+  at (wrapper remoting-invoke-with-check) System.AppDomain:Load (string)
+  at System.Reflection.Assembly.Load (System.String assemblyString) [0x00000] 
+  at NHibernate.Util.ReflectHelper.TypeFromAssembly (NHibernate.Util.AssemblyQualifiedTypeName name, Boolean throwOnError) [0x00000] 
+13:03:03,323 ERROR [TestRunnerThread] ReflectHelper [(null)]- Could not load type Mono.Data.Sqlite.SqliteCommand, Mono.Data.Sqlite.
+System.IO.FileNotFoundException: Could not load file or assembly 'Mono.Data.Sqlite' or one of its dependencies. The system cannot find the file specified.
+File name: 'Mono.Data.Sqlite'
+  at (wrapper managed-to-native) System.AppDomain:LoadAssembly (string,System.Security.Policy.Evidence,bool)
+  at System.AppDomain.Load (System.String assemblyString) [0x00000] 
+  at (wrapper remoting-invoke-with-check) System.AppDomain:Load (string)
+  at System.Reflection.Assembly.Load (System.String assemblyString) [0x00000] 
+  at NHibernate.Util.ReflectHelper.TypeFromAssembly (NHibernate.Util.AssemblyQualifiedTypeName name, Boolean throwOnError) [0x00000] 
+</ConsoleError>
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T14:04:20</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>NHibernate.HibernateException : Could not create the driver from NHibernate.Driver.MonoSQLiteDriver, PersonalMoney.
+  ----&gt; System.Reflection.TargetInvocationException : Exception has been thrown by the target of an invocation.
+  ----&gt; NHibernate.HibernateException : The IDbCommand and IDbConnection implementation in the assembly Mono.Data.Sqlite could not be found. Ensure that the assembly Mono.Data.Sqlite is located in the application directory or in the Global Assembly Cache. If the assembly is in the GAC, use &lt;qualifyAssembly/&gt; element in the application configuration file to specify the full name of the assembly.</Message>
+                  <StackTrace>  at NHibernate.Connection.ConnectionProvider.ConfigureDriver (IDictionary settings) [0x00000] 
+  at NHibernate.Connection.ConnectionProvider.Configure (IDictionary settings) [0x00000] 
+  at NHibernate.Connection.ConnectionProviderFactory.NewConnectionProvider (IDictionary settings) [0x00000] 
+  at NHibernate.Cfg.SettingsFactory.BuildSettings (IDictionary properties) [0x00000] 
+  at NHibernate.Cfg.Configuration.BuildSettings () [0x00000] 
+  at NHibernate.Cfg.Configuration.BuildSessionFactory () [0x00000] 
+  at PersonalMoney.Provider.GetExpenseById (Int32 id) [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoney/Provider.cs:12 
+  at PersonalMoneyTest.Test.TestCase () [0x00006] in /home/gimmi/workspace/PersonalMoney/PersonalMoneyTest/Test.cs:14 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+--TargetInvocationException
+  at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+  at System.Reflection.MonoCMethod.Invoke (BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+  at System.Reflection.ConstructorInfo.Invoke (System.Object[] parameters) [0x00000] 
+  at System.Activator.CreateInstance (System.Type type, Boolean nonPublic) [0x00000] 
+  at System.Activator.CreateInstance (System.Type type) [0x00000] 
+  at NHibernate.Connection.ConnectionProvider.ConfigureDriver (IDictionary settings) [0x00000] 
+--HibernateException
+  at NHibernate.Driver.ReflectionBasedDriver..ctor (System.String driverAssemblyName, System.String connectionTypeName, System.String commandTypeName) [0x00000] 
+  at NHibernate.Driver.MonoSQLiteDriver..ctor () [0x00000] in /home/gimmi/workspace/PersonalMoney/PersonalMoney/gtk-gui/generated.cs:1 
+  at (wrapper managed-to-native) System.Reflection.MonoCMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoCMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] </StackTrace>
+                  <ConsoleOutput />
+                  <ConsoleError>14:04:22,605 ERROR [TestRunnerThread] ReflectHelper [(null)]- Could not load type Mono.Data.Sqlite.SqliteConnection, Mono.Data.Sqlite.
+System.IO.FileNotFoundException: Could not load file or assembly 'Mono.Data.Sqlite' or one of its dependencies. The system cannot find the file specified.
+File name: 'Mono.Data.Sqlite'
+  at (wrapper managed-to-native) System.AppDomain:LoadAssembly (string,System.Security.Policy.Evidence,bool)
+  at System.AppDomain.Load (System.String assemblyString) [0x00000] 
+  at (wrapper remoting-invoke-with-check) System.AppDomain:Load (string)
+  at System.Reflection.Assembly.Load (System.String assemblyString) [0x00000] 
+  at NHibernate.Util.ReflectHelper.TypeFromAssembly (NHibernate.Util.AssemblyQualifiedTypeName name, Boolean throwOnError) [0x00000] 
+14:04:22,640 ERROR [TestRunnerThread] ReflectHelper [(null)]- Could not load type Mono.Data.Sqlite.SqliteCommand, Mono.Data.Sqlite.
+System.IO.FileNotFoundException: Could not load file or assembly 'Mono.Data.Sqlite' or one of its dependencies. The system cannot find the file specified.
+File name: 'Mono.Data.Sqlite'
+  at (wrapper managed-to-native) System.AppDomain:LoadAssembly (string,System.Security.Policy.Evidence,bool)
+  at System.AppDomain.Load (System.String assemblyString) [0x00000] 
+  at (wrapper remoting-invoke-with-check) System.AppDomain:Load (string)
+  at System.Reflection.Assembly.Load (System.String assemblyString) [0x00000] 
+  at NHibernate.Util.ReflectHelper.TypeFromAssembly (NHibernate.Util.AssemblyQualifiedTypeName name, Boolean throwOnError) [0x00000] 
+</ConsoleError>
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T14:07:56</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <ConsoleOutput>NHibernate: SELECT expense0_.Id as Id0_0_, expense0_.Date as Date0_0_, expense0_.Description as Descript3_0_0_, expense0_.Amount as Amount0_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T14:09:31</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <ConsoleOutput>NHibernate: SELECT expense0_.Id as Id0_0_, expense0_.Date as Date0_0_, expense0_.Description as Descript3_0_0_, expense0_.Amount as Amount0_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T17:26:40</TestDate>
+                  <Status>Failure</Status>
+                  <TotalFailures>1</TotalFailures>
+                  <TotalSuccess>0</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <Message>NHibernate.ADOException : Could not save object
+  ----&gt; Mono.Data.Sqlite.SqliteException : Sqlite error
+no such table: hibernate_unique_key</Message>
+                  <StackTrace>  at NHibernate.Impl.SessionImpl.SaveWithGeneratedIdentifier (System.Object obj, NHibernate.Engine.CascadingAction action, System.Object anything) [0x00000] 
+  at NHibernate.Impl.SessionImpl.Save (System.Object obj) [0x00000] 
+  at PersonalMoneyTest.Test.TestCase () [0x00043] in /home/gimmi/workspace/PersonalMoney/PersonalMoneyTest/Test.cs:32 
+  at (wrapper managed-to-native) System.Reflection.MonoMethod:InternalInvoke (object,object[],System.Exception&amp;)
+  at System.Reflection.MonoMethod.Invoke (System.Object obj, BindingFlags invokeAttr, System.Reflection.Binder binder, System.Object[] parameters, System.Globalization.CultureInfo culture) [0x00000] 
+--SqliteException
+  at Mono.Data.Sqlite.Sqlite3.Prepare (System.String strSql, Mono.Data.Sqlite.SqliteStatement previous, System.String&amp; strRemain) [0x00000] 
+  at Mono.Data.Sqlite.SqliteCommand.BuildNextCommand () [0x00000] </StackTrace>
+                  <ConsoleOutput />
+                  <ConsoleError>17:26:42,270 ERROR [TestRunnerThread] TableGenerator [(null)]- could not read a hi value
+Mono.Data.Sqlite.SqliteException: Sqlite error
+no such table: hibernate_unique_key
+  at Mono.Data.Sqlite.Sqlite3.Prepare (System.String strSql, Mono.Data.Sqlite.SqliteStatement previous, System.String&amp; strRemain) [0x00000] 
+  at Mono.Data.Sqlite.SqliteCommand.BuildNextCommand () [0x00000] 
+17:26:42,309 ERROR [TestRunnerThread] ADOExceptionReporter [(null)]- Sqlite error
+no such table: hibernate_unique_key
+</ConsoleError>
+                </UnitTestResult>
+                <UnitTestResult>
+                  <TestDate>2009-01-18T18:11:55</TestDate>
+                  <Status>Success</Status>
+                  <TotalFailures>0</TotalFailures>
+                  <TotalSuccess>1</TotalSuccess>
+                  <TotalIgnored>0</TotalIgnored>
+                  <Time />
+                  <ConsoleOutput>NHibernate: INSERT INTO Expenses (Date, Description, Amount, EXPENSE_TYPE_ID) VALUES (@p0, @p1, @p2, @p3); select last_insert_rowid(); @p0 = '1/18/2009 12:00:00 AM', @p1 = 'description', @p2 = '100', @p3 = '0'
+NHibernate: SELECT expense0_.Id as Id1_0_, expense0_.Date as Date1_0_, expense0_.Description as Descript3_1_0_, expense0_.Amount as Amount1_0_, expense0_.EXPENSE_TYPE_ID as EXPENSE5_1_0_ FROM Expenses expense0_ WHERE expense0_.Id=@p0; @p0 = '1'
+</ConsoleOutput>
+                  <ConsoleError />
+                </UnitTestResult>
+              </Results>
+              <Tests />
+            </TestRecord>
+          </Tests>
+        </TestRecord>
+      </Tests>
+    </TestRecord>
+  </Tests>
+</TestRecord>
