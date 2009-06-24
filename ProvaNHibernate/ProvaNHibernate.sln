@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProvaNHibernate", "ProvaNHibernate\ProvaNHibernate.csproj", "{AD0036A8-7C11-4512-8AA7-BE700B699A8D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD0036A8-7C11-4512-8AA7-BE700B699A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD0036A8-7C11-4512-8AA7-BE700B699A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD0036A8-7C11-4512-8AA7-BE700B699A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD0036A8-7C11-4512-8AA7-BE700B699A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		name = ProvaNHibernate
+		version = 0.1
+		StartupItem = ProvaNHibernate\ProvaNHibernate.csproj
+	EndGlobalSection
+EndGlobal
