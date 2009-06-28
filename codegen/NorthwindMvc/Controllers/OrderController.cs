@@ -27,14 +27,14 @@ namespace NorthwindMvc.Controllers
 		//
 		// POST: /Customer/Search
 		[AcceptVerbs(HttpVerbs.Post)]
-		public ActionResult Search(string employeeId, string dateFrom, string dateTo)
+		public ActionResult Search(Employee employee, string dateFrom, string dateTo)
 		{
 			var context = new Context();
-			ViewData["employee"] = default(Employee);
-			if (!string.IsNullOrEmpty(employeeId))
-			{
-				ViewData["employee"] = new EmployeeRepository(context).Read(Convert.ToInt32(employeeId));
-			}
+//			ViewData["employee"] = default(Employee);
+//			if (!string.IsNullOrEmpty(employeeId))
+//			{
+//				ViewData["employee"] = new EmployeeRepository(context).Read(Convert.ToInt32(employeeId));
+//			}
 
 			DateTime dateFromParsed = default(DateTime);
 			if (!string.IsNullOrEmpty(dateFrom) && !DateTime.TryParse(dateFrom, out dateFromParsed))

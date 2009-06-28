@@ -3,7 +3,7 @@
 <%
 	string dialogId = string.Format("{0}-dialog", ViewData["property"]);
 	string dialogLinkId = string.Format("choose-{0}", ViewData["property"]);
-	string hiddenFieldId = string.Format("{0}Id", ViewData["property"]);
+	string hiddenFieldId = string.Format("{0}", ViewData["property"]);
 %>
 
 <script type="text/javascript">

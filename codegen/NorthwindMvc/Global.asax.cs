@@ -1,6 +1,10 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using NorthwindMvc.CustomModelBinders;
+using NorthwindWeb;
+using NorthwindWeb.Business;
 
 namespace NorthwindMvc
 {
@@ -23,6 +27,12 @@ namespace NorthwindMvc
         protected void Application_Start()
         {
             RegisterRoutes(RouteTable.Routes);
+			ModelBinders.Binders.Add(typeof(Employee), new EmployeeModelBinder(new WebContextStorage()));
         }
-    }
+	
+		protected void Application_BeginRequest(object sender, EventArgs e)
+		{
+			WebContextStorage.Set(new Context());
+		}
+	}
 }
