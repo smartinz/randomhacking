@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="SpikeNHibernateBurrow.Entity, SpikeNHibernateBurrow" table="Entities">
+		<id name="Id" unsaved-value="0">
+			<generator class="native"/>
+		</id>
+		<property name="Value1" />
+		<property name="Value2" />
+		<property name="Value3" />
+	</class>
+</hibernate-mapping>
