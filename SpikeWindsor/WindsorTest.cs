@@ -4,48 +4,70 @@ using NUnit.Framework;
 
 namespace SpikeWindsor
 {
-	public interface IClass2
+	public interface IStringProvider
 	{
-		void Method();
+		string GetString();
 	}
 
-	public class Class2 : IClass2
+	public class StringProvider : IStringProvider
 	{
 		private readonly string _stringField;
 
-		public Class2(string stringField)
+		public StringProvider(string stringField)
 		{
 			_stringField = stringField;
 		}
 
-		#region IClass2 Members
+		#region IStringProvider Members
 
-		public void Method() {}
+		public string GetString()
+		{
+			return _stringField;
+		}
 
 		#endregion
 	}
 
-	public class Class1
+	public class StringProviderWrapper
 	{
-		private readonly IClass2 _class2;
+		private readonly IStringProvider _stringProvider;
 
-		public Class1(IClass2 class2)
+		public StringProviderWrapper(IStringProvider stringProvider)
 		{
-			_class2 = class2;
+			_stringProvider = stringProvider;
+		}
+
+		public IStringProvider StringProvider
+		{
+			get { return _stringProvider; }
 		}
 	}
 
 	[TestFixture]
 	public class WindsorTest
 	{
-		// http://www.castleproject.org/container/gettingstarted/index.html
+		WindsorContainer _container;
+
+		[SetUp]
+		public void SetUp()
+		{
+			_container = new WindsorContainer(new XmlInterpreter());
+		}
 
 		[Test]
-		public void tt()
+		public void Should_create_object_graph_based_on_application_configuration_file()
 		{
-			var container = new WindsorContainer(new XmlInterpreter());
-			var class2 = container.Resolve<IClass2>();
-			var class1 = container.Resolve<Class1>();
+			Assert.That(_container.Resolve<IStringProvider>(), Is.TypeOf(typeof(StringProvider)));
+			Assert.That(_container.Resolve<IStringProvider>().GetString(), Is.EqualTo("Value from config file"));
+			Assert.That(_container.Resolve<StringProviderWrapper>(), Is.TypeOf(typeof(StringProviderWrapper)));
+			Assert.That(_container.Resolve<StringProviderWrapper>().StringProvider.GetString(), Is.EqualTo("Value from config file"));
 		}
+
+		[Test]
+		public void Should_use_provided_parameters_to_override_configuration_file()
+		{
+			Assert.That(_container.Resolve<IStringProvider>(new { stringField = "Overridden value" }).GetString(), Is.EqualTo("Overridden value"));
+		}
+
 	}
 }
