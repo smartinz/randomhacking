@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using Castle.Windsor.Configuration.Interpreters;
 using NUnit.Framework;
@@ -59,10 +60,22 @@ namespace SpikeWindsor
 		}
 
 		[Test]
+		public void Should_use_provided_instance()
+		{
+			var container = new WindsorContainer(/*new XmlInterpreter()*/); // http://geekswithblogs.net/zgeers/archive/2008/08/22/124621.aspx
+			var stringProvider = new StringProvider("provided instance");
+//			container.Kernel.AddComponentInstance<IStringProvider>(stringProvider);
+			container.Register(Component.For<IStringProvider>().Instance(stringProvider));
+
+			Assert.That(container.Resolve<IStringProvider>(), Is.SameAs(stringProvider));
+		}
+
+		[Test]
 		public void Should_use_provided_parameters_to_override_configuration_file()
 		{
 			var container = new WindsorContainer(new XmlInterpreter());
 			Assert.That(container.Resolve<IStringProvider>(new{ stringField = "Overridden value" }).GetString(), Is.EqualTo("Overridden value"));
+			Assert.That(container.Resolve<StringProviderWrapper>(new{ stringField = "Overridden value" }).StringProvider.GetString(), Is.EqualTo("Overridden value"));
 		}
 
 		[Test]
@@ -72,5 +85,6 @@ namespace SpikeWindsor
 			var providers = container.Resolve<List<IStringProvider>>();
 			Assert.That(providers.Count, Is.EqualTo(3));
 		}
+
 	}
 }
