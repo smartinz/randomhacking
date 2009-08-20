@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<components>
+		<component id="stringprovider" service="SpikeWindsor.IStringProvider, SpikeWindsor" type="SpikeWindsor.StringProvider, SpikeWindsor">
+			<parameters>
+				<stringField>Value from config file</stringField>
+			</parameters>
+		</component>
+		<component id="generators" type="System.Collections.Generic.List`1, mscorlib">
+			<parameters>
+				<collection>
+					<list>
+						<item>${stringprovider}</item>
+						<item>${stringprovider}</item>
+						<item>${stringprovider}</item>
+					</list>
+				</collection>
+			</parameters>
+		</component>
+	</components>
+</configuration>
