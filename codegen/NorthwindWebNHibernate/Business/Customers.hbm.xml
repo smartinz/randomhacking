@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="NorthwindWebNHibernate.Business.Customers, NorthwindWebNHibernate" table="Customers">
+		<id name="CustomerID" column="CustomerID" type="String" >
+			<generator class="assigned" />
+		</id>
+		<property name="CompanyName" column="CompanyName" type="String" not-null="True" />
+
+		<property name="ContactName" column="ContactName" type="String" not-null="False" />
+
+		<property name="ContactTitle" column="ContactTitle" type="String" not-null="False" />
+
+		<property name="Address" column="Address" type="String" not-null="False" />
+
+		<property name="City" column="City" type="String" not-null="False" />
+
+		<property name="Region" column="Region" type="String" not-null="False" />
+
+		<property name="PostalCode" column="PostalCode" type="String" not-null="False" />
+
+		<property name="Country" column="Country" type="String" not-null="False" />
+
+		<property name="Phone" column="Phone" type="String" not-null="False" />
+
+		<property name="Fax" column="Fax" type="String" not-null="False" />
+
+
+		<set name="FK_Orders_Customers" inverse="True" lazy="true">
+			<key column="CustomerID"/>
+			<one-to-many class="NorthwindWebNHibernate.Business.Orders, NorthwindWebNHibernate"/>
+		</set>
+
+	</class>
+</hibernate-mapping>

@@ -61,12 +61,41 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Business\Categories.hbm.xml" />
+    <Content Include="Business\CustomerCustomerDemo.hbm.xml" />
+    <Content Include="Business\CustomerDemographics.hbm.xml" />
+    <Content Include="Business\Customers.hbm.xml" />
+    <Content Include="Business\Employees.hbm.xml" />
+    <Content Include="Business\EmployeeTerritories.hbm.xml" />
+    <Content Include="Business\Order Details.hbm.xml" />
+    <Content Include="Business\Orders.hbm.xml" />
+    <Content Include="Business\Products.hbm.xml" />
+    <Content Include="Business\Region.hbm.xml" />
+    <Content Include="Business\Shippers.hbm.xml" />
+    <Content Include="Business\Suppliers.hbm.xml" />
+    <Content Include="Business\sysdiagrams.hbm.xml" />
+    <Content Include="Business\Territories.hbm.xml" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml" />
+    <Content Include="Properties\Definitions.xml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Categories.cs" />
+    <Compile Include="Business\CustomerCustomerDemo.cs" />
+    <Compile Include="Business\CustomerDemographics.cs" />
+    <Compile Include="Business\Customers.cs" />
+    <Compile Include="Business\Employees.cs" />
+    <Compile Include="Business\EmployeeTerritories.cs" />
+    <Compile Include="Business\Order Details.cs" />
+    <Compile Include="Business\Orders.cs" />
+    <Compile Include="Business\Products.cs" />
+    <Compile Include="Business\Region.cs" />
+    <Compile Include="Business\Shippers.cs" />
+    <Compile Include="Business\Suppliers.cs" />
+    <Compile Include="Business\sysdiagrams.cs" />
+    <Compile Include="Business\Territories.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -74,8 +103,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Domain\Customer.cs" />
-    <Compile Include="Domain\CustomerRepository.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

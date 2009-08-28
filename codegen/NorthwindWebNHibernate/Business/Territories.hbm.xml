@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="NorthwindWebNHibernate.Business.Territories, NorthwindWebNHibernate" table="Territories">
+		<id name="TerritoryID" column="TerritoryID" type="String" >
+			<generator class="assigned" />
+		</id>
+		<property name="TerritoryDescription" column="TerritoryDescription" type="String" not-null="True" />
+
+
+		<many-to-one name="FK_Territories_Region" column="RegionID" class="NorthwindWebNHibernate.Business.Region, NorthwindWebNHibernate" />
+
+	</class>
+</hibernate-mapping>
