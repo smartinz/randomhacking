@@ -43,13 +43,6 @@
       <Property Name="FkOrdersEmployeesCollection" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="NorthwindWebNHibernate.Business.OrderDetails">
-    <Position X="5.5" Y="2.25" Width="1.75" />
-    <TypeIdentifier>
-      <HashCode>MAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAgAAgAAAAAA=</HashCode>
-      <FileName>Business\OrderDetails.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="NorthwindWebNHibernate.Business.Orders">
     <Position X="2.5" Y="0.5" Width="2.5" />
     <TypeIdentifier>
@@ -112,7 +105,7 @@
   <Class Name="NorthwindWebNHibernate.Global" Collapsed="true">
     <Position X="2.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAACAAAAEAAAAAAAAAAECIBQAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAgAAAAAACAAAAUAAAAAAAAAAUCIBQAAAAAAAAA=</HashCode>
       <FileName>Global.asax.cs</FileName>
     </TypeIdentifier>
   </Class>
