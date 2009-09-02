@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Web.UI;
 using NHibernate.Linq;
 using NorthwindWebNHibernate.Business;
@@ -11,10 +13,10 @@ namespace NorthwindWebNHibernate
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			var r = from c in Global.CurrentSession.Linq<Customers>() 
-					where c.CustomerId == "ALFKI"
+			IQueryable<Customers> r = from c in Global.CurrentSession.Linq<Customers>() 
+//					where c.CustomerId == "ALFKI"
 					select c;
-			List<Customers> customerses = r.ToList();
+			List<Customers> customerses = r.Skip(1).Take(1).ToList();
 		}
 	}
 }
