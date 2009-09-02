@@ -3,15 +3,15 @@ namespace NorthwindWebNHibernate.Business
 	public class OrderDetails
 	{
 
-		public int OrderId { get; set; }
+		public virtual int OrderId { get; set; }
 
-		public int ProductId { get; set; }
+		public virtual int ProductId { get; set; }
 
-		public decimal UnitPrice { get; set; }
+		public virtual decimal UnitPrice { get; set; }
 
-		public short Quantity { get; set; }
+		public virtual short Quantity { get; set; }
 
-		public float Discount { get; set; }
+		public virtual float Discount { get; set; }
 
 		public override string ToString()
 		{
