@@ -61,18 +61,18 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Business\Categories.hbm.xml" />
-    <Content Include="Business\CustomerDemographics.hbm.xml" />
-    <Content Include="Business\Customers.hbm.xml" />
-    <Content Include="Business\Employees.hbm.xml" />
-    <Content Include="Business\OrderDetails.hbm.xml" />
-    <Content Include="Business\Orders.hbm.xml" />
-    <Content Include="Business\Products.hbm.xml" />
-    <Content Include="Business\Region.hbm.xml" />
-    <Content Include="Business\Shippers.hbm.xml" />
-    <Content Include="Business\Suppliers.hbm.xml" />
-    <Content Include="Business\Sysdiagrams.hbm.xml" />
-    <Content Include="Business\Territories.hbm.xml" />
+    <EmbeddedResource Include="Business\Categories.hbm.xml" />
+    <EmbeddedResource Include="Business\CustomerDemographics.hbm.xml" />
+    <EmbeddedResource Include="Business\Customers.hbm.xml" />
+    <EmbeddedResource Include="Business\Employees.hbm.xml" />
+    <EmbeddedResource Include="Business\OrderDetails.hbm.xml" />
+    <EmbeddedResource Include="Business\Orders.hbm.xml" />
+    <EmbeddedResource Include="Business\Products.hbm.xml" />
+    <EmbeddedResource Include="Business\Region.hbm.xml" />
+    <EmbeddedResource Include="Business\Shippers.hbm.xml" />
+    <EmbeddedResource Include="Business\Suppliers.hbm.xml" />
+    <EmbeddedResource Include="Business\Sysdiagrams.hbm.xml" />
+    <EmbeddedResource Include="Business\Territories.hbm.xml" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml" />
