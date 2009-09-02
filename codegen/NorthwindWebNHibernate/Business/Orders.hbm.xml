@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="NorthwindWebNHibernate.Business.Orders, NorthwindWebNHibernate" table="Orders">
+		<id name="OrderId" column="OrderID" type="Int32" unsaved-value="0">
+			<generator class="native" />
+		</id>
+		<property name="OrderDate" column="OrderDate" type="DateTime" not-null="false" />
+
+		<property name="RequiredDate" column="RequiredDate" type="DateTime" not-null="false" />
+
+		<property name="ShippedDate" column="ShippedDate" type="DateTime" not-null="false" />
+
+		<property name="Freight" column="Freight" type="Decimal" not-null="false" />
+
+		<property name="ShipName" column="ShipName" type="String" not-null="false" />
+
+		<property name="ShipAddress" column="ShipAddress" type="String" not-null="false" />
+
+		<property name="ShipCity" column="ShipCity" type="String" not-null="false" />
+
+		<property name="ShipRegion" column="ShipRegion" type="String" not-null="false" />
+
+		<property name="ShipPostalCode" column="ShipPostalCode" type="String" not-null="false" />
+
+		<property name="ShipCountry" column="ShipCountry" type="String" not-null="false" />
+
+
+		<many-to-one name="FkOrdersCustomers" column="CustomerID" class="NorthwindWebNHibernate.Business.Customers, NorthwindWebNHibernate" />
+
+		<many-to-one name="FkOrdersEmployees" column="EmployeeID" class="NorthwindWebNHibernate.Business.Employees, NorthwindWebNHibernate" />
+
+		<many-to-one name="FkOrdersShippers" column="ShipVia" class="NorthwindWebNHibernate.Business.Shippers, NorthwindWebNHibernate" />
+
+	</class>
+</hibernate-mapping>

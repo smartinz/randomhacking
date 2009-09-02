@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical" MembersFormat="NameAndType">
+  <Class Name="NorthwindWebNHibernate.Business.Categories">
+    <Position X="0.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAgAgAEAAAAAAgAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\Categories.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.CustomerDemographics">
+    <Position X="5.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAEAEAAAAAAAAAAEAAEAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\CustomerDemographics.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="FkCustomerCustomerDemoCollection" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.Customers">
+    <Position X="9" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAgAAAAAAMIBAgAAAAAAIAABACAAACIAAgAAA=</HashCode>
+      <FileName>Business\Customers.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="FkCustomerCustomerDemoCustomersCollection" />
+      <Property Name="FkOrdersCustomersCollection" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.Employees">
+    <Position X="5" Y="8.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAIgAEAAoAAAAGRMIABAAAQAACIIAQACAAAAAAACAAg=</HashCode>
+      <FileName>Business\Employees.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FkEmployeesEmployees" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="FkEmployeesEmployeesCollection" />
+      <Property Name="FkEmployeeTerritoriesEmployeesCollection" />
+      <Property Name="FkOrdersEmployeesCollection" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.OrderDetails">
+    <Position X="5.5" Y="2.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>MAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAgAAgAAAAAA=</HashCode>
+      <FileName>Business\OrderDetails.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.Orders">
+    <Position X="2.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>GAAAAABAAAAAgAAEAAAAICABAAAEIgBAAAAEAACAACA=</HashCode>
+      <FileName>Business\Orders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.Products">
+    <Position X="3.25" Y="4.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>MMAAAAAAAAAAAAAEAAAAQAAAAAEAAABAAAAAAAgoAAA=</HashCode>
+      <FileName>Business\Products.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="FkProductsCategories" />
+      <Property Name="FkProductsSuppliers" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.Region" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAAEAAABAABAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\Region.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.Shippers">
+    <Position X="4" Y="2.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAAEAAAAEAAAAAQAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>Business\Shippers.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="FkOrdersShippersCollection" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.Suppliers">
+    <Position X="7.75" Y="4.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AEAAQAAEgAAAAAAMIAAgAAAAAAIAAAACAAACIAAgAAA=</HashCode>
+      <FileName>Business\Suppliers.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="FkProductsSuppliersCollection" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.Sysdiagrams" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAACAAEAAIAQAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\Sysdiagrams.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Business.Territories" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAAAAAAAEAAAAAAUAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Business\Territories.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="NorthwindWebNHibernate.Global" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAEAAAAAAAAAAECIBQAAAAAAAAA=</HashCode>
+      <FileName>Global.asax.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

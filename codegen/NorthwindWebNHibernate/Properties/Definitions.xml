@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.nexida.com/codegeneration/definitions/1">
+<definitions xmlns="http://schemas.nexida.com/codegeneration/definitions/1" xmlns:mergens="http://schemas.nexida.com/xmlmerger/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<types>
 		<type namespace="urn:Northwind.dbo" name="Categories">
 			<fields>
-				<field name="CategoryID">
+				<field name="CategoryId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -55,7 +55,7 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="FK_Products_Categories">
+				<field name="FkProductsCategoriesCollection">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Products</type>
@@ -67,42 +67,16 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Products_Categories</associationIdentifier>
 				</field>
 			</fields>
-		</type>
-		<type namespace="urn:Northwind.dbo" name="CustomerCustomerDemo">
-			<fields>
-				<field name="CustomerID">
-					<reference>
-						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
-						<type>string</type>
-						<nullable>false</nullable>
-						<array>false</array>
-						<relationalMapping>
-							<readOnly>false</readOnly>
-							<columnName>CustomerID</columnName>
-						</relationalMapping>
-					</reference>
-					<isTypeId>true</isTypeId>
-				</field>
-				<field name="CustomerTypeID">
-					<reference>
-						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
-						<type>string</type>
-						<nullable>false</nullable>
-						<array>false</array>
-						<relationalMapping>
-							<readOnly>false</readOnly>
-							<columnName>CustomerTypeID</columnName>
-						</relationalMapping>
-					</reference>
-					<isTypeId>true</isTypeId>
-				</field>
-			</fields>
+			<relationalMapping>
+				<tableName>Categories</tableName>
+			</relationalMapping>
 		</type>
 		<type namespace="urn:Northwind.dbo" name="CustomerDemographics">
 			<fields>
-				<field name="CustomerTypeID">
+				<field name="CustomerTypeId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>string</type>
@@ -128,11 +102,30 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
+				<field name="FkCustomerCustomerDemoCollection">
+					<reference>
+						<namespace>urn:Northwind.dbo</namespace>
+						<type>Customers</type>
+						<nullable>false</nullable>
+						<array>true</array>
+						<relationalMapping>
+							<readOnly>false</readOnly>
+							<columnName>CustomerTypeID</columnName>
+							<manyToManyTableName>CustomerCustomerDemo</manyToManyTableName>
+							<manyToManyOtherFkColumnName>CustomerID</manyToManyOtherFkColumnName>
+						</relationalMapping>
+					</reference>
+					<isTypeId>false</isTypeId>
+					<associationIdentifier>CustomerCustomerDemo</associationIdentifier>
+				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>CustomerDemographics</tableName>
+			</relationalMapping>
 		</type>
 		<type namespace="urn:Northwind.dbo" name="Customers">
 			<fields>
-				<field name="CustomerID">
+				<field name="CustomerId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>string</type>
@@ -275,7 +268,23 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="FK_Orders_Customers">
+				<field name="FkCustomerCustomerDemoCustomersCollection">
+					<reference>
+						<namespace>urn:Northwind.dbo</namespace>
+						<type>CustomerDemographics</type>
+						<nullable>false</nullable>
+						<array>true</array>
+						<relationalMapping>
+							<readOnly>false</readOnly>
+							<columnName>CustomerID</columnName>
+							<manyToManyTableName>CustomerCustomerDemo</manyToManyTableName>
+							<manyToManyOtherFkColumnName>CustomerTypeID</manyToManyOtherFkColumnName>
+						</relationalMapping>
+					</reference>
+					<isTypeId>false</isTypeId>
+					<associationIdentifier>CustomerCustomerDemo</associationIdentifier>
+				</field>
+				<field name="FkOrdersCustomersCollection">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Orders</type>
@@ -287,12 +296,16 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Orders_Customers</associationIdentifier>
 				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>Customers</tableName>
+			</relationalMapping>
 		</type>
 		<type namespace="urn:Northwind.dbo" name="Employees">
 			<fields>
-				<field name="EmployeeID">
+				<field name="EmployeeId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -513,7 +526,7 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="FK_Employees_Employees">
+				<field name="FkEmployeesEmployees">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Employees</type>
@@ -525,8 +538,9 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Employees_Employees</associationIdentifier>
 				</field>
-				<field name="FK_Employees_Employees">
+				<field name="FkEmployeesEmployeesCollection">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Employees</type>
@@ -538,8 +552,25 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Employees_Employees</associationIdentifier>
 				</field>
-				<field name="FK_Orders_Employees">
+				<field name="FkEmployeeTerritoriesEmployeesCollection">
+					<reference>
+						<namespace>urn:Northwind.dbo</namespace>
+						<type>Territories</type>
+						<nullable>false</nullable>
+						<array>true</array>
+						<relationalMapping>
+							<readOnly>false</readOnly>
+							<columnName>EmployeeID</columnName>
+							<manyToManyTableName>EmployeeTerritories</manyToManyTableName>
+							<manyToManyOtherFkColumnName>TerritoryID</manyToManyOtherFkColumnName>
+						</relationalMapping>
+					</reference>
+					<isTypeId>false</isTypeId>
+					<associationIdentifier>EmployeeTerritories</associationIdentifier>
+				</field>
+				<field name="FkOrdersEmployeesCollection">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Orders</type>
@@ -551,42 +582,16 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Orders_Employees</associationIdentifier>
 				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>Employees</tableName>
+			</relationalMapping>
 		</type>
-		<type namespace="urn:Northwind.dbo" name="EmployeeTerritories">
+		<type namespace="urn:Northwind.dbo" name="OrderDetails">
 			<fields>
-				<field name="EmployeeID">
-					<reference>
-						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
-						<type>int</type>
-						<nullable>false</nullable>
-						<array>false</array>
-						<relationalMapping>
-							<readOnly>false</readOnly>
-							<columnName>EmployeeID</columnName>
-						</relationalMapping>
-					</reference>
-					<isTypeId>true</isTypeId>
-				</field>
-				<field name="TerritoryID">
-					<reference>
-						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
-						<type>string</type>
-						<nullable>false</nullable>
-						<array>false</array>
-						<relationalMapping>
-							<readOnly>false</readOnly>
-							<columnName>TerritoryID</columnName>
-						</relationalMapping>
-					</reference>
-					<isTypeId>true</isTypeId>
-				</field>
-			</fields>
-		</type>
-		<type namespace="urn:Northwind.dbo" name="Order Details">
-			<fields>
-				<field name="OrderID">
+				<field name="OrderId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -599,7 +604,7 @@
 					</reference>
 					<isTypeId>true</isTypeId>
 				</field>
-				<field name="ProductID">
+				<field name="ProductId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -652,10 +657,13 @@
 					<isTypeId>false</isTypeId>
 				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>Order Details</tableName>
+			</relationalMapping>
 		</type>
 		<type namespace="urn:Northwind.dbo" name="Orders">
 			<fields>
-				<field name="OrderID">
+				<field name="OrderId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -798,7 +806,7 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="FK_Orders_Customers">
+				<field name="FkOrdersCustomers">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Customers</type>
@@ -810,8 +818,9 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Orders_Customers</associationIdentifier>
 				</field>
-				<field name="FK_Orders_Employees">
+				<field name="FkOrdersEmployees">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Employees</type>
@@ -823,8 +832,9 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Orders_Employees</associationIdentifier>
 				</field>
-				<field name="FK_Orders_Shippers">
+				<field name="FkOrdersShippers">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Shippers</type>
@@ -836,12 +846,16 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Orders_Shippers</associationIdentifier>
 				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>Orders</tableName>
+			</relationalMapping>
 		</type>
 		<type namespace="urn:Northwind.dbo" name="Products">
 			<fields>
-				<field name="ProductID">
+				<field name="ProductId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -945,7 +959,7 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="FK_Products_Categories">
+				<field name="FkProductsCategories">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Categories</type>
@@ -957,8 +971,9 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Products_Categories</associationIdentifier>
 				</field>
-				<field name="FK_Products_Suppliers">
+				<field name="FkProductsSuppliers">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Suppliers</type>
@@ -970,12 +985,16 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Products_Suppliers</associationIdentifier>
 				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>Products</tableName>
+			</relationalMapping>
 		</type>
 		<type namespace="urn:Northwind.dbo" name="Region">
 			<fields>
-				<field name="RegionID">
+				<field name="RegionId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -1001,7 +1020,7 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="FK_Territories_Region">
+				<field name="FkTerritoriesRegionCollection">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Territories</type>
@@ -1013,12 +1032,16 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Territories_Region</associationIdentifier>
 				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>Region</tableName>
+			</relationalMapping>
 		</type>
 		<type namespace="urn:Northwind.dbo" name="Shippers">
 			<fields>
-				<field name="ShipperID">
+				<field name="ShipperId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -1057,7 +1080,7 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="FK_Orders_Shippers">
+				<field name="FkOrdersShippersCollection">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Orders</type>
@@ -1069,12 +1092,16 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Orders_Shippers</associationIdentifier>
 				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>Shippers</tableName>
+			</relationalMapping>
 		</type>
 		<type namespace="urn:Northwind.dbo" name="Suppliers">
 			<fields>
-				<field name="SupplierID">
+				<field name="SupplierId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -1230,7 +1257,7 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="FK_Products_Suppliers">
+				<field name="FkProductsSuppliersCollection">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Products</type>
@@ -1242,12 +1269,16 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Products_Suppliers</associationIdentifier>
 				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>Suppliers</tableName>
+			</relationalMapping>
 		</type>
-		<type namespace="urn:Northwind.dbo" name="sysdiagrams">
+		<type namespace="urn:Northwind.dbo" name="Sysdiagrams">
 			<fields>
-				<field name="name">
+				<field name="Name">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>string</type>
@@ -1260,7 +1291,7 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="principal_id">
+				<field name="PrincipalId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -1273,7 +1304,7 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="diagram_id">
+				<field name="DiagramId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -1286,7 +1317,7 @@
 					</reference>
 					<isTypeId>true</isTypeId>
 				</field>
-				<field name="version">
+				<field name="Version">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>int</type>
@@ -1299,7 +1330,7 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="definition">
+				<field name="Definition">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>byte</type>
@@ -1313,10 +1344,13 @@
 					<isTypeId>false</isTypeId>
 				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>sysdiagrams</tableName>
+			</relationalMapping>
 		</type>
 		<type namespace="urn:Northwind.dbo" name="Territories">
 			<fields>
-				<field name="TerritoryID">
+				<field name="TerritoryId">
 					<reference>
 						<namespace>http://www.w3.org/2001/XMLSchema</namespace>
 						<type>string</type>
@@ -1342,7 +1376,23 @@
 					</reference>
 					<isTypeId>false</isTypeId>
 				</field>
-				<field name="FK_Territories_Region">
+				<field name="FkEmployeeTerritoriesTerritoriesCollection">
+					<reference>
+						<namespace>urn:Northwind.dbo</namespace>
+						<type>Employees</type>
+						<nullable>false</nullable>
+						<array>true</array>
+						<relationalMapping>
+							<readOnly>false</readOnly>
+							<columnName>TerritoryID</columnName>
+							<manyToManyTableName>EmployeeTerritories</manyToManyTableName>
+							<manyToManyOtherFkColumnName>EmployeeID</manyToManyOtherFkColumnName>
+						</relationalMapping>
+					</reference>
+					<isTypeId>false</isTypeId>
+					<associationIdentifier>EmployeeTerritories</associationIdentifier>
+				</field>
+				<field name="FkTerritoriesRegion">
 					<reference>
 						<namespace>urn:Northwind.dbo</namespace>
 						<type>Region</type>
@@ -1354,14 +1404,18 @@
 						</relationalMapping>
 					</reference>
 					<isTypeId>false</isTypeId>
+					<associationIdentifier>FK_Territories_Region</associationIdentifier>
 				</field>
 			</fields>
+			<relationalMapping>
+				<tableName>Territories</tableName>
+			</relationalMapping>
 		</type>
 	</types>
 	<services />
 	<namespaceMappings>
 		<namespaceMapping source="urn:Northwind.dbo">
-			<destination></destination>
+			<destination />
 		</namespaceMapping>
 	</namespaceMappings>
 	<settings>

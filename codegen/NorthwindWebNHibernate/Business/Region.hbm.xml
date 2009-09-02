@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="NorthwindWebNHibernate.Business.Region, NorthwindWebNHibernate" table="Region">
+		<id name="RegionId" column="RegionID" type="Int32" unsaved-value="0">
+			<generator class="assigned" />
+		</id>
+		<property name="RegionDescription" column="RegionDescription" type="String" not-null="true" />
+
+
+		<set name="FkTerritoriesRegionCollection" inverse="true" lazy="true">
+			<key column="RegionID"/>
+			<one-to-many class="NorthwindWebNHibernate.Business.Territories, NorthwindWebNHibernate"/>
+		</set>
+
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="NorthwindWebNHibernate.Business.CustomerDemographics, NorthwindWebNHibernate" table="CustomerDemographics">
+		<id name="CustomerTypeId" column="CustomerTypeID" type="String" >
+			<generator class="assigned" />
+		</id>
+		<property name="CustomerDesc" column="CustomerDesc" type="String" not-null="false" />
+
+
+		<!-- Choosing wich side of the association is inverse is still not supported for many-to-many relationship. Please add inverse="true" to the correct side	-->
+		<set name="FkCustomerCustomerDemoCollection" table="CustomerCustomerDemo" lazy="true">
+			<key column="CustomerTypeID"/>
+			<many-to-many class="NorthwindWebNHibernate.Business.Customers, NorthwindWebNHibernate" column="CustomerID" />
+		</set>
+
+	</class>
+</hibernate-mapping>

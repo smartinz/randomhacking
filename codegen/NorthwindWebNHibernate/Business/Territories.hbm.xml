@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="NorthwindWebNHibernate.Business.Territories, NorthwindWebNHibernate" table="Territories">
+		<id name="TerritoryId" column="TerritoryID" type="String" >
+			<generator class="assigned" />
+		</id>
+		<property name="TerritoryDescription" column="TerritoryDescription" type="String" not-null="true" />
+
+
+		<many-to-one name="FkTerritoriesRegion" column="RegionID" class="NorthwindWebNHibernate.Business.Region, NorthwindWebNHibernate" />
+
+
+		<!-- Choosing wich side of the association is inverse is still not supported for many-to-many relationship. Please add inverse="true" to the correct side	-->
+		<set name="FkEmployeeTerritoriesTerritoriesCollection" table="EmployeeTerritories" lazy="true">
+			<key column="TerritoryID"/>
+			<many-to-many class="NorthwindWebNHibernate.Business.Employees, NorthwindWebNHibernate" column="EmployeeID" />
+		</set>
+
+	</class>
+</hibernate-mapping>

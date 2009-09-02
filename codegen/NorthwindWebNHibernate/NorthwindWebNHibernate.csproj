@@ -61,6 +61,18 @@
     <Reference Include="System.Web.Mobile" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Business\Categories.hbm.xml" />
+    <Content Include="Business\CustomerDemographics.hbm.xml" />
+    <Content Include="Business\Customers.hbm.xml" />
+    <Content Include="Business\Employees.hbm.xml" />
+    <Content Include="Business\OrderDetails.hbm.xml" />
+    <Content Include="Business\Orders.hbm.xml" />
+    <Content Include="Business\Products.hbm.xml" />
+    <Content Include="Business\Region.hbm.xml" />
+    <Content Include="Business\Shippers.hbm.xml" />
+    <Content Include="Business\Suppliers.hbm.xml" />
+    <Content Include="Business\Sysdiagrams.hbm.xml" />
+    <Content Include="Business\Territories.hbm.xml" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="hibernate.cfg.xml" />
@@ -68,6 +80,18 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Categories.cs" />
+    <Compile Include="Business\CustomerDemographics.cs" />
+    <Compile Include="Business\Customers.cs" />
+    <Compile Include="Business\Employees.cs" />
+    <Compile Include="Business\OrderDetails.cs" />
+    <Compile Include="Business\Orders.cs" />
+    <Compile Include="Business\Products.cs" />
+    <Compile Include="Business\Region.cs" />
+    <Compile Include="Business\Shippers.cs" />
+    <Compile Include="Business\Suppliers.cs" />
+    <Compile Include="Business\Sysdiagrams.cs" />
+    <Compile Include="Business\Territories.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -79,6 +103,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
