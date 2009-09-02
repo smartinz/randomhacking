@@ -3,13 +3,13 @@ namespace NorthwindWebNHibernate.Business
 	public class Territories
 	{
 
-		public string TerritoryId { get; set; }
+		public virtual string TerritoryId { get; set; }
 
-		public string TerritoryDescription { get; set; }
+		public virtual string TerritoryDescription { get; set; }
 
-		public System.Collections.Generic.IList<NorthwindWebNHibernate.Business.Employees> FkEmployeeTerritoriesTerritoriesCollection { get; set; }
+		public virtual Iesi.Collections.Generic.ISet<NorthwindWebNHibernate.Business.Employees> FkEmployeeTerritoriesTerritoriesCollection { get; set; }
 
-		public NorthwindWebNHibernate.Business.Region FkTerritoriesRegion { get; set; }
+		public virtual NorthwindWebNHibernate.Business.Region FkTerritoriesRegion { get; set; }
 
 		public override string ToString()
 		{

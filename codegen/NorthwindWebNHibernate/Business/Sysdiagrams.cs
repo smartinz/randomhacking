@@ -3,15 +3,15 @@ namespace NorthwindWebNHibernate.Business
 	public class Sysdiagrams
 	{
 
-		public string Name { get; set; }
+		public virtual string Name { get; set; }
 
-		public int PrincipalId { get; set; }
+		public virtual int PrincipalId { get; set; }
 
-		public int DiagramId { get; set; }
+		public virtual int DiagramId { get; set; }
 
-		public int? Version { get; set; }
+		public virtual int? Version { get; set; }
 
-		public byte[] Definition { get; set; }
+		public virtual byte[] Definition { get; set; }
 
 		public override string ToString()
 		{

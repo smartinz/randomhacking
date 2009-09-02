@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\NHibernate-2.1.0.GA\Iesi.Collections.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\References\NHibernate-2.1.0.GA\log4net.dll</HintPath>
@@ -37,6 +41,14 @@
     <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\References\NHibernate-2.1.0.GA\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\NHibernate-2.1.0.GA\Castle\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\References\NHibernate.Linq-1.0.0.GA\NHibernate.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -65,7 +77,6 @@
     <EmbeddedResource Include="Business\CustomerDemographics.hbm.xml" />
     <EmbeddedResource Include="Business\Customers.hbm.xml" />
     <EmbeddedResource Include="Business\Employees.hbm.xml" />
-    <EmbeddedResource Include="Business\OrderDetails.hbm.xml" />
     <EmbeddedResource Include="Business\Orders.hbm.xml" />
     <EmbeddedResource Include="Business\Products.hbm.xml" />
     <EmbeddedResource Include="Business\Region.hbm.xml" />
@@ -84,7 +95,6 @@
     <Compile Include="Business\CustomerDemographics.cs" />
     <Compile Include="Business\Customers.cs" />
     <Compile Include="Business\Employees.cs" />
-    <Compile Include="Business\OrderDetails.cs" />
     <Compile Include="Business\Orders.cs" />
     <Compile Include="Business\Products.cs" />
     <Compile Include="Business\Region.cs" />
@@ -106,6 +116,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
