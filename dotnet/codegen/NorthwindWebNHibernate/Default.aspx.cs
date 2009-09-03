@@ -12,6 +12,9 @@ namespace NorthwindWebNHibernate
 		{
 			var employeesRepository = new EmployeesRepository(new Context());
 			IQueryable<Employees> employeeses = employeesRepository.Search("Davolio", "Nancy", "Sales Representative");
+
+			employeesRepository = new EmployeesRepository(new Context());
+			employeeses = employeesRepository.Search("Davolio", "Nancy", "Sales Representative");
 		}
 	}
 }

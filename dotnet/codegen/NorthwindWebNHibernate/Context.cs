@@ -1,29 +1,24 @@
-﻿using System.Web;
-using log4net.Config;
-using NHibernate;
-using NHibernate.Cfg;
-
-namespace NorthwindWebNHibernate
+﻿namespace NorthwindWebNHibernate
 {
 	public class Context
 	{
-		static private readonly ISessionFactory SessionFactory;
+		static private readonly NHibernate.ISessionFactory SessionFactory;
 
 		static Context()
 		{
-			XmlConfigurator.Configure();
-			SessionFactory = new Configuration().Configure().BuildSessionFactory();
+			log4net.Config.XmlConfigurator.Configure();
+			SessionFactory = new NHibernate.Cfg.Configuration().Configure().BuildSessionFactory();
 		}
 
-		public ISession NorthwindDatabase
+		public NHibernate.ISession NorthwindDatabase
 		{
 			get
 			{
-				if (!HttpContext.Current.Items.Contains("NorthwindDatabase.nhibernatesession"))
+				if (!System.Web.HttpContext.Current.Items.Contains("NorthwindDatabase.nhibernatesession"))
 				{
-					HttpContext.Current.Items["NorthwindDatabase.nhibernatesession"] = SessionFactory.OpenSession();
+					System.Web.HttpContext.Current.Items["NorthwindDatabase.nhibernatesession"] = SessionFactory.OpenSession();
 				}
-				return (ISession)HttpContext.Current.Items["NorthwindDatabase.nhibernatesession"];
+				return (NHibernate.ISession)System.Web.HttpContext.Current.Items["NorthwindDatabase.nhibernatesession"];
 			}
 		}
 
