@@ -1,26 +1,26 @@
 ﻿using System.Linq;
 using NHibernate;
-using NorthwindWebNHibernate.Business;
 using NHibernate.Linq;
+using NorthwindWebNHibernate.Business;
 
 namespace NorthwindWebNHibernate.Data
 {
 	public class EmployeesRepository
 	{
-		private readonly ISession _session;
+		private readonly Context _context;
 
-		public EmployeesRepository(ISession session)
+		public EmployeesRepository(Context context)
 		{
-			_session = session;
+			_context = context;
 		}
 
 		public void Create(Employees v)
 		{
-			using(ITransaction tx = _session.BeginTransaction())
+			using(ITransaction tx = _context.NorthwindDatabase.BeginTransaction())
 			{
 				try
 				{
-					_session.Save(v);
+					_context.NorthwindDatabase.Save(v);
 					tx.Commit();
 				}
 				catch
@@ -33,16 +33,16 @@ namespace NorthwindWebNHibernate.Data
 
 		public Employees Read(int employeeId)
 		{
-			return _session.Get<Employees>(employeeId);
+			return _context.NorthwindDatabase.Get<Employees>(employeeId);
 		}
 
 		public void Update(Employees v)
 		{
-			using(ITransaction tx = _session.BeginTransaction())
+			using(ITransaction tx = _context.NorthwindDatabase.BeginTransaction())
 			{
 				try
 				{
-					_session.Update(v);
+					_context.NorthwindDatabase.Update(v);
 					tx.Commit();
 				}
 				catch
@@ -55,11 +55,11 @@ namespace NorthwindWebNHibernate.Data
 
 		public void Delete(Employees v)
 		{
-			using(ITransaction tx = _session.BeginTransaction())
+			using(ITransaction tx = _context.NorthwindDatabase.BeginTransaction())
 			{
 				try
 				{
-					_session.Delete(v);
+					_context.NorthwindDatabase.Delete(v);
 					tx.Commit();
 				}
 				catch
@@ -72,7 +72,7 @@ namespace NorthwindWebNHibernate.Data
 
 		public IQueryable<Employees> Search(string lastName, string firstName, string title)
 		{
-			return from v in _session.Linq<Employees>()
+			return from v in _context.NorthwindDatabase.Linq<Employees>()
 			       where v.LastName == lastName
 			             && v.FirstName == firstName
 			             && v.Title == title

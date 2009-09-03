@@ -102,6 +102,7 @@
     <Compile Include="Business\Suppliers.cs" />
     <Compile Include="Business\Sysdiagrams.cs" />
     <Compile Include="Business\Territories.cs" />
+    <Compile Include="Context.cs" />
     <Compile Include="Data\EmployeesRepository.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>

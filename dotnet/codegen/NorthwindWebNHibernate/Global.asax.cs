@@ -1,37 +1,20 @@
 ﻿using System;
+using System.Linq;
 using System.Web;
-using log4net.Config;
-using NHibernate;
-using NHibernate.Cfg;
 
 namespace NorthwindWebNHibernate
 {
 	public class Global : HttpApplication
 	{
-		static private ISessionFactory _sessionFactory;
-
-		static public ISession CurrentSession
-		{
-			get { return (ISession)HttpContext.Current.Items["current.session"]; }
-			private set { HttpContext.Current.Items["current.session"] = value; }
-		}
-
-		protected void Application_Start(object sender, EventArgs e)
-		{
-			XmlConfigurator.Configure();
-			_sessionFactory = new Configuration().Configure().BuildSessionFactory();
-		}
-
-		protected void Application_BeginRequest(object sender, EventArgs e)
-		{
-			CurrentSession = _sessionFactory.OpenSession();
-		}
+		protected void Application_Start(object sender, EventArgs e) {}
 
 		protected void Application_EndRequest(object sender, EventArgs e)
 		{
-			if(CurrentSession != null)
+			// needed to dispose NHibernate sessions
+			string[] keys = HttpContext.Current.Items.Keys.Cast<object>().Select(k => k.ToString()).Where(k => k.EndsWith(".nhibernatesession")).ToArray();
+			foreach(string key in keys)
 			{
-				CurrentSession.Dispose();
+				((IDisposable)HttpContext.Current.Items[key]).Dispose();
 			}
 		}
 
