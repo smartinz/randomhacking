@@ -1,5 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using NHibernate;
+using NHibernate.Criterion;
 using NHibernate.Linq;
 using NorthwindWebNHibernate.Business;
 
@@ -70,13 +72,22 @@ namespace NorthwindWebNHibernate.Data
 			}
 		}
 
-		public IQueryable<Employees> Search(string lastName, string firstName, string title)
+		public IQueryable<Employees> SearchWithLinq(string lastName, string firstName, string title)
 		{
 			return from v in _context.NorthwindDatabase.Linq<Employees>()
 			       where v.LastName == lastName
 			             && v.FirstName == firstName
 			             && v.Title == title
 			       select v;
+		}
+
+		public IEnumerable<Employees> Search(string lastName, string firstName, string title)
+		{
+			return _context.NorthwindDatabase.CreateCriteria<Employees>()
+				.Add(Restrictions.Eq("LastName", lastName))
+				.Add(Restrictions.Eq("FirstName", firstName))
+				.Add(Restrictions.Eq("Title", title))
+				.List<Employees>();
 		}
 	}
 }

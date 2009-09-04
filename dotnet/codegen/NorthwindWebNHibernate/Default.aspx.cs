@@ -11,7 +11,7 @@ namespace NorthwindWebNHibernate
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			var employeesRepository = new EmployeesRepository(new Context());
-			IQueryable<Employees> employeeses = employeesRepository.Search("Davolio", "Nancy", "Sales Representative");
+			var employeeses = employeesRepository.Search("Davolio", "Nancy", "Sales Representative");
 
 			employeesRepository = new EmployeesRepository(new Context());
 			employeeses = employeesRepository.Search("Davolio", "Nancy", "Sales Representative");
