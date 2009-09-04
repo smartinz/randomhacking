@@ -1,28 +1,21 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using NHibernate;
-using NHibernate.Criterion;
-using NHibernate.Linq;
-using NorthwindWebNHibernate.Business;
-
 namespace NorthwindWebNHibernate.Data
 {
 	public class EmployeesRepository
 	{
-		private readonly Context _context;
-
-		public EmployeesRepository(Context context)
+		private NorthwindWebNHibernate.Context _context;
+		
+		public EmployeesRepository(NorthwindWebNHibernate.Context context)
 		{
 			_context = context;
 		}
-
-		public void Create(Employees v)
+		
+		public void Create(NorthwindWebNHibernate.Business.Employees v)
 		{
-			using(ITransaction tx = _context.NorthwindDatabase.BeginTransaction())
+			using(NHibernate.ITransaction tx = _context.NorthwindDbo.BeginTransaction())
 			{
 				try
 				{
-					_context.NorthwindDatabase.Save(v);
+					_context.NorthwindDbo.Save(v);
 					tx.Commit();
 				}
 				catch
@@ -33,18 +26,18 @@ namespace NorthwindWebNHibernate.Data
 			}
 		}
 
-		public Employees Read(int employeeId)
+		public NorthwindWebNHibernate.Business.Employees Read(int EmployeeId)
 		{
-			return _context.NorthwindDatabase.Get<Employees>(employeeId);
+			return _context.NorthwindDbo.Get<NorthwindWebNHibernate.Business.Employees>(EmployeeId);
 		}
 
-		public void Update(Employees v)
+		public void Update(NorthwindWebNHibernate.Business.Employees v)
 		{
-			using(ITransaction tx = _context.NorthwindDatabase.BeginTransaction())
+			using(NHibernate.ITransaction tx = _context.NorthwindDbo.BeginTransaction())
 			{
 				try
 				{
-					_context.NorthwindDatabase.Update(v);
+					_context.NorthwindDbo.Update(v);
 					tx.Commit();
 				}
 				catch
@@ -55,13 +48,13 @@ namespace NorthwindWebNHibernate.Data
 			}
 		}
 
-		public void Delete(Employees v)
+		public void Delete(NorthwindWebNHibernate.Business.Employees v)
 		{
-			using(ITransaction tx = _context.NorthwindDatabase.BeginTransaction())
+			using (NHibernate.ITransaction tx = _context.NorthwindDbo.BeginTransaction())
 			{
 				try
 				{
-					_context.NorthwindDatabase.Delete(v);
+					_context.NorthwindDbo.Delete(v);
 					tx.Commit();
 				}
 				catch
@@ -72,22 +65,29 @@ namespace NorthwindWebNHibernate.Data
 			}
 		}
 
-		public IQueryable<Employees> SearchWithLinq(string lastName, string firstName, string title)
-		{
-			return from v in _context.NorthwindDatabase.Linq<Employees>()
-			       where v.LastName == lastName
-			             && v.FirstName == firstName
-			             && v.Title == title
-			       select v;
-		}
-
-		public IEnumerable<Employees> Search(string lastName, string firstName, string title)
-		{
-			return _context.NorthwindDatabase.CreateCriteria<Employees>()
-				.Add(Restrictions.Eq("LastName", lastName))
-				.Add(Restrictions.Eq("FirstName", firstName))
-				.Add(Restrictions.Eq("Title", title))
-				.List<Employees>();
-		}
+				public System.Collections.Generic.IEnumerable<NorthwindWebNHibernate.Business.Employees> Search(int employeeId, string lastName, string firstName, string title, string titleOfCourtesy, System.DateTime? birthDate, System.DateTime? hireDate, string address, string city, string region, string postalCode, string country, string homePhone, string extension, string notes, string photoPath, NorthwindWebNHibernate.Business.Employees fkEmployeesEmployees)
+				{
+					return _context.NorthwindDbo.CreateCriteria<NorthwindWebNHibernate.Business.Employees>()
+									.Add(NHibernate.Criterion.Restrictions.Eq("employeeId", employeeId))
+												.Add(NHibernate.Criterion.Restrictions.Eq("lastName", lastName))
+												.Add(NHibernate.Criterion.Restrictions.Eq("firstName", firstName))
+												.Add(NHibernate.Criterion.Restrictions.Eq("title", title))
+												.Add(NHibernate.Criterion.Restrictions.Eq("titleOfCourtesy", titleOfCourtesy))
+												.Add(NHibernate.Criterion.Restrictions.Eq("birthDate", birthDate))
+												.Add(NHibernate.Criterion.Restrictions.Eq("hireDate", hireDate))
+												.Add(NHibernate.Criterion.Restrictions.Eq("address", address))
+												.Add(NHibernate.Criterion.Restrictions.Eq("city", city))
+												.Add(NHibernate.Criterion.Restrictions.Eq("region", region))
+												.Add(NHibernate.Criterion.Restrictions.Eq("postalCode", postalCode))
+												.Add(NHibernate.Criterion.Restrictions.Eq("country", country))
+												.Add(NHibernate.Criterion.Restrictions.Eq("homePhone", homePhone))
+												.Add(NHibernate.Criterion.Restrictions.Eq("extension", extension))
+												.Add(NHibernate.Criterion.Restrictions.Eq("notes", notes))
+												.Add(NHibernate.Criterion.Restrictions.Eq("photoPath", photoPath))
+												.Add(NHibernate.Criterion.Restrictions.Eq("fkEmployeesEmployees", fkEmployeesEmployees))
+								
+						.List<NorthwindWebNHibernate.Business.Employees>();
+				}
+				
 	}
 }

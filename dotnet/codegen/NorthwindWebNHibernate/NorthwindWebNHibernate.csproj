@@ -103,7 +103,17 @@
     <Compile Include="Business\Sysdiagrams.cs" />
     <Compile Include="Business\Territories.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="Data\CategoriesRepository.cs" />
+    <Compile Include="Data\CustomerDemographicsRepository.cs" />
+    <Compile Include="Data\CustomersRepository.cs" />
     <Compile Include="Data\EmployeesRepository.cs" />
+    <Compile Include="Data\OrdersRepository.cs" />
+    <Compile Include="Data\ProductsRepository.cs" />
+    <Compile Include="Data\RegionRepository.cs" />
+    <Compile Include="Data\ShippersRepository.cs" />
+    <Compile Include="Data\SuppliersRepository.cs" />
+    <Compile Include="Data\SysdiagramsRepository.cs" />
+    <Compile Include="Data\TerritoriesRepository.cs" />
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>

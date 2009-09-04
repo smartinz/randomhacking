@@ -1,4 +1,4 @@
-﻿namespace NorthwindWebNHibernate
+namespace NorthwindWebNHibernate
 {
 	public class Context
 	{
@@ -9,16 +9,15 @@
 			log4net.Config.XmlConfigurator.Configure();
 			SessionFactory = new NHibernate.Cfg.Configuration().Configure().BuildSessionFactory();
 		}
-
-		public NHibernate.ISession NorthwindDatabase
+		public NHibernate.ISession NorthwindDbo 
 		{
 			get
 			{
-				if (!System.Web.HttpContext.Current.Items.Contains("NorthwindDatabase.nhibernatesession"))
+				if (!System.Web.HttpContext.Current.Items.Contains("NorthwindDbo.nhibernatesession"))
 				{
-					System.Web.HttpContext.Current.Items["NorthwindDatabase.nhibernatesession"] = SessionFactory.OpenSession();
+					System.Web.HttpContext.Current.Items["NorthwindDbo.nhibernatesession"] = SessionFactory.OpenSession();
 				}
-				return (NHibernate.ISession)System.Web.HttpContext.Current.Items["NorthwindDatabase.nhibernatesession"];
+				return (NHibernate.ISession)System.Web.HttpContext.Current.Items["NorthwindDbo.nhibernatesession"];
 			}
 		}
 
