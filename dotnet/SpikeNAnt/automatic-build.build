@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project name="build" xmlns="http://nant.sf.net/release/0.86-beta1/nant.xsd">
+	<loadtasks assembly="References\nantcontrib-0.85\NAnt.Contrib.Tasks.dll"/>
+
+	<property name="version.major" value="0" overwrite="false" />
+	<property name="version.minor" value="1" overwrite="false" />
+	<property name="version.build" value="0" overwrite="false" />
+
+	<exec program="${framework::get-framework-directory(framework::get-target-framework())}\msbuild.exe"
+		commandline="Nexida.CodeGen.sln /t:Clean /p:Configuration=Release" workingdir="." />
+
+	<property name="svn.revision" value="0" overwrite="false" />
+	<exec program="svn" commandline="info --xml" output="_revision.xml"  />
+	<xmlpeek  file="_revision.xml" xpath="/info/entry/@revision" property="svn-revision" />
+	<delete file="_revision.xml" />
+	<echo message="INFO: Using Subversion revision number: ${svn.revision}"/>
+
+	<asminfo output="SharedAssemblyInfo.cs" language="CSharp">
+		<imports>
+			<import namespace="System.Reflection" />
+		</imports>
+		<attributes>
+			<attribute type="AssemblyVersionAttribute" value="${version.major}.${version.minor}.${version.build}.0" />
+			<attribute type="AssemblyInformationalVersionAttribute" value="${version.major}.${version.minor}.${version.build}.${svn.revision}" />
+			<attribute type="AssemblyFileVersionAttribute" value="${version.major}.${version.minor}.${version.build}.${svn.revision}" />
+		</attributes>
+	</asminfo>
+
+</project>
