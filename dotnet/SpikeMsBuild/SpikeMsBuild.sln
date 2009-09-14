@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeMsBuild", "SpikeMsBuild.csproj", "{80542821-51B2-4E84-B752-B11950BC558B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0ABA782F-667A-4867-9883-7379EE9F47C0}"
+	ProjectSection(SolutionItems) = preProject
+		Build.proj = Build.proj
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{80542821-51B2-4E84-B752-B11950BC558B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80542821-51B2-4E84-B752-B11950BC558B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80542821-51B2-4E84-B752-B11950BC558B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80542821-51B2-4E84-B752-B11950BC558B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

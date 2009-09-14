@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="bin\Release\SpikeMsBuild.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2009-09-14" time="22:42:21">
+  <environment nunit-version="2.5.2.9222" clr-version="2.0.50727.4927" os-version="Microsoft Windows NT 6.1.7600.0" platform="Win32NT" cwd="C:\Users\ggherardi\Sources\randomhacking\trunk\dotnet\SpikeMsBuild" machine-name="NX-IT-L002" user="ggherardi" user-domain="NX-IT-L002" />
+  <culture-info current-culture="it-IT" current-uiculture="en-US" />
+  <test-suite name="bin\Release\SpikeMsBuild.dll" executed="True" success="True" time="0.016" asserts="0">
+    <results>
+      <test-suite name="SpikeMsBuild" executed="True" success="True" time="0.016" asserts="0">
+        <results>
+          <test-suite name="Class1" executed="True" success="True" time="0.016" asserts="0">
+            <results>
+              <test-case name="SpikeMsBuild.Class1.TT" executed="True" success="True" time="0.016" asserts="1" />
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

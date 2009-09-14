@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<MSBuildCommunityTasksPath>.</MSBuildCommunityTasksPath>
+		<Version>1.0.0</Version>
+	</PropertyGroup>
+	
+	<Import Project="..\References\MSBuildCommunityTasks-1.2.0.306\MSBuild.Community.Tasks.Targets"/>
+	
+	<Target Name="Build" DependsOnTargets="AssemblyInfo">
+		<MSBuild Projects="SpikeMsBuild.sln" Targets="Clean; Rebuild" Properties="Configuration=Release" />
+	</Target>
+	
+	<Target Name="Test" DependsOnTargets="Build">
+		<NUnit Assemblies="bin\Release\SpikeMsBuild.dll" ContinueOnError="false" ToolPath="..\References\NUnit-2.5.2.9222\" OutputXmlFile="NUnitResults.xml" />
+	</Target>
+
+	<Target Name="Update">
+		<SvnUpdate LocalPath=".." />		
+	</Target>
+
+	<Target Name="AssemblyInfo">
+		<SvnInfo LocalPath="..">
+			<Output TaskParameter="LastChangedRevision" PropertyName="Revision" />
+		</SvnInfo>
+		<AssemblyInfo CodeLanguage="CS" OutputFile="SharedAssemblyInfo.cs" AssemblyVersion="$(Version).0" AssemblyFileVersion="$(Version).$(Revision)" AssemblyInformationalVersion="$(Version).$(Revision)" />
+	</Target>
+</Project>
