@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EntityWizard.aspx.cs" Inherits="SpikeNHibernateBurrow.EntityWizard" %>
 
+<%@ Register Src="ChildEntityEditControl.ascx" TagName="ChildEntityEditControl" TagPrefix="uc1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -22,6 +23,9 @@
         <asp:View runat="server" ID="Step3View">
             <asp:Label ID="lblStep3" runat="server" Text="Step 3"></asp:Label><br />
             <asp:TextBox ID="txtValue3" runat="server"></asp:TextBox><br />
+            <uc1:ChildEntityEditControl ID="ChildEntityEditControl1" runat="server" Visible="false" />
+            <asp:Button ID="btnAddChildEntity" runat="server" Text="Add" 
+                onclick="btnAddChildEntity_Click" /><br />
             <asp:Button ID="btnFinish" runat="server" Text="Finish" OnClick="btnFinish_Click" />
             <asp:Button ID="btnCancel" runat="server" OnClick="btnCancel_Click" Text="Cancel" />
         </asp:View>

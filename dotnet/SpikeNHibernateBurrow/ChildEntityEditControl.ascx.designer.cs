@@ -11,24 +11,24 @@
 namespace SpikeNHibernateBurrow {
     
     
-    public partial class ViewEntity {
+    public partial class ChildEntityEditControl {
         
         /// <summary>
-        /// form1 control.
+        /// Value1TextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox Value1TextBox;
         
         /// <summary>
-        /// lblEntity control.
+        /// Value2TextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEntity;
+        protected global::System.Web.UI.WebControls.TextBox Value2TextBox;
     }
 }

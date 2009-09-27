@@ -56,5 +56,21 @@ namespace SpikeNHibernateBurrow
 			_burrowFramework.CurrentConversation.GiveUp();
 			Response.Redirect("EntityWizard.aspx");
 		}
+
+		protected void btnAddChildEntity_Click(object sender, EventArgs e)
+		{
+			if(ChildEntityEditControl1.Visible)
+			{
+				_entity.AddChildren(ChildEntityEditControl1.Item);
+				ChildEntityEditControl1.Item = null;
+				ChildEntityEditControl1.Visible = false;
+			}
+			else
+			{
+				ChildEntityEditControl1.Item = new ChildEntity();
+				ChildEntityEditControl1.DataBind();
+				ChildEntityEditControl1.Visible = true;
+			}
+		}
 	}
 }

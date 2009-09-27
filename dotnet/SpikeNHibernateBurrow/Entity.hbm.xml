@@ -7,5 +7,9 @@
 		<property name="Value1" />
 		<property name="Value2" />
 		<property name="Value3" />
+		<set name="Childrens" cascade="all-delete-orphan">
+			<key column="EntityId"/>
+			<one-to-many class="SpikeNHibernateBurrow.ChildEntity, SpikeNHibernateBurrow"/>
+		</set>
 	</class>
 </hibernate-mapping>

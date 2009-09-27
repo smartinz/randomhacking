@@ -24,6 +24,11 @@ namespace SpikeNHibernateBurrow
 			sb.AppendLine("Value2 = " + entity.Value1);
 			sb.AppendLine("Value3 = " + entity.Value1);
 
+			foreach(var childEntity in entity.Childrens)
+			{
+				sb.AppendFormat("[Value1 = {0}, Value2 = {1}]", childEntity.Value1, childEntity.Value2);
+			}
+
 			lblEntity.Text = sb.ToString();
 
 		}
