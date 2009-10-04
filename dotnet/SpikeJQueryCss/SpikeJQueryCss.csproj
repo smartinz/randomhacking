@@ -80,6 +80,13 @@
     <Compile Include="DatePicker.aspx.designer.cs">
       <DependentUpon>DatePicker.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LinksAndButtons.aspx.cs">
+      <DependentUpon>LinksAndButtons.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LinksAndButtons.aspx.designer.cs">
+      <DependentUpon>LinksAndButtons.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -91,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DatePicker.aspx" />
+    <Content Include="LinksAndButtons.aspx" />
     <Content Include="Site.Master" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

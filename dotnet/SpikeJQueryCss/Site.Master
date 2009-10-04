@@ -11,12 +11,23 @@
 
     <script type="text/javascript" src="<%= ResolveUrl("~/js/jquery-ui-1.7.2.custom.min.js") %>"></script>
 
+    <script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/">
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#themeswitcher').themeswitcher();
+        });
+    </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
     <div>
+        <div id="themeswitcher">
+        </div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>
