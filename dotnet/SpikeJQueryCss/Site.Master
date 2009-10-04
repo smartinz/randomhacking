@@ -11,6 +11,8 @@
 
     <script type="text/javascript" src="<%= ResolveUrl("~/js/jquery-ui-1.7.2.custom.min.js") %>"></script>
 
+    <!-- Start Themeswitcher -->
+
     <script type="text/javascript" src="http://jqueryui.com/themeroller/themeswitchertool/">
     </script>
 
@@ -20,6 +22,34 @@
         });
     </script>
 
+    <!-- End Themeswitcher -->
+    <!-- Start buttons styling (see http://www.filamentgroup.com/lab/styling_buttons_and_toolbars_with_the_jquery_ui_css_framework/) -->
+
+    <script type="text/javascript">
+        $(function() {
+            $(".fg-button:not(.ui-state-disabled)").hover(function() {
+                $(this).addClass("ui-state-hover");
+            },
+			function() {
+			    $(this).removeClass("ui-state-hover");
+			}
+		).mousedown(function() {
+		    $(this).parents('.fg-buttonset-single:first').find(".fg-button.ui-state-active").removeClass("ui-state-active");
+		    if ($(this).is('.ui-state-active.fg-button-toggleable, .fg-buttonset-multi .ui-state-active')) {
+		        $(this).removeClass("ui-state-active");
+		    }
+		    else {
+		        $(this).addClass("ui-state-active");
+		    }
+		}).mouseup(function() {
+		    if (!$(this).is('.fg-button-toggleable, .fg-buttonset-single .fg-button,  .fg-buttonset-multi .fg-button')) {
+		        $(this).removeClass("ui-state-active");
+		    }
+		});
+        });
+    </script>
+
+    <!-- End buttons styling -->
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

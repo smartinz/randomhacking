@@ -2,6 +2,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:Button ID="button" runat="server" Text="Button" />
-    <asp:LinkButton ID="linkButton" runat="server">LinkButton</asp:LinkButton>
+    <asp:Button ID="button" runat="server" Text="Button" CssClass="fg-button ui-state-default ui-corner-all" />
+    <asp:LinkButton ID="linkButton" runat="server" CssClass="fg-button ui-state-default ui-corner-all">LinkButton</asp:LinkButton>
 </asp:Content>
