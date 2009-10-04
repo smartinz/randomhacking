@@ -97,6 +97,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\blueprint\ie.css" />
+    <Content Include="css\blueprint\print.css" />
+    <Content Include="css\blueprint\screen.css" />
     <Content Include="DatePicker.aspx" />
     <Content Include="LinksAndButtons.aspx" />
     <Content Include="Site.Master" />
