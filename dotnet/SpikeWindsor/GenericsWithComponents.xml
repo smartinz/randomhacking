@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+	<components>
+		<component id="typewith2generics" type="SpikeWindsor.TypeWith2Generics`2, SpikeWindsor">
+			<parameters>
+				<key>${component}</key>
+				<value>${component}</value>
+			</parameters>
+		</component>
+		<component id="component" type="SpikeWindsor.Component, SpikeWindsor" />
+	</components>
+</configuration>

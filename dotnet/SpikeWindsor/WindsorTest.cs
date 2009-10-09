@@ -65,7 +65,7 @@ namespace SpikeWindsor
 			var container = new WindsorContainer(/*new XmlInterpreter()*/); // http://geekswithblogs.net/zgeers/archive/2008/08/22/124621.aspx
 			var stringProvider = new StringProvider("provided instance");
 //			container.Kernel.AddComponentInstance<IStringProvider>(stringProvider);
-			container.Register(Component.For<IStringProvider>().Instance(stringProvider));
+//			container.Register(Component.For<IStringProvider>().Instance(stringProvider));
 
 			Assert.That(container.Resolve<IStringProvider>(), Is.SameAs(stringProvider));
 		}
