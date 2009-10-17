@@ -1,4 +1,5 @@
-using Castle.MicroKernel.Resolvers;
+using System;
+using System.IO;
 using Castle.Windsor;
 using Castle.Windsor.Configuration.Interpreters;
 using NUnit.Framework;
@@ -9,17 +10,50 @@ namespace SpikeWindsor
 	public class GenericBugTest
 	{
 		[Test]
-		public void This_test_fail()
+		public void Two_strings()
 		{
-			var exception = Assert.Throws<DependencyResolverException>(() => new WindsorContainer(new XmlInterpreter("GenericsWithStrings.xml")));
-			Assert.That(exception.Message, Is.EqualTo("Key invalid for parameter key. Thus the kernel was unable to override the service dependency"));
+			const string content = @"<?xml version='1.0' encoding='utf-8' ?>
+<configuration>
+	<components>
+		<component id='typewith2generics' type='SpikeWindsor.TypeWith2Generics`2[[System.String], [System.String]], SpikeWindsor'>
+			<parameters>
+				<key>string value</key>
+				<value>string value 2</value>
+			</parameters>
+		</component>
+	</components>
+</configuration>
+";
+			string fileName = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+			File.WriteAllText(fileName, content);
+			var container = new WindsorContainer(new XmlInterpreter(fileName));
+			var generics = container.Resolve<TypeWith2Generics<string, string>>("typewith2generics");
+			Assert.That(generics.Key, Is.EqualTo("string value"));
+			Assert.That(generics.Value, Is.EqualTo("string value 2"));
 		}
 
 		[Test]
-		public void This_test_succeed()
+		public void String_and_component()
 		{
-			var container = new WindsorContainer(new XmlInterpreter("GenericsWithComponents.xml"));
-			Assert.That(container.Resolve<TypeWith2Generics<string, string>>("typewith2generics"), Is.Not.Null);
+			const string content = @"<?xml version='1.0' encoding='utf-8' ?>
+<configuration>
+	<components>
+		<component id='typewith2generics' type='SpikeWindsor.TypeWith2Generics`2[[System.String], [SpikeWindsor.Component, SpikeWindsor]], SpikeWindsor'>
+			<parameters>
+				<key>string value</key>
+				<value>${component}</value>
+			</parameters>
+		</component>
+		<component id='component' type='SpikeWindsor.Component, SpikeWindsor' />
+	</components>
+</configuration>
+";
+			string fileName = Path.Combine(Path.GetTempPath(), Guid.NewGuid().ToString("N"));
+			File.WriteAllText(fileName, content);
+			var container = new WindsorContainer(new XmlInterpreter(fileName));
+			var generics = container.Resolve<TypeWith2Generics<string, Component>>("typewith2generics");
+			Assert.That(generics.Key, Is.EqualTo("string value"));
+			Assert.That(generics.Value, Is.InstanceOf(typeof(Component)));
 		}
 	}
 
@@ -32,6 +66,16 @@ namespace SpikeWindsor
 		{
 			_key = key;
 			_value = value;
+		}
+
+		public TKey Key
+		{
+			get { return _key; }
+		}
+
+		public TValue Value
+		{
+			get { return _value; }
 		}
 	}
 
