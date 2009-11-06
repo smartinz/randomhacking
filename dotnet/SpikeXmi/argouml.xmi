@@ -1,0 +1,62 @@
+<?xml version = '1.0' encoding = 'UTF-8' ?>
+<XMI xmi.version = '1.2' xmlns:UML = 'org.omg.xmi.namespace.UML' timestamp = 'Fri Nov 06 16:49:18 CET 2009'>
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>ArgoUML (using Netbeans XMI Writer version 1.0)</XMI.exporter>
+			<XMI.exporterVersion>0.28.1(6) revised on $Date: 2007-05-12 08:08:08 +0200 (Sat, 12 May 2007) $ </XMI.exporterVersion>
+		</XMI.documentation>
+		<XMI.metamodel xmi.name="UML" xmi.version="1.4"/>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000000B36'      name = 'MyModel' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'      isAbstract = 'false'>
+			<UML:Namespace.ownedElement>
+				<UML:Package xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000000CDF'          name = 'MyPackage' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'          isAbstract = 'false'>
+					<UML:Namespace.ownedElement>
+						<UML:Package xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000000CF1'              name = 'InnerPackage' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'              isAbstract = 'false'>
+							<UML:Namespace.ownedElement>
+								<UML:Association xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000001453'                  name = 'Association' isSpecification = 'false' isRoot = 'false' isLeaf = 'false'                  isAbstract = 'false'>
+									<UML:Association.connection>
+										<UML:AssociationEnd xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000001454'                      name = 'AssociationToMyClass' visibility = 'public' isSpecification = 'false'                      isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance'                      changeability = 'changeable'>
+											<UML:AssociationEnd.multiplicity>
+												<UML:Multiplicity xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:000000000000145B'>
+													<UML:Multiplicity.range>
+														<UML:MultiplicityRange xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:000000000000145A'                              lower = '1' upper = '1'/>
+													</UML:Multiplicity.range>
+												</UML:Multiplicity>
+											</UML:AssociationEnd.multiplicity>
+											<UML:AssociationEnd.participant>
+												<UML:Class xmi.idref = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000000CDE'/>
+											</UML:AssociationEnd.participant>
+										</UML:AssociationEnd>
+										<UML:AssociationEnd xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000001457'                      name = 'AssociationToClassOutOfPackage' visibility = 'public' isSpecification = 'false'                      isNavigable = 'true' ordering = 'unordered' aggregation = 'none' targetScope = 'instance'                      changeability = 'changeable'>
+											<UML:AssociationEnd.multiplicity>
+												<UML:Multiplicity xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000001458'>
+													<UML:Multiplicity.range>
+														<UML:MultiplicityRange xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000001459'                              lower = '1' upper = '1'/>
+													</UML:Multiplicity.range>
+												</UML:Multiplicity>
+											</UML:AssociationEnd.multiplicity>
+											<UML:AssociationEnd.participant>
+												<UML:Class xmi.idref = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000000CF0'/>
+											</UML:AssociationEnd.participant>
+										</UML:AssociationEnd>
+									</UML:Association.connection>
+								</UML:Association>
+								<UML:Class xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000000CDE'                  name = 'MyClass' visibility = 'public' isSpecification = 'false' isRoot = 'false'                  isLeaf = 'false' isAbstract = 'false' isActive = 'false'>
+									<UML:Classifier.feature>
+										<UML:Attribute xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000000CE0'                      name = 'MyAttribute' visibility = 'public' isSpecification = 'false' ownerScope = 'instance'                      changeability = 'changeable' targetScope = 'instance'>
+											<UML:StructuralFeature.type>
+												<UML:Class href = 'http://argouml.org/profiles/uml14/default-java.xmi#.:0000000000000858'/>
+											</UML:StructuralFeature.type>
+										</UML:Attribute>
+									</UML:Classifier.feature>
+								</UML:Class>
+							</UML:Namespace.ownedElement>
+						</UML:Package>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+				<UML:Class xmi.id = '-64--88-1--33--10cd7c64:124c94b269a:-8000:0000000000000CF0'          name = 'ClassOutOfPackage' visibility = 'public' isSpecification = 'false'          isRoot = 'false' isLeaf = 'false' isAbstract = 'false' isActive = 'false'/>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+	</XMI.content>
+</XMI>
