@@ -10,9 +10,9 @@ namespace JQueryWebServices
 	public class ExampleService : WebService
 	{
 		[WebMethod]
-		public object HelloWorld()
+		public object HelloWorld(string q)
 		{
-			return new[]{ 1, 2, 3, 4, 5 }.Select(id => new{ id, description = "Numero" + id.ToString() });
+			return new[]{ 1, 2, 3, 4, 5 }.Select(id => new{ id, description = q + " - " + id.ToString() });
 		}
 	}
 }
