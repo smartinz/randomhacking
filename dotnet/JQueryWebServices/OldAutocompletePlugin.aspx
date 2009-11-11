@@ -17,13 +17,22 @@
 
 	<script type="text/javascript">
 		$(function() {
-			$('#example').autocomplete('AutoCompleteHandler.ashx');
+			$('#example').autocomplete('AutoCompleteHandler.ashx', {
+				mustMatch: true,
+				formatItem: function(item) {
+					return item.toString().split('$')[1];
+				},
+				formatResult: function(item) {
+					return item.toString().split('$')[1];
+				}
+			}).result(function(event, item) {
+				$('#out').val(item ? item.toString().split('$')[0] : '');
+			});
 		});
 	</script>
 
 	<input id="example" />
-	<div id="json">
-	</div>
+	<input id="out" />
 	</form>
 </body>
 </html>

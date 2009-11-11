@@ -12,8 +12,10 @@ namespace JQueryWebServices
 			string q = context.Request.QueryString["q"].ToLower();
 			foreach(var match in data.Where(d => d.ToLower().Contains(q)))
 			{
+				context.Response.Write(match[0]);
+				context.Response.Write('$');
 				context.Response.Write(match);
-				context.Response.Write("\n");
+				context.Response.Write('\n');
 			}
 		}
 
