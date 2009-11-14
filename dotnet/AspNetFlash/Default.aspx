@@ -6,6 +6,8 @@
 		onclick="Button1_Click" />
 	<asp:Button ID="Button2" runat="server" Text="Redirect" 
 		onclick="Button2_Click" />
-	<asp:Button ID="Button3" runat="server" Text="Postback" 
+	<asp:Button ID="Button3" runat="server" Text="Set message and Postback" 
 		onclick="Button3_Click" />
+    <asp:Button ID="Button4" runat="server" Text="Postback" 
+        onclick="Button4_Click" />
 </asp:Content>

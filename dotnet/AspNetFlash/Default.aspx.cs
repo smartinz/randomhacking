@@ -18,6 +18,14 @@ namespace AspNetFlash
 			Response.Redirect("~/Default.aspx");
 		}
 
-		protected void Button3_Click(object sender, EventArgs e) {}
+		protected void Button3_Click(object sender, EventArgs e)
+		{
+			FlashMessageManager.SetMessage("Flash message and postback");
+		}
+
+		protected void Button4_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
