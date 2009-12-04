@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMaster xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Master>
+    <Details>
+      <Detail>
+        <Field1>l</Field1>
+        <Field2>l</Field2>
+      </Detail>
+      <Detail>
+        <Field1>m</Field1>
+        <Field2>m</Field2>
+      </Detail>
+    </Details>
+    <Id>1</Id>
+    <Field1>a</Field1>
+    <Field2>b</Field2>
+  </Master>
+</ArrayOfMaster>

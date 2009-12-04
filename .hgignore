@@ -1,0 +1,4 @@
+glob:dotnet/**/bin
+glob:dotnet/**/*.user
+glob:dotnet/**/obj
+glob:dotnet/**/*.suo
