@@ -2,3 +2,4 @@ glob:dotnet/**/bin
 glob:dotnet/**/*.user
 glob:dotnet/**/obj
 glob:dotnet/**/*.suo
+glob:java/GwtHelloWorld/war/WEB-INF/classes/*

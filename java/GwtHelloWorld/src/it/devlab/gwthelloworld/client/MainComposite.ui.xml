@@ -1,0 +1,47 @@
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'>
+	<g:DockLayoutPanel unit='EM'>
+		<g:north size='2'>
+			<g:MenuBar>
+				<g:MenuItem>
+					Menu 1
+					<g:MenuBar vertical="true">
+						<g:MenuItem ui:field="menuItem11">Menu 1 - 1
+						</g:MenuItem>
+						<g:MenuItem>
+							Menu 1 - 2
+							<g:MenuBar vertical="true">
+								<g:MenuItem ui:field="menuItem121">Menu 1 - 2 - 1</g:MenuItem>
+								<g:MenuItem ui:field="menuItem122">Menu 1 - 2 - 2</g:MenuItem>
+							</g:MenuBar>
+						</g:MenuItem>
+					</g:MenuBar>
+				</g:MenuItem>
+			</g:MenuBar>
+		</g:north>
+		<g:center>
+			<g:SplitLayoutPanel>
+				<g:west size='128'>
+					<g:Label>Navigation</g:Label>
+				</g:west>
+				<g:center>
+					<g:TabLayoutPanel barUnit="EM" barHeight="2">
+						<g:tab>
+							<g:header size='7'>
+								<b>HTML</b>
+								header
+							</g:header>
+							<g:Label>able</g:Label>
+						</g:tab>
+						<g:tab>
+							<g:customHeader size='7'>
+								<g:Label>Custom header</g:Label>
+							</g:customHeader>
+							<g:Label>baker</g:Label>
+						</g:tab>
+					</g:TabLayoutPanel>
+				</g:center>
+			</g:SplitLayoutPanel>
+		</g:center>
+	</g:DockLayoutPanel>
+</ui:UiBinder>
