@@ -22,7 +22,7 @@
 		<g:center>
 			<g:SplitLayoutPanel>
 				<g:west size='128'>
-					<g:Label>Navigation</g:Label>
+					<g:Tree ui:field="tree"></g:Tree>
 				</g:west>
 				<g:center>
 					<g:TabLayoutPanel barUnit="EM" barHeight="2">
@@ -35,7 +35,14 @@
 						</g:tab>
 						<g:tab>
 							<g:customHeader size='7'>
-								<g:Label>Custom header</g:Label>
+								<g:DockLayoutPanel ui:field="dock" width="7em" height="2em" unit='EM'>
+									<g:center>
+										<g:Label>Tab 2</g:Label>
+									</g:center>
+									<g:east size="2">
+										<g:Label>x</g:Label>
+									</g:east>
+								</g:DockLayoutPanel>
 							</g:customHeader>
 							<g:Label>baker</g:Label>
 						</g:tab>
