@@ -1,0 +1,35 @@
+body 
+{
+	margin: 0;
+	padding: 0;
+    background-color:#FFFFFF;
+    background-image:url(background.gif);
+    background-position:center top;
+    background-repeat:repeat-x;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+ul
+{
+    margin-left: 1.5em;
+}
+
+#outer
+{
+    padding: 2em;
+}
+
+#content br /* Firefox bug? */
+{
+    margin: 0px;
+}
+
+#content pre
+{
+    padding: 0em .5em;
+    background: #F3F3F3;
+}
+
+
+
