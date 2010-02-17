@@ -1,41 +1,49 @@
 Ext.namespace('exampleApp');
 
 exampleApp.app = function() {
-	new Ext.Viewport({
-		layout: 'border',
-		items: [{
-			region: 'north',
-			height: 200,
-			border: false,
-			split: true,
-			items: [
-				new Ext.Panel({title: 'P 1'}),
-				new Ext.Panel({title: 'P 2'}),
-			]
+	new Ext.Viewport( {
+		layout : {
+			type : 'vbox',
+			pack : 'start',
+			align : 'stretch'
+		},
+		items : [ {
+			xtype : 'toolbar',
+			items : [ {
+				text : 'File',
+				menu : {
+					xtype : 'menu',
+					items : [ {
+						text : 'Open..',
+						handler: exampleApp.menuClickHandler
+					}, {
+						text : 'Save',
+						handler: exampleApp.menuClickHandler
+					}, '-', {
+						text : 'Exit',
+						handler: exampleApp.menuClickHandler
+					} ]
+				}
+			}, {
+				text : 'Help'
+			} ]
 		}, {
-			region: 'west',
-			width: 200,
-			html: '<p>West</p>',
-			border: false,
-			split: true,
-		}, {
-			region: 'south',
-			height: 200,
-			html: '<p>South</p>',
-			border: false,
-			split: true,
-		}, {
-			region: 'east',
-			width: 200,
-			html: '<p>East</p>',
-			border: false,
-			split: true,
-		}, {
-			region: 'center',
-			html: '<p>Center</p>',
-			border: false,
-			split: true,
-		}]
+			flex : 1,
+			xtype : 'tabpanel',
+			activeTab : 0,
+			border : false,
+			items : [ {
+				title : 'Tab 1',
+				html : '<p>Center</p>'
+			}, {
+				title : 'Tab 2',
+				closable : true,
+				html : '<p>Center2</p>'
+			} ]
+		} ]
 	});
 };
 
+exampleApp.menuClickHandler = function(btn){
+	Ext.Msg.alert('Click', btn.text);
+}
