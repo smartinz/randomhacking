@@ -15,6 +15,16 @@ spikeExt.Program.prototype.showMsg = function(btn) {
 	Ext.Msg.alert('Click', btn.text);
 };
 
+spikeExt.Program.prototype.openWindow = function(btn) {
+	var window = new spikeExt.Window(false);
+	window.show();
+};
+
+spikeExt.Program.prototype.openWindowModal = function(btn) {
+	var window = new spikeExt.Window(true);
+	window.show();
+};
+
 spikeExt.Program.prototype.main = function() {
 	this.tabPanel = new Ext.TabPanel( {
 		flex : 1,
@@ -47,8 +57,12 @@ spikeExt.Program.prototype.main = function() {
 						handler : this.newTab,
 						scope : this
 					}, {
-						text : 'Open..',
-						handler : this.showMsg,
+						text : 'Open Window',
+						handler : this.openWindow,
+						scope : this
+					}, {
+						text : 'Open Window Modal',
+						handler : this.openWindowModal,
 						scope : this
 					}, {
 						text : 'Save',
