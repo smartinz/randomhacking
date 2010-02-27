@@ -13,6 +13,8 @@ namespace ExtMvc.Controllers
 		{
 			var customerRepository = new CustomerRepository(MvcApplication.CurrentSession);
 			List<Customer> customers = customerRepository.SearchNormal(null).ToList();
+
+
 			return View();
 		}
 	}

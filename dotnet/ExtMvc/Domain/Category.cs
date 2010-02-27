@@ -1,8 +1,9 @@
 using Iesi.Collections.Generic;
-using ExtMvc.Domain;
+using Newtonsoft.Json;
 
 namespace ExtMvc.Domain
 {
+	[JsonObject]
 	public class Category
 	{
 		private string _description;

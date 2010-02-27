@@ -1,13 +1,15 @@
 using Iesi.Collections.Generic;
-using ExtMvc.Domain;
+using Newtonsoft.Json;
 
 namespace ExtMvc.Domain
 {
+	[JsonObject()]
 	public class Customer
 	{
 		private string _contactName;
 		private ISet<CustomerDemographic> _customerdemographics = new HashedSet<CustomerDemographic>();
 		private ISet<Order> _orders = new HashedSet<Order>();
+
 		public virtual string CustomerId { get; set; }
 		public virtual string CompanyName { get; set; }
 

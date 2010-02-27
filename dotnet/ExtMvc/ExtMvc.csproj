@@ -818,6 +818,7 @@
     <Folder Include="css\" />
     <Folder Include="extjs\resources\images\vista\dd\" />
     <Folder Include="extjs\resources\images\vista\tree\" />
+    <Folder Include="Infrastructure\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
