@@ -35,9 +35,29 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Ext.Direct.Mvc-1.0.0\Ext.Direct.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\NHibernate-2.1.0.GA\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\NHibernate-2.1.0.GA\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=3.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\JSonNet-3.5r6\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\NHibernate-2.1.0.GA\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle, Version=2.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\NHibernate-2.1.0.GA\Castle\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq, Version=1.0.0.4000, Culture=neutral, PublicKeyToken=444cf6a87fdab271, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\References\NHibernate.Linq-1.0.0.GA\NHibernate.Linq.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -64,10 +84,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Data\CategoryRepository.cs" />
+    <Compile Include="Data\CustomerDemographicRepository.cs" />
+    <Compile Include="Data\CustomerRepository.cs" />
+    <Compile Include="Data\EmployeeRepository.cs" />
+    <Compile Include="Data\OrderDetailRepository.cs" />
+    <Compile Include="Data\OrderRepository.cs" />
+    <Compile Include="Data\ProductRepository.cs" />
+    <Compile Include="Data\RegionRepository.cs" />
+    <Compile Include="Data\ShipperRepository.cs" />
+    <Compile Include="Data\SupplierRepository.cs" />
+    <Compile Include="Data\SysdiagramRepository.cs" />
+    <Compile Include="Data\TerritoryRepository.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Domain\Category.cs" />
+    <Compile Include="Domain\Customer.cs" />
+    <Compile Include="Domain\CustomerDemographic.cs" />
+    <Compile Include="Domain\Employee.cs" />
+    <Compile Include="Domain\Order.cs" />
+    <Compile Include="Domain\OrderDetail.cs" />
+    <Compile Include="Domain\Product.cs" />
+    <Compile Include="Domain\Region.cs" />
+    <Compile Include="Domain\Shipper.cs" />
+    <Compile Include="Domain\Supplier.cs" />
+    <Compile Include="Domain\Sysdiagram.cs" />
+    <Compile Include="Domain\Territory.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -75,6 +119,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <EmbeddedResource Include="Domain\Category.hbm.xml" />
+    <EmbeddedResource Include="Domain\Customer.hbm.xml" />
+    <EmbeddedResource Include="Domain\CustomerDemographic.hbm.xml" />
+    <EmbeddedResource Include="Domain\Employee.hbm.xml" />
+    <EmbeddedResource Include="Domain\Order.hbm.xml" />
+    <EmbeddedResource Include="Domain\OrderDetail.hbm.xml" />
+    <EmbeddedResource Include="Domain\Product.hbm.xml" />
+    <EmbeddedResource Include="Domain\Region.hbm.xml" />
+    <EmbeddedResource Include="Domain\Shipper.hbm.xml" />
+    <EmbeddedResource Include="Domain\Supplier.hbm.xml" />
+    <EmbeddedResource Include="Domain\Sysdiagram.hbm.xml" />
+    <EmbeddedResource Include="Domain\Territory.hbm.xml" />
     <Content Include="extjs\adapter\ext\ext-base-debug.js" />
     <Content Include="extjs\adapter\ext\ext-base.js" />
     <Content Include="extjs\adapter\jquery\ext-jquery-adapter-debug.js" />
@@ -738,14 +794,6 @@
     <Content Include="js\extMvc.Program.js" />
     <Content Include="js\extMvc.Window.js" />
     <Content Include="Web.config" />
-    <Content Include="Scripts\jquery-1.3.2.js" />
-    <Content Include="Scripts\jquery-1.3.2.min.js" />
-    <Content Include="Scripts\jquery-1.3.2-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.3.2.min-vsdoc.js" />
-    <Content Include="Scripts\MicrosoftAjax.js" />
-    <Content Include="Scripts\MicrosoftAjax.debug.js" />
-    <Content Include="Scripts\MicrosoftMvcAjax.js" />
-    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Web.config" />
   </ItemGroup>
@@ -770,7 +818,6 @@
     <Folder Include="css\" />
     <Folder Include="extjs\resources\images\vista\dd\" />
     <Folder Include="extjs\resources\images\vista\tree\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

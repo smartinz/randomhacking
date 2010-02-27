@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
+	<class name="ExtMvc.Domain.Sysdiagram, ExtMvc" table="`sysdiagrams`" schema="`dbo`">
+
+		<id name="DiagramId" column="`diagram_id`" type="Int32" unsaved-value="0">
+			<generator class="native" />
+		</id>
+
+
+		<property name="Name" column="`name`" type="String" not-null="true" />
+
+		<property name="PrincipalId" column="`principal_id`" type="Int32" not-null="true" />
+
+		<property name="Version" column="`version`" type="Int32" not-null="false" />
+
+		<property name="Definition" column="`definition`" type="BinaryBlob" not-null="false" />
+
+	</class>
+</hibernate-mapping>
