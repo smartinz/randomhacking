@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -9,6 +10,24 @@ namespace SpikeJson
 		public static Db Db;
 
 		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+		{
+			if (IsArray(value.GetType()))
+			{
+				writer.WriteStartArray();
+				var enumerable = (IEnumerable<Customer>) value;
+				foreach (Customer customer in enumerable)
+				{
+					WriteJsonSingle(customer, writer);
+				}
+				writer.WriteEndArray();
+			}
+			else
+			{
+				WriteJsonSingle(value, writer);
+			}
+		}
+
+		private static void WriteJsonSingle(object value, JsonWriter writer)
 		{
 			var customer = (Customer) value;
 			writer.WriteStartObject();
@@ -22,14 +41,19 @@ namespace SpikeJson
 		public override object ReadJson(JsonReader reader, Type objectType, JsonSerializer serializer)
 		{
 			JObject load = JObject.Load(reader);
-			var id = int.Parse(load.Value<string>("id"));
+			int id = int.Parse(load.Value<string>("id"));
 			var ret = Db.Get<Customer>(id);
 			return ret;
 		}
 
 		public override bool CanConvert(Type objectType)
 		{
-			return objectType == typeof (Customer);
+			return typeof (Customer).IsAssignableFrom(objectType) || IsArray(objectType);
+		}
+
+		private static bool IsArray(Type objectType)
+		{
+			return typeof (IEnumerable<Customer>).IsAssignableFrom(objectType);
 		}
 	}
 }

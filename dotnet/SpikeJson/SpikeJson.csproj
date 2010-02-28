@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerReferenceJsonConverter.cs" />
+    <Compile Include="ItemReferenceJsonConverter.cs" />
     <Compile Include="JsonTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

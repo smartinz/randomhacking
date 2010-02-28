@@ -12,7 +12,9 @@ namespace SpikeJson
 		public void Test()
 		{
 			var customers = new Dictionary<int, Customer>{
-				{1, new Customer{Id = 1, Name = "ALFKI"}}
+				{1, new Customer{Id = 1, Name = "Cust 1"}},
+				{2, new Customer{Id = 2, Name = "Cust 2"}},
+				{3, new Customer{Id = 3, Name = "Cust 3"}},
 			};
 			var items = new Dictionary<int, Item>{
 				{1, new Item{Id = 1, Description = "Computer"}},
@@ -27,6 +29,10 @@ namespace SpikeJson
 				Date = DateTime.Now,
 				Description = "Shopping",
 				Customer = db.Get<Customer>(1),
+				Customers = new List<Customer>{
+					db.Get<Customer>(2),
+					db.Get<Customer>(3),
+				},
 				Items = new List<InvoiceItem>{
 					new InvoiceItem{
 						Id = 1,
@@ -42,7 +48,7 @@ namespace SpikeJson
 					},
 				}
 			};
-			CustomerReferenceJsonConverter.Db = db;
+			CustomerReferenceJsonConverter.Db = ItemReferenceJsonConverter.Db = db;
 			string json = JsonConvert.SerializeObject(invoice, Formatting.Indented);
 			var deserializedInvoice = JsonConvert.DeserializeObject<Invoice>(json);
 		}
@@ -93,6 +99,10 @@ namespace SpikeJson
 	{
 		[JsonConverter(typeof(CustomerReferenceJsonConverter))]
 		public Customer Customer;
+
+		[JsonConverter(typeof(CustomerReferenceJsonConverter))]
+		public IList<Customer> Customers = new List<Customer>();
+
 		public DateTime Date;
 		public string Description;
 		public int Id;
@@ -108,6 +118,7 @@ namespace SpikeJson
 	public class InvoiceItem
 	{
 		public int Id;
+		[JsonConverter(typeof(ItemReferenceJsonConverter))]
 		public Item Item;
 		public int Price;
 		public int Quantity;
