@@ -4,18 +4,18 @@ using Newtonsoft.Json.Linq;
 
 namespace SpikeJson
 {
-	public class ItemReferenceJsonConverter : JsonConverter
+	public class InvoiceReferenceJsonConverter : JsonConverter
 	{
 		private readonly Db _db;
 
-		public ItemReferenceJsonConverter(Db db)
+		public InvoiceReferenceJsonConverter(Db db)
 		{
 			_db = db;
 		}
 
 		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
 		{
-			var customer = (Item)value;
+			var customer = (Invoice)value;
 			writer.WriteStartObject();
 			writer.WritePropertyName("id");
 			writer.WriteValue(customer.Id.ToString());
@@ -28,13 +28,13 @@ namespace SpikeJson
 		{
 			JObject load = JObject.Load(reader);
 			var id = int.Parse(load.Value<string>("id"));
-			var ret = _db.Get<Item>(id);
+			var ret = _db.Get<Invoice>(id);
 			return ret;
 		}
 
 		public override bool CanConvert(Type objectType)
 		{
-			return typeof(Item).IsAssignableFrom(objectType);
+			return typeof(Invoice).IsAssignableFrom(objectType);
 		}
 	}
 }

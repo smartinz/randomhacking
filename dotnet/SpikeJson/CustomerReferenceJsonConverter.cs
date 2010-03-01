@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -7,29 +6,16 @@ namespace SpikeJson
 {
 	public class CustomerReferenceJsonConverter : JsonConverter
 	{
-		public static Db Db;
+		private readonly Db _db;
+
+		public CustomerReferenceJsonConverter(Db db)
+		{
+			_db = db;
+		}
 
 		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
 		{
-			if (IsArray(value.GetType()))
-			{
-				writer.WriteStartArray();
-				var enumerable = (IEnumerable<Customer>) value;
-				foreach (Customer customer in enumerable)
-				{
-					WriteJsonSingle(customer, writer);
-				}
-				writer.WriteEndArray();
-			}
-			else
-			{
-				WriteJsonSingle(value, writer);
-			}
-		}
-
-		private static void WriteJsonSingle(object value, JsonWriter writer)
-		{
-			var customer = (Customer) value;
+			var customer = (Customer)value;
 			writer.WriteStartObject();
 			writer.WritePropertyName("id");
 			writer.WriteValue(customer.Id.ToString());
@@ -42,18 +28,13 @@ namespace SpikeJson
 		{
 			JObject load = JObject.Load(reader);
 			int id = int.Parse(load.Value<string>("id"));
-			var ret = Db.Get<Customer>(id);
+			var ret = _db.Get<Customer>(id);
 			return ret;
 		}
 
 		public override bool CanConvert(Type objectType)
 		{
-			return typeof (Customer).IsAssignableFrom(objectType) || IsArray(objectType);
-		}
-
-		private static bool IsArray(Type objectType)
-		{
-			return typeof (IEnumerable<Customer>).IsAssignableFrom(objectType);
+			return typeof(Customer).IsAssignableFrom(objectType);
 		}
 	}
 }

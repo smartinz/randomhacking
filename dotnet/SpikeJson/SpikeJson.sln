@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpikeJson", "SpikeJson.csproj", "{B6BBB8E7-1B08-4602-BF1D-12D3A15AFA0C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json", "..\..\..\json-trunk\Src\Newtonsoft.Json\Newtonsoft.Json.csproj", "{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{B6BBB8E7-1B08-4602-BF1D-12D3A15AFA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6BBB8E7-1B08-4602-BF1D-12D3A15AFA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6BBB8E7-1B08-4602-BF1D-12D3A15AFA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

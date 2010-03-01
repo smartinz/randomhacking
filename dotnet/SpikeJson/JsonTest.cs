@@ -48,8 +48,7 @@ namespace SpikeJson
 					},
 				}
 			};
-			CustomerReferenceJsonConverter.Db = ItemReferenceJsonConverter.Db = db;
-			string json = JsonConvert.SerializeObject(invoice, Formatting.Indented);
+			string json = JsonConvert.SerializeObject(invoice, Formatting.Indented, new InvoiceReferenceJsonConverter(db), new CustomerReferenceJsonConverter(db), new ItemReferenceJsonConverter(db)); // This strategy doesn't support recursive references
 			var deserializedInvoice = JsonConvert.DeserializeObject<Invoice>(json);
 		}
 	}
@@ -97,10 +96,8 @@ namespace SpikeJson
 
 	public class Invoice
 	{
-		[JsonConverter(typeof(CustomerReferenceJsonConverter))]
 		public Customer Customer;
 
-		[JsonConverter(typeof(CustomerReferenceJsonConverter))]
 		public IList<Customer> Customers = new List<Customer>();
 
 		public DateTime Date;
@@ -118,7 +115,6 @@ namespace SpikeJson
 	public class InvoiceItem
 	{
 		public int Id;
-		[JsonConverter(typeof(ItemReferenceJsonConverter))]
 		public Item Item;
 		public int Price;
 		public int Quantity;
