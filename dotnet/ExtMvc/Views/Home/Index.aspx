@@ -13,12 +13,15 @@
 	<script type="text/javascript" src="<%= Url.Content("~/js/extMvc.Program.js") %>"></script>
 
 	<script type="text/javascript" src="<%= Url.Content("~/js/extMvc.Window.js") %>"></script>
+	
+	<script type="text/javascript" src="<%= Url.Content("~/Direct/Api") %>"></script>
 
 	<script type="text/javascript">
 		Ext.BLANK_IMAGE_URL = '<%= Url.Content("~/extjs/resources/images/default/s.gif") %>';
-
+		
 		var program = new extMvc.Program();
 		Ext.onReady(function() {
+			Ext.Direct.addProvider(Ext.app.REMOTING_API);
 			program.main();
 		});
 	</script>

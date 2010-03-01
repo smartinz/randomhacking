@@ -6,6 +6,8 @@ using ExtMvc.Data;
 using ExtMvc.Domain;
 using ExtMvc.Infrastructure;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 
 namespace ExtMvc.Controllers
 {
@@ -14,10 +16,36 @@ namespace ExtMvc.Controllers
 	{
 		public ActionResult Index()
 		{
-			var customerRepository = new CustomerRepository(MvcApplication.CurrentSession);
-			List<Customer> customers = customerRepository.SearchNormal(null).ToList();
+			return View();
+		}
 
-			var converters = new JsonConverter[]{
+		public ActionResult Find(string contactName)
+		{
+			var customerRepository = new CustomerRepository(MvcApplication.CurrentSession);
+			List<Customer> customers = customerRepository.SearchNormal(contactName).ToList();
+			return new DirectResult{
+				Data = customers,
+				Settings = GetSettings()
+			};
+		}
+
+		public ActionResult Update(JObject customerJson)
+		{
+			var customer = JsonConvert.DeserializeObject<Customer>(customerJson.ToString(), GetSettings());
+			return new DirectResult();
+		}
+
+		static private JsonSerializerSettings GetSettings()
+		{
+			return new JsonSerializerSettings{
+				Converters = GetConverters(),
+				ContractResolver = new CamelCasePropertyNamesContractResolver()
+			};
+		}
+
+		static private JsonConverter[] GetConverters()
+		{
+			return new JsonConverter[]{
 				new CategoryReferenceJsonConverter(new CategoryStringConverter(new CategoryRepository(MvcApplication.CurrentSession))),
 				new EmployeeReferenceJsonConverter(new EmployeeStringConverter(new EmployeeRepository(MvcApplication.CurrentSession))),
 				new OrderDetailReferenceJsonConverter(new OrderDetailStringConverter(new OrderDetailRepository(MvcApplication.CurrentSession))),
@@ -29,8 +57,6 @@ namespace ExtMvc.Controllers
 				new SysdiagramReferenceJsonConverter(new SysdiagramStringConverter(new SysdiagramRepository(MvcApplication.CurrentSession))),
 				new TerritoryReferenceJsonConverter(new TerritoryStringConverter(new TerritoryRepository(MvcApplication.CurrentSession))),
 			};
-			var json = JsonConvert.SerializeObject(customers, Formatting.Indented, converters);
-			return this.Direct(customers, converters);
 		}
 	}
 }

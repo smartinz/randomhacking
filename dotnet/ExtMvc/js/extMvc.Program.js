@@ -25,6 +25,20 @@ extMvc.Program.prototype.openWindowModal = function(btn) {
 	window.show();
 };
 
+extMvc.Program.prototype.findCustomer = function(btn) {
+	var that = this;
+	Home.Find('Maria Anders', function(result, response) {
+		that.currentCustomer = result[0];
+		alert('ok');
+	});
+};
+
+extMvc.Program.prototype.updateCustomer = function(btn) {
+	Home.Update(this.currentCustomer, function(result, response) {
+		alert('ok');
+	});
+};
+
 extMvc.Program.prototype.main = function() {
 	this.tabPanel = new Ext.TabPanel({
 		flex: 1,
@@ -55,6 +69,14 @@ extMvc.Program.prototype.main = function() {
 					items: [{
 						text: 'New Tab',
 						handler: this.newTab,
+						scope: this
+					}, {
+						text: 'Find Customer',
+						handler: this.findCustomer,
+						scope: this
+					}, {
+						text: 'Update Customer',
+						handler: this.updateCustomer,
 						scope: this
 					}, {
 						text: 'Open Window',
