@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace SpikeJson
+namespace $typeUiNamespace$
 {
 	public class InvoiceReferenceJsonConverter : JsonConverter
 	{
