@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using Ext.Direct.Mvc;
@@ -25,7 +26,7 @@ namespace ExtMvc.Controllers
 			List<Customer> customers = customerRepository.SearchNormal(contactName).ToList();
 			return new DirectResult{
 				Data = customers,
-				Settings = GetSettings()
+				Settings = GetSettings<Customer>()
 			};
 		}
 
@@ -35,27 +36,41 @@ namespace ExtMvc.Controllers
 			return new DirectResult();
 		}
 
-		static private JsonSerializerSettings GetSettings()
+		static private JsonSerializerSettings GetSettings<T>()
 		{
 			return new JsonSerializerSettings{
-				Converters = GetConverters(),
+				Converters = GetConverters(typeof(T)),
 				ContractResolver = new CamelCasePropertyNamesContractResolver()
 			};
 		}
 
-		static private JsonConverter[] GetConverters()
+		static private JsonConverter[] GetConverters(Type type)
 		{
 			return new JsonConverter[]{
-				new CategoryReferenceJsonConverter(new CategoryStringConverter(new CategoryRepository(MvcApplication.CurrentSession))),
-				new EmployeeReferenceJsonConverter(new EmployeeStringConverter(new EmployeeRepository(MvcApplication.CurrentSession))),
-				new OrderDetailReferenceJsonConverter(new OrderDetailStringConverter(new OrderDetailRepository(MvcApplication.CurrentSession))),
-				new OrderReferenceJsonConverter(new OrderStringConverter(new OrderRepository(MvcApplication.CurrentSession))),
-				new ProductReferenceJsonConverter(new ProductStringConverter(new ProductRepository(MvcApplication.CurrentSession))),
-				new RegionReferenceJsonConverter(new RegionStringConverter(new RegionRepository(MvcApplication.CurrentSession))),
-				new SupplierReferenceJsonConverter(new SupplierStringConverter(new SupplierRepository(MvcApplication.CurrentSession))),
-				new SupplierReferenceJsonConverter(new SupplierStringConverter(new SupplierRepository(MvcApplication.CurrentSession))),
-				new SysdiagramReferenceJsonConverter(new SysdiagramStringConverter(new SysdiagramRepository(MvcApplication.CurrentSession))),
-				new TerritoryReferenceJsonConverter(new TerritoryStringConverter(new TerritoryRepository(MvcApplication.CurrentSession))),
+				new CategoryJsonConverter(new CategoryStringConverter(new CategoryRepository(MvcApplication.CurrentSession)),
+				                          typeof(Category).IsAssignableFrom(type) ? false : CategoryJsonConverter.DefaultSerializeAsReference),
+				new CustomerDemographicJsonConverter(new CustomerDemographicStringConverter(new CustomerDemographicRepository(MvcApplication.CurrentSession)),
+				                                     typeof(CustomerDemographic).IsAssignableFrom(type) ? false : CustomerDemographicJsonConverter.DefaultSerializeAsReference),
+				new CustomerJsonConverter(new CustomerStringConverter(new CustomerRepository(MvcApplication.CurrentSession)),
+				                          typeof(Customer).IsAssignableFrom(type) ? false : CustomerJsonConverter.DefaultSerializeAsReference),
+				new EmployeeJsonConverter(new EmployeeStringConverter(new EmployeeRepository(MvcApplication.CurrentSession)),
+				                          typeof(Employee).IsAssignableFrom(type) ? false : EmployeeJsonConverter.DefaultSerializeAsReference),
+				new OrderDetailJsonConverter(new OrderDetailStringConverter(new OrderDetailRepository(MvcApplication.CurrentSession)),
+				                             typeof(Order).IsAssignableFrom(type) ? false : OrderJsonConverter.DefaultSerializeAsReference),
+				new OrderJsonConverter(new OrderStringConverter(new OrderRepository(MvcApplication.CurrentSession)),
+				                       typeof(Order).IsAssignableFrom(type) ? false : OrderJsonConverter.DefaultSerializeAsReference),
+				new ProductJsonConverter(new ProductStringConverter(new ProductRepository(MvcApplication.CurrentSession)),
+				                         typeof(Product).IsAssignableFrom(type) ? false : ProductJsonConverter.DefaultSerializeAsReference),
+				new RegionJsonConverter(new RegionStringConverter(new RegionRepository(MvcApplication.CurrentSession)),
+				                        typeof(Region).IsAssignableFrom(type) ? false : RegionJsonConverter.DefaultSerializeAsReference),
+				new ShipperJsonConverter(new ShipperStringConverter(new ShipperRepository(MvcApplication.CurrentSession)),
+				                         typeof(Shipper).IsAssignableFrom(type) ? false : ShipperJsonConverter.DefaultSerializeAsReference),
+				new SupplierJsonConverter(new SupplierStringConverter(new SupplierRepository(MvcApplication.CurrentSession)),
+				                          typeof(Supplier).IsAssignableFrom(type) ? false : SupplierJsonConverter.DefaultSerializeAsReference),
+				new SysdiagramJsonConverter(new SysdiagramStringConverter(new SysdiagramRepository(MvcApplication.CurrentSession)),
+				                            typeof(Sysdiagram).IsAssignableFrom(type) ? false : SysdiagramJsonConverter.DefaultSerializeAsReference),
+				new TerritoryJsonConverter(new TerritoryStringConverter(new TerritoryRepository(MvcApplication.CurrentSession)),
+				                           typeof(Territory).IsAssignableFrom(type) ? false : TerritoryJsonConverter.DefaultSerializeAsReference),
 			};
 		}
 	}

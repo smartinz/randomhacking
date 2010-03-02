@@ -1,9 +1,7 @@
 using Iesi.Collections.Generic;
-using Newtonsoft.Json;
 
 namespace ExtMvc.Domain
 {
-	[JsonObject()]
 	public class Customer
 	{
 		private string _contactName;
@@ -55,9 +53,15 @@ namespace ExtMvc.Domain
 
 		public virtual bool Equals(Customer other)
 		{
-			if (ReferenceEquals(null, other)) return false;
-			if (ReferenceEquals(this, other)) return true;
-			if (CustomerId != default(string))
+			if(ReferenceEquals(null, other))
+			{
+				return false;
+			}
+			if(ReferenceEquals(this, other))
+			{
+				return true;
+			}
+			if(CustomerId != default(string))
 			{
 				return other.CustomerId == CustomerId;
 			}
@@ -66,18 +70,27 @@ namespace ExtMvc.Domain
 
 		public override bool Equals(object obj)
 		{
-			if (ReferenceEquals(null, obj)) return false;
-			if (ReferenceEquals(this, obj)) return true;
-			if (obj.GetType() != typeof (Customer)) return false;
-			return Equals((Customer) obj);
+			if(ReferenceEquals(null, obj))
+			{
+				return false;
+			}
+			if(ReferenceEquals(this, obj))
+			{
+				return true;
+			}
+			if(obj.GetType() != typeof(Customer))
+			{
+				return false;
+			}
+			return Equals((Customer)obj);
 		}
 
-		public static bool operator ==(Customer left, Customer right)
+		static public bool operator ==(Customer left, Customer right)
 		{
 			return Equals(left, right);
 		}
 
-		public static bool operator !=(Customer left, Customer right)
+		static public bool operator !=(Customer left, Customer right)
 		{
 			return !Equals(left, right);
 		}
@@ -87,7 +100,7 @@ namespace ExtMvc.Domain
 			unchecked
 			{
 				int result = 0;
-				if (CustomerId != default(string))
+				if(CustomerId != default(string))
 				{
 					result = (result*397) ^ CustomerId.GetHashCode();
 				}

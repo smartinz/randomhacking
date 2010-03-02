@@ -115,28 +115,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\CategoryReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\CategoryJsonConverter.cs" />
     <Compile Include="Infrastructure\CategoryStringConverter.cs" />
+    <Compile Include="Infrastructure\CustomerDemographicJsonConverter.cs" />
     <Compile Include="Infrastructure\CustomerDemographicStringConverter.cs" />
-    <Compile Include="Infrastructure\CustomerReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\CustomerJsonConverter.cs" />
     <Compile Include="Infrastructure\CustomerStringConverter.cs" />
-    <Compile Include="Infrastructure\EmployeeReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\EmployeeJsonConverter.cs" />
     <Compile Include="Infrastructure\EmployeeStringConverter.cs" />
-    <Compile Include="Infrastructure\OrderDetailReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\OrderDetailJsonConverter.cs" />
     <Compile Include="Infrastructure\OrderDetailStringConverter.cs" />
-    <Compile Include="Infrastructure\OrderReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\OrderJsonConverter.cs" />
     <Compile Include="Infrastructure\OrderStringConverter.cs" />
-    <Compile Include="Infrastructure\ProductReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\ProductJsonConverter.cs" />
     <Compile Include="Infrastructure\ProductStringConverter.cs" />
-    <Compile Include="Infrastructure\RegionReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\RegionJsonConverter.cs" />
     <Compile Include="Infrastructure\RegionStringConverter.cs" />
-    <Compile Include="Infrastructure\ShipperReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\ShipperJsonConverter.cs" />
     <Compile Include="Infrastructure\ShipperStringConverter.cs" />
-    <Compile Include="Infrastructure\SupplierReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\SupplierJsonConverter.cs" />
     <Compile Include="Infrastructure\SupplierStringConverter.cs" />
-    <Compile Include="Infrastructure\SysdiagramReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\SysdiagramJsonConverter.cs" />
     <Compile Include="Infrastructure\SysdiagramStringConverter.cs" />
-    <Compile Include="Infrastructure\TerritoryReferenceJsonConverter.cs" />
+    <Compile Include="Infrastructure\TerritoryJsonConverter.cs" />
     <Compile Include="Infrastructure\TerritoryStringConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
