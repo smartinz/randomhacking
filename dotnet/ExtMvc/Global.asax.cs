@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using Castle.MicroKernel.Registration;
+using Castle.Windsor;
 using log4net.Config;
 using NHibernate;
 using NHibernate.Cfg;
@@ -11,15 +14,9 @@ namespace ExtMvc
 	// Note: For instructions on enabling IIS6 or IIS7 classic mode, 
 	// visit http://go.microsoft.com/?LinkId=9394801
 
-	public class MvcApplication : HttpApplication
+	public class Global : HttpApplication
 	{
-		private static ISessionFactory _sessionFactory;
-
-		public static ISession CurrentSession
-		{
-			get { return (ISession) HttpContext.Current.Items["current.session"]; }
-			set { HttpContext.Current.Items["current.session"] = value; }
-		}
+		public static IWindsorContainer Ioc { get; private set; }
 
 		public static void RegisterRoutes(RouteCollection routes)
 		{
@@ -28,29 +25,34 @@ namespace ExtMvc
 			routes.MapRoute(
 				"Default", // Route name
 				"{controller}/{action}/{id}", // URL with parameters
-				new {controller = "Home", action = "Index", id = ""} // Parameter defaults
+				new{controller = "Home", action = "Index", id = ""} // Parameter defaults
 				);
 		}
 
 		protected void Application_Start()
 		{
 			RegisterRoutes(RouteTable.Routes);
+
 			XmlConfigurator.Configure();
-			_sessionFactory = new Configuration().Configure().BuildSessionFactory();
+
+			var sessionFactory = new Configuration().Configure().BuildSessionFactory();
+
+			Ioc = new WindsorContainer();
+			Ioc.Install(new WindsorInstaller(sessionFactory));
 		}
 
 
 		protected void Application_BeginRequest(object sender, EventArgs e)
 		{
-			CurrentSession = _sessionFactory.OpenSession();
+//			CurrentSession = _sessionFactory.OpenSession();
 		}
 
 		protected void Application_EndRequest(object sender, EventArgs e)
 		{
-			if (CurrentSession != null)
-			{
-				CurrentSession.Dispose();
-			}
+//			if (CurrentSession != null)
+//			{
+//				CurrentSession.Dispose();
+//			}
 		}
 	}
 }
