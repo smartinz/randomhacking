@@ -31,21 +31,17 @@ namespace ExtMvc.Infrastructure
 		/// <param name="keyValues">The key values.</param>
 		/// <param name="expectedNumberOfKeys">The expected number of keys.</param>
 		/// <returns>The array containing the keys.</returns>
-		static public string[] ParseKeys(string keyValues, int expectedNumberOfKeys)
+		public static string[] ParseKeys(string keyValues, int expectedNumberOfKeys)
 		{
 			string[] keys = keyValues.Split(KeySeparator);
-			foreach(string key in keys)
+			foreach (string key in keys)
 			{
-				if(key.Trim() == string.Empty)
-				{
+				if (key.Trim() == string.Empty)
 					throw new ArgumentException("One of the provided keys is empty.", "keyValues");
-				}
 			}
 
-			if(keys.Length != expectedNumberOfKeys)
-			{
+			if (keys.Length != expectedNumberOfKeys)
 				throw new ArgumentException("The number of keys provided does not match the number of expected keys for this object.", "keyValues");
-			}
 
 			return keys;
 		}

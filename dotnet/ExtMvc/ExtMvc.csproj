@@ -85,7 +85,19 @@
     <Reference Include="System.Web.Services" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CategoryController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\CustomerDemographicController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrderDetailController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RegionController.cs" />
+    <Compile Include="Controllers\ShipperController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
+    <Compile Include="Controllers\SysdiagramController.cs" />
+    <Compile Include="Controllers\TerritoryController.cs" />
     <Compile Include="Data\CategoryRepository.cs" />
     <Compile Include="Data\CustomerDemographicRepository.cs" />
     <Compile Include="Data\CustomerRepository.cs" />
@@ -125,6 +137,7 @@
     <Compile Include="Infrastructure\CustomerStringConverter.cs" />
     <Compile Include="Infrastructure\EmployeeJsonConverter.cs" />
     <Compile Include="Infrastructure\EmployeeStringConverter.cs" />
+    <Compile Include="Infrastructure\JsonSerializerSettingsBuilder.cs" />
     <Compile Include="Infrastructure\OrderDetailJsonConverter.cs" />
     <Compile Include="Infrastructure\OrderDetailStringConverter.cs" />
     <Compile Include="Infrastructure\OrderJsonConverter.cs" />
