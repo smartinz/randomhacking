@@ -1,26 +1,46 @@
-﻿using Castle.MicroKernel;
+﻿using System;
+using Castle.Facilities.FactorySupport;
+using Castle.MicroKernel;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using NHibernate;
+using NHibernate.Cfg;
 
 namespace ExtMvc
 {
 	public class WindsorInstaller : IWindsorInstaller
 	{
-		private readonly ISessionFactory _sessionFactory;
-
-		public WindsorInstaller(ISessionFactory sessionFactory)
-		{
-			_sessionFactory = sessionFactory;
-		}
-
 		#region IWindsorInstaller Members
 
 		public void Install(IWindsorContainer container, IConfigurationStore store)
 		{
-			container.Register(AllTypes.FromAssemblyContaining(typeof (WindsorInstaller)), // TODO this will register all classes as singletons!
-			                   Component.For<ISessionFactory>().Instance(_sessionFactory),
+			container.AddFacility<FactorySupportFacility>();
+			container.Register(Component.For<ISessionFactory>().UsingFactoryMethod(() => new Configuration().Configure().BuildSessionFactory()),
+			                   Component.For<Disposable>().LifeStyle.Transient,
+							   Component.For<WithDisposableDependency>().LifeStyle.PerWebRequest,
 			                   Component.For<ISession>().UsingFactoryMethod(k => k.Resolve<ISessionFactory>().OpenSession()).LifeStyle.PerWebRequest); // TODO this is likely a memory leak
+		}
+
+		#endregion
+	}
+
+	public class WithDisposableDependency
+	{
+		private readonly Disposable _disposable;
+
+		public WithDisposableDependency(Disposable disposable)
+		{
+			_disposable = disposable;
+		}
+	}
+
+	public class Disposable : IDisposable
+	{
+		#region IDisposable Members
+
+		public void Dispose()
+		{
+			int i = 0;
 		}
 
 		#endregion

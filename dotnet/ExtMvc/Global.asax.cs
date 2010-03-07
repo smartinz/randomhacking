@@ -35,10 +35,8 @@ namespace ExtMvc
 
 			XmlConfigurator.Configure();
 
-			var sessionFactory = new Configuration().Configure().BuildSessionFactory();
-
 			Ioc = new WindsorContainer();
-			Ioc.Install(new WindsorInstaller(sessionFactory));
+			Ioc.Install(new WindsorInstaller());
 		}
 
 

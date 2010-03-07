@@ -24,6 +24,7 @@ namespace ExtMvc.Controllers
 
 		public ActionResult Find(string contactName)
 		{
+			var factory = Global.Ioc.Resolve<WithDisposableDependency>();
 			var customerRepository = new CustomerRepository(Global.Ioc.Resolve<ISession>());
 			List<Customer> customers = customerRepository.SearchNormal(contactName).ToList();
 			return new DirectResult{
