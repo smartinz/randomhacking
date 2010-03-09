@@ -10,16 +10,16 @@
 
 	<script type="text/javascript" src="<%= Url.Content("~/extjs/ext-all-debug.js") %>"></script>
 
-	<script type="text/javascript" src="<%= Url.Content("~/js/extMvc.Program.js") %>"></script>
+	<script type="text/javascript" src="<%= Url.Content("~/js/app.Program.js") %>"></script>
 
-	<script type="text/javascript" src="<%= Url.Content("~/js/extMvc.Window.js") %>"></script>
-	
+	<script type="text/javascript" src="<%= Url.Content("~/js/app.ui.CustomerSearchNormalPanel.js") %>"></script>
+
 	<script type="text/javascript" src="<%= Url.Content("~/Direct/Api") %>"></script>
 
 	<script type="text/javascript">
 		Ext.BLANK_IMAGE_URL = '<%= Url.Content("~/extjs/resources/images/default/s.gif") %>';
-		
-		var program = new extMvc.Program();
+
+		var program = new app.Program();
 		Ext.onReady(function() {
 			Ext.Direct.addProvider(Ext.app.REMOTING_API);
 			program.main();

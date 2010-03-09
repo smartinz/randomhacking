@@ -831,8 +831,9 @@
     <Content Include="extjs\resources\images\vista\toolbar\gray-bg.gif" />
     <Content Include="extjs\resources\images\vista\toolbar\tb-btn-sprite.gif" />
     <Content Include="Global.asax" />
-    <Content Include="js\extMvc.Program.js" />
-    <Content Include="js\extMvc.Window.js" />
+    <Content Include="js\app.Program.js" />
+    <Content Include="js\app.ui.CustomerSearchNormalPanel.js" />
+    <Content Include="js\app.Window.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Web.config" />
