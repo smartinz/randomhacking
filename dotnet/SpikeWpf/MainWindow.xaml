@@ -1,0 +1,41 @@
+﻿<Window x:Class="SpikeWpf.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:SpikeWpf="clr-namespace:SpikeWpf"
+    Title="MainWindow" Height="264" Width="391">
+
+	<Window.Resources>
+		<DataTemplate DataType="{x:Type SpikeWpf:SearchCustomerViewModel}">
+			<SpikeWpf:SearchCustomerView />
+		</DataTemplate>
+		<DataTemplate x:Key="ClosableTabItemTemplate">
+			<DockPanel Width="120">
+				<Button Command="{Binding Path=CloseCommand}" 
+					Content="X" 
+					DockPanel.Dock="Right" 
+					Focusable="False"
+					FontFamily="Courier" 
+					FontSize="9"
+					FontWeight="Bold"  
+					Margin="0,1,0,0"
+					Padding="0"
+					VerticalContentAlignment="Bottom"
+					Width="16" Height="16" />
+				<ContentPresenter Content="{Binding Path=DisplayName}" VerticalAlignment="Center" />
+			</DockPanel>
+		</DataTemplate>
+	</Window.Resources>
+
+	<DockPanel>
+		<Menu Name="menu" DockPanel.Dock="Top">
+			<MenuItem Header="Customer">
+				<MenuItem Header="Search" Command="{Binding Path=SearchCustomerCommand}" />
+				<MenuItem Header="Create" />
+			</MenuItem>
+		</Menu>
+		<TabControl Name="tabControl" 
+					IsSynchronizedWithCurrentItem="True" 
+					ItemsSource="{Binding Path=Workspaces}"
+					ItemTemplate="{StaticResource ClosableTabItemTemplate}" />
+	</DockPanel>
+</Window>
