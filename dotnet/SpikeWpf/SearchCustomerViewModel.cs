@@ -1,10 +1,11 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Input;
-using MvvmFoundation.Wpf;
+using GalaSoft.MvvmLight.Command;
 
 namespace SpikeWpf
 {
-	public class SearchCustomerViewModel : ObservableObject, IWorkspace
+	public class SearchCustomerViewModel : IWorkspace
 	{
 		public SearchCustomerViewModel()
 		{
@@ -23,5 +24,7 @@ namespace SpikeWpf
 		{
 			RequestClose(this, EventArgs.Empty);
 		}
+
+		public event PropertyChangedEventHandler PropertyChanged = delegate { };
 	}
 }

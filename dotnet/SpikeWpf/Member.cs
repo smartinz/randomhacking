@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq.Expressions;
-using MvvmFoundation.Wpf;
 
 namespace SpikeWpf
 {

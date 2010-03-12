@@ -4,11 +4,11 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Input;
-using MvvmFoundation.Wpf;
+using GalaSoft.MvvmLight.Command;
 
 namespace SpikeWpf
 {
-	public class MainWindowViewModel : ObservableObject
+	public class MainWindowViewModel
 	{
 		public MainWindowViewModel()
 		{
