@@ -30,7 +30,7 @@
 		<Menu Name="menu" DockPanel.Dock="Top">
 			<MenuItem Header="Customer">
 				<MenuItem Header="Search" Command="{Binding Path=SearchCustomerCommand}" />
-				<MenuItem Header="Create" />
+				<MenuItem Header="Create" Command="{Binding Path=CreateCustomerCommand}" />
 			</MenuItem>
 		</Menu>
 		<TabControl Name="tabControl" 
