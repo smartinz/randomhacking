@@ -2,21 +2,25 @@
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using SpikeWpf.Messages;
 
 namespace SpikeWpf
 {
 	public class MainWindowViewModel
 	{
-		public MainWindowViewModel()
+		public MainWindowViewModel() : this(Messenger.Default) {}
+
+		public MainWindowViewModel(Messenger messenger)
 		{
 			Workspaces = new ObservableCollection<IWorkspace>();
 			Workspaces.CollectionChanged += Workspaces_CollectionChanged;
 			SearchCustomerCommand = new RelayCommand(SearchCustomer);
-			CreateCustomerCommand = new RelayCommand(() => Messenger.Default.Send(new OpenWorkspaceModal(new SearchCustomerViewModel())));
+			CreateCustomerCommand = new RelayCommand(() => messenger.Send(new ShowViewModel(new SearchCustomerViewModel())));
 		}
 
 		public ICommand SearchCustomerCommand { get; private set; }

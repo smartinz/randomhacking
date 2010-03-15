@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace SpikeWpf
 {
@@ -8,7 +9,7 @@ namespace SpikeWpf
 		{
 			base.OnStartup(e);
 
-			var viewModel = new MainWindowViewModel();
+			var viewModel = new MainWindowViewModel(Messenger.Default);
 			var window = new MainWindow{ DataContext = viewModel };
 			window.Show();
 		}

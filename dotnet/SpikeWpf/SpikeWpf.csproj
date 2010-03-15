@@ -74,15 +74,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IViewModel.cs" />
     <Compile Include="IWorkspace.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Messages\ShowViewModelModal.cs" />
     <Compile Include="ModalWindow.xaml.cs">
       <DependentUpon>ModalWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OpenWorkspaceModal.cs" />
+    <Compile Include="Messages\ShowViewModel.cs" />
     <Compile Include="Utils\Name.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

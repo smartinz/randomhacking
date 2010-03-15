@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Messaging;
+using SpikeWpf.Messages;
 
 namespace SpikeWpf
 {
@@ -7,17 +8,27 @@ namespace SpikeWpf
 		public MainWindow()
 		{
 			InitializeComponent();
-			Messenger.Default.Register<OpenWorkspaceModal>(this, OpenWorkspace);
+			Messenger.Default.Register<ShowViewModel>(this, ShowViewModel);
+			Messenger.Default.Register<ShowViewModelModal>(this, ShowViewModelModal);
 		}
 
-		private void OpenWorkspace(OpenWorkspaceModal message)
+		private void ShowViewModel(ShowViewModel message)
 		{
 			var window = new ModalWindow{
-				DataContext = message.Workspace,
+				DataContext = message.ViewModel,
 				Owner = this
 			};
-			window.ShowDialog();
-			
+			window.Show();
+		}
+
+		private void ShowViewModelModal(ShowViewModelModal message)
+		{
+			var window = new ModalWindow{
+				DataContext = message.ViewModel,
+				Owner = this
+			};
+			var dialogResult = window.ShowDialog();
+			message.CloseAction(dialogResult);
 		}
 	}
 }
