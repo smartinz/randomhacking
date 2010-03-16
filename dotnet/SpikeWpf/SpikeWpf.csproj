@@ -74,6 +74,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomerView.xaml.cs">
+      <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerViewModel.cs" />
+    <Compile Include="Domain\Customer.cs" />
     <Compile Include="IViewModel.cs" />
     <Compile Include="IWorkspace.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -117,6 +122,10 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

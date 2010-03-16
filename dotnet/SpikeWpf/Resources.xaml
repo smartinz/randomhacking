@@ -2,4 +2,7 @@
 	<DataTemplate DataType="{x:Type SpikeWpf:SearchCustomerViewModel}">
 		<SpikeWpf:SearchCustomerView />
 	</DataTemplate>
+	<DataTemplate DataType="{x:Type SpikeWpf:CustomerViewModel}">
+		<SpikeWpf:CustomerView />
+	</DataTemplate>
 </ResourceDictionary>

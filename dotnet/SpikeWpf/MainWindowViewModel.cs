@@ -7,6 +7,7 @@ using System.Windows.Data;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using SpikeWpf.Domain;
 using SpikeWpf.Messages;
 
 namespace SpikeWpf
@@ -20,7 +21,7 @@ namespace SpikeWpf
 			Workspaces = new ObservableCollection<IWorkspace>();
 			Workspaces.CollectionChanged += Workspaces_CollectionChanged;
 			SearchCustomerCommand = new RelayCommand(SearchCustomer);
-			CreateCustomerCommand = new RelayCommand(() => messenger.Send(new OpenDialogWindowMessage(new SearchCustomerViewModel(), r => MessageBox.Show(r.ToString()))));
+			CreateCustomerCommand = new RelayCommand(() => messenger.Send(new OpenDialogWindowMessage(new CustomerViewModel(new Customer()), r => MessageBox.Show(r.ToString()))));
 		}
 
 		public ICommand SearchCustomerCommand { get; private set; }
