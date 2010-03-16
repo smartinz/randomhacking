@@ -18,10 +18,10 @@ namespace SpikeWpf
 
 		public string Name
 		{
-			get { return _customer.Name; }
+			get { return _customer.ContactName; }
 			set
 			{
-				_customer.Name = value;
+				_customer.ContactName = value;
 				OnPropertyChanged(() => Name);
 			}
 		}
