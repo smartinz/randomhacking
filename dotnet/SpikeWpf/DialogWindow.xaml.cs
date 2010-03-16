@@ -1,52 +1,31 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Input;
+﻿using System.ComponentModel;
+using GalaSoft.MvvmLight.Command;
 
 namespace SpikeWpf
 {
 	public partial class DialogWindow
 	{
-		static public ICommand CancelCommand = new RoutedCommand();
-		static public ICommand OkCommand = new RoutedCommand();
-
 		public DialogWindow()
 		{
 			InitializeComponent();
+			cancelButton.Command = new RelayCommand(Cancel);
+			okButton.Command = new RelayCommand(Ok, CanOk);
 		}
 
-
-		private void cancelButton_Click(object sender, RoutedEventArgs e)
+		private bool CanOk()
 		{
-			DialogResult = false;
+			var dataErrorInfo = DataContext as IDataErrorInfo;
+			return dataErrorInfo == null || string.IsNullOrEmpty(dataErrorInfo.Error);
 		}
 
-		private void okButton_Click(object sender, RoutedEventArgs e)
-		{
-			DialogResult = true;
-		}
-
-		private void OkCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-		{
-			e.CanExecute = true;
-			e.Handled = true;
-		}
-
-		private void OkCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+		private void Ok()
 		{
 			DialogResult = true;
-			e.Handled = true;
 		}
 
-		private void CancelCommand_Executed(object sender, ExecutedRoutedEventArgs e)
+		private void Cancel()
 		{
 			DialogResult = false;
-			e.Handled = true;
-		}
-
-		private void CancelCommand_CanExecute(object sender, CanExecuteRoutedEventArgs e)
-		{
-			e.CanExecute = true;
-			e.Handled = true;
 		}
 	}
 }

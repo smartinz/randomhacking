@@ -3,10 +3,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:SpikeWpf"
     Title="{Binding Path=Title}" Height="179" Width="314">
-	<Window.CommandBindings>
-		<CommandBinding Command="local:DialogWindow.OkCommand" CanExecute="OkCommand_CanExecute" Executed="OkCommand_Executed" />
-		<CommandBinding Command="local:DialogWindow.CancelCommand" CanExecute="CancelCommand_CanExecute" Executed="CancelCommand_Executed" />
-	</Window.CommandBindings>
 	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="*" />
@@ -19,8 +15,8 @@
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
-			<Button Grid.Column="1" Padding="5" Command="local:DialogWindow.OkCommand" Margin="5 0 0 0" Content="Cancel"></Button>
-			<Button Grid.Column="2" Padding="5" Command="local:DialogWindow.CancelCommand" Margin="5 0 0 0" Content="Ok"></Button>
+			<Button x:Name="cancelButton" Grid.Column="1" Padding="5" Margin="5 0 0 0" Content="Cancel"></Button>
+			<Button x:Name="okButton" Grid.Column="2" Padding="5" Margin="5 0 0 0" Content="Ok"></Button>
 		</Grid>
 	</Grid>
 </Window>
