@@ -20,7 +20,7 @@ namespace SpikeWpf
 			Workspaces = new ObservableCollection<IWorkspace>();
 			Workspaces.CollectionChanged += Workspaces_CollectionChanged;
 			SearchCustomerCommand = new RelayCommand(SearchCustomer);
-			CreateCustomerCommand = new RelayCommand(() => messenger.Send(new ShowViewModel(new SearchCustomerViewModel())));
+			CreateCustomerCommand = new RelayCommand(() => messenger.Send(new OpenDialogWindowMessage(new SearchCustomerViewModel(), r => MessageBox.Show(r.ToString()))));
 		}
 
 		public ICommand SearchCustomerCommand { get; private set; }

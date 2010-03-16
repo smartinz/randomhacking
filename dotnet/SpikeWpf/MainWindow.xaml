@@ -5,9 +5,6 @@
     Title="MainWindow" Height="264" Width="391">
 
 	<Window.Resources>
-		<DataTemplate DataType="{x:Type SpikeWpf:SearchCustomerViewModel}">
-			<SpikeWpf:SearchCustomerView />
-		</DataTemplate>
 		<DataTemplate x:Key="ClosableTabItemTemplate">
 			<DockPanel Width="120">
 				<Button Command="{Binding Path=CloseCommand}" 
@@ -21,7 +18,7 @@
 					Padding="0"
 					VerticalContentAlignment="Bottom"
 					Width="16" Height="16" />
-				<ContentPresenter Content="{Binding Path=DisplayName}" VerticalAlignment="Center" />
+				<ContentPresenter Content="{Binding Path=Title}" VerticalAlignment="Center" />
 			</DockPanel>
 		</DataTemplate>
 	</Window.Resources>

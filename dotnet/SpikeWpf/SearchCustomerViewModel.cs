@@ -10,12 +10,12 @@ namespace SpikeWpf
 		public SearchCustomerViewModel()
 		{
 			CloseCommand = new RelayCommand(Close);
-			DisplayName = "Search Customer";
+			Title = "Search Customer";
 		}
 
 		public ICommand CloseCommand { get; private set; }
 
-		public string DisplayName { get; private set; }
+		public string Title { get; private set; }
 		public event EventHandler RequestClose = delegate { };
 
 		public void Dispose() {}

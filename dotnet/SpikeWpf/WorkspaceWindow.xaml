@@ -1,6 +1,6 @@
 ﻿<Window x:Class="SpikeWpf.WorkspaceWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="{Binding Path=DisplayName}">
+    Title="{Binding Path=Title}">
 	<ContentControl Content="{Binding}" />
 </Window>

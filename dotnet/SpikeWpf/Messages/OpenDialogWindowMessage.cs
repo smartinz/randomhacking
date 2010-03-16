@@ -3,9 +3,9 @@ using GalaSoft.MvvmLight.Messaging;
 
 namespace SpikeWpf.Messages
 {
-	public class ShowViewModelModal : MessageBase
+	public class OpenDialogWindowMessage : MessageBase
 	{
-		public ShowViewModelModal(IViewModel viewModel, Action<bool?> closeAction)
+		public OpenDialogWindowMessage(IViewModel viewModel, Action<bool?> closeAction)
 		{
 			ViewModel = viewModel;
 			CloseAction = closeAction;

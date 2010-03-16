@@ -1,4 +1,7 @@
 ﻿namespace SpikeWpf
 {
-	public interface IViewModel {}
+	public interface IViewModel
+	{
+		string Title { get; }
+	}
 }

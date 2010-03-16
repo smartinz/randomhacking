@@ -2,9 +2,9 @@
 
 namespace SpikeWpf
 {
-	public partial class ModalWindow
+	public partial class DialogWindow
 	{
-		public ModalWindow()
+		public DialogWindow()
 		{
 			InitializeComponent();
 		}
