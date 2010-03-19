@@ -1,29 +1,30 @@
-﻿using System.IO;
-using NHibernate;
+﻿using NHibernate;
 using NUnit.Framework;
+using SpikeWpf.Conversation;
 
 namespace SpikeWpf.Tests
 {
 	[TestFixture]
 	public class ConversationTest
 	{
-		#region Setup/Teardown
+		private ISessionFactory _sessionFactory;
+		Conversation.Conversation _target;
 
 		[SetUp]
 		public void SetUp()
 		{
-			log4net.Config.XmlConfigurator.Configure(new FileInfo("log4net.cfg.xml"));
-			_sessionFactory = TestDatabaseHelper.CreateTestDatabase(typeof(ConversationTest).Assembly);
+			_sessionFactory = TestDatabaseHelper.CreateTestDatabase();
+			_target = new Conversation.Conversation(new[]{ _sessionFactory });
 		}
 
-		#endregion
-
-		private ISessionFactory _sessionFactory;
-
 		[Test]
-		public void tt()
+		public void Getting_current_session_without_conversation()
 		{
-			var conversation = new Conversation.Conversation(new[]{_sessionFactory});
+			SetUpFixture.SqlOperationsAppender.Clear();
+			Assert.Throws<ConversationException>(() => _sessionFactory.GetCurrentSession());
+			_target.Start();
+			Assert.Throws<ConversationException>(() => _sessionFactory.GetCurrentSession());
+			Assert.That(SetUpFixture.SqlOperationsAppender.GetEvents().Length, Is.EqualTo(0));
 		}
 	}
 }

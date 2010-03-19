@@ -2,7 +2,7 @@
 
 namespace SpikeWpf.Conversation
 {
-	public interface IConversation
+	public interface IConversation : IDisposable
 	{
 		void Start();
 		IDisposable Resume();

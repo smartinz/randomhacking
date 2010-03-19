@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
+﻿using System.Reflection;
 using NHibernate;
 using NHibernate.ByteCode.Castle;
 using NHibernate.Cfg;
@@ -10,22 +8,18 @@ using NHibernate.Tool.hbm2ddl;
 
 namespace SpikeWpf.Tests
 {
-	public static class TestDatabaseHelper
+	static public class TestDatabaseHelper
 	{
-		public static ISessionFactory CreateTestDatabase(Assembly assemblyContainingMapping)
+		static public ISessionFactory CreateTestDatabase()
 		{
-			string fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TestDb.sqlite");
-			if (File.Exists(fileName))
-			{
-				File.Delete(fileName);
-			}
 			Configuration configuration = new Configuration()
-				.SetProperty(NHibernate.Cfg.Environment.ConnectionDriver, typeof (SQLite20Driver).AssemblyQualifiedName)
-				.SetProperty(NHibernate.Cfg.Environment.Dialect, typeof (SQLiteDialect).AssemblyQualifiedName)
-				.SetProperty(NHibernate.Cfg.Environment.ConnectionString, string.Concat("Data Source=", fileName, ";Version=3;New=True;"))
-				.SetProperty(NHibernate.Cfg.Environment.ProxyFactoryFactoryClass, typeof (ProxyFactoryFactory).AssemblyQualifiedName)
-				.AddAssembly(assemblyContainingMapping);
-			new SchemaExport(configuration).Create(true, false);
+				.SetProperty(Environment.ConnectionDriver, typeof(SqlClientDriver).AssemblyQualifiedName)
+				.SetProperty(Environment.Dialect, typeof(MsSql2005Dialect).AssemblyQualifiedName)
+				.SetProperty(Environment.ConnectionString, string.Concat(@"Data Source=.\SQLEXPRESS;Initial Catalog=Tests;Integrated Security=True"))
+				.SetProperty(Environment.ProxyFactoryFactoryClass, typeof(ProxyFactoryFactory).AssemblyQualifiedName)
+				.SetProperty(Environment.CurrentSessionContextClass, typeof(Conversation.ConversationSessionContext).AssemblyQualifiedName)
+				.AddAssembly(Assembly.GetExecutingAssembly());
+			new SchemaExport(configuration).Create(false, true);
 			return configuration.BuildSessionFactory();
 		}
 	}

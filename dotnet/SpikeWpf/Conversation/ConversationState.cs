@@ -1,6 +1,6 @@
 namespace SpikeWpf.Conversation
 {
-	public enum ConversationStatus
+	public enum ConversationState
 	{
 		Stopped,
 		Started,

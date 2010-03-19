@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using NHibernate;
+using NHibernate.Engine;
+using System.Linq;
 
 namespace SpikeWpf.Conversation
 {
 	public class Conversation : IConversation
 	{
 		private readonly IDictionary<ISessionFactory, ISession> _map;
-		private readonly ConversationStatus _status;
+		private ConversationState _state;
 
 		public Conversation(IEnumerable<ISessionFactory> sessionFactories)
 		{
-			_status = ConversationStatus.Stopped;
+			_state = ConversationState.Stopped;
 			_map = new Dictionary<ISessionFactory, ISession>();
 			foreach(ISessionFactory sessionFactory in sessionFactories)
 			{
@@ -19,30 +21,100 @@ namespace SpikeWpf.Conversation
 			}
 		}
 
-		public void Start() {}
+		public void Start()
+		{
+			CheckState(ConversationState.Stopped);
+			foreach(ISessionFactoryImplementor sessionFactory in _map.Keys)
+			{
+				ISession session = sessionFactory.OpenSession(null, false, false, sessionFactory.Settings.ConnectionReleaseMode);
+				session.FlushMode = FlushMode.Never;
+				_map[sessionFactory] = session;
+			}
+			_state = ConversationState.Started;
+		}
 
 		public IDisposable Resume()
 		{
+			CheckState(ConversationState.Started);
+			foreach(ISession session in _map.Values)
+			{
+				session.BeginTransaction();
+			}
 			ConversationSessionContext.Bind(_map);
+			_state = ConversationState.InContext;
 			return new DisposeAction(Pause);
 		}
 
 		public void Pause()
 		{
-			ConversationSessionContext.Bind(null);
-			foreach(var map in _map) {}
+			CheckState(ConversationState.InContext);
+			ConversationSessionContext.UnBind(_map);
+			foreach(ISession session in _map.Values)
+			{
+				session.Transaction.Commit();
+			}
+			_state = ConversationState.Started;
 		}
 
 		public void End(bool commit)
 		{
+			CheckState(ConversationState.Started);
 			if(commit)
 			{
-				// Commit
+				foreach(ISession session in _map.Values)
+				{
+					using(ITransaction tx = session.BeginTransaction())
+					{
+						session.Flush();
+						tx.Commit();
+					}
+				}
 			}
-			else
+			foreach (ISessionFactory sessionFactory in _map.Keys)
 			{
-				// Rollback
+				_map[sessionFactory].Close();
+				_map[sessionFactory].Dispose();
+				_map[sessionFactory] = null;
 			}
+			_state = ConversationState.Stopped;
+		}
+
+		public void Dispose()
+		{
+			Dispose(true);
+			GC.SuppressFinalize(this);
+		}
+
+		private void CheckState(params ConversationState[] validStates)
+		{
+			foreach(ConversationState validState in validStates)
+			{
+				if(_state == validState)
+				{
+					return;
+				}
+			}
+			throw new ConversationException(string.Concat("Operation not allowed in ", _state, " state"));
+		}
+
+		protected void Dispose(bool disposing)
+		{
+			if(disposing)
+			{
+				if(_state == ConversationState.InContext)
+				{
+					Pause();
+				}
+				if(_state == ConversationState.Started)
+				{
+					End(false);
+				}
+			}
+		}
+
+		~Conversation()
+		{
+			Dispose(false);
 		}
 	}
 }

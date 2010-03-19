@@ -108,7 +108,7 @@
     <Compile Include="Conversation\Conversation.cs" />
     <Compile Include="Conversation\ConversationException.cs" />
     <Compile Include="Conversation\ConversationSessionContext.cs" />
-    <Compile Include="Conversation\ConversationStatus.cs" />
+    <Compile Include="Conversation\ConversationState.cs" />
     <Compile Include="Conversation\DisposeAction.cs" />
     <Compile Include="Conversation\IConversation.cs" />
     <Compile Include="CustomerView.xaml.cs">

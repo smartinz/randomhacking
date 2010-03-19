@@ -25,7 +25,7 @@ namespace SpikeWpf.Conversation
 			{
 				return session;
 			}
-			throw new ConversationException("No current conversation. Make sure the operation is executed with a Resumed");
+			throw new ConversationException("No current conversation. Make sure the operation is executed with a Started and Resumed conversation for this thread");
 		}
 
 		public static void Bind(IDictionary<ISessionFactory, ISession> map)
