@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using NHibernate;
 using NHibernate.Engine;
-using System.Linq;
 
 namespace SpikeWpf.Conversation
 {
@@ -18,7 +18,7 @@ namespace SpikeWpf.Conversation
 
 		public Conversation(IEnumerable<ISessionFactory> sessionFactories)
 		{
-			_state = ConversationState.Stopped;
+			_state = ConversationState.Closed;
 			_map = new Dictionary<ISessionFactory, ISession>();
 			foreach(ISessionFactory sessionFactory in sessionFactories)
 			{
@@ -26,31 +26,31 @@ namespace SpikeWpf.Conversation
 			}
 		}
 
-		public void Start()
+		public void Open()
 		{
-			CheckState(ConversationState.Stopped);
+			CheckState(ConversationState.Closed);
 			foreach(ISessionFactoryImplementor sessionFactory in _map.Keys.ToArray())
 			{
 				ISession session = sessionFactory.OpenSession(null, false, false, sessionFactory.Settings.ConnectionReleaseMode);
 				session.FlushMode = FlushMode.Never;
 				_map[sessionFactory] = session;
 			}
-			_state = ConversationState.Started;
+			_state = ConversationState.Opened;
 		}
 
-		public IDisposable Resume()
+		public IDisposable Context()
 		{
-			CheckState(ConversationState.Started);
+			CheckState(ConversationState.Opened);
 			foreach(ISession session in _map.Values)
 			{
 				session.BeginTransaction();
 			}
 			ConversationSessionContext.Bind(_map);
 			_state = ConversationState.InContext;
-			return new DisposeAction(Pause);
+			return new DisposeAction(UnbindContext);
 		}
 
-		public void Pause()
+		public void UnbindContext()
 		{
 			CheckState(ConversationState.InContext);
 			ConversationSessionContext.UnBind(_map);
@@ -58,36 +58,38 @@ namespace SpikeWpf.Conversation
 			{
 				session.Transaction.Commit();
 			}
-			_state = ConversationState.Started;
-		}
-
-		public void End(bool commit)
-		{
-			CheckState(ConversationState.Started);
-			if(commit)
-			{
-				foreach(ISession session in _map.Values)
-				{
-					using(ITransaction tx = session.BeginTransaction())
-					{
-						session.Flush();
-						tx.Commit();
-					}
-				}
-			}
-			foreach (ISessionFactory sessionFactory in _map.Keys.ToArray())
-			{
-				_map[sessionFactory].Close();
-				_map[sessionFactory].Dispose();
-				_map[sessionFactory] = null;
-			}
-			_state = ConversationState.Stopped;
+			_state = ConversationState.Opened;
 		}
 
 		public void Dispose()
 		{
 			Dispose(true);
 			GC.SuppressFinalize(this);
+		}
+
+		public void Close()
+		{
+			CheckState(ConversationState.Opened);
+			foreach(ISessionFactory sessionFactory in _map.Keys.ToArray())
+			{
+				_map[sessionFactory].Close();
+				_map[sessionFactory].Dispose();
+				_map[sessionFactory] = null;
+			}
+			_state = ConversationState.Closed;
+		}
+
+		public void Flush()
+		{
+			CheckState(ConversationState.Opened);
+			foreach(ISession session in _map.Values)
+			{
+				using(ITransaction tx = session.BeginTransaction())
+				{
+					session.Flush();
+					tx.Commit();
+				}
+			}
 		}
 
 		private void CheckState(params ConversationState[] validStates)
@@ -108,11 +110,11 @@ namespace SpikeWpf.Conversation
 			{
 				if(_state == ConversationState.InContext)
 				{
-					Pause();
+					UnbindContext();
 				}
-				if(_state == ConversationState.Started)
+				if(_state == ConversationState.Opened)
 				{
-					End(false);
+					Close();
 				}
 			}
 		}

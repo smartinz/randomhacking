@@ -6,6 +6,7 @@ using NHibernate.Engine;
 
 namespace SpikeWpf.Conversation
 {
+	[Serializable]
 	public class ConversationSessionContext : ICurrentSessionContext
 	{
 		[ThreadStatic]
@@ -25,7 +26,7 @@ namespace SpikeWpf.Conversation
 			{
 				return session;
 			}
-			throw new ConversationException("No current conversation. Make sure the operation is executed with a Started and Resumed conversation for this thread");
+			throw new ConversationException("No current conversation. Make sure the operation is executed with a Opened conversation in Context for this Thread");
 		}
 
 		public static void Bind(IDictionary<ISessionFactory, ISession> map)
@@ -36,7 +37,7 @@ namespace SpikeWpf.Conversation
 			}
 			if(_map != null)
 			{
-				throw new ConversationException("Another conversation is currently bound to the context");
+				throw new ConversationException("Another conversation is currently in Context");
 			}
 			_map = map;
 		}
@@ -45,7 +46,7 @@ namespace SpikeWpf.Conversation
 		{
 			if(!ReferenceEquals(map, _map))
 			{
-				throw new ConversationException("Cannot unbind a conversation that is not currently in context");
+				throw new ConversationException("Cannot unbind a conversation that is not currently in Context");
 			}
 			_map = null;
 		}
