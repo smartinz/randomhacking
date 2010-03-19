@@ -43,9 +43,9 @@ namespace SpikeWpf.Conversation
 
 		public static void UnBind(IDictionary<ISessionFactory, ISession> map)
 		{
-			if(ReferenceEquals(map, _map))
+			if(!ReferenceEquals(map, _map))
 			{
-				throw new ConversationException("Trying to unbind a conversation that is not in context");
+				throw new ConversationException("Cannot unbind a conversation that is not currently in context");
 			}
 			_map = null;
 		}

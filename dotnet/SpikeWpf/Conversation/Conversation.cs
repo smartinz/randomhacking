@@ -6,6 +6,11 @@ using System.Linq;
 
 namespace SpikeWpf.Conversation
 {
+	/// <summary>
+	/// This is an implementation of Conversation per Business Transaction pattern.
+	/// Doesn't work with tables with "assigned" generator class (like tables with IDENTITY column in SQL Server)
+	/// See http://fabiomaulo.blogspot.com/2008/12/identity-never-ending-story.html
+	/// </summary>
 	public class Conversation : IConversation
 	{
 		private readonly IDictionary<ISessionFactory, ISession> _map;
@@ -24,7 +29,7 @@ namespace SpikeWpf.Conversation
 		public void Start()
 		{
 			CheckState(ConversationState.Stopped);
-			foreach(ISessionFactoryImplementor sessionFactory in _map.Keys)
+			foreach(ISessionFactoryImplementor sessionFactory in _map.Keys.ToArray())
 			{
 				ISession session = sessionFactory.OpenSession(null, false, false, sessionFactory.Settings.ConnectionReleaseMode);
 				session.FlushMode = FlushMode.Never;
@@ -70,7 +75,7 @@ namespace SpikeWpf.Conversation
 					}
 				}
 			}
-			foreach (ISessionFactory sessionFactory in _map.Keys)
+			foreach (ISessionFactory sessionFactory in _map.Keys.ToArray())
 			{
 				_map[sessionFactory].Close();
 				_map[sessionFactory].Dispose();
