@@ -1,7 +1,7 @@
 ﻿using System;
 using NHibernate;
 using NUnit.Framework;
-using SpikeWpf.Conversation;
+using SpikeWpf.ConversationFramework;
 using SpikeWpf.Tests.Domain;
 
 namespace SpikeWpf.Tests
@@ -13,12 +13,12 @@ namespace SpikeWpf.Tests
 		public void SetUp()
 		{
 			_sessionFactory = TestDatabaseHelper.CreateTestDatabase();
-			_conversation = new Conversation.Conversation(new[]{ _sessionFactory });
+			_conversation = new Conversation(new[]{ _sessionFactory });
 			SetUpFixture.SqlOperationsAppender.Clear();
 		}
 
 		private ISessionFactory _sessionFactory;
-		private Conversation.Conversation _conversation;
+		private Conversation _conversation;
 
 		private Guid SaveTestEntities()
 		{

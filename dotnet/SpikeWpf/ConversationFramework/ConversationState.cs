@@ -1,4 +1,4 @@
-namespace SpikeWpf.Conversation
+namespace SpikeWpf.ConversationFramework
 {
 	public enum ConversationState
 	{
