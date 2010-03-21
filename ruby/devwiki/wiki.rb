@@ -7,21 +7,33 @@ module DevWiki
 	FILE_EXTENSION = 'markdown'
 	
 	class WikiServlet < WEBrick::HTTPServlet::AbstractServlet
+		def self.get_instance(config, *options)
+			WikiServlet.new config[:DocumentRoot]
+		end
+
+		def initialize(document_root)
+			@document_root = document_root
+		end
+
 		def do_GET(req, res)
-			file_path = File.join(@server[:DocumentRoot], req.path)
+			file_path = File.join(@document_root, req.path)
 			raise WEBrick::HTTPStatus::NotFound unless File.exist?(file_path)
 			res['content-type'] = 'text/html'
 			res.body = DevWiki.to_html(file_path)
 		end
 	end
 
-	def self.to_html(file)
-		html = ''
-		File.open(File.join(File.dirname(__FILE__), 'page_template.html')) { |f| html = f.read }
-		File.open(file) do	|f| 
-			html.gsub!(/<!--\s*content\s*-->/, Kramdown::Document.new(f.read).to_html) 
-		end
-		html
+	def self.to_html(file, file_extension = FILE_EXTENSION)
+		file_content = ''
+		File.open(file) {	|f| file_content = f.read }
+		file_content = Kramdown::Document.new(file_content).to_html
+		file_content.gsub!(/\[\[(\w+)\]\]/) do
+      "<a href=\"#{$1}.#{file_extension}\">#{$1}</a>"
+    end
+
+		template_content = ''
+		File.open(File.join(File.dirname(__FILE__), 'page_template.html')) { |f| template_content = f.read }
+		template_content.gsub(/<!--\s*content\s*-->/, file_content)
 	end
 	
 	def self.export(source_dir, target_dir)
@@ -36,8 +48,8 @@ module DevWiki
 			if File.file?(source_path)
 				file_extension = File.extname(source_path)[1..-1]
 				if file_extension == DevWiki::FILE_EXTENSION
-					File.open(target_path, 'w') do |f|
-						f.puts DevWiki.to_html(source_path)
+					File.open(target_path[0..-(file_extension.length+1)] + 'html', 'w') do |f|
+						f.puts DevWiki.to_html(source_path, 'html')
 					end
 				else
 					FileUtils.cp source_path, target_path
@@ -60,5 +72,5 @@ end
 
 if $0 == __FILE__
 	DevWiki.export File.dirname(__FILE__), 'c:/users/gimmi/temp/export'
-	DevWiki.start_server
+	#DevWiki.start_server
 end
