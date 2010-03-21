@@ -6,7 +6,7 @@ require 'pow' # http://github.com/probablycorey/pow
 module DevWiki
 	WIKI_FILE_EXTENSION = 'markdown'
 	EXPORTED_WIKI_FILE_EXTENSION = 'html'
-	TEMPLATE_FILE_PATH = File.join(File.dirname(__FILE__), 'page_template', 'page_template.html')
+	TEMPLATE_FILE_PATH = File.join(File.dirname(__FILE__), 'page_template.html')
 	
 	class WikiServlet < WEBrick::HTTPServlet::AbstractServlet
 		def self.get_instance(config, *options)
