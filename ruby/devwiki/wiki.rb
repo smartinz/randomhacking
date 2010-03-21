@@ -4,7 +4,9 @@ require 'kramdown'
 require 'pow' # http://github.com/probablycorey/pow
 
 module DevWiki
-	FILE_EXTENSION = 'markdown'
+	WIKI_FILE_EXTENSION = 'markdown'
+	EXPORTED_WIKI_FILE_EXTENSION = 'html'
+	TEMPLATE_FILE_PATH = File.join(File.dirname(__FILE__), 'page_template', 'page_template.html')
 	
 	class WikiServlet < WEBrick::HTTPServlet::AbstractServlet
 		def self.get_instance(config, *options)
@@ -23,7 +25,7 @@ module DevWiki
 		end
 	end
 
-	def self.to_html(file, file_extension = FILE_EXTENSION)
+	def self.to_html(file, file_extension = WIKI_FILE_EXTENSION)
 		file_content = ''
 		File.open(file) {	|f| file_content = f.read }
 		file_content = Kramdown::Document.new(file_content).to_html
@@ -32,7 +34,7 @@ module DevWiki
     end
 
 		template_content = ''
-		File.open(File.join(File.dirname(__FILE__), 'page_template.html')) { |f| template_content = f.read }
+		File.open(TEMPLATE_FILE_PATH) { |f| template_content = f.read }
 		template_content.gsub(/<!--\s*content\s*-->/, file_content)
 	end
 	
@@ -47,9 +49,9 @@ module DevWiki
 
 			if File.file?(source_path)
 				file_extension = File.extname(source_path)[1..-1]
-				if file_extension == DevWiki::FILE_EXTENSION
-					File.open(target_path[0..-(file_extension.length+1)] + 'html', 'w') do |f|
-						f.puts DevWiki.to_html(source_path, 'html')
+				if file_extension == DevWiki::WIKI_FILE_EXTENSION
+					File.open(replace_file_extension(target_path, EXPORTED_WIKI_FILE_EXTENSION), 'w') do |f|
+						f.puts DevWiki.to_html(source_path, EXPORTED_WIKI_FILE_EXTENSION)
 					end
 				else
 					FileUtils.cp source_path, target_path
@@ -60,8 +62,13 @@ module DevWiki
 		end
 	end
 
+	def self.replace_file_extension(file_name, new_extension)
+		old_extension = File.extname(file_name)[1..-1]
+		file_name[0..-(old_extension.length+1)] + new_extension
+	end
+
 	def self.start_server(port = 2000, document_root = Dir.pwd)
-		WEBrick::HTTPServlet::FileHandler.add_handler FILE_EXTENSION, DevWiki::WikiServlet
+		WEBrick::HTTPServlet::FileHandler.add_handler WIKI_FILE_EXTENSION, DevWiki::WikiServlet
 		server = WEBrick::HTTPServer.new(:Port => port, :DocumentRoot => document_root)
 		['INT', 'TERM'].each do |signal|
 			trap(signal) { server.shutdown }
