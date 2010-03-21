@@ -2,7 +2,7 @@ using System;
 
 namespace SpikeWpf.ConversationFramework
 {
-	public class DisposeAction : IDisposable
+	internal class DisposeAction : IDisposable
 	{
 		private readonly Action _disposeAction;
 

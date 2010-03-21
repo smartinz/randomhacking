@@ -26,7 +26,7 @@ namespace SpikeWpf.ConversationFramework
 			{
 				return session;
 			}
-			throw new ConversationException("No current conversation. Make sure the operation is executed with a Opened conversation in Context for this Thread");
+			throw new ConversationException("No current conversation. Make sure the operation is executed with a Opened conversation in SetAsCurrent for this Thread");
 		}
 
 		public static void Bind(IDictionary<ISessionFactory, ISession> map)
@@ -37,7 +37,7 @@ namespace SpikeWpf.ConversationFramework
 			}
 			if(_map != null)
 			{
-				throw new ConversationException("Another conversation is currently in Context");
+				throw new ConversationException("Another conversation is currently in SetAsCurrent");
 			}
 			_map = map;
 		}
@@ -46,7 +46,7 @@ namespace SpikeWpf.ConversationFramework
 		{
 			if(!ReferenceEquals(map, _map))
 			{
-				throw new ConversationException("Cannot unbind a conversation that is not currently in Context");
+				throw new ConversationException("Cannot unbind a conversation that is not currently in SetAsCurrent");
 			}
 			_map = null;
 		}

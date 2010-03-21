@@ -4,8 +4,8 @@ namespace SpikeWpf.ConversationFramework
 {
 	public interface IConversation : IDisposable
 	{
-		IDisposable Context();
-		void UnbindContext();
+		IDisposable SetAsCurrent();
+		void ResetCurrent();
 
 		void Flush();
 

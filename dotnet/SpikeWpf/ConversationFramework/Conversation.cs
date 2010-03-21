@@ -22,7 +22,7 @@ namespace SpikeWpf.ConversationFramework
 			_state = ConversationState.Opened;
 		}
 
-		public IDisposable Context()
+		public IDisposable SetAsCurrent()
 		{
 			CheckState(ConversationState.Opened);
 			foreach(ISession session in _map.Values)
@@ -31,10 +31,10 @@ namespace SpikeWpf.ConversationFramework
 			}
 			ConversationSessionContext.Bind(_map);
 			_state = ConversationState.InContext;
-			return new DisposeAction(UnbindContext);
+			return new DisposeAction(ResetCurrent);
 		}
 
-		public void UnbindContext()
+		public void ResetCurrent()
 		{
 			CheckState(ConversationState.InContext);
 			ConversationSessionContext.UnBind(_map);
@@ -94,7 +94,7 @@ namespace SpikeWpf.ConversationFramework
 			{
 				if(_state == ConversationState.InContext)
 				{
-					UnbindContext();
+					ResetCurrent();
 				}
 				if(_state == ConversationState.Opened)
 				{

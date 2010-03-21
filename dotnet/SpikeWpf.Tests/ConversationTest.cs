@@ -24,7 +24,7 @@ namespace SpikeWpf.Tests
 		{
 			IConversation conversation = _conversationFactory.Open();
 			MasterEntity newEntity;
-			using (conversation.Context())
+			using (conversation.SetAsCurrent())
 			{
 				newEntity = new MasterEntity{ Name = "Entity1" };
 				newEntity.AddDetail(new DetailEntity{ Name = "Detail1" });
@@ -40,7 +40,7 @@ namespace SpikeWpf.Tests
 		public void Current_session_should_be_available_with_an_active_conversation()
 		{
 			IConversation conversation = _conversationFactory.Open();
-			using (conversation.Context())
+			using (conversation.SetAsCurrent())
 			{
 				Assert.That(_sessionFactory.GetCurrentSession(), Is.Not.Null);
 			}
@@ -63,7 +63,7 @@ namespace SpikeWpf.Tests
 
 			IConversation conversation = _conversationFactory.Open();
 			MasterEntity entity;
-			using (conversation.Context())
+			using (conversation.SetAsCurrent())
 			{
 				entity = _sessionFactory.GetCurrentSession().Get<MasterEntity>(newEntityId);
 			}
@@ -75,7 +75,7 @@ namespace SpikeWpf.Tests
 		public void Should_not_touch_database_when_rollback_conversation()
 		{
 			IConversation conversation = _conversationFactory.Open();
-			using (conversation.Context())
+			using (conversation.SetAsCurrent())
 			{
 				var newEntity = new MasterEntity{ Name = "Entity1" };
 				_sessionFactory.GetCurrentSession().SaveOrUpdate(newEntity);
