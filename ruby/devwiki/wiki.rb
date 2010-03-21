@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'webrick'
 require 'kramdown'
-require 'pow' # http://github.com/probablycorey/pow
 
 module DevWiki
 	WIKI_FILE_EXTENSION = 'markdown'
