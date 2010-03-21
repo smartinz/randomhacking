@@ -16,25 +16,9 @@ namespace SpikeWpf.ConversationFramework
 		private readonly IDictionary<ISessionFactory, ISession> _map;
 		private ConversationState _state;
 
-		public Conversation(IEnumerable<ISessionFactory> sessionFactories)
+		public Conversation(IDictionary<ISessionFactory, ISession> map)
 		{
-			_state = ConversationState.Closed;
-			_map = new Dictionary<ISessionFactory, ISession>();
-			foreach(ISessionFactory sessionFactory in sessionFactories)
-			{
-				_map.Add(sessionFactory, null);
-			}
-		}
-
-		public void Open()
-		{
-			CheckState(ConversationState.Closed);
-			foreach(ISessionFactoryImplementor sessionFactory in _map.Keys.ToArray())
-			{
-				ISession session = sessionFactory.OpenSession(null, false, false, sessionFactory.Settings.ConnectionReleaseMode);
-				session.FlushMode = FlushMode.Never;
-				_map[sessionFactory] = session;
-			}
+			_map = map;
 			_state = ConversationState.Opened;
 		}
 

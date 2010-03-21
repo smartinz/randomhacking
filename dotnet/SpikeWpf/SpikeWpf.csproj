@@ -107,10 +107,12 @@
   <ItemGroup>
     <Compile Include="ConversationFramework\Conversation.cs" />
     <Compile Include="ConversationFramework\ConversationException.cs" />
+    <Compile Include="ConversationFramework\ConversationFactory.cs" />
     <Compile Include="ConversationFramework\ConversationSessionContext.cs" />
     <Compile Include="ConversationFramework\ConversationState.cs" />
     <Compile Include="ConversationFramework\DisposeAction.cs" />
     <Compile Include="ConversationFramework\IConversation.cs" />
+    <Compile Include="ConversationFramework\IConversationFactory.cs" />
     <Compile Include="CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>
