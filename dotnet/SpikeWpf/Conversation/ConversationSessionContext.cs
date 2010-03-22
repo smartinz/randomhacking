@@ -4,7 +4,7 @@ using NHibernate;
 using NHibernate.Context;
 using NHibernate.Engine;
 
-namespace SpikeWpf.ConversationFramework
+namespace SpikeWpf.Conversation
 {
 	[Serializable]
 	public class ConversationSessionContext : ICurrentSessionContext
@@ -29,7 +29,7 @@ namespace SpikeWpf.ConversationFramework
 			throw new ConversationException("No current conversation. Make sure the operation is executed with a Opened conversation in SetAsCurrent for this Thread");
 		}
 
-		public static void Bind(IDictionary<ISessionFactory, ISession> map)
+		static public void Bind(IDictionary<ISessionFactory, ISession> map)
 		{
 			if(map == null)
 			{
@@ -42,7 +42,7 @@ namespace SpikeWpf.ConversationFramework
 			_map = map;
 		}
 
-		public static void UnBind(IDictionary<ISessionFactory, ISession> map)
+		static public void UnBind(IDictionary<ISessionFactory, ISession> map)
 		{
 			if(!ReferenceEquals(map, _map))
 			{

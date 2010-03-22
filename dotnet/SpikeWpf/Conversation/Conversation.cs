@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using NHibernate;
-using NHibernate.Engine;
 
-namespace SpikeWpf.ConversationFramework
+namespace SpikeWpf.Conversation
 {
 	/// <summary>
 	/// This is an implementation of Conversation per Business Transaction pattern.

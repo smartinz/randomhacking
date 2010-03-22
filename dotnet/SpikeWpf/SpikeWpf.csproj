@@ -105,14 +105,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConversationFramework\Conversation.cs" />
-    <Compile Include="ConversationFramework\ConversationException.cs" />
-    <Compile Include="ConversationFramework\ConversationFactory.cs" />
-    <Compile Include="ConversationFramework\ConversationSessionContext.cs" />
-    <Compile Include="ConversationFramework\ConversationState.cs" />
-    <Compile Include="ConversationFramework\DisposeAction.cs" />
-    <Compile Include="ConversationFramework\IConversation.cs" />
-    <Compile Include="ConversationFramework\IConversationFactory.cs" />
+    <Compile Include="Conversation\Conversation.cs" />
+    <Compile Include="Conversation\ConversationException.cs" />
+    <Compile Include="Conversation\ConversationFactory.cs" />
+    <Compile Include="Conversation\ConversationSessionContext.cs" />
+    <Compile Include="Conversation\ConversationState.cs" />
+    <Compile Include="Conversation\DisposeAction.cs" />
+    <Compile Include="Conversation\IConversation.cs" />
+    <Compile Include="Conversation\IConversationFactory.cs" />
     <Compile Include="CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>

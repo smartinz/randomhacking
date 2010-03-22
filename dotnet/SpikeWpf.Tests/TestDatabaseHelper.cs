@@ -5,7 +5,7 @@ using NHibernate.Cfg;
 using NHibernate.Dialect;
 using NHibernate.Driver;
 using NHibernate.Tool.hbm2ddl;
-using SpikeWpf.ConversationFramework;
+using SpikeWpf.Conversation;
 
 namespace SpikeWpf.Tests
 {

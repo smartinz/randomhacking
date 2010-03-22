@@ -1,6 +1,6 @@
 using System;
 
-namespace SpikeWpf.ConversationFramework
+namespace SpikeWpf.Conversation
 {
 	public class ConversationException : Exception
 	{

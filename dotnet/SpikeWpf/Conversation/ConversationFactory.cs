@@ -2,7 +2,7 @@
 using NHibernate;
 using NHibernate.Engine;
 
-namespace SpikeWpf.ConversationFramework
+namespace SpikeWpf.Conversation
 {
 	public class ConversationFactory : IConversationFactory
 	{
@@ -16,7 +16,7 @@ namespace SpikeWpf.ConversationFramework
 		public IConversation Open()
 		{
 			var map = new Dictionary<ISessionFactory, ISession>();
-			foreach (ISessionFactoryImplementor sessionFactory in _sessionFactories)
+			foreach(ISessionFactoryImplementor sessionFactory in _sessionFactories)
 			{
 				ISession session = sessionFactory.OpenSession(null, false, false, sessionFactory.Settings.ConnectionReleaseMode);
 				session.FlushMode = FlushMode.Never;

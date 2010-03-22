@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpikeWpf.ConversationFramework
+namespace SpikeWpf.Conversation
 {
 	public interface IConversation : IDisposable
 	{

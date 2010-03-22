@@ -1,7 +1,7 @@
 ﻿using System;
 using NHibernate;
 using NUnit.Framework;
-using SpikeWpf.ConversationFramework;
+using SpikeWpf.Conversation;
 using SpikeWpf.Tests.Domain;
 
 namespace SpikeWpf.Tests
