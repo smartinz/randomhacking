@@ -1,6 +1,6 @@
 namespace SpikeWpf.Conversation
 {
-	public enum ConversationState
+	internal enum ConversationState
 	{
 		Closed,
 		Opened,
