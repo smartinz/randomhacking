@@ -10,12 +10,12 @@ namespace SpikeWpf.Conversation
 	/// Doesn't work with tables with "assigned" generator class (like tables with IDENTITY column in SQL Server)
 	/// See http://fabiomaulo.blogspot.com/2008/12/identity-never-ending-story.html
 	/// </summary>
-	public class Conversation : IConversation
+	public class NhibernateConversation : IConversation
 	{
 		private readonly IDictionary<ISessionFactory, ISession> _map;
 		private ConversationState _state;
 
-		public Conversation(IDictionary<ISessionFactory, ISession> map)
+		public NhibernateConversation(IDictionary<ISessionFactory, ISession> map)
 		{
 			_map = map;
 			_state = ConversationState.Opened;
@@ -102,7 +102,7 @@ namespace SpikeWpf.Conversation
 			}
 		}
 
-		~Conversation()
+		~NhibernateConversation()
 		{
 			Dispose(false);
 		}

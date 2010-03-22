@@ -13,12 +13,12 @@ namespace SpikeWpf.Tests
 		public void SetUp()
 		{
 			_sessionFactory = TestDatabaseHelper.CreateTestDatabase();
-			_conversationFactory = new ConversationFactory(new[]{ _sessionFactory });
+			_conversationFactory = new NhibernateConversationFactory(new[]{ _sessionFactory });
 			SetUpFixture.SqlOperationsAppender.Clear();
 		}
 
 		private ISessionFactory _sessionFactory;
-		private ConversationFactory _conversationFactory;
+		private NhibernateConversationFactory _conversationFactory;
 
 		private Guid SaveTestEntities()
 		{

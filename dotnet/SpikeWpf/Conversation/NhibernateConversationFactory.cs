@@ -4,11 +4,11 @@ using NHibernate.Engine;
 
 namespace SpikeWpf.Conversation
 {
-	public class ConversationFactory : IConversationFactory
+	public class NhibernateConversationFactory : IConversationFactory
 	{
 		private readonly IEnumerable<ISessionFactory> _sessionFactories;
 
-		public ConversationFactory(IEnumerable<ISessionFactory> sessionFactories)
+		public NhibernateConversationFactory(IEnumerable<ISessionFactory> sessionFactories)
 		{
 			_sessionFactories = sessionFactories;
 		}
@@ -22,7 +22,7 @@ namespace SpikeWpf.Conversation
 				session.FlushMode = FlushMode.Never;
 				map.Add(sessionFactory, session);
 			}
-			return new Conversation(map);
+			return new NhibernateConversation(map);
 		}
 	}
 }
