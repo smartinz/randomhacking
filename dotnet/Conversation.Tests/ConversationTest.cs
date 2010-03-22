@@ -1,10 +1,9 @@
 ﻿using System;
+using Conversation.Tests.Domain;
 using NHibernate;
 using NUnit.Framework;
-using SpikeWpf.Conversation;
-using SpikeWpf.Tests.Domain;
 
-namespace SpikeWpf.Tests
+namespace Conversation.Tests
 {
 	[TestFixture]
 	public class ConversationTest

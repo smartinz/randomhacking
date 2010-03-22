@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NHibernate;
 
-namespace SpikeWpf.Conversation
+namespace Conversation
 {
 	/// <summary>
 	/// This is an implementation of Conversation per Business Transaction pattern.

@@ -5,9 +5,8 @@ using NHibernate.Cfg;
 using NHibernate.Dialect;
 using NHibernate.Driver;
 using NHibernate.Tool.hbm2ddl;
-using SpikeWpf.Conversation;
 
-namespace SpikeWpf.Tests
+namespace Conversation.Tests
 {
 	public static class TestDatabaseHelper
 	{

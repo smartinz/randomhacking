@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8910DBEB-C723-49B0-B87B-7EEF58A2DFA3}</ProjectGuid>
+    <ProjectGuid>{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SpikeWpf.Tests</RootNamespace>
-    <AssemblyName>SpikeWpf.Tests</AssemblyName>
+    <RootNamespace>Conversation.Tests</RootNamespace>
+    <AssemblyName>Conversation.Tests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,17 +31,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=1.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+    <Reference Include="Antlr3.Runtime, Version=3.1.0.39271, Culture=neutral, PublicKeyToken=3a9cab8f8d22bfb7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\CastleWindsor-2.1.1\Castle.Core.dll</HintPath>
+      <HintPath>..\References\NHibernate-2.1.2.GA\Antlr3.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Castle.DynamicProxy2, Version=2.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\CastleWindsor-2.1.1\Castle.DynamicProxy2.dll</HintPath>
-    </Reference>
-    <Reference Include="Castle.Windsor, Version=2.1.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\References\CastleWindsor-2.1.1\Castle.Windsor.dll</HintPath>
     </Reference>
     <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -67,14 +63,8 @@
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
-    <Reference Include="System.Xml.Linq">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
-    <Reference Include="System.Data.DataSetExtensions">
-      <RequiredTargetFramework>3.5</RequiredTargetFramework>
-    </Reference>
     <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConversationTest.cs" />
@@ -85,19 +75,17 @@
     <Compile Include="TestDatabaseHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SpikeWpf\SpikeWpf.csproj">
-      <Project>{C2B115B4-2E1A-4D63-A5C6-12BBA57F4B18}</Project>
-      <Name>SpikeWpf</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Domain\MasterEntity.hbm.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Domain\DetailEntity.hbm.xml" />
+    <EmbeddedResource Include="Domain\MasterEntity.hbm.xml" />
     <Content Include="log4net.cfg.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Conversation\Conversation.csproj">
+      <Project>{D3339140-2B01-4F12-9792-03BE21B14058}</Project>
+      <Name>Conversation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

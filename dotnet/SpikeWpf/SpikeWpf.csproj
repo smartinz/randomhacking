@@ -105,14 +105,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Conversation\NhibernateConversation.cs" />
-    <Compile Include="Conversation\ConversationException.cs" />
-    <Compile Include="Conversation\NhibernateConversationFactory.cs" />
-    <Compile Include="Conversation\ConversationSessionContext.cs" />
-    <Compile Include="Conversation\ConversationState.cs" />
-    <Compile Include="Conversation\DisposeAction.cs" />
-    <Compile Include="Conversation\IConversation.cs" />
-    <Compile Include="Conversation\IConversationFactory.cs" />
     <Compile Include="CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>

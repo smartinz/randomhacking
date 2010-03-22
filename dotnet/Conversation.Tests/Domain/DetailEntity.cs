@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SpikeWpf.Tests.Domain
+namespace Conversation.Tests.Domain
 {
 	public class DetailEntity
 	{

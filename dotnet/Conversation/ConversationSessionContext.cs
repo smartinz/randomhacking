@@ -4,7 +4,7 @@ using NHibernate;
 using NHibernate.Context;
 using NHibernate.Engine;
 
-namespace SpikeWpf.Conversation
+namespace Conversation
 {
 	[Serializable]
 	public class ConversationSessionContext : ICurrentSessionContext

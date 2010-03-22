@@ -5,7 +5,7 @@ using log4net.Appender;
 using log4net.Config;
 using NUnit.Framework;
 
-namespace SpikeWpf.Tests
+namespace Conversation.Tests
 {
 	[SetUpFixture]
 	public class SetUpFixture

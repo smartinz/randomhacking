@@ -1,7 +1,7 @@
 ﻿using System;
 using Iesi.Collections.Generic;
 
-namespace SpikeWpf.Tests.Domain
+namespace Conversation.Tests.Domain
 {
 	public class MasterEntity
 	{

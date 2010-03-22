@@ -2,7 +2,7 @@
 using NHibernate;
 using NHibernate.Engine;
 
-namespace SpikeWpf.Conversation
+namespace Conversation
 {
 	public class NhibernateConversationFactory : IConversationFactory
 	{

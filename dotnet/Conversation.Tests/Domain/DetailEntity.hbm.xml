@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0"?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-	<class name="SpikeWpf.Tests.Domain.DetailEntity, SpikeWpf.Tests" table="`DetailEntity`" optimistic-lock="none">
+	<class name="Conversation.Tests.Domain.DetailEntity, Conversation.Tests" table="`DetailEntity`" optimistic-lock="none">
 		<id name="Id" column="Id" type="Guid">
 			<generator class="assigned" />
 		</id>
 		<version name="Version" column="Version" />
 		<property name="Name" column="`Name`" type="String" not-null="true" />
-		<many-to-one name="MasterEntity" column="MasterEntityId" class="SpikeWpf.Tests.Domain.MasterEntity, SpikeWpf.Tests" />
+		<many-to-one name="MasterEntity" column="MasterEntityId" class="Conversation.Tests.Domain.MasterEntity, Conversation.Tests" />
 	</class>
 </hibernate-mapping>

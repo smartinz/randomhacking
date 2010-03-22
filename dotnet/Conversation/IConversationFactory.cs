@@ -1,4 +1,4 @@
-namespace SpikeWpf.Conversation
+namespace Conversation
 {
 	public interface IConversationFactory
 	{

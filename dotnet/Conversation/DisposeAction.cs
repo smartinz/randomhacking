@@ -1,6 +1,6 @@
 using System;
 
-namespace SpikeWpf.Conversation
+namespace Conversation
 {
 	internal class DisposeAction : IDisposable
 	{
