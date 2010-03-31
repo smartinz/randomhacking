@@ -1,0 +1,32 @@
+﻿<html>
+<head runat="server">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
+
+	<script type="text/javascript" src="extjs/adapter/ext/ext-base.js"></script>
+
+	<script type="text/javascript" src="extjs/ext-all-debug.js"></script>
+
+	<script type="text/javascript">
+		Ext.BLANK_IMAGE_URL = 'extjs/resources/images/default/s.gif';
+		Ext.onReady(function() {
+			Ext.Ajax.request({
+				url: '/CustomerService.svc/GetAll',
+				method: 'POST',
+				params: Ext.util.JSON.encode({}),
+				success: function(response, options) {
+					Ext.get('get-p').update(response.responseText);
+				},
+				failure: function(response, options) {
+					alert('ko');
+				}
+			});
+		});
+	</script>
+
+</head>
+<body>
+<p id="get-p" />
+</body>
+</html>
