@@ -6,19 +6,19 @@ namespace SpikeWcf
 	[DataContract]
 	public class JsonDataTypeTestResponse
 	{
-		[DataMember]
+		[DataMember(Name = "stringPar")]
 		public string StringPar { get; set; }
 
-		[DataMember]
+		[DataMember(Name = "intPar")]
 		public int IntPar { get; set; }
 
-		[DataMember]
+		[DataMember(Name = "boolPar")]
 		public bool BoolPar { get; set; }
 
-		[DataMember]
+		[DataMember(Name = "arrayPar")]
 		public string[] ArrayPar { get; set; }
 
-		[DataMember]
+		[DataMember(Name = "datePar")]
 		public DateTime DatePar { get; set; }
 	}
 }
