@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="SpikeWcf.RootEntityService" CodeBehind="RootEntityService.svc.cs" %>

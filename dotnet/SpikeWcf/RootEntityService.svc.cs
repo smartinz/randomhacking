@@ -5,16 +5,16 @@ using System.ServiceModel.Web;
 namespace SpikeWcf
 {
 	[ServiceContract]
-	public class CustomerService
+	public class RootEntityService
 	{
 		[OperationContract]
 		[WebInvoke(UriTemplate = "/GetAll", BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-		public Customer[] GetAll(Customer customer)
+		public RootEntity[] GetAll(RootEntity rootEntity)
 		{
 			return new[]{
-				customer,
-				new Customer{ Id = 1, Name = "Uno" },
-				new Customer{ Id = 2, Name = "Due" },
+				rootEntity,
+				new RootEntity{ Id = 1, Name = "Uno" },
+				new RootEntity{ Id = 2, Name = "Due" },
 			};
 		}
 

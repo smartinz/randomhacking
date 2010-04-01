@@ -48,9 +48,9 @@ Ext.onReady(function() {
 
 	test('Should call service with complex object as parameter and return value', function() {
 		expect(1);
-		stop();
-		Wcf.invoke('/CustomerService.svc/GetAll', { customer: { Id: 3, Name: 'Customer from javascript'} }, function(ret) {
-			same(ret, [{ "Id": 3, "Name": "Customer from javascript" }, { "Id": 1, "Name": "Uno" }, { "Id": 2, "Name": "Due"}]);
+		stop(10000);
+		Wcf.invoke('/RootEntityService.svc/GetAll', { rootEntity: { Id: 3, Name: 'Root entity from javascript'} }, function(ret) {
+			same(ret, [{ "Id": 3, "Name": "Root entity from javascript" }, { "Id": 1, "Name": "Uno" }, { "Id": 2, "Name": "Due"}]);
 			start();
 		});
 	});
@@ -67,8 +67,8 @@ Ext.onReady(function() {
 			guidPar: 'ae8ad936-0464-4758-aaaf-b51cf0669e3a'
 		};
 		expect(1);
-		stop();
-		Wcf.invoke('/CustomerService.svc/JsonDataTypeTest', parameters, function(ret) {
+		stop(10000);
+		Wcf.invoke('/RootEntityService.svc/JsonDataTypeTest', parameters, function(ret) {
 			same(ret, parameters);
 			start();
 		});

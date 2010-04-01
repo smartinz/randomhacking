@@ -3,7 +3,7 @@
 namespace SpikeWcf
 {
 	[DataContract]
-	public class Customer
+	public class RootEntity
 	{
 		[DataMember]
 		public int Id { get; set; }
