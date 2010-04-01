@@ -10,6 +10,14 @@
 
 	<script type="text/javascript">
 		Ext.BLANK_IMAGE_URL = 'extjs/resources/images/default/s.gif';
+		Ext.util.JSON.encodeDate = function(d) {
+			// This is for serialize Date in JSON the same way as WCF
+			// http://www.extjs.com/forum/archive/index.php/t-31599.html
+			// http://www.extjs.com/deploy/dev/docs/?class=Ext.util.JSON&member=encodeDate
+			// http://www.extjs.com/deploy/dev/docs/?class=Date&member=format
+			return '"' + d.format('M$') + '"';
+		};
+
 		Ext.namespace('SpikeWpf');
 		SpikeWpf.invoke = function(url, jsonData, success) {
 			Ext.Ajax.request({
@@ -25,13 +33,21 @@
 
 		Ext.onReady(function() {
 			SpikeWpf.invoke('/CustomerService.svc/GetAll', { customer: { Id: 3, Name: 'Customer from javascript'} }, function(response, options) {
-				Ext.get('get-p').update(response.responseText);
+				Ext.get('GetAll-p').update(response.responseText);
+			});
+			SpikeWpf.invoke('/CustomerService.svc/JsonDataTypeTest', { stringPar: 'string par', intPar: 102, boolPar: true, arrayPar: ['arr par 1', 'arr par 2'], datePar: new Date(2010, 4, 1, 11, 01, 0, 0) }, function(response, options) {
+				Ext.get('JsonDataTypeTest-p').update(response.responseText);
 			});
 		});
 	</script>
 
 </head>
 <body>
-	<p id="get-p" />
+	<p>
+		GetAll</p>
+	<p id="GetAll-p" />
+	<p>
+		JsonDataTypeTest</p>
+	<p id="JsonDataTypeTest-p" />
 </body>
 </html>

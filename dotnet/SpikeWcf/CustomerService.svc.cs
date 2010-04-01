@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 using System.ServiceModel.Web;
 
 namespace SpikeWcf
@@ -7,7 +8,7 @@ namespace SpikeWcf
 	public class CustomerService
 	{
 		[OperationContract]
-		[WebInvoke(BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "/GetAll")]
+		[WebInvoke(UriTemplate = "/GetAll", BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
 		public Customer[] GetAll(Customer customer)
 		{
 			return new[]{
@@ -17,16 +18,17 @@ namespace SpikeWcf
 			};
 		}
 
-		//[OperationContract]
-		//[WebInvoke(BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json, UriTemplate = "/GetAll")]
-		//public object JsonDataTypeTest(string stringPar, int intPar, bool boolPar, string[] arrayPar)
-		//{
-		//    return new{
-		//        stringPar,
-		//        intPar,
-		//        boolPar,
-		//        arrayPar,
-		//    };
-		//}
+		[OperationContract]
+		[WebInvoke(UriTemplate = "/JsonDataTypeTest", BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+		public JsonDataTypeTestResponse JsonDataTypeTest(string stringPar, int intPar, bool boolPar, string[] arrayPar, DateTime datePar)
+		{
+			return new JsonDataTypeTestResponse{
+				StringPar = stringPar,
+				IntPar = intPar,
+				BoolPar = boolPar,
+				ArrayPar = arrayPar,
+				DatePar = datePar,
+			};
+		}
 	}
 }
