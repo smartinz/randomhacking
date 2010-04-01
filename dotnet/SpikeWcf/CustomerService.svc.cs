@@ -20,7 +20,7 @@ namespace SpikeWcf
 
 		[OperationContract]
 		[WebInvoke(UriTemplate = "/JsonDataTypeTest", BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-		public JsonDataTypeTestResponse JsonDataTypeTest(string stringPar, int intPar, bool boolPar, string[] arrayPar, DateTime datePar)
+		public JsonDataTypeTestResponse JsonDataTypeTest(string stringPar, int intPar, bool boolPar, string[] arrayPar, DateTime datePar, double doublePar, decimal decimalPar, Guid guidPar)
 		{
 			return new JsonDataTypeTestResponse{
 				StringPar = stringPar,
@@ -28,6 +28,9 @@ namespace SpikeWcf
 				BoolPar = boolPar,
 				ArrayPar = arrayPar,
 				DatePar = datePar,
+				DoublePar = doublePar,
+				DecimalPar = decimalPar,
+				GuidPar = guidPar,
 			};
 		}
 	}

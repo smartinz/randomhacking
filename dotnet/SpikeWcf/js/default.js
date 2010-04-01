@@ -61,7 +61,10 @@ Ext.onReady(function() {
 			intPar: 102,
 			boolPar: true,
 			arrayPar: ['arr par 1', 'arr par 2'],
-			datePar: new Date(2010, 4, 1, 11, 1, 0, 0)
+			datePar: new Date(2010, 4, 1, 11, 1, 0, 0),
+			doublePar: 3.14,
+			decimalPar: 6.28,
+			guidPar: 'ae8ad936-0464-4758-aaaf-b51cf0669e3a'
 		};
 		expect(1);
 		stop();

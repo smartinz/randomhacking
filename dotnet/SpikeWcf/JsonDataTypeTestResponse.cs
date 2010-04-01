@@ -20,5 +20,14 @@ namespace SpikeWcf
 
 		[DataMember(Name = "datePar")]
 		public DateTime DatePar { get; set; }
+
+		[DataMember(Name = "doublePar")]
+		public double DoublePar { get; set; }
+
+		[DataMember(Name = "decimalPar")]
+		public decimal DecimalPar { get; set; }
+
+		[DataMember(Name = "guidPar")]
+		public Guid GuidPar { get; set; }
 	}
 }
