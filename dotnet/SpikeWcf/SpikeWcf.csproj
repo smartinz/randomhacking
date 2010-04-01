@@ -61,6 +61,7 @@
   <ItemGroup>
     <Content Include="CustomerService.svc" />
     <Content Include="Default.htm" />
+    <Content Include="js\default.js" />
     <Content Include="extjs\adapter\ext\ext-base-debug.js" />
     <Content Include="extjs\adapter\ext\ext-base.js" />
     <Content Include="extjs\adapter\jquery\ext-jquery-adapter-debug.js" />
