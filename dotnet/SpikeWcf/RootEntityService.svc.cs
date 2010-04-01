@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.Web;
+using SpikeWcf.Dtos;
 
 namespace SpikeWcf
 {
@@ -9,12 +10,12 @@ namespace SpikeWcf
 	{
 		[OperationContract]
 		[WebInvoke(UriTemplate = "/GetAll", BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-		public RootEntity[] GetAll(RootEntity rootEntity)
+		public RootEntityDto[] GetAll(RootEntityDto rootEntity)
 		{
 			return new[]{
 				rootEntity,
-				new RootEntity{ Id = 1, Name = "Uno" },
-				new RootEntity{ Id = 2, Name = "Due" },
+				new RootEntityDto{ StringId = "1", Name = "Uno" },
+				new RootEntityDto{ StringId = "2", Name = "Due" },
 			};
 		}
 
