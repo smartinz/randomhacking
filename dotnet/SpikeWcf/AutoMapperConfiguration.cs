@@ -11,13 +11,33 @@ namespace SpikeWcf
 		{
 			Mapper.Reset();
 			//Mapper.Initialize(c=>c.ConstructServicesUsing()); // For IoC container
+			DomainToDto();
+			DtoToDomain();
+			Mapper.AssertConfigurationIsValid();
+		}
+
+		static private void DomainToDto()
+		{
 			Mapper.CreateMap<RootEntity, RootEntityDto>()
 				.ForMember(d => d.StringId, o => o.ResolveUsing(s => s.Id.ToString()));
 			Mapper.CreateMap<ExternalEntity, ExternalEntityRefDto>()
 				.ForMember(d => d.StringId, o => o.ResolveUsing(s => s.Id.ToString()));
 			Mapper.CreateMap<DetailEntity, DetailEntityDto>()
 				.ForMember(d => d.StringId, o => o.ResolveUsing(s => s.Id.ToString()));
-			Mapper.AssertConfigurationIsValid();
+		}
+
+		static private void DtoToDomain()
+		{
+			Mapper.CreateMap<RootEntityDto, RootEntity>()
+				.ConstructUsing(s => new RootEntity{ Id = int.Parse(s.StringId) })
+				.ForMember(d => d.Id, o => o.Ignore())
+				.ForMember(d => d.ExternalEntities, o => o.Ignore());
+			Mapper.CreateMap<ExternalEntityRefDto, ExternalEntity>()
+				.ConstructUsing(s => new ExternalEntity{ Id = int.Parse(s.StringId) })
+				.ForMember(d => d.Id, o => o.Ignore());
+			Mapper.CreateMap<DetailEntityDto, DetailEntity>()
+				.ConstructUsing(d => new DetailEntity{ Id = int.Parse(d.StringId) })
+				.ForMember(d => d.Id, o => o.Ignore());
 		}
 
 		static private void ResolveUsing<TSource>(this IMemberConfigurationExpression<TSource> o, Func<TSource, object> func)

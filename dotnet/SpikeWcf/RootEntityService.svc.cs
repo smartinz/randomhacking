@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 using System.ServiceModel.Web;
+using AutoMapper;
+using SpikeWcf.Domain;
 using SpikeWcf.Dtos;
 
 namespace SpikeWcf
@@ -12,11 +14,12 @@ namespace SpikeWcf
 		[WebInvoke(UriTemplate = "/GetAll", BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
 		public RootEntityDto[] GetAll(RootEntityDto rootEntity)
 		{
-			return new[]{
-				rootEntity,
-				new RootEntityDto{ StringId = "1", Name = "Uno" },
-				new RootEntityDto{ StringId = "2", Name = "Due" },
-			};
+			var rootEntityDomain = Mapper.Map<RootEntityDto, RootEntity>(rootEntity);
+			return Mapper.Map<RootEntity[], RootEntityDto[]>(new[]{
+				rootEntityDomain, 
+				new RootEntity{ Id = 1, Name = "Uno" }, 
+				new RootEntity{ Id = 2, Name = "Due" },
+			});
 		}
 
 		[OperationContract]

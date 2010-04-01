@@ -40,5 +40,30 @@ namespace SpikeWcf.Tests
 			Assert.That(dest.DetailEntities.Count(), Is.EqualTo(src.DetailEntities.Count()));
 			Assert.That(dest.DetailEntities.First().StringId, Is.EqualTo(src.DetailEntities.First().Id.ToString()));
 		}
+
+		[Test]
+		public void FromDtoToDomain()
+		{
+			
+			var src = new RootEntityDto{
+				StringId = "1",
+				Name = "root entity",
+				ExternalEntity = new ExternalEntityRefDto{
+					StringId = "2",
+					Description = "external entity",
+				},
+				DetailEntities = new[]{
+					new DetailEntityDto{ StringId = "3", Description = "detail entity coll 1" },
+					new DetailEntityDto{ StringId = "4", Description = "detail entity coll 2" },
+				},
+			};
+
+			var dest = Mapper.Map<RootEntityDto, RootEntity>(src);
+
+			Assert.That(dest.Id, Is.EqualTo(1));
+			Assert.That(dest.Name, Is.EqualTo("root entity"));
+			Assert.That(dest.ExternalEntities, Is.Not.Null);
+			Assert.That(dest.DetailEntities.Count(), Is.EqualTo(2));
+		}
 	}
 }
