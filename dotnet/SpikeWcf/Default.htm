@@ -10,23 +10,28 @@
 
 	<script type="text/javascript">
 		Ext.BLANK_IMAGE_URL = 'extjs/resources/images/default/s.gif';
-		Ext.onReady(function() {
+		Ext.namespace('SpikeWpf');
+		SpikeWpf.invoke = function(url, jsonData, success) {
 			Ext.Ajax.request({
-				url: '/CustomerService.svc/GetAll',
+				url: url,
 				method: 'POST',
-				params: Ext.util.JSON.encode({}),
-				success: function(response, options) {
-					Ext.get('get-p').update(response.responseText);
-				},
+				jsonData: jsonData,
+				success: success,
 				failure: function(response, options) {
 					alert('ko');
 				}
+			});
+		};
+
+		Ext.onReady(function() {
+			SpikeWpf.invoke('/CustomerService.svc/GetAll', { customer: { Id: 3, Name: 'Customer from javascript'} }, function(response, options) {
+				Ext.get('get-p').update(response.responseText);
 			});
 		});
 	</script>
 
 </head>
 <body>
-<p id="get-p" />
+	<p id="get-p" />
 </body>
 </html>
