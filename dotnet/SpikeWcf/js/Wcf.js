@@ -1,4 +1,6 @@
-﻿"use strict";
+﻿// See http://erichauser.net/2007/11/02/wcf-35-json-and-extjs/
+
+"use strict";
 
 Ext.namespace('Wcf');
 
