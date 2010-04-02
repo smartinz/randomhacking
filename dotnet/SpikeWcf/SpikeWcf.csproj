@@ -70,8 +70,8 @@
     <Content Include="Global.asax" />
     <Content Include="js\Wcf.js" />
     <Content Include="RootEntityService.svc" />
-    <Content Include="Default.htm" />
-    <Content Include="js\default.js" />
+    <Content Include="Tests.html" />
+    <Content Include="js\tests.js" />
     <Content Include="extjs\adapter\ext\ext-base-debug.js" />
     <Content Include="extjs\adapter\ext\ext-base.js" />
     <Content Include="extjs\adapter\jquery\ext-jquery-adapter-debug.js" />
