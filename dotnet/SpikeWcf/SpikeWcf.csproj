@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Index.html" />
+    <Content Include="js\SpikeWcf.MainViewport.js" />
     <Content Include="js\Wcf.js" />
     <Content Include="RootEntityService.svc" />
     <Content Include="Tests.html" />
