@@ -17,8 +17,22 @@ namespace SpikeWcf
 			var rootEntityDomain = Mapper.Map<RootEntityDto, RootEntity>(rootEntity);
 			return Mapper.Map<RootEntity[], RootEntityDto[]>(new[]{
 				rootEntityDomain, 
-				new RootEntity{ Id = 1, Name = "Uno" }, 
-				new RootEntity{ Id = 2, Name = "Due" },
+				new RootEntity{
+					Id = 1, 
+					Name = "Uno",
+					ExternalEntity = new ExternalEntity{
+						Id = 3,
+						Description = "external entity 3",
+					},
+				}, 
+				new RootEntity{
+					Id = 2, 
+					Name = "Due",
+					ExternalEntity = new ExternalEntity{
+						Id = 4,
+						Description = "external entity 4"
+					}
+				},
 			});
 		}
 

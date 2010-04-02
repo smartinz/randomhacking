@@ -49,11 +49,11 @@ Ext.onReady(function() {
 	test('Should call service with complex object as parameter and return value', function() {
 		expect(1);
 		stop(10000);
-		Wcf.invoke('/RootEntityService.svc/GetAll', { rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": null} }, function(ret) {
+		Wcf.invoke('/RootEntityService.svc/GetAll', { rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5"}} }, function(ret) {
 			same(ret, [
-				{ "StringId": "3", "DetailEntities": [], "ExternalEntity": null, "Name": "Root entity from javascript" },
-				{ "StringId": "1", "DetailEntities": [], "ExternalEntity": null, "Name": "Uno" },
-				{ "StringId": "2", "DetailEntities": [], "ExternalEntity": null, "Name": "Due" }
+				{ "StringId": "3", "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5" }, "Name": "Root entity from javascript" },
+				{ "StringId": "1", "DetailEntities": [], "ExternalEntity": { StringId: "3", Description: "external entity 3" }, "Name": "Uno" },
+				{ "StringId": "2", "DetailEntities": [], "ExternalEntity": { StringId: "4", Description: "external entity 4" }, "Name": "Due" }
 			]);
 			start();
 		});
