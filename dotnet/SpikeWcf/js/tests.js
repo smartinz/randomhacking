@@ -3,7 +3,7 @@ Ext.BLANK_IMAGE_URL = 'extjs/resources/images/default/s.gif';
 
 Ext.onReady(function() {
 	Wcf.init();
-	
+
 	module('Json/Wcf date handling');
 
 	test("Should encode date as expected by Wcf", function() {
@@ -49,6 +49,35 @@ Ext.onReady(function() {
 		Wcf.invoke('/RootEntityService.svc/JsonDataTypeTest', parameters, function(ret) {
 			same(ret, parameters);
 			start();
+		});
+	});
+
+	module('Data store');
+
+	test('Should call server', function() {
+		var proxy = new Ext.data.HttpProxy({
+			// Same parameters as Ext.Ajax.request
+			url: '/RootEntityService.svc/GetAll',
+			method: 'POST',
+			jsonData: { rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5"}} }
+		});
+		var reader = new Ext.data.JsonReader({
+			root: 'Items',
+			idProperty: "StringId",
+			fields: [
+					{ name: 'StringId', type: 'string', mapping: 'StringId' },
+					{ name: 'Name', type: 'string', mapping: 'Name' }
+				]
+		})
+		expect(1);
+		stop(10000);
+		proxy.doRequest('read', null, {}, reader, function (r, options, success){
+			ok(true);
+			start();
+		});
+		var store = new Ext.data.Store({
+			proxy: proxy,
+			reader: reader
 		});
 	});
 });
