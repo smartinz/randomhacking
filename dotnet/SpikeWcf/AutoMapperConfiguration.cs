@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using SpikeWcf.Domain;
 using SpikeWcf.Dtos;
@@ -31,13 +32,25 @@ namespace SpikeWcf
 			Mapper.CreateMap<RootEntityDto, RootEntity>()
 				.ConstructUsing(s => new RootEntity{ Id = int.Parse(s.StringId) })
 				.ForMember(d => d.Id, o => o.Ignore())
-				.ForMember(d => d.ExternalEntities, o => o.Ignore());
+				.ForMember(d => d.ExternalEntities, o => o.Ignore())
+				.ForMember(d => d.DetailEntities, o => o.Ignore())
+				.AfterMap((s, d) => FillCollection(s, d, ss => ss.DetailEntities, dd => dd.DetailEntities));
 			Mapper.CreateMap<ExternalEntityRefDto, ExternalEntity>()
 				.ConstructUsing(s => new ExternalEntity{ Id = int.Parse(s.StringId) })
 				.ForMember(d => d.Id, o => o.Ignore());
 			Mapper.CreateMap<DetailEntityDto, DetailEntity>()
 				.ConstructUsing(d => new DetailEntity{ Id = int.Parse(d.StringId) })
 				.ForMember(d => d.Id, o => o.Ignore());
+		}
+
+		static private void FillCollection<TSource, TDestination, TSourceItem, TDestinationItem>(TSource s, TDestination d, Func<TSource, IEnumerable<TSourceItem>> getSourceEnum, Func<TDestination, ICollection<TDestinationItem>> getDestinationColl)
+		{
+			ICollection<TDestinationItem> collection = getDestinationColl(d);
+			collection.Clear();
+			foreach(TSourceItem sourceItem in getSourceEnum(s) ?? new TSourceItem[0])
+			{
+				collection.Add(Mapper.Map<TSourceItem, TDestinationItem>(sourceItem));
+			}
 		}
 
 		static private void ResolveUsing<TSource>(this IMemberConfigurationExpression<TSource> o, Func<TSource, object> func)

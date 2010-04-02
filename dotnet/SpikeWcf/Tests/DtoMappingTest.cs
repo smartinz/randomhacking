@@ -44,7 +44,6 @@ namespace SpikeWcf.Tests
 		[Test]
 		public void FromDtoToDomain()
 		{
-			
 			var src = new RootEntityDto{
 				StringId = "1",
 				Name = "root entity",
