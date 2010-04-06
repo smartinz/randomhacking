@@ -75,18 +75,5 @@ Ext.onReady(function() {
 			same(r.records[2].data, { "StringId": "2", "Name": "Due" });
 			start();
 		});
-/*
-		var store = new Ext.data.Store({
-			proxy: proxy,
-			reader: reader
-		});
-		
-		var columnModel = new Ext.grid.ColumnModel({
-			columns: [
-				{ header: "String id", width: 60, sortable: true },
-				{ header: "Name", width: 150, sortable: true }
-			]
-		});
-*/
 	});
 });
