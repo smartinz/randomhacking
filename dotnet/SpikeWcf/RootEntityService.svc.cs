@@ -35,7 +35,7 @@ namespace SpikeWcf
 					}
 				},
 			});
-			return new PagedItems<RootEntityDto>(ret);
+			return new PagedItems<RootEntityDto>(ret, ret.Length);
 		}
 
 		[OperationContract]
