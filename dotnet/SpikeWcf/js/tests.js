@@ -28,7 +28,8 @@ Ext.onReady(function() {
 				{ "StringId": "3", "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5" }, "Name": "Root entity from javascript" },
 				{ "StringId": "1", "DetailEntities": [], "ExternalEntity": { StringId: "3", Description: "external entity 3" }, "Name": "Uno" },
 				{ "StringId": "2", "DetailEntities": [], "ExternalEntity": { StringId: "4", Description: "external entity 4" }, "Name": "Due" }
-			]});
+			]
+			});
 			start();
 		});
 	});
@@ -54,7 +55,7 @@ Ext.onReady(function() {
 
 	module('Data store');
 
-	test('Should call server', function() {
+	test('Should call server with HttpProxy', function() {
 		var proxy = new Ext.data.HttpProxy({
 			// Same parameters as Ext.Ajax.request
 			url: '/RootEntityService.svc/GetAll',
@@ -69,16 +70,18 @@ Ext.onReady(function() {
 				{ name: 'Name', type: 'string', mapping: 'Name' }
 			]
 		})
-		expect(1);
+		expect(3);
 		stop(10000);
-		proxy.doRequest('read', null, {}, reader, function (r, options, success){
-			ok(true);
+		proxy.doRequest('read', null, {}, reader, function(r, options, success) {
+			same(r.records[0].data, { "StringId": "3", "Name": "Root entity from javascript" });
+			same(r.records[1].data, { "StringId": "1", "Name": "Uno" });
+			same(r.records[2].data, { "StringId": "2", "Name": "Due" });
 			start();
 		});
 		/*
 		var store = new Ext.data.Store({
-			proxy: proxy,
-			reader: reader
+		proxy: proxy,
+		reader: reader
 		});
 		*/
 	});
