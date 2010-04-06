@@ -747,6 +747,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="PagedItems.cs" />
     <Compile Include="RootEntityService.svc.cs">
       <DependentUpon>RootEntityService.svc</DependentUpon>
     </Compile>

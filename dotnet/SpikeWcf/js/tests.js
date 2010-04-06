@@ -24,11 +24,11 @@ Ext.onReady(function() {
 		expect(1);
 		stop(10000);
 		Wcf.invoke('/RootEntityService.svc/GetAll', { rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5"}} }, function(ret) {
-			same(ret, [
+			same(ret, { items: [
 				{ "StringId": "3", "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5" }, "Name": "Root entity from javascript" },
 				{ "StringId": "1", "DetailEntities": [], "ExternalEntity": { StringId: "3", Description: "external entity 3" }, "Name": "Uno" },
 				{ "StringId": "2", "DetailEntities": [], "ExternalEntity": { StringId: "4", Description: "external entity 4" }, "Name": "Due" }
-			]);
+			]});
 			start();
 		});
 	});
@@ -62,12 +62,12 @@ Ext.onReady(function() {
 			jsonData: { rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5"}} }
 		});
 		var reader = new Ext.data.JsonReader({
-			root: 'Items',
+			root: 'items',
 			idProperty: "StringId",
 			fields: [
-					{ name: 'StringId', type: 'string', mapping: 'StringId' },
-					{ name: 'Name', type: 'string', mapping: 'Name' }
-				]
+				{ name: 'StringId', type: 'string', mapping: 'StringId' },
+				{ name: 'Name', type: 'string', mapping: 'Name' }
+			]
 		})
 		expect(1);
 		stop(10000);
@@ -75,9 +75,11 @@ Ext.onReady(function() {
 			ok(true);
 			start();
 		});
+		/*
 		var store = new Ext.data.Store({
 			proxy: proxy,
 			reader: reader
 		});
+		*/
 	});
 });
