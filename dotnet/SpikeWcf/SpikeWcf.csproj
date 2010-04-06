@@ -751,7 +751,7 @@
     <Compile Include="RootEntityService.svc.cs">
       <DependentUpon>RootEntityService.svc</DependentUpon>
     </Compile>
-    <Compile Include="JsonDataTypeTestResponse.cs" />
+    <Compile Include="Dtos\JsonDataTypeTestResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\DtoMappingTest.cs" />
   </ItemGroup>
