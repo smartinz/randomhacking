@@ -12,21 +12,25 @@ SpikeWcf.SearchCustomerWindow = Ext.extend(Ext.Window, {
 			flex: 1,
 			border: false,
 			store: new Ext.data.Store({
-				proxy: Wcf.buildDataProxy('/RootEntityService.svc/GetAll', { 
-					rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5" } } 
-				}),
+				proxy: Wcf.buildDataProxy('/CustomerService.svc/Find'),
 				reader: new Ext.data.JsonReader({
 					root: 'items',
-					idProperty: "StringId",
-					fields: [
-						{ name: 'StringId', type: 'string', mapping: 'StringId' },
-						{ name: 'Name', type: 'string', mapping: 'Name' }
-					]
+					idProperty: "customerId",
+					fields: ['customerId', 'companyName', 'contactName', 'contactTitle', 'address', 'city', 'region', 'postalCode', 'country', 'phone', 'fax' ]
 				})
 			}),
 			columns: [
-				{ header: "String id", width: 60, sortable: true },
-				{ header: "Name", width: 150, sortable: true }
+				{ header: "Id", width: 60, sortable: true },
+				{ header: "Company", width: 60, sortable: true },
+				{ header: "Contact name", width: 60, sortable: true },
+				{ header: "Contact title", width: 60, sortable: true },
+				{ header: "Address", width: 60, sortable: true },
+				{ header: "City", width: 60, sortable: true },
+				{ header: "Region", width: 60, sortable: true },
+				{ header: "Postal code", width: 60, sortable: true },
+				{ header: "Country", width: 60, sortable: true },
+				{ header: "Phone", width: 60, sortable: true },
+				{ header: "Fax", width: 60, sortable: true }
 			]
 		});
 		

@@ -6,27 +6,27 @@ namespace SpikeWcf.Dtos.Northwind
 	[DataContract]
 	public class OrderDto
 	{
-		[DataMember]
+		[DataMember(Name = "orderId")]
 		public int OrderId { get; set; }
-		[DataMember]
+		[DataMember(Name = "orderDate")]
 		public DateTime? OrderDate { get; set; }
-		[DataMember]
+		[DataMember(Name = "requiredDate")]
 		public DateTime? RequiredDate { get; set; }
-		[DataMember]
+		[DataMember(Name = "shippedDate")]
 		public DateTime? ShippedDate { get; set; }
-		[DataMember]
+		[DataMember(Name = "freight")]
 		public decimal? Freight { get; set; }
-		[DataMember]
+		[DataMember(Name = "shipName")]
 		public string ShipName { get; set; }
-		[DataMember]
+		[DataMember(Name = "shipAddress")]
 		public string ShipAddress { get; set; }
-		[DataMember]
+		[DataMember(Name = "shipCity")]
 		public string ShipCity { get; set; }
-		[DataMember]
+		[DataMember(Name = "shipRegion")]
 		public string ShipRegion { get; set; }
-		[DataMember]
+		[DataMember(Name = "shipPostalCode")]
 		public string ShipPostalCode { get; set; }
-		[DataMember]
+		[DataMember(Name = "shipCountry")]
 		public string ShipCountry { get; set; }
 	}
 }

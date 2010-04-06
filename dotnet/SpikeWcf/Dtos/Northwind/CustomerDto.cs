@@ -5,29 +5,29 @@ namespace SpikeWcf.Dtos.Northwind
 	[DataContract]
 	public class CustomerDto
 	{
-		[DataMember]
+		[DataMember(Name = "customerId")]
 		public string CustomerId { get; set; }
-		[DataMember]
+		[DataMember(Name = "companyName")]
 		public string CompanyName { get; set; }
-		[DataMember]
+		[DataMember(Name = "contactName")]
 		public string ContactName { get; set; }
-		[DataMember]
+		[DataMember(Name = "contactTitle")]
 		public string ContactTitle { get; set; }
-		[DataMember]
+		[DataMember(Name = "address")]
 		public string Address { get; set; }
-		[DataMember]
+		[DataMember(Name = "city")]
 		public string City { get; set; }
-		[DataMember]
+		[DataMember(Name = "region")]
 		public string Region { get; set; }
-		[DataMember]
+		[DataMember(Name = "postalCode")]
 		public string PostalCode { get; set; }
-		[DataMember]
+		[DataMember(Name = "country")]
 		public string Country { get; set; }
-		[DataMember]
+		[DataMember(Name = "phone")]
 		public string Phone { get; set; }
-		[DataMember]
+		[DataMember(Name = "fax")]
 		public string Fax { get; set; }
-		[DataMember]
+		[DataMember(Name = "orders")]
 		public OrderDto[] Orders { get; set; }
 	}
 }
