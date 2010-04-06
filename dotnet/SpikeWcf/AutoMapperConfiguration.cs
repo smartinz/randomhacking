@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using AutoMapper;
 using SpikeWcf.Domain;
+using SpikeWcf.Domain.Northwind;
 using SpikeWcf.Dtos;
+using SpikeWcf.Dtos.Northwind;
 
 namespace SpikeWcf
 {
@@ -25,6 +27,9 @@ namespace SpikeWcf
 				.ForMember(d => d.StringId, o => o.ResolveUsing(s => s.Id.ToString()));
 			Mapper.CreateMap<DetailEntity, DetailEntityDto>()
 				.ForMember(d => d.StringId, o => o.ResolveUsing(s => s.Id.ToString()));
+
+			Mapper.CreateMap<Customer, CustomerDto>();
+			Mapper.CreateMap<Order, OrderDto>();
 		}
 
 		static private void DtoToDomain()

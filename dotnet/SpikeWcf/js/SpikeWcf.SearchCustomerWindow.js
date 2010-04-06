@@ -2,7 +2,7 @@
 
 Ext.namespace("SpikeWcf");
 
-SpikeWcf.SearchWindow = Ext.extend(Ext.Window, {
+SpikeWcf.SearchCustomerWindow = Ext.extend(Ext.Window, {
 	title: 'Grid',
 	width: 300,
 	height: 300,
@@ -53,7 +53,7 @@ SpikeWcf.SearchWindow = Ext.extend(Ext.Window, {
 				scope: this
 			}]
 		}, this.resultGridPanel];
-		SpikeWcf.SearchWindow.superclass.initComponent.call(this);
+		SpikeWcf.SearchCustomerWindow.superclass.initComponent.call(this);
 	},
 	
 	searchClick: function(b, e) {

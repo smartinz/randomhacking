@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Web;
+using log4net.Config;
+using NHibernate;
+using NHibernate.Cfg;
 
 namespace SpikeWcf
 {
@@ -7,8 +10,12 @@ namespace SpikeWcf
 	{
 		protected void Application_Start(object sender, EventArgs e)
 		{
+			XmlConfigurator.Configure();
 			AutoMapperConfiguration.Configure();
+			SessionFactory = new Configuration().Configure().BuildSessionFactory();
 		}
+
+		static public ISessionFactory SessionFactory;
 
 		protected void Session_Start(object sender, EventArgs e) {}
 

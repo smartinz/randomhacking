@@ -22,7 +22,7 @@ SpikeWcf.MainViewport = Ext.extend(Ext.Viewport, {
 	},
 	
 	gridButtonClick: function () {
-		var window = new SpikeWcf.SearchWindow();
+		var window = new SpikeWcf.SearchCustomerWindow();
 		window.show();
 	}
 });
