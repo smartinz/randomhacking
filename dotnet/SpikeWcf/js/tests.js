@@ -56,11 +56,8 @@ Ext.onReady(function() {
 	module('Data store');
 
 	test('Should call server with HttpProxy', function() {
-		var proxy = new Ext.data.HttpProxy({
-			// Same parameters as Ext.Ajax.request
-			url: '/RootEntityService.svc/GetAll',
-			method: 'POST',
-			jsonData: { rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5"}} }
+		var proxy = Wcf.buildDataProxy('/RootEntityService.svc/GetAll', { 
+			rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5" } } 
 		});
 		var reader = new Ext.data.JsonReader({
 			root: 'items',
@@ -69,7 +66,7 @@ Ext.onReady(function() {
 				{ name: 'StringId', type: 'string', mapping: 'StringId' },
 				{ name: 'Name', type: 'string', mapping: 'Name' }
 			]
-		})
+		});
 		expect(3);
 		stop(10000);
 		proxy.doRequest('read', null, {}, reader, function(r, options, success) {
@@ -78,11 +75,18 @@ Ext.onReady(function() {
 			same(r.records[2].data, { "StringId": "2", "Name": "Due" });
 			start();
 		});
-		/*
+/*
 		var store = new Ext.data.Store({
-		proxy: proxy,
-		reader: reader
+			proxy: proxy,
+			reader: reader
 		});
-		*/
+		
+		var columnModel = new Ext.grid.ColumnModel({
+			columns: [
+				{ header: "String id", width: 60, sortable: true },
+				{ header: "Name", width: 150, sortable: true }
+			]
+		});
+*/
 	});
 });

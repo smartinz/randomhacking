@@ -33,3 +33,12 @@ Wcf.jsonDecode = function(json) {
 	var adjustedJson = json.replace(new RegExp('(^|[^\\\\])\\"\\\\/Date\\((-?[0-9]+)(?:[a-zA-Z]|(?:\\+|-)[0-9]{4})?\\)\\\\/\\"', 'g'), "$1new Date($2)");
 	return Ext.util.JSON.decode(adjustedJson);
 };
+
+Wcf.buildDataProxy = function(url, params) {
+	return new Ext.data.HttpProxy({
+		// Same parameters as Ext.Ajax.request
+		url: url,
+		method: 'POST',
+		jsonData: params
+	});
+};
