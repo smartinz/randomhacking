@@ -8,10 +8,33 @@ SpikeWcf.SearchWindow = Ext.extend(Ext.Window, {
 	height: 300,
 	layout: 'vbox',
 	initComponent: function () {
+		this.resultGridPanel = new Ext.grid.GridPanel({
+			flex: 1,
+			border: false,
+			store: new Ext.data.Store({
+				proxy: Wcf.buildDataProxy('/RootEntityService.svc/GetAll', { 
+					rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5" } } 
+				}),
+				reader: new Ext.data.JsonReader({
+					root: 'items',
+					idProperty: "StringId",
+					fields: [
+						{ name: 'StringId', type: 'string', mapping: 'StringId' },
+						{ name: 'Name', type: 'string', mapping: 'Name' }
+					]
+				})
+			}),
+			columns: [
+				{ header: "String id", width: 60, sortable: true },
+				{ header: "Name", width: 150, sortable: true }
+			]
+		});
+		
 		this.layoutConfig = {
 			align: 'stretch',
 			pack: 'start'
 		};
+		
 		this.items = [{
 			xtype: 'form',
 			labelWidth: 75,
@@ -25,38 +48,15 @@ SpikeWcf.SearchWindow = Ext.extend(Ext.Window, {
 			},
 			{
 				xtype: 'button',
-				text: 'MyButton'
+				text: 'Search',
+				handler: this.searchClick,
+				scope: this
 			}]
-		}/*,
-		{
-			xtype: 'grid',
-			flex: 1,
-			border: false,
-			columns: [{
-				xtype: 'gridcolumn',
-				header: 'Column',
-				sortable: true,
-				resizable: true,
-				width: 100,
-				dataIndex: 'string'
-			},
-			{
-				xtype: 'gridcolumn',
-				header: 'Column',
-				sortable: true,
-				resizable: true,
-				width: 100,
-				dataIndex: 'string'
-			},
-			{
-				xtype: 'gridcolumn',
-				header: 'Column',
-				sortable: true,
-				resizable: true,
-				width: 100,
-				dataIndex: 'string'
-			}]
-		}*/];
+		}, this.resultGridPanel];
 		SpikeWcf.SearchWindow.superclass.initComponent.call(this);
+	},
+	
+	searchClick: function(b, e) {
+		this.resultGridPanel.getStore().load();
 	}
 });
