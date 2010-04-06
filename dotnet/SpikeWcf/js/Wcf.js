@@ -34,11 +34,15 @@ Wcf.jsonDecode = function(json) {
 	return Ext.util.JSON.decode(adjustedJson);
 };
 
-Wcf.buildDataProxy = function(url, params) {
-	return new Ext.data.HttpProxy({
+Wcf.buildDataProxy = function(url) {
+	var proxy = new Ext.data.HttpProxy({
 		// Same parameters as Ext.Ajax.request
 		url: url,
-		method: 'POST',
-		jsonData: params
+		method: 'POST'
 	});
+	proxy.getConnection().on('beforerequest', function (conn, options) {
+		options.jsonData = options.params;
+		delete options.params;
+	});
+	return proxy;
 };

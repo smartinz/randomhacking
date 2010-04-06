@@ -56,24 +56,32 @@ Ext.onReady(function() {
 	module('Data store');
 
 	test('Should call server with HttpProxy', function() {
-		var proxy = Wcf.buildDataProxy('/RootEntityService.svc/GetAll', { 
-			rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5" } } 
+		var dataStore = new Ext.data.Store({
+			proxy: Wcf.buildDataProxy('/RootEntityService.svc/GetAll'),
+			reader: new Ext.data.JsonReader({
+				root: 'items',
+				idProperty: "StringId",
+				fields: [
+					{ name: 'StringId', type: 'string', mapping: 'StringId' },
+					{ name: 'Name', type: 'string', mapping: 'Name' }
+				]
+			})
 		});
-		var reader = new Ext.data.JsonReader({
-			root: 'items',
-			idProperty: "StringId",
-			fields: [
-				{ name: 'StringId', type: 'string', mapping: 'StringId' },
-				{ name: 'Name', type: 'string', mapping: 'Name' }
-			]
-		});
-		expect(3);
+		
+		expect(4);
 		stop(10000);
-		proxy.doRequest('read', null, {}, reader, function(r, options, success) {
-			same(r.records[0].data, { "StringId": "3", "Name": "Root entity from javascript" });
-			same(r.records[1].data, { "StringId": "1", "Name": "Uno" });
-			same(r.records[2].data, { "StringId": "2", "Name": "Due" });
-			start();
+		
+		dataStore.load({
+			params: { 
+				rootEntity: { StringId: "3", Name: 'Root entity from javascript', "DetailEntities": [], "ExternalEntity": { StringId: "5", Description: "external entity 5" } } 
+			},
+			callback: function (r, options, success) {
+				ok(success);
+				same(r[0].data, { "StringId": "3", "Name": "Root entity from javascript" });
+				same(r[1].data, { "StringId": "1", "Name": "Uno" });
+				same(r[2].data, { "StringId": "2", "Name": "Due" });
+				start();
+			}
 		});
 	});
 });
