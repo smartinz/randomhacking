@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 
 Ext.namespace("SpikeWcf");
 
@@ -11,31 +11,36 @@ SpikeWcf.EditCustomerWindow = Ext.extend(Ext.Window, {
 		this.editCustomerFormPanel = new Ext.form.FormPanel({
 			border: false,
 			padding: 10,
+			api: {
+				load: function (a, b) {
+					var aa = a;
+					var bb = b;
+
+					for( var i = 0; i < arguments.length; i++ ) {
+						alert(arguments[i]);
+					}
+				},
+				submit: function (a, b, c) {
+					var aa = a;
+					var bb = b;
+					var cc = c;
+					
+					for( var i = 0; i < arguments.length; i++ ) {
+						alert(arguments[i]);
+					}
+				}
+			},
 			buttons: [{
 				text: 'Load',
 				handler: function () {
-					this.editCustomerFormPanel.getForm().load({
-						url: '/CustomerService.svc/Get',
-						method: 'POST',
-						params: { customerId: 'ALFKI' },
-						//waitMsg: 'Loading',
-						success: function(form, action) {
-							Ext.MessageBox.alert('Message', 'Loaded OK');
-						},
-						failure: function(form, action) {
-							Ext.MessageBox.alert('Message', 'Load failed');
-						}
-					});
+					this.editCustomerFormPanel.getForm().load({params: {foo: 'bar', uid: 34}});
 				},
 				scope: this
 			},
 			{
 				text: 'Save',
 				handler: function () {
-					this.editCustomerFormPanel.getForm().submit({
-						url: '/CustomerService.svc/Get',
-						method: 'POST'
-					});
+					this.editCustomerFormPanel.getForm().submit();
 				},
 				scope: this
 			}],
