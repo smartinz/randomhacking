@@ -89,8 +89,10 @@ SpikeWcf.EditCustomerWindow = Ext.extend(Ext.Window, {
 
 	loadClick: function () {
 		var that = this;
+		that.el.mask('Please wait...', 'x-mask-loading');
 		Wcf.invoke('/CustomerService.svc/Get', { customerId: 'ALFKI' }, function (ret) {
 			that.editCustomerFormPanel.getForm().setValues(ret);
+			that.el.unmask();
 		});
 	},
 
