@@ -112,6 +112,7 @@
     <Content Include="CustomerService.svc" />
     <Content Include="Global.asax" />
     <Content Include="Index.html" />
+    <Content Include="js\SpikeWcf.EditCustomerWindow.js" />
     <Content Include="js\SpikeWcf.MainViewport.js" />
     <Content Include="js\SpikeWcf.SearchCustomerWindow.js" />
     <Content Include="js\Wcf.js" />

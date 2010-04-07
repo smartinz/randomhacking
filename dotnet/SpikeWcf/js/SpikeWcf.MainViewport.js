@@ -12,8 +12,14 @@ SpikeWcf.MainViewport = Ext.extend(Ext.Viewport, {
 				xtype: 'toolbar',
 				items: [{
 					xtype: 'button',
-					text: 'Grid',
-					handler: this.gridButtonClick,
+					text: 'Search Customer',
+					handler: this.searchCustomerClick,
+					scope: this
+				},
+				{
+					xtype: 'button',
+					text: 'Edit Customer',
+					handler: this.editCustomerClick,
 					scope: this
 				}]
 			}
@@ -21,8 +27,13 @@ SpikeWcf.MainViewport = Ext.extend(Ext.Viewport, {
 		SpikeWcf.MainViewport.superclass.initComponent.call(this);
 	},
 	
-	gridButtonClick: function () {
+	searchCustomerClick: function () {
 		var window = new SpikeWcf.SearchCustomerWindow();
+		window.show();
+	},
+	
+	editCustomerClick: function () {
+		var window = new SpikeWcf.EditCustomerWindow();
 		window.show();
 	}
 });
