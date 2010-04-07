@@ -9,16 +9,35 @@ SpikeWcf.EditCustomerWindow = Ext.extend(Ext.Window, {
 	layout: 'fit',
 	initComponent: function() {
 		this.editCustomerFormPanel = new Ext.form.FormPanel({
-			labelWidth: 100,
-			labelAlign: 'left',
-			layout: 'form',
 			border: false,
 			padding: 10,
 			buttons: [{
 				text: 'Load',
 				handler: function () {
-					alert('ok');
-				}
+					this.editCustomerFormPanel.getForm().load({
+						url: '/CustomerService.svc/Get',
+						method: 'POST',
+						params: { customerId: 'ALFKI' },
+						//waitMsg: 'Loading',
+						success: function(form, action) {
+							Ext.MessageBox.alert('Message', 'Loaded OK');
+						},
+						failure: function(form, action) {
+							Ext.MessageBox.alert('Message', 'Load failed');
+						}
+					});
+				},
+				scope: this
+			},
+			{
+				text: 'Save',
+				handler: function () {
+					this.editCustomerFormPanel.getForm().submit({
+						url: '/CustomerService.svc/Get',
+						method: 'POST'
+					});
+				},
+				scope: this
 			}],
 			items: [{
 				xtype: 'textfield',
