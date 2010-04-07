@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 
 Ext.namespace("SpikeWcf");
 
@@ -25,17 +25,61 @@ SpikeWcf.SearchCustomerWindow = Ext.extend(Ext.Window, {
 			border: false,
 			store: resultStore,
 			columns: [
-				{ header: "Id", width: 60, sortable: true },
-				{ header: "Company", width: 60, sortable: true },
-				{ header: "Contact name", width: 60, sortable: true },
-				{ header: "Contact title", width: 60, sortable: true },
-				{ header: "Address", width: 60, sortable: true },
-				{ header: "City", width: 60, sortable: true },
-				{ header: "Region", width: 60, sortable: true },
-				{ header: "Postal code", width: 60, sortable: true },
-				{ header: "Country", width: 60, sortable: true },
-				{ header: "Phone", width: 60, sortable: true },
-				{ header: "Fax", width: 60, sortable: true }
+			{
+				header: "Id",
+				width: 60,
+				sortable: true
+			},
+			{
+				header: "Company",
+				width: 60,
+				sortable: true
+			},
+			{
+				header: "Contact name",
+				width: 60,
+				sortable: true
+			},
+			{
+				header: "Contact title",
+				width: 60,
+				sortable: true
+			},
+			{
+				header: "Address",
+				width: 60,
+				sortable: true
+			},
+			{
+				header: "City",
+				width: 60,
+				sortable: true
+			},
+			{
+				header: "Region",
+				width: 60,
+				sortable: true
+			},
+			{
+				header: "Postal code",
+				width: 60,
+				sortable: true
+			},
+			{
+				header: "Country",
+				width: 60,
+				sortable: true
+			},
+			{
+				header: "Phone",
+				width: 60,
+				sortable: true
+			},
+			{
+				header: "Fax",
+				width: 60,
+				sortable: true
+			}
 			],
 			bbar: new Ext.PagingToolbar({
 				store: resultStore, // grid and PagingToolbar using same store
@@ -66,11 +110,18 @@ SpikeWcf.SearchCustomerWindow = Ext.extend(Ext.Window, {
 				text: 'Search',
 				handler: this.searchClick,
 				scope: this
-			}]}, this.resultGridPanel];
-			SpikeWcf.SearchCustomerWindow.superclass.initComponent.call(this);
-		},
+			}]
+		}, this.resultGridPanel
+		];
+		SpikeWcf.SearchCustomerWindow.superclass.initComponent.call(this);
+	},
 
-		searchClick: function(b, e) {
-			this.resultGridPanel.getStore().load({params:{start:0, limit:25}});
-		}
-	});
+	searchClick: function(b, e) {
+		this.resultGridPanel.getStore().load({
+			params:{
+				start:0,
+				limit:25
+			}
+		});
+	}
+});
