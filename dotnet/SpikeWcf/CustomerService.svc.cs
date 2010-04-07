@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using AutoMapper;
@@ -39,6 +40,14 @@ namespace SpikeWcf
 				var customerDto = Mapper.Map<Customer, CustomerDto>(customer);
 				return customerDto;
 			}
+		}
+
+		[OperationContract]
+		[WebInvoke(UriTemplate = "/Save", BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+		public bool Save(CustomerDto customer)
+		{
+			_log.DebugFormat("Save(customer.customerId: {0})", customer.CustomerId);
+			return true;
 		}
 	}
 }
