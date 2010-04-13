@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using AutoMapper;
 using log4net;
+using NHibernate;
+using NHibernate.Linq;
 using SpikeWcf.Domain.Northwind;
 using SpikeWcf.Dtos.Northwind;
-using NHibernate.Linq;
-using System.Linq;
 
 namespace SpikeWcf
 {
@@ -21,10 +21,10 @@ namespace SpikeWcf
 		public PagedItems<CustomerDto> Find(int start, int limit)
 		{
 			_log.DebugFormat("Find(start: {0}, limit: {1})", start, limit);
-			using(var session = Global.SessionFactory.OpenSession())
+			using(ISession session = Global.SessionFactory.OpenSession())
 			{
-				var customers = session.Linq<Customer>().Skip(start).Take(limit);
-				var customerDtos = Mapper.Map<IEnumerable<Customer>, CustomerDto[]>(customers);
+				IQueryable<Customer> customers = session.Linq<Customer>().Skip(start).Take(limit);
+				CustomerDto[] customerDtos = Mapper.Map<IEnumerable<Customer>, CustomerDto[]>(customers);
 				return new PagedItems<CustomerDto>(customerDtos, session.Linq<Customer>().Count());
 			}
 		}
@@ -34,10 +34,10 @@ namespace SpikeWcf
 		public CustomerDto Get(string customerId)
 		{
 			_log.DebugFormat("Get(customerId: {0})", customerId);
-			using(var session = Global.SessionFactory.OpenSession())
+			using(ISession session = Global.SessionFactory.OpenSession())
 			{
 				var customer = session.Get<Customer>(customerId);
-				var customerDto = Mapper.Map<Customer, CustomerDto>(customer);
+				CustomerDto customerDto = Mapper.Map<Customer, CustomerDto>(customer);
 				return customerDto;
 			}
 		}
