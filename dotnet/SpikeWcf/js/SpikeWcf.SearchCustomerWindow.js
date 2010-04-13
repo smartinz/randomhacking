@@ -7,9 +7,9 @@ SpikeWcf.SearchCustomerWindow = Ext.extend(Ext.Window, {
 	width: 300,
 	height: 300,
 	layout: 'vbox',
-	initComponent: function() {
+	initComponent: function () {
 		this.resultPageSize = 25;
-		
+
 		var resultStore = new Ext.data.Store({
 			proxy: Wcf.buildDataProxy('/CustomerService.svc/Find'),
 			reader: new Ext.data.JsonReader({
@@ -19,7 +19,7 @@ SpikeWcf.SearchCustomerWindow = Ext.extend(Ext.Window, {
 				fields: ['customerId', 'companyName', 'contactName', 'contactTitle', 'address', 'city', 'region', 'postalCode', 'country', 'phone', 'fax']
 			})
 		});
-		
+
 		this.resultGridPanel = new Ext.grid.GridPanel({
 			flex: 1,
 			border: false,
@@ -94,34 +94,45 @@ SpikeWcf.SearchCustomerWindow = Ext.extend(Ext.Window, {
 			pack: 'start'
 		};
 
-		this.items = [{
-			xtype: 'form',
-			labelWidth: 75,
-			layout: 'form',
+		this.searchFormPanel = new Ext.form.FormPanel({
+			labelWidth: 100,
 			border: false,
 			padding: 10,
 			items: [{
+				name: 'companyName',
 				xtype: 'textfield',
-				fieldLabel: 'Text Filter',
+				fieldLabel: 'Company Name',
 				anchor: '100%'
-			},
-			{
+			}, {
+				name: 'contactName',
+				xtype: 'textfield',
+				fieldLabel: 'Contact Name',
+				anchor: '100%'
+			}, {
+				name: 'contactTitle',
+				xtype: 'textfield',
+				fieldLabel: 'Contact Title',
+				anchor: '100%'
+			}],
+			buttons: [{
 				xtype: 'button',
 				text: 'Search',
 				handler: this.searchClick,
 				scope: this
 			}]
-		}, this.resultGridPanel
-		];
+		});
+
+		this.items = [this.searchFormPanel, this.resultGridPanel];
 		SpikeWcf.SearchCustomerWindow.superclass.initComponent.call(this);
 	},
 
-	searchClick: function(b, e) {
+	searchClick: function (b, e) {
+		var vals = this.searchFormPanel.getForm().getFieldValues();
 		this.resultGridPanel.getStore().load({
-			params:{
-				start:0,
-				limit:25
-			}
+			params: Ext.apply({
+				start: 0,
+				limit: 25
+			}, vals)
 		});
 	}
 });
