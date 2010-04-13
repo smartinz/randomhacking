@@ -1,0 +1,34 @@
+﻿<html>
+<head runat="server">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Home Page</title>
+	<link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
+
+	<script type="text/javascript" src="extjs/adapter/ext/ext-base-debug.js"></script>
+
+	<script type="text/javascript" src="extjs/ext-all-debug.js"></script>
+
+	<script type="text/javascript" src="js/Wcf.js"></script>
+
+	<script type="text/javascript" src="js/SpikeWcf.MainViewport.js"></script>
+
+	<script type="text/javascript" src="js/SpikeWcf.SearchCustomerWindow.js"></script>
+
+	<script type="text/javascript" src="js/SpikeWcf.EditCustomerWindow.js"></script>
+
+	<script type="text/javascript">
+		"use strict";
+
+		Ext.BLANK_IMAGE_URL = 'extjs/resources/images/default/s.gif';
+
+		Wcf.init();
+
+		Ext.onReady(function() {
+			var mainViewport = new SpikeWcf.MainViewport();
+		});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

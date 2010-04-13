@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace SpikeWcf
+namespace SpikeWcf.Dtos
 {
 	[DataContract]
 	public class JsonDataTypeTestResponse

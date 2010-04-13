@@ -12,14 +12,30 @@ namespace SpikeWcf
 	{
 		[OperationContract]
 		[WebInvoke(UriTemplate = "/GetAll", BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-		public RootEntityDto[] GetAll(RootEntityDto rootEntity)
+		public PagedItems<RootEntityDto> GetAll(RootEntityDto rootEntity)
 		{
-			var rootEntityDomain = Mapper.Map<RootEntityDto, RootEntity>(rootEntity);
-			return Mapper.Map<RootEntity[], RootEntityDto[]>(new[]{
-				rootEntityDomain, 
-				new RootEntity{ Id = 1, Name = "Uno" }, 
-				new RootEntity{ Id = 2, Name = "Due" },
+			RootEntity rootEntityDomain = Mapper.Map<RootEntityDto, RootEntity>(rootEntity);
+
+			RootEntityDto[] ret = Mapper.Map<RootEntity[], RootEntityDto[]>(new[]{
+				rootEntityDomain,
+				new RootEntity{
+					Id = 1,
+					Name = "Uno",
+					ExternalEntity = new ExternalEntity{
+						Id = 3,
+						Description = "external entity 3",
+					},
+				},
+				new RootEntity{
+					Id = 2,
+					Name = "Due",
+					ExternalEntity = new ExternalEntity{
+						Id = 4,
+						Description = "external entity 4"
+					}
+				},
 			});
+			return new PagedItems<RootEntityDto>(ret, ret.Length);
 		}
 
 		[OperationContract]
