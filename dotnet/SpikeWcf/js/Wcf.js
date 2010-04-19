@@ -15,17 +15,17 @@ Wcf.init = function() {
 };
 
 Wcf.invoke = function(url, params, success) {
+    var callBack = function(response, options) {
+		var ret = Wcf.jsonDecode(response.responseText);
+		success(ret, (response.status == 200));
+	};
+
 	Ext.Ajax.request({
 		url: url,
 		method: 'POST',
 		jsonData: params,
-		success: function(response, options) {
-			var ret = Wcf.jsonDecode(response.responseText);
-			success(ret);
-		},
-		failure: function(response, options) {
-			alert('ko');
-		}
+		success: callBack,
+		failure: callBack
 	});
 };
 

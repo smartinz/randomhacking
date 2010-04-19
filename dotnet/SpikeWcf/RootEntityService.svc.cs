@@ -53,5 +53,12 @@ namespace SpikeWcf
 				GuidPar = guidPar,
 			};
 		}
+
+		[OperationContract]
+		[WebInvoke(UriTemplate = "/ExceptionTest", BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
+		public void ExceptionTest()
+		{
+		    throw new ApplicationException("Exception message");
+		}
 	}
 }

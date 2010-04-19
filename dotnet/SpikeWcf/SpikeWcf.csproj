@@ -808,6 +808,10 @@
     <Compile Include="Dtos\JsonDataTypeTestResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\DtoMappingTest.cs" />
+    <Compile Include="WcfHelpers\ExceptionErrorHandler.cs" />
+    <Compile Include="WcfHelpers\ExceptionInfo.cs" />
+    <Compile Include="WcfHelpers\ExceptionWebHttpBehavior.cs" />
+    <Compile Include="WcfHelpers\ExceptionWebHttpBehaviorElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="extjs\resources\images\access\form\clear-trigger.psd" />

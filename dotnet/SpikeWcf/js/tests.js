@@ -53,6 +53,16 @@ Ext.onReady(function() {
 		});
 	});
 
+    test('Should return json exception information from server', function(){
+        expect(2);
+        stop(10000);
+        Wcf.invoke('/RootEntityService.svc/ExceptionTest', {}, function(ret, success){
+            equals(success, false);
+            equals(ret.message, 'Exception message');
+            start();
+        });
+    });
+
 	module('Data store');
 
 	test('Should call server with HttpProxy', function() {
