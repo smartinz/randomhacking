@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using AutoMapper;
 using log4net;
+using NHibernate;
+using NHibernate.Linq;
 using SpikeWcf.Domain.Northwind;
 using SpikeWcf.Dtos.Northwind;
-using NHibernate.Linq;
-using System.Linq;
 
 namespace SpikeWcf
 {
@@ -18,14 +18,28 @@ namespace SpikeWcf
 
 		[OperationContract]
 		[WebInvoke(UriTemplate = "/Find", BodyStyle = WebMessageBodyStyle.WrappedRequest, RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
-		public PagedItems<CustomerDto> Find(int start, int limit)
+		public PagedItems<CustomerDto> Find(string companyName, string contactName, string contactTitle, int start, int limit)
 		{
-			_log.DebugFormat("Find(start: {0}, limit: {1})", start, limit);
-			using(var session = Global.SessionFactory.OpenSession())
+			_log.DebugFormat("Find(companyName: {0}, contactName: {1}, contactTitle: {2}, start: {3}, limit: {4})", companyName, contactName, contactTitle, start, limit);
+			using(ISession session = Global.SessionFactory.OpenSession())
 			{
-				var customers = session.Linq<Customer>().Skip(start).Take(limit);
-				var customerDtos = Mapper.Map<IEnumerable<Customer>, CustomerDto[]>(customers);
-				return new PagedItems<CustomerDto>(customerDtos, session.Linq<Customer>().Count());
+				IQueryable<Customer> queryable = session.Linq<Customer>();
+				if(!string.IsNullOrEmpty(companyName))
+				{
+					queryable = queryable.Where(c => c.CompanyName.StartsWith(companyName));
+				}
+				if(!string.IsNullOrEmpty(contactName))
+				{
+					queryable = queryable.Where(c => c.ContactName.StartsWith(contactName));
+				}
+				if(!string.IsNullOrEmpty(contactTitle))
+				{
+					queryable = queryable.Where(c => c.ContactTitle.StartsWith(contactTitle));
+				}
+				int count = queryable.Count();
+				queryable = queryable.Skip(start).Take(limit);
+				CustomerDto[] customerDtos = Mapper.Map<IEnumerable<Customer>, CustomerDto[]>(queryable);
+				return new PagedItems<CustomerDto>(customerDtos, count);
 			}
 		}
 
@@ -34,10 +48,10 @@ namespace SpikeWcf
 		public CustomerDto Get(string customerId)
 		{
 			_log.DebugFormat("Get(customerId: {0})", customerId);
-			using(var session = Global.SessionFactory.OpenSession())
+			using(ISession session = Global.SessionFactory.OpenSession())
 			{
 				var customer = session.Get<Customer>(customerId);
-				var customerDto = Mapper.Map<Customer, CustomerDto>(customer);
+				CustomerDto customerDto = Mapper.Map<Customer, CustomerDto>(customer);
 				return customerDto;
 			}
 		}
