@@ -1,3 +1,5 @@
+using System;
+using System.Globalization;
 using AutoMapper;
 using NUnit.Framework;
 using SpikeWcf.Domain;
@@ -63,6 +65,19 @@ namespace SpikeWcf.Tests
 			Assert.That(dest.Name, Is.EqualTo("root entity"));
 			Assert.That(dest.ExternalEntities, Is.Not.Null);
 			Assert.That(dest.DetailEntities.Count(), Is.EqualTo(2));
+		}
+
+		[Test]
+		[Ignore("Test for IsoDateTimeTypeConverter")]
+		public void DateTimeMapping()
+		{
+			Assert.That(Mapper.Map<DateTime, string>(new DateTime(2010, 4, 23, 13, 37, 0, 141, DateTimeKind.Unspecified)), Is.EqualTo("2010-04-23T13:37:00.1410000"));
+			Assert.That(Mapper.Map<DateTime, string>(new DateTime(2010, 4, 23, 13, 37, 0, 141, DateTimeKind.Utc)), Is.EqualTo("2010-04-23T13:37:00.1410000Z"));
+			Assert.That(Mapper.Map<DateTime, string>(new DateTime(2010, 4, 23, 13, 37, 0, 141, DateTimeKind.Local)), Is.EqualTo("2010-04-23T13:37:00.1410000+02:00"));
+			Assert.That(Mapper.Map<string, DateTime>("2010-04-23T14:28:30.141"), Is.EqualTo(new DateTime(2010, 4, 23, 14, 28, 30, 141)));
+			Assert.That(Mapper.Map<string, DateTime>("2010-04-23T14:28:30.141+02:00").Kind, Is.EqualTo(DateTimeKind.Local));
+			Assert.That(Mapper.Map<string, DateTime>("2010-04-23T14:28:30.141").Kind, Is.EqualTo(DateTimeKind.Unspecified));
+			Assert.That(Mapper.Map<string, DateTime>("2010-04-23T14:28:30.141Z").Kind, Is.EqualTo(DateTimeKind.Utc));
 		}
 	}
 }

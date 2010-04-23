@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using AutoMapper;
 using SpikeWcf.Domain;
 using SpikeWcf.Domain.Northwind;
@@ -8,9 +9,9 @@ using SpikeWcf.Dtos.Northwind;
 
 namespace SpikeWcf
 {
-	static public class AutoMapperConfiguration
+	public static class AutoMapperConfiguration
 	{
-		static public void Configure()
+		public static void Configure()
 		{
 			Mapper.Reset();
 			//Mapper.Initialize(c=>c.ConstructServicesUsing()); // For IoC container
@@ -19,21 +20,22 @@ namespace SpikeWcf
 			Mapper.AssertConfigurationIsValid();
 		}
 
-		static private void DomainToDto()
+		private static void DomainToDto()
 		{
+			Mapper.CreateMap<DateTime, string>().ConvertUsing<IsoDateTimeTypeConverter>();
 			Mapper.CreateMap<RootEntity, RootEntityDto>()
 				.ForMember(d => d.StringId, o => o.ResolveUsing(s => s.Id.ToString()));
 			Mapper.CreateMap<ExternalEntity, ExternalEntityRefDto>()
 				.ForMember(d => d.StringId, o => o.ResolveUsing(s => s.Id.ToString()));
 			Mapper.CreateMap<DetailEntity, DetailEntityDto>()
 				.ForMember(d => d.StringId, o => o.ResolveUsing(s => s.Id.ToString()));
-
 			Mapper.CreateMap<Customer, CustomerDto>();
 			Mapper.CreateMap<Order, OrderDto>();
 		}
 
-		static private void DtoToDomain()
+		private static void DtoToDomain()
 		{
+			Mapper.CreateMap<string, DateTime>().ConvertUsing<IsoDateTimeTypeConverter>();
 			Mapper.CreateMap<RootEntityDto, RootEntity>()
 				.ConstructUsing(s => new RootEntity{ Id = int.Parse(s.StringId) })
 				.ForMember(d => d.Id, o => o.Ignore())
@@ -48,7 +50,7 @@ namespace SpikeWcf
 				.ForMember(d => d.Id, o => o.Ignore());
 		}
 
-		static private void FillCollection<TSource, TDestination, TSourceItem, TDestinationItem>(TSource s, TDestination d, Func<TSource, IEnumerable<TSourceItem>> getSourceEnum, Func<TDestination, ICollection<TDestinationItem>> getDestinationColl)
+		private static void FillCollection<TSource, TDestination, TSourceItem, TDestinationItem>(TSource s, TDestination d, Func<TSource, IEnumerable<TSourceItem>> getSourceEnum, Func<TDestination, ICollection<TDestinationItem>> getDestinationColl)
 		{
 			ICollection<TDestinationItem> collection = getDestinationColl(d);
 			collection.Clear();
@@ -58,7 +60,7 @@ namespace SpikeWcf
 			}
 		}
 
-		static private void ResolveUsing<TSource>(this IMemberConfigurationExpression<TSource> o, Func<TSource, object> func)
+		private static void ResolveUsing<TSource>(this IMemberConfigurationExpression<TSource> o, Func<TSource, object> func)
 		{
 			o.ResolveUsing(new FuncValueResolver<TSource, object>(func));
 		}
@@ -77,6 +79,35 @@ namespace SpikeWcf
 			protected override TDestination ResolveCore(TSource source)
 			{
 				return _func(source);
+			}
+		}
+
+		#endregion
+
+		#region Nested type: IsoDateTimeTypeConverter
+
+		public class IsoDateTimeTypeConverter : ITypeConverter<DateTime, string>, ITypeConverter<string, DateTime>
+		{
+			/*
+			 * To use with
+			 * Mapper.CreateMap<DateTime, string>().ConvertUsing<IsoDateTimeTypeConverter>();
+			 * Mapper.CreateMap<string, DateTime>().ConvertUsing<IsoDateTimeTypeConverter>();
+			 * 
+			 * See http://msdn.microsoft.com/en-us/library/bb882584%28VS.100%29.aspx
+			 * And Newtonsoft.Json.Converters.IsoDateTimeConverter (http://json.codeplex.com/)
+			 * And http://www.w3.org/TR/NOTE-datetime
+			 */
+
+			string ITypeConverter<DateTime, string>.Convert(ResolutionContext context)
+			{
+				var src = (DateTime)context.SourceValue;
+				return src.ToString("o");
+			}
+
+			DateTime ITypeConverter<string, DateTime>.Convert(ResolutionContext context)
+			{
+				var src = (string)context.SourceValue;
+				return DateTime.Parse(src, null, DateTimeStyles.RoundtripKind);
 			}
 		}
 
