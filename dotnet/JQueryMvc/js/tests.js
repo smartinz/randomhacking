@@ -32,7 +32,7 @@ $(function () {
 
 	test("Should pass and return date as expected", function () {
 		var params = {
-			dateValue: new Date(2010, 4, 26, 11, 49, 33, 44)
+			dateValue: new Date(2010, 4, 26, 11, 49, 33, 44).toJSON()
 		};
 		expect(2);
 		stop(10000);

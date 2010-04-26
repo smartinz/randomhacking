@@ -2,7 +2,7 @@
 {
 	public class ComplexTypeDto
 	{
-		public string stringValue { get; set; }
-		public ComplexTypeDto[] objectValue { get; set; }
+		public string StringValue { get; set; }
+		public ComplexTypeDto[] ObjectValue { get; set; }
 	}
 }

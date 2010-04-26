@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Web.Mvc;
-using System.Web.Script.Serialization;
+using Newtonsoft.Json.Linq;
 
 namespace JQueryMvc.Infrastructure
 {
@@ -12,35 +11,36 @@ namespace JQueryMvc.Infrastructure
 	// This class should be included in MVC 3
 	public class JsonValueProviderFactory : ValueProviderFactory
 	{
-		private static void AddToBackingStore(Dictionary<string, object> backingStore, string prefix, object value)
+		private static void AddToBackingStore(Dictionary<string, object> backingStore, string prefix, JToken value)
 		{
-			// dictionary?
-			var d = value as IDictionary<string, object>;
-			if(d != null)
+			if(value is JObject)
 			{
-				foreach(var entry in d)
+				var jObject = value as JObject;
+				foreach(JProperty jProperty in jObject.Properties())
 				{
-					AddToBackingStore(backingStore, MakePropertyKey(prefix, entry.Key), entry.Value);
+					AddToBackingStore(backingStore, MakePropertyKey(prefix, jProperty.Name), jProperty.Value);
 				}
-				return;
 			}
-
-			// list?
-			var l = value as IList;
-			if(l != null)
+			else if(value is JArray)
 			{
-				for(int i = 0; i < l.Count; i++)
+				var jArray = value as JArray;
+				for(int i = 0; i < jArray.Count; i++)
 				{
-					AddToBackingStore(backingStore, MakeArrayKey(prefix, i), l[i]);
+					AddToBackingStore(backingStore, MakeArrayKey(prefix, i), jArray[i]);
 				}
-				return;
 			}
-
-			// primitive
-			backingStore[prefix] = value;
+			else if(value is JValue)
+			{
+				var jValue = value as JValue;
+				backingStore[prefix] = jValue.Value;
+			}
+			else
+			{
+				throw new Exception(string.Format("JToken is of unsupported type {0}", value.GetType()));
+			}
 		}
 
-		private static object GetDeserializedJson(ControllerContext controllerContext)
+		private static JObject GetDeserializedJson(ControllerContext controllerContext)
 		{
 			if(!controllerContext.HttpContext.Request.ContentType.StartsWith("application/json", StringComparison.OrdinalIgnoreCase))
 			{
@@ -56,14 +56,12 @@ namespace JQueryMvc.Infrastructure
 				return null;
 			}
 
-			var serializer = new JavaScriptSerializer();
-			object jsonData = serializer.DeserializeObject(bodyText);
-			return jsonData;
+			return JObject.Parse(bodyText);
 		}
 
 		public override IValueProvider GetValueProvider(ControllerContext controllerContext)
 		{
-			object jsonData = GetDeserializedJson(controllerContext);
+			JObject jsonData = GetDeserializedJson(controllerContext);
 			if(jsonData == null)
 			{
 				return null;
