@@ -34,9 +34,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\References\JSonNet-3.5r7\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\References\NUnit-2.5.2.9222\nunit.framework.dll</HintPath>
     </Reference>
@@ -75,7 +72,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\JsonResult2.cs" />
     <Compile Include="Infrastructure\JsonValueProviderFactory.cs" />
     <Compile Include="Models\ComplexTypeDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

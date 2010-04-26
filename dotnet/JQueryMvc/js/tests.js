@@ -5,13 +5,13 @@ $(function () {
 	test("Should pass and return parameters as expected", function () {
 		var params = {
 			objectValue: {
-				stringValue: 'first property value',
-				objectValue: [{
-					stringValue: 'inner object 1 first property value',
-					objectValue: null
+				StringValue: 'first property value',
+				ObjectValue: [{
+					StringValue: 'inner object 1 first property value',
+					ObjectValue: null
 				},{
-					stringValue: 'inner object 2 first property value',
-					objectValue: null
+					StringValue: 'inner object 2 first property value',
+					ObjectValue: null
 				}]
 			},
 			arrayValue: ['array value 1', 'array value 2'],
@@ -32,7 +32,7 @@ $(function () {
 
 	test("Should pass and return date as expected", function () {
 		var params = {
-			dateValue: new Date(2010, 4, 26, 11, 49, 33, 44).toJSON()
+			dateValue: new Date(2010, 4, 26, 11, 49, 33, 44)
 		};
 		expect(2);
 		stop(10000);
