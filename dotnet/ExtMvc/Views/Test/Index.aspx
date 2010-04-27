@@ -50,6 +50,15 @@
 					start();
 				});
 			});
+
+			test("Should fail when server exception occur", function () {
+				expect(1);
+				stop(10000);
+				Rpc.call('/Test/RpcWithDate', null, function (success, retData) {
+					ok(!success);
+					start();
+				});
+			});
 		});
 	</script>
 </asp:Content>

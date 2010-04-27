@@ -16,7 +16,8 @@
 			method: 'POST',
 			jsonData: JSON.stringify(params),
 			callback: function (options, success, response) {
-				var ret = JSON.parse(response.responseText, reviver);
+				var isJson = (response.getResponseHeader('content-type') || '').toLowerCase().indexOf('application/json') != -1;
+				var ret = isJson ? JSON.parse(response.responseText, reviver) : null;
 				callback(success, ret);
 			}
 		});

@@ -30,6 +30,11 @@ namespace ExtMvc.Controllers
 			return Json(new { dateValue });
 		}
 
+		public ActionResult ThrowException()
+		{
+			throw new ApplicationException("Expected Exception");
+		}
+
 		#region Nested type: ComplexTypeDto
 
 		public class ComplexTypeDto
