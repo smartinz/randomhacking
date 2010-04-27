@@ -1,7 +1,10 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using log4net.Config;
 using Microsoft.Web.Mvc;
+using NHibernate;
+using NHibernate.Cfg;
 
 namespace JQueryMvc
 {
@@ -21,11 +24,16 @@ namespace JQueryMvc
 				);
 		}
 
+		static public ISessionFactory SessionFactory;
+		
 		protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
 			RegisterRoutes(RouteTable.Routes);
 			ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
+
+			XmlConfigurator.Configure();
+			SessionFactory = new Configuration().Configure().BuildSessionFactory();
 		}
 	}
 }

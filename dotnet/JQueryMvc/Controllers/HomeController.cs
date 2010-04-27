@@ -13,6 +13,11 @@ namespace JQueryMvc.Controllers
             return View();
         }
 
+        public ActionResult Tests()
+        {
+            return View();
+        }
+
         public ActionResult Rpc(ComplexTypeDto objectValue, string[] arrayValue, string stringValue, int numberValue, bool trueValue, bool falseValue, object nullValue)
         {
             return Json(new{

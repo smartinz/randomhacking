@@ -33,7 +33,37 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime">
+      <HintPath>..\References\NHibernate-2.1.2.GA\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Core">
+      <HintPath>..\References\CastleWindsor-2.1.1\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.DynamicProxy2">
+      <HintPath>..\References\CastleWindsor-2.1.1\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.MicroKernel">
+      <HintPath>..\References\CastleWindsor-2.1.1\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\References\CastleWindsor-2.1.1\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\References\NHibernate-2.1.2.GA\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\References\log4net-1.2.10\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NHibernate">
+      <HintPath>..\References\NHibernate-2.1.2.GA\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.ByteCode.Castle">
+      <HintPath>..\References\NHibernate-2.1.2.4000_DynamicProxy-2.2.0.0_Integration\NHibernate.ByteCode.Castle.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate.Linq">
+      <HintPath>..\References\NHibernate.Linq-2.1.2.GA\NHibernate.Linq.dll</HintPath>
+    </Reference>
     <Reference Include="nunit.framework">
       <HintPath>..\References\NUnit-2.5.2.9222\nunit.framework.dll</HintPath>
     </Reference>
@@ -77,9 +107,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\ui.jqgrid.css" />
     <Content Include="Global.asax" />
+    <Content Include="js\i18n\grid.locale-en.js" />
+    <Content Include="js\i18n\grid.locale-it.js" />
+    <Content Include="js\jquery.jqGrid.min.js" />
     <Content Include="js\Rpc.js" />
     <Content Include="js\tests.js" />
+    <Content Include="Views\Home\Tests.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Shared\Error.aspx" />

@@ -3,21 +3,43 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>Home Page</title>
-	<link rel="stylesheet" href="http://github.com/jquery/qunit/raw/master/qunit/qunit.css"
-		type="text/css" media="screen" />
-	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.js"></script>
-	<script type="text/javascript" src="http://github.com/jquery/qunit/raw/master/qunit/qunit.js"></script>
-	<script type="text/javascript" src="<%= Url.Content("~/js/Rpc.js") %>"></script>
-	<script type="text/javascript" src="<%= Url.Content("~/js/tests.js") %>"></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/themes/ui-lightness/jquery-ui.css" type="text/css" />
+	<link rel="stylesheet" href="<%=Url.Content ("~/css/ui.jqgrid.css")%>" type="text/css" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="<%=Url.Content ("~/js/i18n/grid.locale-en.js")%>"></script>
+	<script type="text/javascript" src="<%=Url.Content ("~/js/jquery.jqGrid.min.js")%>"></script>
+	<script type="text/javascript" src="<%=Url.Content ("~/js/Rpc.js")%>"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function () {
+			jQuery("#list").jqGrid({
+				url: 'example.php',
+				datatype: 'xml',
+				mtype: 'GET',
+				colNames: ['Inv No', 'Date', 'Amount', 'Tax', 'Total', 'Notes'],
+				colModel: [
+					{ name: 'invid', index: 'invid', width: 55 },
+					{ name: 'invdate', index: 'invdate', width: 90 },
+					{ name: 'amount', index: 'amount', width: 80, align: 'right' },
+					{ name: 'tax', index: 'tax', width: 80, align: 'right' },
+					{ name: 'total', index: 'total', width: 80, align: 'right' },
+					{ name: 'note', index: 'note', width: 150, sortable: false }
+			    ],
+				pager: '#pager',
+				rowNum: 10,
+				rowList: [10, 20, 30],
+				sortname: 'invid',
+				sortorder: 'desc',
+				viewrecords: true,
+				caption: 'My first grid'
+			});
+		}); 
+	</script>
 </head>
 <body>
-	<h1 id="qunit-header">
-		Tests</h1>
-	<h2 id="qunit-banner">
-	</h2>
-	<h2 id="qunit-userAgent">
-	</h2>
-	<ol id="qunit-tests">
-	</ol>
+	<table id="list">
+	</table>
+	<div id="pager">
+	</div>
 </body>
 </html>
