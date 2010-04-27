@@ -11,10 +11,10 @@
 	<script type="text/javascript" src="<%=Url.Content ("~/js/jquery.jqGrid.min.js")%>"></script>
 	<script type="text/javascript" src="<%=Url.Content ("~/js/Rpc.js")%>"></script>
 	<script type="text/javascript">
-		jQuery(document).ready(function () {
+		$(function () {
 			jQuery("#list").jqGrid({
-				url: 'example.php',
-				datatype: 'xml',
+				url: '/Customer/GetAll',
+				datatype: 'json',
 				mtype: 'GET',
 				colNames: ['Inv No', 'Date', 'Amount', 'Tax', 'Total', 'Notes'],
 				colModel: [
