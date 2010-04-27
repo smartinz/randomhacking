@@ -5,6 +5,7 @@ using log4net.Config;
 using Microsoft.Web.Mvc;
 using NHibernate;
 using NHibernate.Cfg;
+using SpikeWcf;
 
 namespace ExtMvc
 {
@@ -33,6 +34,7 @@ namespace ExtMvc
 			ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
 
 			XmlConfigurator.Configure();
+			AutoMapperConfiguration.Configure();
 			SessionFactory = new Configuration().Configure().BuildSessionFactory();
 		}
 	}

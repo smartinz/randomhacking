@@ -21,5 +21,18 @@
 				callback(success, ret);
 			}
 		});
+	},
+
+	buildDataProxy: function (url) {
+		var proxy = new Ext.data.HttpProxy({
+			// Same parameters as Ext.Ajax.request
+			url: url,
+			method: 'POST'
+		});
+		proxy.getConnection().on('beforerequest', function (conn, options) {
+			options.jsonData = JSON.stringify(options.params);
+			delete options.params;
+		});
+		return proxy;
 	}
 };
