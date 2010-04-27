@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Diagnostics;
+using System.Web.Mvc;
 
 namespace ExtMvc.Controllers
 {
@@ -20,6 +22,12 @@ namespace ExtMvc.Controllers
 				falseValue,
 				nullValue
 			});
+		}
+
+		public ActionResult RpcWithDate(DateTime dateValue)
+		{
+			Debug.Assert(dateValue == new DateTime(2010, 5, 26, 11, 49, 33, 44));
+			return Json(new { dateValue });
 		}
 
 		#region Nested type: ComplexTypeDto

@@ -8,6 +8,8 @@ using System.Web.Script.Serialization;
 
 namespace Microsoft.Web.Mvc
 {
+    // http://haacked.com/archive/2010/04/15/sending-json-to-an-asp-net-mvc-action-method-argument.aspx
+    // This class should be included in MVC 3
 	public class JsonValueProviderFactory : ValueProviderFactory
 	{
 		private static void AddToBackingStore(Dictionary<string, object> backingStore, string prefix, object value)

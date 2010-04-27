@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
-	<link rel="stylesheet" href="http://github.com/jquery/qunit/raw/master/qunit/qunit.css" type="text/css" />
+	<link rel="stylesheet" href="http://github.com/jquery/qunit/raw/master/qunit/qunit.css"
+		type="text/css" />
 	<script type="text/javascript" src="http://github.com/jquery/qunit/raw/master/qunit/qunit.js"></script>
 	<script type="text/javascript">
 		"use strict";
@@ -31,6 +32,19 @@
 				expect(2);
 				stop(10000);
 				Rpc.call('/Test/Rpc', params, function (success, retData) {
+					ok(success);
+					same(retData, params);
+					start();
+				});
+			});
+
+			test("Should pass and return date as expected", function () {
+				var params = {
+					dateValue: new Date(2010, 4, 26, 11, 49, 33, 44)
+				};
+				expect(2);
+				stop(10000);
+				Rpc.call('/Test/RpcWithDate', params, function (success, retData) {
 					ok(success);
 					same(retData, params);
 					start();

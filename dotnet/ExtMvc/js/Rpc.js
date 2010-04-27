@@ -1,6 +1,6 @@
 ﻿Rpc = {
 	call: function (url, params, callback) {
-		var msDatesReviver = function (key, value) {
+		var reviver = function (key, value) {
 			if (typeof value === 'string') {
 				var re = new RegExp('\\/Date\\(([-+])?(\\d+)(?:[+-]\\d{4})?\\)\\/');
 				var r = value.match(re);
@@ -16,7 +16,7 @@
 			method: 'POST',
 			jsonData: JSON.stringify(params),
 			callback: function (options, success, response) {
-				var ret = JSON.parse(response.responseText, Rpc.msDatesReviver);
+				var ret = JSON.parse(response.responseText, reviver);
 				callback(success, ret);
 			}
 		});
