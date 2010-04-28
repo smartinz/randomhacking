@@ -10,6 +10,7 @@ ExtMvc.SearchCustomerWindow = Ext.extend(Ext.Window, {
 	initComponent: function () {
 		var resultStore = new Ext.data.Store({
 			proxy: Rpc.buildDataProxy('/Customer/Find'),
+			remoteSort: true,
 			reader: new Ext.data.JsonReader({
 				root: 'items',
 				idProperty: "CustomerId",
@@ -29,19 +30,25 @@ ExtMvc.SearchCustomerWindow = Ext.extend(Ext.Window, {
 			flex: 1,
 			border: false,
 			store: resultStore,
-			columns: [
-				{ header: "Id", width: 60, sortable: true },
-				{ header: "Company", width: 180, sortable: true },
-				{ header: "Contact name", width: 120, sortable: true },
-				{ header: "Contact title", width: 120, sortable: true },
-				{ header: "Address", width: 120, sortable: true },
-				{ header: "City", width: 60, sortable: true },
-				{ header: "Region", width: 60, sortable: true },
-				{ header: "Postal code", width: 60, sortable: true },
-				{ header: "Country", width: 60, sortable: true },
-				{ header: "Phone", width: 120, sortable: true },
-				{ header: "Fax", width: 120, sortable: true }
-			],
+			colModel: new Ext.grid.ColumnModel({
+				defaults: {
+					width: 60,
+					sortable: true
+				},
+				columns: [
+					{ header: "Id" },
+					{ header: "Company", width: 180 },
+					{ header: "Contact name", width: 120 },
+					{ header: "Contact title", width: 120 },
+					{ header: "Address", width: 120 },
+					{ header: "City" },
+					{ header: "Region" },
+					{ header: "Postal code" },
+					{ header: "Country" },
+					{ header: "Phone", width: 120 },
+					{ header: "Fax", width: 120 }
+				]
+			}),
 			bbar: this.resultPagingToolbar
 		});
 
