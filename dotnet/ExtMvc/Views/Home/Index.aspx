@@ -4,6 +4,7 @@
 	<script type="text/javascript" src="/js/ExtMvc.MainViewPort.js"></script>
 	<script src="/js/ExtMvc.SearchCustomerWindow.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.EditCustomerWindow.js" type="text/javascript"></script>
+	<script src="/js/ExtMvc.CustomerGridPanel.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		"use strict";
 
