@@ -9,7 +9,9 @@ ExtMvc.SearchCustomerWindow = Ext.extend(Ext.Window, {
 	layout: 'vbox',
 	initComponent: function () {
 		var resultStore = new Ext.data.Store({
-			proxy: new Rpc.JsonPostHttpProxy({ url: '/Customer/Find' }),
+			proxy: new Rpc.JsonPostHttpProxy({
+				url: '/Customer/Find'
+			}),
 			remoteSort: true,
 			reader: new Ext.data.JsonReader({
 				root: 'items',
