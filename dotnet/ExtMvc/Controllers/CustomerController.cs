@@ -41,5 +41,21 @@ namespace ExtMvc.Controllers
 				return Json(new{ items, count });
 			}
 		}
+
+		public ActionResult Get(string id)
+		{
+			_log.DebugFormat("Get(id: {0}", id);
+			using (ISession session = MvcApplication.SessionFactory.OpenSession())
+			{
+				var customer = session.Get<Customer>(id);
+				CustomerDto dto = Mapper.Map<Customer, CustomerDto>(customer);
+				return Json(dto);
+			}
+		}
+
+		public void Update(CustomerDto customer)
+		{
+			_log.DebugFormat("Update(customer: {0}", customer);
+		}
 	}
 }

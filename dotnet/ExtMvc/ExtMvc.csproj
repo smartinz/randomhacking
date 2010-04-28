@@ -998,6 +998,7 @@
     <Content Include="Global.asax" />
     <Content Include="js\Rpc.js" />
     <Content Include="js\ExtMvc.SearchCustomerWindow.js" />
+    <Content Include="js\ExtMvc.EditCustomerWindow.js" />
     <Content Include="Views\Test\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.aspx" />

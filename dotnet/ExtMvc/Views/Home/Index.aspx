@@ -3,6 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="HeadContentPlaceHolder" runat="server">
 	<script type="text/javascript" src="/js/ExtMvc.MainViewPort.js"></script>
 	<script src="/js/ExtMvc.SearchCustomerWindow.js" type="text/javascript"></script>
+	<script src="/js/ExtMvc.EditCustomerWindow.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		"use strict";
 
