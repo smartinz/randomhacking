@@ -36,17 +36,17 @@ ExtMvc.SearchCustomerWindow = Ext.extend(Ext.Window, {
 					sortable: true
 				},
 				columns: [
-					{ header: "Id" },
-					{ header: "Company", width: 180 },
-					{ header: "Contact name", width: 120 },
-					{ header: "Contact title", width: 120 },
-					{ header: "Address", width: 120 },
-					{ header: "City" },
-					{ header: "Region" },
-					{ header: "Postal code" },
-					{ header: "Country" },
-					{ header: "Phone", width: 120 },
-					{ header: "Fax", width: 120 }
+					{ dataIndex: 'CustomerId', header: "Id" },
+					{ dataIndex: 'CompanyName', header: "Company", width: 180 },
+					{ dataIndex: 'ContactName', header: "Contact name", width: 120 },
+					{ dataIndex: 'ContactTitle', header: "Contact title", width: 120 },
+					{ dataIndex: 'Address', header: "Address", width: 120 },
+					{ dataIndex: 'City', header: "City" },
+					{ dataIndex: 'Region', header: "Region" },
+					{ dataIndex: 'PostalCode', header: "Postal code" },
+					{ dataIndex: 'Country', header: "Country" },
+					{ dataIndex: 'Phone', header: "Phone", width: 120 },
+					{ dataIndex: 'Fax', header: "Fax", width: 120 }
 				]
 			}),
 			bbar: this.resultPagingToolbar

@@ -1,12 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
 using ExtMvc.Domain;
 using ExtMvc.Dtos;
 using log4net;
 using NHibernate;
-using NHibernate.Linq;
+using NHibernate.Criterion;
 
 namespace ExtMvc.Controllers
 {
@@ -14,27 +13,31 @@ namespace ExtMvc.Controllers
 	{
 		private readonly ILog _log = LogManager.GetLogger(typeof(CustomerController));
 
-		public ActionResult Find(string companyName, string contactName, string contactTitle, int start, int limit)
+		public ActionResult Find(string companyName, string contactName, string contactTitle, int start, int limit, string sort, string dir)
 		{
-			_log.DebugFormat("Find(companyName: {0}, contactName: {1}, contactTitle: {2}, start: {3}, limit: {4})", companyName, contactName, contactTitle, start, limit);
+			_log.DebugFormat("Find(companyName: {0}, contactName: {1}, contactTitle: {2}, start: {3}, limit: {4}, sort: {5}, dir: {6})", companyName, contactName, contactTitle, start, limit, sort, dir);
 			using(ISession session = MvcApplication.SessionFactory.OpenSession())
 			{
-				IQueryable<Customer> queryable = session.Linq<Customer>();
-				if(!string.IsNullOrEmpty(companyName))
+				var crit = session.CreateCriteria(typeof(Customer));
+				if (!string.IsNullOrEmpty(companyName))
 				{
-					queryable = queryable.Where(c => c.CompanyName.StartsWith(companyName));
+					crit.Add(Restrictions.InsensitiveLike("CompanyName", companyName, MatchMode.Start));
 				}
-				if(!string.IsNullOrEmpty(contactName))
+				if (!string.IsNullOrEmpty(contactName))
 				{
-					queryable = queryable.Where(c => c.ContactName.StartsWith(contactName));
+					crit.Add(Restrictions.InsensitiveLike("ContactName", companyName, MatchMode.Start));
 				}
-				if(!string.IsNullOrEmpty(contactTitle))
+				if (!string.IsNullOrEmpty(contactTitle))
 				{
-					queryable = queryable.Where(c => c.ContactTitle.StartsWith(contactTitle));
+					crit.Add(Restrictions.InsensitiveLike("ContactTitle", companyName, MatchMode.Start));
 				}
-				int count = queryable.Count();
-				queryable = queryable.Skip(start).Take(limit);
-				CustomerDto[] items = Mapper.Map<IEnumerable<Customer>, CustomerDto[]>(queryable);
+				var count = CriteriaTransformer.Clone(crit).SetProjection(Projections.RowCount()).UniqueResult<int>();
+				if (!string.IsNullOrEmpty(sort))
+				{
+					crit.AddOrder(dir == "ASC" ? NHibernate.Criterion.Order.Asc(sort) : NHibernate.Criterion.Order.Desc(sort));
+				}
+				var list = crit.SetFirstResult(start).SetMaxResults(limit).List<Customer>();
+				CustomerDto[] items = Mapper.Map<IEnumerable<Customer>, CustomerDto[]>(list);
 				return Json(new{ items, count });
 			}
 		}
