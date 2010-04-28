@@ -4,7 +4,7 @@ Ext.namespace("ExtMvc");
 
 ExtMvc.SearchCustomerWindow = Ext.extend(Ext.Window, {
 	title: 'Grid',
-	width: 300,
+	width: 600,
 	height: 300,
 	layout: 'vbox',
 	initComponent: function () {
