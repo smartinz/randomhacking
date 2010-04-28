@@ -30,61 +30,17 @@ ExtMvc.SearchCustomerWindow = Ext.extend(Ext.Window, {
 			border: false,
 			store: resultStore,
 			columns: [
-			{
-				header: "Id",
-				width: 60,
-				sortable: true
-			},
-			{
-				header: "Company",
-				width: 60,
-				sortable: true
-			},
-			{
-				header: "Contact name",
-				width: 60,
-				sortable: true
-			},
-			{
-				header: "Contact title",
-				width: 60,
-				sortable: true
-			},
-			{
-				header: "Address",
-				width: 60,
-				sortable: true
-			},
-			{
-				header: "City",
-				width: 60,
-				sortable: true
-			},
-			{
-				header: "Region",
-				width: 60,
-				sortable: true
-			},
-			{
-				header: "Postal code",
-				width: 60,
-				sortable: true
-			},
-			{
-				header: "Country",
-				width: 60,
-				sortable: true
-			},
-			{
-				header: "Phone",
-				width: 60,
-				sortable: true
-			},
-			{
-				header: "Fax",
-				width: 60,
-				sortable: true
-			}
+				{ header: "Id", width: 60, sortable: true },
+				{ header: "Company", width: 180, sortable: true },
+				{ header: "Contact name", width: 120, sortable: true },
+				{ header: "Contact title", width: 120, sortable: true },
+				{ header: "Address", width: 120, sortable: true },
+				{ header: "City", width: 60, sortable: true },
+				{ header: "Region", width: 60, sortable: true },
+				{ header: "Postal code", width: 60, sortable: true },
+				{ header: "Country", width: 60, sortable: true },
+				{ header: "Phone", width: 120, sortable: true },
+				{ header: "Fax", width: 120, sortable: true }
 			],
 			bbar: this.resultPagingToolbar
 		});
