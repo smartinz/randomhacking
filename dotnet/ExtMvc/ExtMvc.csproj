@@ -122,6 +122,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Domain\Customer.hbm.xml" />
     <EmbeddedResource Include="Domain\Order.hbm.xml" />
+    <Content Include="ext\adapter\ext\ext-base-debug-w-comments.js" />
     <Content Include="ext\adapter\ext\ext-base-debug.js" />
     <Content Include="ext\adapter\ext\ext-base.js" />
     <Content Include="ext\adapter\jquery\ext-jquery-adapter-debug.js" />
@@ -130,6 +131,7 @@
     <Content Include="ext\adapter\prototype\ext-prototype-adapter.js" />
     <Content Include="ext\adapter\yui\ext-yui-adapter-debug.js" />
     <Content Include="ext\adapter\yui\ext-yui-adapter.js" />
+    <Content Include="ext\ext-all-debug-w-comments.js" />
     <Content Include="ext\ext-all-debug.js" />
     <Content Include="ext\ext-all.js" />
     <Content Include="ext\resources\charts.swf" />

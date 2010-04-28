@@ -24,15 +24,17 @@
 	},
 
 	buildDataProxy: function (url) {
-		var proxy = new Ext.data.HttpProxy({
+		var proxy = new JsonPostHttpProxy({
 			// Same parameters as Ext.Ajax.request
 			url: url,
 			method: 'POST'
 		});
-		proxy.getConnection().on('beforerequest', function (conn, options) {
-			options.jsonData = JSON.stringify(options.params);
-			delete options.params;
-		});
 		return proxy;
 	}
 };
+
+JsonPostHttpProxy = Ext.extend(Ext.data.HttpProxy, {
+	doRequest: function (action, rs, params, reader, cb, scope, arg) {
+		JsonPostHttpProxy.superclass.doRequest.call(this, action, rs, { jsonData: params }, reader, cb, scope, arg);
+	}
+});
