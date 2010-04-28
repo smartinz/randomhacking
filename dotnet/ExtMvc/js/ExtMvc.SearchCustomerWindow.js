@@ -8,8 +8,6 @@ ExtMvc.SearchCustomerWindow = Ext.extend(Ext.Window, {
 	height: 300,
 	layout: 'vbox',
 	initComponent: function () {
-		this.resultPageSize = 25;
-
 		var resultStore = new Ext.data.Store({
 			proxy: Rpc.buildDataProxy('/Customer/Find'),
 			reader: new Ext.data.JsonReader({
@@ -18,6 +16,13 @@ ExtMvc.SearchCustomerWindow = Ext.extend(Ext.Window, {
 				totalProperty: 'count',
 				fields: ['CustomerId', 'CompanyName', 'ContactName', 'ContactTitle', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'Phone', 'Fax']
 			})
+		});
+
+		this.resultPagingToolbar = new Ext.PagingToolbar({
+			store: resultStore, // grid and PagingToolbar using same store
+			displayInfo: true,
+			pageSize: 25,
+			prependButtons: true
 		});
 
 		this.resultGridPanel = new Ext.grid.GridPanel({
@@ -81,12 +86,7 @@ ExtMvc.SearchCustomerWindow = Ext.extend(Ext.Window, {
 				sortable: true
 			}
 			],
-			bbar: new Ext.PagingToolbar({
-				store: resultStore, // grid and PagingToolbar using same store
-				displayInfo: true,
-				pageSize: this.resultPageSize,
-				prependButtons: true
-			})
+			bbar: this.resultPagingToolbar
 		});
 
 		this.layoutConfig = {
@@ -131,7 +131,7 @@ ExtMvc.SearchCustomerWindow = Ext.extend(Ext.Window, {
 		this.resultGridPanel.getStore().load({
 			params: Ext.apply({
 				start: 0,
-				limit: 25
+				limit: this.resultPagingToolbar.pageSize
 			}, vals)
 		});
 	}
