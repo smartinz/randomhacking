@@ -23,18 +23,14 @@
 		});
 	},
 
-	buildDataProxy: function (url) {
-		var proxy = new JsonPostHttpProxy({
-			// Same parameters as Ext.Ajax.request
-			url: url,
-			method: 'POST'
-		});
-		return proxy;
-	}
+	JsonPostHttpProxy: Ext.extend(Ext.data.HttpProxy, {
+		method: 'POST',
+		doRequest: function (action, rs, params, reader, cb, scope, arg) {
+			params = { 
+				jsonData: JSON.stringify(params)
+			};
+			Rpc.JsonPostHttpProxy.superclass.doRequest.call(this, action, rs, params, reader, cb, scope, arg);
+		}
+	})
 };
 
-JsonPostHttpProxy = Ext.extend(Ext.data.HttpProxy, {
-	doRequest: function (action, rs, params, reader, cb, scope, arg) {
-		JsonPostHttpProxy.superclass.doRequest.call(this, action, rs, { jsonData: params }, reader, cb, scope, arg);
-	}
-});
