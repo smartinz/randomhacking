@@ -24,10 +24,10 @@
 			});
 			tt.show();
 			ogp.getStore().load({
-				params: Ext.apply({
+				params: {
 					start: 0,
 					limit: ogp.getBottomToolbar().pageSize // TODO not very good (break encapsulation)
-				}, vals)
+				}
 			});
 		});
 	</script>
