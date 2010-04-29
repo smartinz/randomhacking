@@ -11,8 +11,7 @@ ExtMvc.CustomerSearchPanel = Ext.extend(Ext.Panel, {
 	},
 	initComponent: function () {
 		this.resultGridPanel = new ExtMvc.CustomerGridPanel({
-			flex: 1,
-			border: false
+			flex: 1
 		});
 
 		this.searchFormPanel = new Ext.form.FormPanel({

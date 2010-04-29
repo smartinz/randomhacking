@@ -3,6 +3,7 @@
 Ext.namespace("ExtMvc");
 
 ExtMvc.CustomerGridPanel = Ext.extend(Ext.grid.GridPanel, {
+	border: false,
 	initComponent: function () {
 		this.store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
