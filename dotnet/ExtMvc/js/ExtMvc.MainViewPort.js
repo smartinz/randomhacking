@@ -26,14 +26,26 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 		}];
 		ExtMvc.MainViewport.superclass.initComponent.call(this);
 	},
-	
+
 	searchCustomerClick: function () {
-		var window = new ExtMvc.SearchCustomerWindow();
+		var window = new Ext.Window({
+			title: 'Search Customer',
+			width: 600,
+			height: 300,
+			layout: 'fit',
+			items: new ExtMvc.CustomerSearchPanel()
+		});
 		window.show();
 	},
-	
+
 	editCustomerClick: function () {
-		var window = new ExtMvc.EditCustomerWindow();
+		var window = new Ext.Window({
+			title: 'Edit Customer',
+			width: 300,
+			height: 300,
+			layout: 'fit',
+			items: new ExtMvc.CustomerFormPanel()
+		});
 		window.show();
 	}
 });
