@@ -997,6 +997,7 @@
     <Content Include="ext\resources\images\yourtheme\window\right-corners.png" />
     <Content Include="ext\resources\images\yourtheme\window\top-bottom.png" />
     <Content Include="Global.asax" />
+    <Content Include="js\ExtMvc.CustomerField.js" />
     <Content Include="js\ExtMvc.CustomerFormPanel.js" />
     <Content Include="js\ExtMvc.CustomerGridPanel.js" />
     <Content Include="js\ExtMvc.OrderGridPanel.js" />

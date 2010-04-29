@@ -6,6 +6,7 @@
 	<script src="/js/ExtMvc.CustomerGridPanel.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.OrderGridPanel.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.CustomerFormPanel.js" type="text/javascript"></script>
+	<script src="/js/ExtMvc.CustomerField.js" type="text/javascript"></script>
 	<script type="text/javascript">
 		"use strict";
 

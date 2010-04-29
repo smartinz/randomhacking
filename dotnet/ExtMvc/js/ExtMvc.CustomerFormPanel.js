@@ -1,4 +1,4 @@
-﻿
+﻿"use strict";
 
 Ext.namespace("ExtMvc");
 
@@ -18,6 +18,12 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 			scope: this
 		}];
 
+		this.triggerField = new ExtMvc.CustomerField({
+			name: 'Test',
+			fieldLabel: 'Fax',
+			anchor: '100%'
+		});
+
 		// see http://www.extjs.com/forum/showthread.php?98131
 		this.items = [
 			{ name: 'CompanyName', fieldLabel: 'Company name' },
@@ -29,7 +35,8 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 			{ name: 'PostalCode', fieldLabel: 'Postal code' },
 			{ name: 'Country', fieldLabel: 'Country' },
 			{ name: 'Phone', fieldLabel: 'Phone' },
-			{ name: 'Fax', fieldLabel: 'Fax' }
+			{ name: 'Fax', fieldLabel: 'Fax' },
+			this.triggerField
 		];
 
 		ExtMvc.CustomerFormPanel.superclass.initComponent.call(this);
