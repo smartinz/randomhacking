@@ -5,7 +5,6 @@ Ext.namespace("ExtMvc");
 ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	border: false,
 	padding: 10,
-	defaults: { xtype: 'textfield', anchor: '100%' },
 
 	initComponent: function () {
 		this.buttons = [{
@@ -18,25 +17,19 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 			scope: this
 		}];
 
-		this.triggerField = new ExtMvc.CustomerField({
-			name: 'Test',
-			fieldLabel: 'Fax',
-			anchor: '100%'
-		});
-
 		// see http://www.extjs.com/forum/showthread.php?98131
 		this.items = [
-			{ name: 'CompanyName', fieldLabel: 'Company name' },
-			{ name: 'ContactName', fieldLabel: 'Contact name' },
-			{ name: 'ContactTitle', fieldLabel: 'Contact title' },
-			{ name: 'Address', fieldLabel: 'Address' },
-			{ name: 'City', fieldLabel: 'City' },
-			{ name: 'Region', fieldLabel: 'Region' },
-			{ name: 'PostalCode', fieldLabel: 'Postal code' },
-			{ name: 'Country', fieldLabel: 'Country' },
-			{ name: 'Phone', fieldLabel: 'Phone' },
-			{ name: 'Fax', fieldLabel: 'Fax' },
-			this.triggerField
+			{ name: 'CompanyName', fieldLabel: 'Company name', xtype: 'textfield', anchor: '100%' },
+			{ name: 'ContactName', fieldLabel: 'Contact name', xtype: 'textfield', anchor: '100%' },
+			{ name: 'ContactTitle', fieldLabel: 'Contact title', xtype: 'textfield', anchor: '100%' },
+			{ name: 'Address', fieldLabel: 'Address', xtype: 'textfield', anchor: '100%' },
+			{ name: 'City', fieldLabel: 'City', xtype: 'textfield', anchor: '100%' },
+			{ name: 'Region', fieldLabel: 'Region', xtype: 'textfield', anchor: '100%' },
+			{ name: 'PostalCode', fieldLabel: 'Postal code', xtype: 'textfield', anchor: '100%' },
+			{ name: 'Country', fieldLabel: 'Country', xtype: 'textfield', anchor: '100%' },
+			{ name: 'Phone', fieldLabel: 'Phone', xtype: 'textfield', anchor: '100%' },
+			{ name: 'Fax', fieldLabel: 'Fax', xtype: 'textfield', anchor: '100%' },
+			new ExtMvc.CustomerField({ name: 'Test', fieldLabel: 'Customer', anchor: '100%' })
 		];
 
 		ExtMvc.CustomerFormPanel.superclass.initComponent.call(this);
