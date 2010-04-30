@@ -10,7 +10,7 @@ ExtMvc.CustomerSearchPanel = Ext.extend(Ext.Panel, {
 		pack: 'start'
 	},
 	initComponent: function () {
-		this.resultGridPanel = new ExtMvc.CustomerGridPanel({
+		this.listViewContainer = new ExtMvc.CustomerListViewContainer({
 			flex: 1
 		});
 
@@ -42,17 +42,12 @@ ExtMvc.CustomerSearchPanel = Ext.extend(Ext.Panel, {
 			}]
 		});
 
-		this.items = [this.searchFormPanel, this.resultGridPanel];
+		this.items = [this.searchFormPanel, this.listViewContainer];
 		ExtMvc.CustomerSearchPanel.superclass.initComponent.call(this);
 	},
 
 	searchClick: function (b, e) {
-		var vals = this.searchFormPanel.getForm().getFieldValues();
-		this.resultGridPanel.getStore().load({
-			params: Ext.apply({
-				start: 0,
-				limit: this.resultGridPanel.getBottomToolbar().pageSize // TODO not very good (break encapsulation)
-			}, vals)
-		});
+		var args = this.searchFormPanel.getForm().getFieldValues();
+		this.listViewContainer.loadItems(args);
 	}
 });

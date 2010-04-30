@@ -1000,6 +1000,7 @@
     <Content Include="js\ExtMvc.CustomerField.js" />
     <Content Include="js\ExtMvc.CustomerFormPanel.js" />
     <Content Include="js\ExtMvc.CustomerGridPanel.js" />
+    <Content Include="js\ExtMvc.CustomerListViewContainer.js" />
     <Content Include="js\ExtMvc.OrderGridPanel.js" />
     <Content Include="js\Rpc.js" />
     <Content Include="Views\Test\Index.aspx" />

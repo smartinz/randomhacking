@@ -4,6 +4,7 @@
 	<script type="text/javascript" src="/js/ExtMvc.MainViewPort.js"></script>
 	<script src="/js/ExtMvc.CustomerSearchPanel.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.CustomerGridPanel.js" type="text/javascript"></script>
+	<script src="/js/ExtMvc.CustomerListViewContainer.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.OrderGridPanel.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.CustomerFormPanel.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.CustomerField.js" type="text/javascript"></script>
