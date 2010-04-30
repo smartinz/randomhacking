@@ -9,8 +9,12 @@ ExtMvc.CustomerSearchContainer = Ext.extend(Ext.Container, {
 		pack: 'start'
 	},
 	initComponent: function () {
+		var dataProxy = new Rpc.JsonPostHttpProxy({
+			url: '/Customer/Find'
+		});
 		this.listViewContainer = new ExtMvc.CustomerListViewContainer({
-			flex: 1
+			flex: 1,
+			dataProxy: dataProxy
 		});
 
 		this.addEvents('itemselected');

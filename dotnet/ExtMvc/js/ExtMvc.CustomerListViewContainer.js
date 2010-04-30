@@ -5,7 +5,7 @@ Ext.namespace("ExtMvc");
 ExtMvc.CustomerListViewContainer = Ext.extend(Ext.Container, {
 	layout: 'fit',
 	initComponent: function () {
-		this.gridPanel =  this.buildGridPanel();
+		this.gridPanel =  this.buildGridPanel(this.dataProxy);
 		this.items = this.gridPanel;
 
 		this.addEvents('itemselected');
@@ -29,11 +29,9 @@ ExtMvc.CustomerListViewContainer = Ext.extend(Ext.Container, {
 		});
 	},
 
-	buildGridPanel: function () {
+	buildGridPanel: function (dataProxy) {
 		var store = new Ext.data.Store({
-			proxy: new Rpc.JsonPostHttpProxy({
-				url: '/Customer/Find'
-			}),
+			proxy: dataProxy,
 			remoteSort: true,
 			reader: new Ext.data.JsonReader({
 				root: 'items',
