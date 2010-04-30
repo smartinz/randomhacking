@@ -7,7 +7,7 @@ ExtMvc.CustomerField = Ext.extend(Ext.form.TriggerField, {
 	hideTrigger: true,
 	onTriggerClick: function () {
 		var searchPanel = new ExtMvc.CustomerSearchPanel();
-		var window = new Ext.Window({
+		this.window = new Ext.Window({
 			modal: true,
 			title: 'Search Customer',
 			width: 600,
@@ -15,11 +15,12 @@ ExtMvc.CustomerField = Ext.extend(Ext.form.TriggerField, {
 			layout: 'fit',
 			items: searchPanel
 		});
-		searchPanel.resultGridPanel.on('rowdblclick', function (grid, rowIndex, event) {
-			var customer = grid.getStore().getAt(rowIndex).data;
-			this.setValue(customer.CustomerId);
-			window.close();
-		}, this);
-		window.show();
+		searchPanel.on('itemselected', this.searchPanel_itemSelected, this);
+		this.window.show();
+	},
+
+	searchPanel_itemSelected: function (sender, item) {
+		this.setValue(item.CustomerId);
+		this.window.close();
 	}
 });
