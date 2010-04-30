@@ -6,7 +6,7 @@ ExtMvc.CustomerField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
 	hideTrigger: true,
 	onTriggerClick: function () {
-		var searchPanel = new ExtMvc.CustomerSearchPanel();
+		var searchPanel = new ExtMvc.CustomerSearchContainer();
 		this.window = new Ext.Window({
 			modal: true,
 			title: 'Search Customer',

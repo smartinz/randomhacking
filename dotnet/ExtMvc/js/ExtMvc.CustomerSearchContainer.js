@@ -2,8 +2,7 @@
 
 Ext.namespace("ExtMvc");
 
-ExtMvc.CustomerSearchPanel = Ext.extend(Ext.Panel, {
-	border: false,
+ExtMvc.CustomerSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'vbox',
 	layoutConfig: {
 		align: 'stretch',
@@ -47,7 +46,7 @@ ExtMvc.CustomerSearchPanel = Ext.extend(Ext.Panel, {
 		});
 
 		this.items = [this.searchFormPanel, this.listViewContainer];
-		ExtMvc.CustomerSearchPanel.superclass.initComponent.call(this);
+		ExtMvc.CustomerSearchContainer.superclass.initComponent.call(this);
 	},
 
 	listViewContainer_itemSelected: function (sender, item) {

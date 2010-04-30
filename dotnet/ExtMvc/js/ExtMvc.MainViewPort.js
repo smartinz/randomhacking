@@ -33,7 +33,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 			width: 600,
 			height: 300,
 			layout: 'fit',
-			items: new ExtMvc.CustomerSearchPanel()
+			items: new ExtMvc.CustomerSearchContainer()
 		});
 		window.show();
 	},

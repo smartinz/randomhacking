@@ -1041,7 +1041,7 @@
     <None Include="ext\resources\resources.jsb" />
     <Content Include="js\ExtMvc.MainViewPort.js" />
     <Content Include="Views\Shared\Site.Master" />
-    <Content Include="js\ExtMvc.CustomerSearchPanel.js" />
+    <Content Include="js\ExtMvc.CustomerSearchContainer.js" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
