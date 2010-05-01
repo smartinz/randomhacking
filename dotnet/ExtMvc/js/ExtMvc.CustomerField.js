@@ -1,5 +1,6 @@
-﻿"use strict";
-
+/*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
+/*global Ext, ExtMvc */
+"use strict";
 Ext.namespace("ExtMvc");
 
 ExtMvc.CustomerField = Ext.extend(Ext.form.TriggerField, {

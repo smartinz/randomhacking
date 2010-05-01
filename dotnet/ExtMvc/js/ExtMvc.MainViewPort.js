@@ -1,4 +1,6 @@
-﻿"use strict";
+/*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
+/*global Ext, ExtMvc */
+"use strict";
 
 Ext.namespace("ExtMvc");
 
@@ -54,11 +56,12 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 	},
 
 	testClick: function () {
-		var obj = JSON.parse('{"OrderId":10643,"OrderDate":"\/Date(872460000000)\/","RequiredDate":"\/Date(874879200000)\/","ShippedDate":"\/Date(873151200000)\/","Freight":29.4600,"ShipName":"Alfreds Futterkiste","ShipAddress":"Obere Str. 57","ShipCity":"Berlin","ShipRegion":null,"ShipPostalCode":"12209","ShipCountry":"Germany"}');
-		var lvc = new ExtMvc.OrderListViewContainer({
+		var obj, lvc, window;
+		obj = JSON.parse('{"OrderId":10643,"OrderDate":"\/Date(872460000000)\/","RequiredDate":"\/Date(874879200000)\/","ShippedDate":"\/Date(873151200000)\/","Freight":29.4600,"ShipName":"Alfreds Futterkiste","ShipAddress":"Obere Str. 57","ShipCity":"Berlin","ShipRegion":null,"ShipPostalCode":"12209","ShipCountry":"Germany"}');
+		lvc = new ExtMvc.OrderListViewContainer({
 			dataProxy: new Ext.data.MemoryProxy({ items: obj })
 		});
-		var window = new Ext.Window({
+		window = new Ext.Window({
 			title: 'Test',
 			width: 600,
 			height: 300,

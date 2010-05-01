@@ -1,9 +1,14 @@
-﻿Rpc = {
+/*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
+/*global Ext, Rpc: true */
+"use strict";
+
+Rpc = {
 	call: function (url, params, callback) {
 		var reviver = function (key, value) {
 			if (typeof value === 'string') {
-				var re = new RegExp('\\/Date\\(([-+])?(\\d+)(?:[+-]\\d{4})?\\)\\/');
-				var r = value.match(re);
+				var re, r;
+				re = new RegExp('\\/Date\\(([-+])?(\\d+)(?:[+-]\\d{4})?\\)\\/');
+				r = value.match(re);
 				if (r) {
 					return new Date(((r[1] || '') + r[2]) * 1);
 				}
@@ -16,8 +21,9 @@
 			method: 'POST',
 			jsonData: JSON.stringify(params),
 			callback: function (options, success, response) {
-				var isJson = (response.getResponseHeader('content-type') || '').toLowerCase().indexOf('application/json') != -1;
-				var ret = isJson ? JSON.parse(response.responseText, reviver) : null;
+				var isJson, ret;
+				isJson = (response.getResponseHeader('content-type') || '').toLowerCase().indexOf('application/json') !== -1;
+				ret = isJson ? JSON.parse(response.responseText, reviver) : null;
 				callback(success, ret);
 			}
 		});

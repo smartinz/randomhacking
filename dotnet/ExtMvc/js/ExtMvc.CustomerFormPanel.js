@@ -1,4 +1,6 @@
-﻿"use strict";
+/*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
+/*global Ext, ExtMvc, Rpc */
+"use strict";
 
 Ext.namespace("ExtMvc");
 
@@ -74,7 +76,7 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	saveClick: function () {
 		var vals = this.getForm().getFieldValues();
 		Rpc.call('/Customer/Update', { customer: vals }, function (success) {
-			alert(success ? 'done' : 'error');
+			document.alert(success ? 'done' : 'error');
 		});
 	}
 });
