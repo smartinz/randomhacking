@@ -50,6 +50,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 			width: 300,
 			height: 300,
 			layout: 'fit',
+			maximizable: true,
 			items: new ExtMvc.CustomerFormPanel()
 		});
 		window.show();
