@@ -22,6 +22,10 @@ ExtMvc.OrderListViewContainer = Ext.extend(Ext.Container, {
 		this.fireEvent('itemselected', this, item);
 	},
 
+	setValue: function (items) {
+		this.gridPanel.getStore().proxy.data.items = items;
+	},
+
 	loadItems: function (args) {
 		this.gridPanel.getStore().load({
 			params: Ext.apply({
@@ -32,9 +36,11 @@ ExtMvc.OrderListViewContainer = Ext.extend(Ext.Container, {
 	},
 
 	buildGridPanel: function (dataProxy) {
-		var store = new Ext.data.Store({
-			proxy: dataProxy,
-			remoteSort: true,
+		var store;
+
+		store = new Ext.data.Store({
+			proxy: dataProxy || new Ext.data.MemoryProxy({ items: [] }),
+			remoteSort: dataProxy ? true : false,
 			reader: new Ext.data.JsonReader({
 				root: 'items',
 				idProperty: "OrderId",
