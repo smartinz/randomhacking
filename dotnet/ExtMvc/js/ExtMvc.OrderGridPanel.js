@@ -4,7 +4,7 @@
 
 Ext.namespace("ExtMvc");
 
-ExtMvc.OrderGridPanel = Ext.Extend(Ext.grid.GridPanel, {
+ExtMvc.OrderGridPanel = Ext.extend(Ext.grid.GridPanel, {
 	border: false,
 	initComponent: function () {
 		this.colModel = new Ext.grid.ColumnModel({

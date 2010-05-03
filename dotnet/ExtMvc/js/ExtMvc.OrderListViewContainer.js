@@ -41,12 +41,12 @@ ExtMvc.OrderListViewContainer = Ext.extend(Ext.Container, {
 		store = new Ext.data.Store({
 			proxy: dataProxy || new Ext.data.MemoryProxy({ items: [] }),
 			remoteSort: dataProxy ? true : false,
-			reader: new Ext.data.JsonReader({
+			reader: new ExtMvc.OrderJsonReader()/*new Ext.data.JsonReader({
 				root: 'items',
 				idProperty: "OrderId",
 				totalProperty: 'count',
 				fields: ['OrderId', 'OrderDate', 'RequiredDate', 'ShippedDate', 'Freight', 'ShipName', 'ShipAddress', 'ShipCity', 'ShipRegion', 'ShipPostalCode', 'ShipCountry']
-			})
+			})*/
 		});
 
 		return new Ext.grid.GridPanel({
