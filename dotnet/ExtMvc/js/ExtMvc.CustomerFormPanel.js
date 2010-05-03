@@ -1,4 +1,4 @@
-/*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
+/*jslint white: true, browser: true, devel: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
 /*global Ext, ExtMvc, Rpc */
 "use strict";
 
@@ -23,8 +23,6 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 			handler: this.saveClick,
 			scope: this
 		}];
-
-		this.OrderListViewContainer = new ExtMvc.OrderListViewContainer({ title: 'Orders' });
 
 		// see http://www.extjs.com/forum/showthread.php?98131
 		this.items = [{
@@ -52,7 +50,7 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 			activeTab: 0,
 			deferredRender: false, // IMPORTANT! See http://www.extjs.com/deploy/dev/examples/form/dynamic.js
 			items: [
-				this.OrderListViewContainer
+				new ExtMvc.OrderListField({ title: 'Orders', name: 'Orders' })
 			]
 		}];
 
@@ -64,8 +62,6 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 		that.el.mask('Please wait...', 'x-mask-loading');
 		Rpc.call('/Customer/Get', { id: 'ALFKI' }, function (success, ret) {
 			that.getForm().setValues(ret);
-			that.OrderListViewContainer.setValue(ret.Orders);
-			that.OrderListViewContainer.loadItems();
 			that.el.unmask();
 		});
 	},
@@ -73,7 +69,7 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	saveClick: function () {
 		var vals = this.getForm().getFieldValues();
 		Rpc.call('/Customer/Update', { customer: vals }, function (success) {
-			document.alert(success ? 'done' : 'error');
+			alert(success ? 'done' : 'error');
 		});
 	}
 });

@@ -24,13 +24,6 @@ ExtMvc.OrderGridPanel = Ext.extend(Ext.grid.GridPanel, {
 			]
 		});
 
-		this.bbar = new Ext.PagingToolbar({
-			store: this.store,
-			displayInfo: true,
-			pageSize: 25,
-			prependButtons: true
-		});
-
 		ExtMvc.OrderGridPanel.superclass.initComponent.call(this);
 	}
 });

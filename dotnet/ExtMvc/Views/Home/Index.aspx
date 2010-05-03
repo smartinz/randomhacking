@@ -7,6 +7,7 @@
 	<script src="/js/ExtMvc.OrderGridPanel.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.OrderJsonReader.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.OrderListViewContainer.js" type="text/javascript"></script>
+	<script src="/js/ExtMvc.OrderListField.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.CustomerFormPanel.js" type="text/javascript"></script>
 	<script src="/js/ExtMvc.CustomerField.js" type="text/javascript"></script>
 	<script type="text/javascript">

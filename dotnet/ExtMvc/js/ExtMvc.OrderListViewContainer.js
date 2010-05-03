@@ -7,11 +7,19 @@ Ext.namespace("ExtMvc");
 ExtMvc.OrderListViewContainer = Ext.extend(Ext.Container, {
 	layout: 'fit',
 	initComponent: function () {
+		var store = new Ext.data.Store({
+			proxy: this.dataProxy,
+			remoteSort: true,
+			reader: new ExtMvc.OrderJsonReader()
+		});
+
 		this.gridPanel = new ExtMvc.OrderGridPanel({
-			store: new Ext.data.Store({
-				proxy: this.dataProxy || new Ext.data.MemoryProxy({ items: [] }),
-				remoteSort: this.dataProxy ? true : false,
-				reader: new ExtMvc.OrderJsonReader()
+			store: store,
+			bbar: new Ext.PagingToolbar({
+				store: store,
+				displayInfo: true,
+				pageSize: 25,
+				prependButtons: true
 			})
 		});
 

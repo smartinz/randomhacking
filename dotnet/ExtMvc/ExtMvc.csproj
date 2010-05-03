@@ -1002,6 +1002,7 @@
     <Content Include="js\ExtMvc.CustomerListViewContainer.js" />
     <Content Include="js\ExtMvc.OrderGridPanel.js" />
     <Content Include="js\ExtMvc.OrderJsonReader.js" />
+    <Content Include="js\ExtMvc.OrderListField.js" />
     <Content Include="js\ExtMvc.OrderListViewContainer.js" />
     <Content Include="js\Rpc.js" />
     <Content Include="Views\Test\Index.aspx" />
