@@ -7,15 +7,13 @@ Ext.namespace("ExtMvc");
 ExtMvc.OrderListField = Ext.extend(Ext.form.Field, {
 	initComponent: function () {
 		var cfg = Ext.copyTo({
-			id: this.id + '-gridpanel'
-		}, this.initialConfig, []);
-		this.gridPanel = new ExtMvc.OrderGridPanel({
+			id: this.id + '-gridpanel',
 			store: new Ext.data.Store({
 				proxy: new Ext.data.MemoryProxy({ items: [] }),
-				remoteSort: false,
 				reader: new ExtMvc.OrderJsonReader()
 			})
-		});
+		}, this.initialConfig, []);
+		this.gridPanel = new ExtMvc.OrderGridPanel(cfg);
 		ExtMvc.OrderListField.superclass.initComponent.call(this);
 	},
 
