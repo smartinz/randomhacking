@@ -18,6 +18,7 @@ ExtMvc.OrderListField = Ext.extend(Ext.form.Field, {
 	},
 
 	onRender: function (ct, position) {
+		// TODO This creates a hidden field above the grid. Check if this is good or not
 		this.autoCreate = {
 			id: this.id,
 			name: this.name,
