@@ -35,12 +35,7 @@ ExtMvc.CustomerListViewContainer = Ext.extend(Ext.Container, {
 		var store = new Ext.data.Store({
 			proxy: dataProxy,
 			remoteSort: true,
-			reader: new Ext.data.JsonReader({
-				root: 'items',
-				idProperty: "CustomerId",
-				totalProperty: 'count',
-				fields: ['CustomerId', 'CompanyName', 'ContactName', 'ContactTitle', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'Phone', 'Fax']
-			})
+			reader: new ExtMvc.CustomerJsonReader()
 		});
 
 		return new ExtMvc.CustomerGridPanel({
