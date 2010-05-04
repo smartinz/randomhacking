@@ -43,26 +43,8 @@ ExtMvc.CustomerListViewContainer = Ext.extend(Ext.Container, {
 			})
 		});
 
-		return new Ext.grid.GridPanel({
-			border: false,
+		return new ExtMvc.CustomerGridPanel({
 			store: store,
-			colModel: new Ext.grid.ColumnModel({
-				defaults: { width: 60, sortable: true },
-				columns: [
-					{ dataIndex: 'CustomerId', header: "Id" },
-					{ dataIndex: 'CompanyName', header: "Company", width: 180 },
-					{ dataIndex: 'ContactName', header: "Contact name", width: 120 },
-					{ dataIndex: 'ContactTitle', header: "Contact title", width: 120 },
-					{ dataIndex: 'Address', header: "Address", width: 120 },
-					{ dataIndex: 'City', header: "City" },
-					{ dataIndex: 'Region', header: "Region" },
-					{ dataIndex: 'PostalCode', header: "Postal code" },
-					{ dataIndex: 'Country', header: "Country" },
-					{ dataIndex: 'Phone', header: "Phone", width: 120 },
-					{ dataIndex: 'Fax', header: "Fax", width: 120 }
-				]
-			}),
-
 			bbar: new Ext.PagingToolbar({
 				store: store,
 				displayInfo: true,
