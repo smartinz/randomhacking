@@ -11,17 +11,29 @@ ExtMvc.CustomerSearchContainer = Ext.extend(Ext.Container, {
 		pack: 'start'
 	},
 	initComponent: function () {
-		var dataProxy = new Rpc.JsonPostHttpProxy({
-			url: '/Customer/Find'
+		var store = new Ext.data.Store({
+			proxy: new Rpc.JsonPostHttpProxy({
+				url: '/Customer/Find'
+			}),
+			remoteSort: true,
+			reader: new ExtMvc.CustomerJsonReader()
 		});
-		this.listViewContainer = new ExtMvc.CustomerListViewContainer({
+		this.gridPanel = new ExtMvc.CustomerGridPanel({
 			flex: 1,
-			dataProxy: dataProxy
+			store: store,
+			bbar: new Ext.PagingToolbar({
+				store: store,
+				displayInfo: true,
+				pageSize: 25,
+				prependButtons: true
+			}),
+			listeners: {
+				rowdblclick: {
+					fn: this.gridPanel_rowDblClick,
+					scope: this
+				}
+			}
 		});
-
-		this.addEvents('itemselected');
-
-		this.listViewContainer.on('itemselected', this.listViewContainer_itemSelected, this);
 
 		this.searchFormPanel = new Ext.form.FormPanel({
 			labelWidth: 100,
@@ -51,16 +63,25 @@ ExtMvc.CustomerSearchContainer = Ext.extend(Ext.Container, {
 			}]
 		});
 
-		this.items = [this.searchFormPanel, this.listViewContainer];
+		this.items = [this.searchFormPanel, this.gridPanel];
+
+		this.addEvents('itemselected');
+
 		ExtMvc.CustomerSearchContainer.superclass.initComponent.call(this);
 	},
 
-	listViewContainer_itemSelected: function (sender, item) {
+	gridPanel_rowDblClick: function (grid, rowIndex, event) {
+		var item = grid.getStore().getAt(rowIndex).data;
 		this.fireEvent('itemselected', this, item);
 	},
 
 	searchClick: function (b, e) {
 		var args = this.searchFormPanel.getForm().getFieldValues();
-		this.listViewContainer.loadItems(args);
+		this.gridPanel.getStore().load({
+			params: Ext.apply({
+				start: 0,
+				limit: this.gridPanel.getBottomToolbar().pageSize
+			}, args)
+		});
 	}
 });
