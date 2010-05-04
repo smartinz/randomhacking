@@ -7,7 +7,20 @@ Ext.namespace("ExtMvc");
 ExtMvc.CustomerListViewContainer = Ext.extend(Ext.Container, {
 	layout: 'fit',
 	initComponent: function () {
-		this.gridPanel =  this.buildGridPanel(this.dataProxy);
+		this.gridPanel = new ExtMvc.CustomerGridPanel({
+			store: new Ext.data.Store({
+				proxy: this.dataProxy,
+				remoteSort: true,
+				reader: new ExtMvc.CustomerJsonReader()
+			}),
+			bbar: new Ext.PagingToolbar({
+				store: store,
+				displayInfo: true,
+				pageSize: 25,
+				prependButtons: true
+			})
+		});
+
 		this.items = this.gridPanel;
 
 		this.addEvents('itemselected');
@@ -28,24 +41,6 @@ ExtMvc.CustomerListViewContainer = Ext.extend(Ext.Container, {
 				start: 0,
 				limit: this.gridPanel.getBottomToolbar().pageSize
 			}, args)
-		});
-	},
-
-	buildGridPanel: function (dataProxy) {
-		var store = new Ext.data.Store({
-			proxy: dataProxy,
-			remoteSort: true,
-			reader: new ExtMvc.CustomerJsonReader()
-		});
-
-		return new ExtMvc.CustomerGridPanel({
-			store: store,
-			bbar: new Ext.PagingToolbar({
-				store: store,
-				displayInfo: true,
-				pageSize: 25,
-				prependButtons: true
-			})
 		});
 	}
 });
