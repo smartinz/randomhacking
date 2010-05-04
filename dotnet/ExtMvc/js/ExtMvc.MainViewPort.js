@@ -57,7 +57,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 	},
 
 	testClick: function () {
-		var obj, lvc, window;
+/*		var obj, lvc, window;
 		obj = JSON.parse('{"OrderId":10643,"OrderDate":"\/Date(872460000000)\/","RequiredDate":"\/Date(874879200000)\/","ShippedDate":"\/Date(873151200000)\/","Freight":29.4600,"ShipName":"Alfreds Futterkiste","ShipAddress":"Obere Str. 57","ShipCity":"Berlin","ShipRegion":null,"ShipPostalCode":"12209","ShipCountry":"Germany"}');
 		lvc = new ExtMvc.OrderListViewContainer({
 			dataProxy: new Ext.data.MemoryProxy({ items: obj })
@@ -70,6 +70,6 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 			items: lvc
 		});
 		lvc.loadItems({});
-		window.show();
+		window.show();*/
 	}
 });
