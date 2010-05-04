@@ -32,10 +32,22 @@ Rpc = {
 	JsonPostHttpProxy: Ext.extend(Ext.data.HttpProxy, {
 		method: 'POST',
 		doRequest: function (action, rs, params, reader, cb, scope, arg) {
-			params = { 
+			params = {
 				jsonData: JSON.stringify(params)
 			};
 			Rpc.JsonPostHttpProxy.superclass.doRequest.call(this, action, rs, params, reader, cb, scope, arg);
+		}
+	}),
+
+	JsonLoadFormAction: Ext.extend(Ext.form.Action.Load, {
+		type: 'jsonload',
+		run: function () {
+			Ext.Ajax.request(Ext.apply(this.createCallback(this.options), {
+				method: this.getMethod(),
+				url: this.getUrl(false),
+				headers: this.options.headers,
+				jsonData: JSON.stringify(Ext.applyIf(this.options.params || {}, this.form.baseParams)) // This is the ONLY difference
+			}));
 		}
 	})
 };
