@@ -49,7 +49,7 @@ namespace ExtMvc.Controllers
 			{
 				var customer = session.Get<Customer>(id);
 				CustomerDto dto = Mapper.Map<Customer, CustomerDto>(customer);
-				return Json(dto);
+                return Json(new { success = true, data = dto });
 			}
 		}
 

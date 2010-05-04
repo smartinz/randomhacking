@@ -59,11 +59,22 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 
 	loadClick: function () {
 		var that = this;
+		that.getForm().load({ 
+			url: '/Customer/Get',
+			params: { id: 'ALFKI' }
+		});
+		/*
+		that.getForm().doAction(new Ext.form.Action.Load(that.getForm(), { 
+			url: '/Customer/Get',
+			params: { id: 'ALFKI' }
+		}));
+		*/
+		/*
 		that.el.mask('Please wait...', 'x-mask-loading');
 		Rpc.call('/Customer/Get', { id: 'ALFKI' }, function (success, ret) {
 			that.getForm().setValues(ret);
 			that.el.unmask();
-		});
+		});*/
 	},
 
 	saveClick: function () {
