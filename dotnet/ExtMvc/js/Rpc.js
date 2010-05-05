@@ -37,7 +37,8 @@ Rpc = {
 			failure: function () {
 				alert('Error occured while trying to interact with the server.');
 			},
-			callback: Ext.emptyFn
+			callback: Ext.emptyFn,
+			scope: window
 		}, opts);
 
 		Ext.Ajax.request({
@@ -46,13 +47,13 @@ Rpc = {
 			jsonData: JSON.stringify(opts.params),
 			success: function (response, options) {
 				var isJson = (response.getResponseHeader('content-type') || '').toLowerCase().indexOf('application/json') !== -1;
-				opts.success(isJson ? JSON.parse(response.responseText, reviver) : null);
+				opts.success.call(opts.scope, isJson ? JSON.parse(response.responseText, reviver) : null);
 			},
 			failure: function (response, options) {
-				opts.failure();
+				opts.failure.call(opts.scope);
 			},
 			callback: function (options, success, response) {
-				opts.callback();
+				opts.callback.call(opts.scope);
 			}
 		});
 	},

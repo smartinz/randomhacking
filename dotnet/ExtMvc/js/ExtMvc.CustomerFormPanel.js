@@ -78,22 +78,21 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	*/
 
 	loadClick: function () {
-		var that = this;
 		this.el.mask('Loading...', 'x-mask-loading');
 		Rpc.call({
 			url: '/Customer/Get',
 			params: { id: 'ALFKI' },
+			scope: this,
 			success: function (ret) {
-				that.getForm().setValues(ret.data);
+				this.getForm().setValues(ret.data);
 			},
 			callback: function () {
-				that.el.unmask();
+				this.el.unmask();
 			}
 		});
 	},
 
 	saveClick: function () {
-		var that = this;
 		if (!this.getForm().isValid()) {
 			return;
 		}
@@ -101,13 +100,14 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 		Rpc.call({
 			url: '/Customer/Update',
 			params: { item: this.getForm().getFieldValues() },
+			scope: this,
 			success: function (result) {
 				if (!result.success) {
-					that.getForm().markInvalid(result.errors);
+					this.getForm().markInvalid(result.errors);
 				}
 			},
 			callback: function () {
-				that.el.unmask();
+				this.el.unmask();
 			}
 		});
 	}
