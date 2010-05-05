@@ -77,14 +77,7 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	saveClick: function () {
 		this.getForm().doAction(new Rpc.JsonSubmitFormAction(this.getForm(), {
 			url: '/Customer/Update',
-			params: { id: 'ALFKI' },
 			waitMsg: 'Saving...'
 		}));
-		/*
-		var vals = this.getForm().getFieldValues();
-		Rpc.call('/Customer/Update', { customer: vals }, function (success) {
-			alert(success ? 'done' : 'error');
-		});
-		*/
 	}
 });
