@@ -67,8 +67,7 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 */
 
 	loadClick: function () {
-		var that = this;
-		that.getForm().doAction(new Rpc.JsonLoadFormAction(that.getForm(), {
+		this.getForm().doAction(new Rpc.JsonLoadFormAction(this.getForm(), {
 			url: '/Customer/Get',
 			jsonData: { id: 'ALFKI' },
 			waitMsg: 'Loading...'
