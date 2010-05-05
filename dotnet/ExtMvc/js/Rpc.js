@@ -31,6 +31,13 @@ Rpc = {
 			return value;
 		};
 
+		opts = Ext.apply(opts, {
+			params: {},
+			callback: Ext.emptyFn,
+			success: Ext.emptyFn,
+			failure: Ext.emptyFn
+		});
+
 		Ext.Ajax.request({
 			url: opts.url,
 			method: 'POST',
@@ -40,6 +47,12 @@ Rpc = {
 				isJson = (response.getResponseHeader('content-type') || '').toLowerCase().indexOf('application/json') !== -1;
 				ret = isJson ? JSON.parse(response.responseText, reviver) : null;
 				opts.callback(success, ret);
+				if (success) {
+					opts.success(ret);
+				}
+				else {
+					opts.failure();
+				}
 			}
 		});
 	},
