@@ -29,14 +29,18 @@
 					falseValue: false,
 					nullValue: null
 				};
-				expect(2);
+				expect(1);
 				stop(10000);
 				Rpc.call({
 					url: '/Test/Rpc',
 					params: params,
-					callback: function (success, retData) {
-						ok(success);
+					success: function (retData) {
 						same(retData, params);
+					},
+					failure: function () {
+						ok(false);
+					},
+					callback: function () {
 						start();
 					}
 				});
@@ -46,14 +50,18 @@
 				var params = {
 					dateValue: new Date(2010, 4, 26, 11, 49, 33, 44)
 				};
-				expect(2);
+				expect(1);
 				stop(10000);
 				Rpc.call({
 					url: '/Test/RpcWithDate',
 					params: params,
-					callback: function (success, retData) {
-						ok(success);
+					success: function (retData) {
 						same(retData, params);
+					},
+					failure: function () {
+						ok(false);
+					},
+					callback: function () {
 						start();
 					}
 				});
@@ -65,10 +73,15 @@
 				Rpc.call({
 					url: '/Test/RpcWithDate',
 					params: null,
-					callback: function (success, retData) {
-						ok(!success);
+					success: function (retData) {
+						ok(false);
+					},
+					failure: function () {
+						ok(true);
+					},
+					callback: function () {
 						start();
-					} 
+					}
 				});
 			});
 		});

@@ -31,26 +31,28 @@ Rpc = {
 			return value;
 		};
 
+		opts = Ext.apply({
+			params: {},
+			success: Ext.emptyFn,
+			failure: function () {
+				alert('Error occured while trying to interact with the server.');
+			},
+			callback: Ext.emptyFn
+		}, opts);
+
 		Ext.Ajax.request({
 			url: opts.url,
 			method: 'POST',
-			jsonData: JSON.stringify(opts.params || {}),
+			jsonData: JSON.stringify(opts.params),
+			success: function (response, options) {
+				var isJson = (response.getResponseHeader('content-type') || '').toLowerCase().indexOf('application/json') !== -1;
+				opts.success(isJson ? JSON.parse(response.responseText, reviver) : null);
+			},
+			failure: function (response, options) {
+				opts.failure();
+			},
 			callback: function (options, success, response) {
-				var isJson, ret;
-				isJson = (response.getResponseHeader('content-type') || '').toLowerCase().indexOf('application/json') !== -1;
-				ret = isJson ? JSON.parse(response.responseText, reviver) : null;
-				if (opts.callback) {
-					opts.callback(success, ret);
-				}
-				if (success && opts.success) {
-					opts.success(ret);
-				}
-				if (!success && opts.failure) {
-					opts.failure();
-				}
-				if (!success && !opts.callback && !opts.failure) {
-					alert('Error occured while trying to interact with the server.');
-				}
+				opts.callback();
 			}
 		});
 	},

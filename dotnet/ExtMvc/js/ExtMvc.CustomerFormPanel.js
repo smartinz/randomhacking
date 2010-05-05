@@ -57,7 +57,7 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 
 		this.getForm().on('actionfailed', this.actionFailedHandler, this);
 	},
-
+/*
 	actionFailedHandler: function (form, action) {
 		Ext.MessageBox.show({
 			title: 'Error',
@@ -66,7 +66,7 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 			icon: Ext.MessageBox.ERROR
 		});
 	},
-
+*/
 	/*
 	// For a less invasive wait message
 	onRender: function (ct, position) {
@@ -83,19 +83,11 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 		Rpc.call({
 			url: '/Customer/Get',
 			params: { id: 'ALFKI' },
-			callback: function (success, ret) {
+			success: function (ret) {
+				that.getForm().setValues(ret.data);
+			},
+			callback: function () {
 				that.el.unmask();
-				if (success) {
-					that.getForm().setValues(ret.data);
-				}
-				else {
-					Ext.MessageBox.show({
-						title: 'Error',
-						msg: 'Error occured while trying to interact with the server',
-						buttons: Ext.MessageBox.OK,
-						icon: Ext.MessageBox.ERROR
-					});
-				}
 			}
 		});
 	},
@@ -109,23 +101,14 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 		Rpc.call({
 			url: '/Customer/Update',
 			params: { item: this.getForm().getFieldValues() },
-			callback: function (success, result) {
+			success: function (result) {
+				if (!result.success) {
+					that.getForm().markInvalid(result.errors);
+				}
+			},
+			callback: function () {
 				that.el.unmask();
-				if (!success) {
-					Ext.MessageBox.show({
-						title: 'Error',
-						msg: 'Error occured while trying to interact with the server',
-						buttons: Ext.MessageBox.OK,
-						icon: Ext.MessageBox.ERROR
-					});
-				}
-				else {
-					if (!result.success) {
-						that.getForm().markInvalid(result.errors);
-					}
-					alert(success ? 'done' : 'error');
-				}
-			} 
+			}
 		});
 	}
 });
