@@ -57,7 +57,7 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	},
 
 /*
-	// For having a less invasive wait message
+	// For a less invasive wait message
 	onRender: function (ct, position) {
 		ExtMvc.CustomerFormPanel.superclass.onRender.call(this, ct, position);
 		if (!this.getForm().waitMsgTarget) {
@@ -77,7 +77,8 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	saveClick: function () {
 		this.getForm().doAction(new Rpc.JsonSubmitFormAction(this.getForm(), {
 			url: '/Customer/Update',
-			params: { id: 'ALFKI' }
+			params: { id: 'ALFKI' },
+			waitMsg: 'Saving...'
 		}));
 		/*
 		var vals = this.getForm().getFieldValues();
