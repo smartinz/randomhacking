@@ -31,10 +31,14 @@
 				};
 				expect(2);
 				stop(10000);
-				Rpc.call('/Test/Rpc', params, function (success, retData) {
-					ok(success);
-					same(retData, params);
-					start();
+				Rpc.call({
+					url: '/Test/Rpc',
+					params: params,
+					callback: function (success, retData) {
+						ok(success);
+						same(retData, params);
+						start();
+					}
 				});
 			});
 
@@ -44,19 +48,27 @@
 				};
 				expect(2);
 				stop(10000);
-				Rpc.call('/Test/RpcWithDate', params, function (success, retData) {
-					ok(success);
-					same(retData, params);
-					start();
+				Rpc.call({
+					url: '/Test/RpcWithDate',
+					params: params,
+					callback: function (success, retData) {
+						ok(success);
+						same(retData, params);
+						start();
+					}
 				});
 			});
 
 			test("Should fail when server exception occur", function () {
 				expect(1);
 				stop(10000);
-				Rpc.call('/Test/RpcWithDate', null, function (success, retData) {
-					ok(!success);
-					start();
+				Rpc.call({
+					url: '/Test/RpcWithDate',
+					params: null,
+					callback: function (success, retData) {
+						ok(!success);
+						start();
+					} 
 				});
 			});
 		});

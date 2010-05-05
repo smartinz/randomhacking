@@ -80,18 +80,22 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	loadClick: function () {
 		var that = this;
 		this.el.mask('Loading...', 'x-mask-loading');
-		Rpc.call('/Customer/Get', { id: 'ALFKI' }, function (success, ret) {
-			that.el.unmask();
-			if (success) {
-				that.getForm().setValues(ret.data);
-			}
-			else {
-				Ext.MessageBox.show({
-					title: 'Error',
-					msg: 'Error occured while trying to interact with the server',
-					buttons: Ext.MessageBox.OK,
-					icon: Ext.MessageBox.ERROR
-				});
+		Rpc.call({
+			url: '/Customer/Get',
+			params: { id: 'ALFKI' },
+			callback: function (success, ret) {
+				that.el.unmask();
+				if (success) {
+					that.getForm().setValues(ret.data);
+				}
+				else {
+					Ext.MessageBox.show({
+						title: 'Error',
+						msg: 'Error occured while trying to interact with the server',
+						buttons: Ext.MessageBox.OK,
+						icon: Ext.MessageBox.ERROR
+					});
+				}
 			}
 		});
 	},
@@ -102,22 +106,26 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 			return;
 		}
 		this.el.mask('Saving...', 'x-mask-loading');
-		Rpc.call('/Customer/Update', { item: this.getForm().getFieldValues() }, function (success, result) {
-			that.el.unmask();
-			if (!success) {
-				Ext.MessageBox.show({
-					title: 'Error',
-					msg: 'Error occured while trying to interact with the server',
-					buttons: Ext.MessageBox.OK,
-					icon: Ext.MessageBox.ERROR
-				});
-			}
-			else {
-				if (!result.success) {
-					that.getForm().markInvalid(result.errors);
+		Rpc.call({
+			url: '/Customer/Update',
+			params: { item: this.getForm().getFieldValues() },
+			callback: function (success, result) {
+				that.el.unmask();
+				if (!success) {
+					Ext.MessageBox.show({
+						title: 'Error',
+						msg: 'Error occured while trying to interact with the server',
+						buttons: Ext.MessageBox.OK,
+						icon: Ext.MessageBox.ERROR
+					});
 				}
-				alert(success ? 'done' : 'error');
-			}
+				else {
+					if (!result.success) {
+						that.getForm().markInvalid(result.errors);
+					}
+					alert(success ? 'done' : 'error');
+				}
+			} 
 		});
 	}
 });

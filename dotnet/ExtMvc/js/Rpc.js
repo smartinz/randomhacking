@@ -18,7 +18,7 @@ Rpc = {
 	},
 	*/
 
-	call: function (url, params, callback) {
+	call: function (opts) {
 		var reviver = function (key, value) {
 			if (typeof value === 'string') {
 				var re, r;
@@ -32,14 +32,14 @@ Rpc = {
 		};
 
 		Ext.Ajax.request({
-			url: url,
+			url: opts.url,
 			method: 'POST',
-			jsonData: JSON.stringify(params),
+			jsonData: JSON.stringify(opts.params),
 			callback: function (options, success, response) {
 				var isJson, ret;
 				isJson = (response.getResponseHeader('content-type') || '').toLowerCase().indexOf('application/json') !== -1;
 				ret = isJson ? JSON.parse(response.responseText, reviver) : null;
-				callback(success, ret);
+				opts.callback(success, ret);
 			}
 		});
 	},
