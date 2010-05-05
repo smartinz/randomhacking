@@ -67,7 +67,7 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 		*/
 		that.getForm().doAction(new Rpc.JsonLoadFormAction(that.getForm(), { 
 			url: '/Customer/Get',
-			params: { id: 'ALFKI' }
+			jsonData: { id: 'ALFKI' }
 		}));
 		/*
 		that.el.mask('Please wait...', 'x-mask-loading');

@@ -46,7 +46,7 @@ Rpc = {
 				method: this.getMethod(),
 				url: this.getUrl(false),
 				headers: this.options.headers,
-				jsonData: JSON.stringify(Ext.applyIf(this.options.params || {}, this.form.baseParams)) // This is the ONLY difference
+				jsonData: JSON.stringify(this.options.jsonData || {}) // This is the ONLY difference
 			}));
 		}
 	})
