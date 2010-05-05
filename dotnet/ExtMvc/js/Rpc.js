@@ -46,8 +46,51 @@ Rpc = {
 				method: this.getMethod(),
 				url: this.getUrl(false),
 				headers: this.options.headers,
-				jsonData: JSON.stringify(this.options.jsonData || {}) // This is the ONLY difference
+				//params:this.getParams()
+				jsonData: JSON.stringify(Ext.applyIf(this.options.params || {}, this.form.baseParams))
 			}));
+		}
+	}),
+
+	JsonSubmitFormAction: Ext.extend(Ext.form.Action.Submit, {
+		type: 'jsonsubmit',
+		run: function () {
+			var o = this.options,
+            method = this.getMethod(),
+            isGet = method == 'GET';
+			if (o.clientValidation === false || this.form.isValid()) {
+				if (o.submitEmptyText === false) {
+					var fields = this.form.items,
+                    emptyFields = [];
+					fields.each(function (f) {
+						if (f.el.getValue() == f.emptyText) {
+							emptyFields.push(f);
+							f.el.dom.value = "";
+						}
+					});
+				}
+				Ext.Ajax.request(Ext.apply(this.createCallback(o), {
+					//form: this.form.el.dom,
+					url: this.getUrl(isGet),
+					method: method,
+					headers: o.headers,
+					//params: !isGet ? this.getParams() : null,
+					jsonData: JSON.stringify(Ext.apply({
+						item: this.form.getFieldValues()
+					}, !isGet ? Ext.applyIf(this.options.params || {}, this.form.baseParams) : {})),
+					isUpload: this.form.fileUpload
+				}));
+				if (o.submitEmptyText === false) {
+					Ext.each(emptyFields, function (f) {
+						if (f.applyEmptyText) {
+							f.applyEmptyText();
+						}
+					});
+				}
+			} else if (o.clientValidation !== false) { // client validation failed
+				this.failureType = Ext.form.Action.CLIENT_INVALID;
+				this.form.afterAction(this, false);
+			}
 		}
 	})
 };

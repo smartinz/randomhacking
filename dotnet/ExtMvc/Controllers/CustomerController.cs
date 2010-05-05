@@ -53,9 +53,10 @@ namespace ExtMvc.Controllers
 			}
 		}
 
-		public void Update(CustomerDto customer)
+		public ActionResult Update(CustomerDto item)
 		{
-			_log.DebugFormat("Update(customer: {0}", customer);
+			_log.DebugFormat("Update(item: {0}", item);
+			return Json(new{ success = false });
 		}
 	}
 }
