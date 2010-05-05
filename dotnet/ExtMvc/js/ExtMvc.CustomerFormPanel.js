@@ -54,17 +54,28 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 		}];
 
 		ExtMvc.CustomerFormPanel.superclass.initComponent.call(this);
+
+		this.getForm().on('actionfailed', this.actionFailedHandler, this);
 	},
 
-/*
+	actionFailedHandler: function (form, action) {
+		Ext.MessageBox.show({
+			title: 'Error',
+			msg: 'Error occured while trying to interact with the server',
+			buttons: Ext.MessageBox.OK,
+			icon: Ext.MessageBox.ERROR
+		});
+	},
+
+	/*
 	// For a less invasive wait message
 	onRender: function (ct, position) {
-		ExtMvc.CustomerFormPanel.superclass.onRender.call(this, ct, position);
-		if (!this.getForm().waitMsgTarget) {
-			this.getForm().waitMsgTarget = this.el.id;
-		}
+	ExtMvc.CustomerFormPanel.superclass.onRender.call(this, ct, position);
+	if (!this.getForm().waitMsgTarget) {
+	this.getForm().waitMsgTarget = this.el.id;
+	}
 	},
-*/
+	*/
 
 	loadClick: function () {
 		this.getForm().doAction(new Rpc.JsonLoadFormAction(this.getForm(), {

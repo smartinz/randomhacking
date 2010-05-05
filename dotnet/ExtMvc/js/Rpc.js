@@ -3,6 +3,21 @@
 "use strict";
 
 Rpc = {
+	/*
+	init: function () {
+		Ext.Ajax.on('requestexception', function (conn, response, options) {
+			if (!Ext.MessageBox.isVisible()) {
+				Ext.MessageBox.show({
+					title: 'Error',
+					msg: 'An error occured',
+					buttons: Ext.MessageBox.OK,
+					icon: Ext.MessageBox.ERROR
+				});
+			}
+		});
+	},
+	*/
+
 	call: function (url, params, callback) {
 		var reviver = function (key, value) {
 			if (typeof value === 'string') {
