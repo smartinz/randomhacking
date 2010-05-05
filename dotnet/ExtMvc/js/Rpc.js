@@ -5,16 +5,16 @@
 Rpc = {
 	/*
 	init: function () {
-		Ext.Ajax.on('requestexception', function (conn, response, options) {
-			if (!Ext.MessageBox.isVisible()) {
-				Ext.MessageBox.show({
-					title: 'Error',
-					msg: 'An error occured',
-					buttons: Ext.MessageBox.OK,
-					icon: Ext.MessageBox.ERROR
-				});
-			}
-		});
+	Ext.Ajax.on('requestexception', function (conn, response, options) {
+	if (!Ext.MessageBox.isVisible()) {
+	Ext.MessageBox.show({
+	title: 'Error',
+	msg: 'An error occured',
+	buttons: Ext.MessageBox.OK,
+	icon: Ext.MessageBox.ERROR
+	});
+	}
+	});
 	},
 	*/
 
@@ -54,6 +54,8 @@ Rpc = {
 		}
 	}),
 
+	// For use in Ext.form.FormPanel, example:
+	// this.getForm().doAction(new Rpc.JsonLoadFormAction(this.getForm(), { url: '/Customer/Get', params: { id: 'ALFKI' }, waitMsg: 'Loading...' }));
 	JsonLoadFormAction: Ext.extend(Ext.form.Action.Load, {
 		type: 'jsonload',
 		run: function () {
@@ -67,6 +69,8 @@ Rpc = {
 		}
 	}),
 
+	// For use in Ext.form.FormPanel, example:
+	// this.getForm().doAction(new Rpc.JsonSubmitFormAction(this.getForm(), { url: '/Customer/Update',	waitMsg: 'Saving...' }));
 	JsonSubmitFormAction: Ext.extend(Ext.form.Action.Submit, {
 		type: 'jsonsubmit',
 		run: function () {

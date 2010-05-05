@@ -78,17 +78,46 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	*/
 
 	loadClick: function () {
-		this.getForm().doAction(new Rpc.JsonLoadFormAction(this.getForm(), {
-			url: '/Customer/Get',
-			params: { id: 'ALFKI' },
-			waitMsg: 'Loading...'
-		}));
+		var that = this;
+		this.el.mask('Loading...', 'x-mask-loading');
+		Rpc.call('/Customer/Get', { id: 'ALFKI' }, function (success, ret) {
+			that.el.unmask();
+			if (success) {
+				that.getForm().setValues(ret.data);
+			}
+			else {
+				Ext.MessageBox.show({
+					title: 'Error',
+					msg: 'Error occured while trying to interact with the server',
+					buttons: Ext.MessageBox.OK,
+					icon: Ext.MessageBox.ERROR
+				});
+			}
+		});
 	},
 
 	saveClick: function () {
-		this.getForm().doAction(new Rpc.JsonSubmitFormAction(this.getForm(), {
-			url: '/Customer/Update',
-			waitMsg: 'Saving...'
-		}));
+		var that = this;
+		if (!this.getForm().isValid()) {
+			return;
+		}
+		this.el.mask('Saving...', 'x-mask-loading');
+		Rpc.call('/Customer/Update', { item: this.getForm().getFieldValues() }, function (success, result) {
+			that.el.unmask();
+			if (!success) {
+				Ext.MessageBox.show({
+					title: 'Error',
+					msg: 'Error occured while trying to interact with the server',
+					buttons: Ext.MessageBox.OK,
+					icon: Ext.MessageBox.ERROR
+				});
+			}
+			else {
+				if (!result.success) {
+					that.getForm().markInvalid(result.errors);
+				}
+				alert(success ? 'done' : 'error');
+			}
+		});
 	}
 });
