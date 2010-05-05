@@ -11,7 +11,6 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 		align: 'stretch',
 		pack: 'start'
 	},
-	//padding: 10,
 
 	initComponent: function () {
 		this.buttons = [{
@@ -57,24 +56,23 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 		ExtMvc.CustomerFormPanel.superclass.initComponent.call(this);
 	},
 
+/*
+	// For having a less invasive wait message
+	onRender: function (ct, position) {
+		ExtMvc.CustomerFormPanel.superclass.onRender.call(this, ct, position);
+		if (!this.getForm().waitMsgTarget) {
+			this.getForm().waitMsgTarget = this.el.id;
+		}
+	},
+*/
+
 	loadClick: function () {
 		var that = this;
-		/*
-		that.getForm().load({ 
+		that.getForm().doAction(new Rpc.JsonLoadFormAction(that.getForm(), {
 			url: '/Customer/Get',
-			params: { id: 'ALFKI' }
-		});
-		*/
-		that.getForm().doAction(new Rpc.JsonLoadFormAction(that.getForm(), { 
-			url: '/Customer/Get',
-			jsonData: { id: 'ALFKI' }
+			jsonData: { id: 'ALFKI' },
+			waitMsg: 'Loading...'
 		}));
-		/*
-		that.el.mask('Please wait...', 'x-mask-loading');
-		Rpc.call('/Customer/Get', { id: 'ALFKI' }, function (success, ret) {
-			that.getForm().setValues(ret);
-			that.el.unmask();
-		});*/
 	},
 
 	saveClick: function () {
