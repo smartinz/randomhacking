@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
 using ExtMvc.Domain;
@@ -59,9 +58,9 @@ namespace ExtMvc.Controllers
 			_log.DebugFormat("Update(item: {0}", item);
 			return Json(new{
 				success = false,
-				errors = new{
-					CompanyName = "Company name cannot be this!",
-					ContactName = "Contact name is wrong!!!"
+				errors = new Dictionary<string, string>{
+					{ "CompanyName", "Company name cannot be this!" },
+					{ "ContactName", "Contact name is wrong!!!" }
 				}
 			});
 		}
