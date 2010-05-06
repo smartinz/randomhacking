@@ -1,4 +1,4 @@
-/*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
+/*jslint white: true, browser: true, devel: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
 /*global Ext, Rpc: true */
 "use strict";
 
@@ -38,7 +38,7 @@ Rpc = {
 				alert('Error occured while trying to interact with the server.');
 			},
 			callback: Ext.emptyFn,
-			scope: window
+			scope: this
 		}, opts);
 
 		Ext.Ajax.request({
@@ -66,7 +66,7 @@ Rpc = {
 			};
 			Rpc.JsonPostHttpProxy.superclass.doRequest.call(this, action, rs, params, reader, cb, scope, arg);
 		}
-	}),
+	})/*,
 
 	// For use in Ext.form.FormPanel, example:
 	// this.getForm().doAction(new Rpc.JsonLoadFormAction(this.getForm(), { url: '/Customer/Get', params: { id: 'ALFKI' }, waitMsg: 'Loading...' }));
@@ -126,5 +126,6 @@ Rpc = {
 			}
 		}
 	})
+*/
 };
 

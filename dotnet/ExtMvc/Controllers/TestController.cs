@@ -26,7 +26,7 @@ namespace ExtMvc.Controllers
 
 		public ActionResult RpcWithDate(DateTime dateValue)
 		{
-			Debug.Assert(dateValue == new DateTime(2010, 5, 26, 11, 49, 33, 44));
+			Debug.Assert(dateValue == new DateTime(2010, 5, 26, 11, 49, 33));
 			return Json(new { dateValue });
 		}
 
