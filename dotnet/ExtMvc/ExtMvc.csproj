@@ -67,6 +67,9 @@
     <Reference Include="NHibernate.Linq">
       <HintPath>..\References\NHibernate.Linq-2.1.2.GA\NHibernate.Linq.dll</HintPath>
     </Reference>
+    <Reference Include="NHibernate.Validator">
+      <HintPath>..\References\NHibernateValidator-1.2.0.CR1\NHibernate.Validator.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -111,6 +114,7 @@
     </Compile>
     <Compile Include="Infrastructure\AutoMapperConfiguration.cs" />
     <Compile Include="Infrastructure\JsonValueProviderFactory.cs" />
+    <Compile Include="Infrastructure\ValidationManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Shared\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

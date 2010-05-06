@@ -5,6 +5,7 @@ using log4net.Config;
 using Microsoft.Web.Mvc;
 using NHibernate;
 using NHibernate.Cfg;
+using NHibernate.Validator.Event;
 using SpikeWcf;
 
 namespace ExtMvc
@@ -14,6 +15,8 @@ namespace ExtMvc
 
 	public class MvcApplication : HttpApplication
 	{
+		public static ISessionFactory SessionFactory;
+
 		public static void RegisterRoutes(RouteCollection routes)
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -25,8 +28,6 @@ namespace ExtMvc
 				);
 		}
 
-		static public ISessionFactory SessionFactory;
-
 		protected void Application_Start()
 		{
 			AreaRegistration.RegisterAllAreas();
@@ -34,8 +35,11 @@ namespace ExtMvc
 			ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
 
 			XmlConfigurator.Configure();
+			NHibernate.Validator.Cfg.Environment.SharedEngineProvider.GetEngine().Configure();
+			Configuration nhConfiguration = new Configuration().Configure();
+			NHibernate.Validator.Cfg.ValidatorInitializer.Initialize(nhConfiguration, NHibernate.Validator.Cfg.Environment.SharedEngineProvider.GetEngine());
+			SessionFactory = nhConfiguration.BuildSessionFactory();
 			AutoMapperConfiguration.Configure();
-			SessionFactory = new Configuration().Configure().BuildSessionFactory();
 		}
 	}
 }

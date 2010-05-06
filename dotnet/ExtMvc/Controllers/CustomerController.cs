@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using AutoMapper;
 using ExtMvc.Domain;
 using ExtMvc.Dtos;
+using ExtMvc.Infrastructure;
 using log4net;
 using NHibernate;
 using NHibernate.Criterion;
@@ -56,8 +57,9 @@ namespace ExtMvc.Controllers
 		public ActionResult Update(CustomerDto item)
 		{
 			_log.DebugFormat("Update(item: {0}", item);
+			//ValidationManager.Validate(this, item);
 			return Json(new{
-				success = false,
+				success = false, //ModelState.IsValid,
 				errors = new Dictionary<string, string>{
 					{ "CompanyName", "Company name cannot be this!" },
 					{ "ContactName", "Contact name is wrong!!!" }
