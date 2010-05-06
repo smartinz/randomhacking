@@ -56,8 +56,8 @@ namespace ExtMvc.Controllers
 
 		public ActionResult Update(CustomerDto item)
 		{
-			_log.DebugFormat("Update(item: {0}", item);
-			//ValidationManager.Validate(this, item);
+			_log.DebugFormat("Update(item: {0})", item);
+			ValidationManager.Validate(ModelState, item, "item");
 			return Json(new{
 				success = false, //ModelState.IsValid,
 				errors = new Dictionary<string, string>{
