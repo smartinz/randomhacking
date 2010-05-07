@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
 using NHibernate.Validator.Cfg;
 using NHibernate.Validator.Engine;
-using System.Linq;
 
 namespace ExtMvc.Infrastructure
 {
@@ -18,39 +18,84 @@ namespace ExtMvc.Infrastructure
 			}
 		}
 
-		public static IDictionary<string, PropertyError> BuildErrorDictionary(ModelStateDictionary modelStateDictionary)
+		public static PropertyError MakeHierarchical(ModelStateDictionary modelStateDictionary)
 		{
 			var root = new PropertyError();
-			foreach(var kvp in modelStateDictionary)
+			foreach (var kvp in modelStateDictionary)
 			{
 				PropertyError current = root;
-				foreach(string property in kvp.Key.Split('.'))
+				foreach (string property in kvp.Key.Split('.', '[', ']').Where(k => k != ""))
 				{
-					if(!current.Properties.ContainsKey(property))
-					{
-						current.Properties.Add(property, new PropertyError());
-					}
-					current = current.Properties[property];
+					int index;
+					current = int.TryParse(property, out index) ? current[index] : current[property];
 				}
-				current.Messages.AddRange(kvp.Value.Errors.Select(e => e.ErrorMessage));
+				foreach (ModelError modelError in kvp.Value.Errors)
+				{
+					current.Errors.Add(modelError);
+				}
 			}
-			return root.Properties;
+			return root;
 		}
 
-		#region Nested type: PropertyTuple
-
-		public class PropertyError
+		public static object BuildDictionary(PropertyError root)
 		{
-			public List<string> Messages { get; set; }
-			public Dictionary<string, PropertyError> Properties { get; set; }
-
-			public PropertyError()
+			if(root.Indexes.Count > 0)
 			{
-				Messages = new List<string>();
-				Properties = new Dictionary<string, PropertyError>();
+				var ary = new object[root.Indexes.Keys.Max() + 1];
+				foreach(var kvp in root.Indexes)
+				{
+					ary[kvp.Key] = BuildDictionary(kvp.Value);
+				}
+				return ary;
+			}
+			if(root.Properties.Count > 0)
+			{
+				return root.Properties.ToDictionary(kvp => kvp.Key, kvp => BuildDictionary(kvp.Value));
+			}
+			return root.BuildMessage();
+		}
+	}
+
+	public class PropertyError
+	{
+		public PropertyError()
+		{
+			Errors = new ModelErrorCollection();
+			Properties = new Dictionary<string, PropertyError>();
+			Indexes = new Dictionary<int, PropertyError>();
+		}
+
+		public ModelErrorCollection Errors { get; set; }
+		public Dictionary<string, PropertyError> Properties { get; set; }
+		public Dictionary<int, PropertyError> Indexes { get; set; }
+
+		public PropertyError this[string property]
+		{
+			get
+			{
+				if(!Properties.ContainsKey(property))
+				{
+					Properties.Add(property, new PropertyError());
+				}
+				return Properties[property];
 			}
 		}
 
-		#endregion
+		public PropertyError this[int index]
+		{
+			get
+			{
+				if(!Indexes.ContainsKey(index))
+				{
+					Indexes.Add(index, new PropertyError());
+				}
+				return Indexes[index];
+			}
+		}
+
+		public string BuildMessage()
+		{
+			return string.Join(". ", Errors.Select(e => e.Exception == null ? e.ErrorMessage : e.Exception.Message));
+		}
 	}
 }
