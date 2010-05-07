@@ -17,8 +17,6 @@ namespace ExtMvc.Cfg
 			container.AddFacility<FactorySupportFacility>();
 			container.AddFacility("logging", new LoggingFacility(LoggerImplementation.Log4net, "log4net.cfg.xml"));
 
-			/*Looks like you forgot to register the http module Castle.MicroKernel.Lifestyle.PerWebRequestLifestyleModule
-Add '<add name="PerRequestLifestyle" type="Castle.MicroKernel.Lifestyle.PerWebRequestLifestyleModule, Castle.MicroKernel" />' to the <httpModules> section on your web.config*/
 			container.Register(Component.For<ValidatorEngine>().UsingFactoryMethod(CreateValidatorEngine));
 
 			container.Register(Component.For<ISessionFactory>().UsingFactoryMethod(CreateSessionFactory),
