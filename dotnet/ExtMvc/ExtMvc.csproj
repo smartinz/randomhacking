@@ -45,8 +45,14 @@
     <Reference Include="Castle.DynamicProxy2">
       <HintPath>..\References\CastleWindsor-2.1.1\Castle.DynamicProxy2.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Facilities.Logging">
+      <HintPath>..\References\CastleWindsor-2.1.1\Castle.Facilities.Logging.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.MicroKernel">
       <HintPath>..\References\CastleWindsor-2.1.1\Castle.MicroKernel.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Services.Logging.log4netIntegration">
+      <HintPath>..\References\CastleWindsor-2.1.1\Castle.Services.Logging.log4netIntegration.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor">
       <HintPath>..\References\CastleWindsor-2.1.1\Castle.Windsor.dll</HintPath>
@@ -58,6 +64,12 @@
       <HintPath>..\References\log4net-1.2.10\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcContrib">
+      <HintPath>..\References\MVCContrib-2.0.36.0\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib.Castle">
+      <HintPath>..\References\MVCContribExtras-2.0.36.0\MvcContrib.Castle.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\References\NHibernate-2.1.2.GA\NHibernate.dll</HintPath>
     </Reference>
@@ -104,6 +116,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cfg\GlobalWindsorInstaller.cs" />
+    <Compile Include="Cfg\PresentationWindsorInstaller.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
@@ -1014,6 +1028,7 @@
     <Content Include="js\ExtMvc.OrderJsonReader.js" />
     <Content Include="js\ExtMvc.OrderListField.js" />
     <Content Include="js\Rpc.js" />
+    <Content Include="log4net.cfg.xml" />
     <Content Include="Views\Test\Index.aspx" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.aspx" />

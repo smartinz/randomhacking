@@ -1,12 +1,10 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
-using log4net.Config;
+using Castle.Windsor;
+using ExtMvc.Cfg;
 using Microsoft.Web.Mvc;
-using NHibernate;
-using NHibernate.Cfg;
-using NHibernate.Validator.Event;
-using SpikeWcf;
+using MvcContrib.Castle;
 
 namespace ExtMvc
 {
@@ -15,8 +13,6 @@ namespace ExtMvc
 
 	public class MvcApplication : HttpApplication
 	{
-		public static ISessionFactory SessionFactory;
-
 		public static void RegisterRoutes(RouteCollection routes)
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -30,16 +26,14 @@ namespace ExtMvc
 
 		protected void Application_Start()
 		{
+			var windsorContainer = new WindsorContainer();
+			windsorContainer.Install(new GlobalWindsorInstaller());
+			windsorContainer.Install(new PresentationWindsorInstaller());
+			ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(windsorContainer));
+
 			AreaRegistration.RegisterAllAreas();
 			RegisterRoutes(RouteTable.Routes);
 			ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
-
-			XmlConfigurator.Configure();
-			NHibernate.Validator.Cfg.Environment.SharedEngineProvider.GetEngine().Configure();
-			Configuration nhConfiguration = new Configuration().Configure();
-			NHibernate.Validator.Cfg.ValidatorInitializer.Initialize(nhConfiguration, NHibernate.Validator.Cfg.Environment.SharedEngineProvider.GetEngine());
-			SessionFactory = nhConfiguration.BuildSessionFactory();
-			AutoMapperConfiguration.Configure();
 		}
 	}
 }
