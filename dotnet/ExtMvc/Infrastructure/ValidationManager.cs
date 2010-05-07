@@ -7,13 +7,13 @@ namespace ExtMvc.Infrastructure
 {
 	public static class ValidationManager
 	{
-		public static void Validate(ModelStateDictionary modelState, object entity, string prefix)
+		public static void Validate(ModelStateDictionary modelState, object entity, string parameterName)
 		{
 			InvalidValue[] invalidValues = Environment.SharedEngineProvider.GetEngine().Validate(entity);
 
 			foreach(InvalidValue invalidValue in invalidValues)
 			{
-				modelState.AddModelError(prefix + "." + invalidValue.PropertyPath, invalidValue.Message);
+				modelState.AddModelError(parameterName + "." + invalidValue.PropertyPath, invalidValue.Message);
 			}
 		}
 
