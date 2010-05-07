@@ -103,7 +103,7 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 			scope: this,
 			success: function (result) {
 				if (!result.success) {
-					this.getForm().markInvalid(result.errors);
+					this.getForm().markInvalid(result.errors.item);
 				}
 			},
 			callback: function () {

@@ -21,20 +21,28 @@ namespace ExtMvc.Infrastructure
 		public static PropertyError MakeHierarchical(ModelStateDictionary modelStateDictionary)
 		{
 			var root = new PropertyError();
-			foreach (var kvp in modelStateDictionary)
+			foreach (var kvp in modelStateDictionary.Where(kvp => kvp.Value.Errors.Count > 0))
 			{
 				PropertyError current = root;
-				foreach (string property in kvp.Key.Split('.', '[', ']').Where(k => k != ""))
+				foreach(string property in kvp.Key.Split('.', '[', ']').Where(k => k != ""))
 				{
 					int index;
 					current = int.TryParse(property, out index) ? current[index] : current[property];
 				}
-				foreach (ModelError modelError in kvp.Value.Errors)
+				foreach(ModelError modelError in kvp.Value.Errors)
 				{
 					current.Errors.Add(modelError);
 				}
 			}
 			return root;
+		}
+
+		public static object BuildResponse(ModelStateDictionary modelState)
+		{
+			return new{
+				success = modelState.IsValid,
+				errors = BuildDictionary(MakeHierarchical(modelState))
+			};
 		}
 
 		public static object BuildDictionary(PropertyError root)

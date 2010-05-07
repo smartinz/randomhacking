@@ -58,13 +58,7 @@ namespace ExtMvc.Controllers
 		{
 			_log.DebugFormat("Update(item: {0})", item);
 			ValidationManager.Validate(ModelState, item, "item");
-			return Json(new{
-				success = false, //ModelState.IsValid,
-				errors = new Dictionary<string, string>{
-					{ "CompanyName", "Company name cannot be this!" },
-					{ "ContactName", "Contact name is wrong!!!" }
-				}
-			});
+			return Json(ValidationManager.BuildResponse(ModelState));
 		}
 	}
 }

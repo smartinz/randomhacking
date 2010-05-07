@@ -9,6 +9,17 @@ namespace ExtMvc.Tests
 	[TestFixture]
 	public class ValidationManagerTests
 	{
+
+		[Test]
+		public void Should_skip_properties_without_errors()
+		{
+			var msd = new ModelStateDictionary();
+			msd.Add("item.Property1", new ModelState());
+			msd.AddModelError("item.Property2", "Error");
+			PropertyError pe = ValidationManager.MakeHierarchical(msd);
+			Assert.That(pe["item"].Properties.Count, Is.EqualTo(1));
+		}
+
 		[Test]
 		public void Multiple_errors_on_the_same_property()
 		{
