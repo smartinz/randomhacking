@@ -21,10 +21,10 @@ namespace ExtMvc.Infrastructure
 		public static IDictionary<string, PropertyError> BuildErrorDictionary(ModelStateDictionary modelStateDictionary)
 		{
 			var root = new PropertyError();
-			foreach(string propertyPath in modelStateDictionary.Keys)
+			foreach(var kvp in modelStateDictionary)
 			{
 				PropertyError current = root;
-				foreach(string property in propertyPath.Split('.'))
+				foreach(string property in kvp.Key.Split('.'))
 				{
 					if(!current.Properties.ContainsKey(property))
 					{
@@ -32,7 +32,7 @@ namespace ExtMvc.Infrastructure
 					}
 					current = current.Properties[property];
 				}
-				current.Messages.AddRange(modelStateDictionary[propertyPath].Errors.Select(e => e.ErrorMessage));
+				current.Messages.AddRange(kvp.Value.Errors.Select(e => e.ErrorMessage));
 			}
 			return root.Properties;
 		}
