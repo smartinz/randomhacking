@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Mvc;
 using NHibernate.Validator.Cfg;
 using NHibernate.Validator.Engine;
@@ -21,7 +20,7 @@ namespace ExtMvc.Infrastructure
 		public static PropertyError MakeHierarchical(ModelStateDictionary modelStateDictionary)
 		{
 			var root = new PropertyError();
-			foreach (var kvp in modelStateDictionary.Where(kvp => kvp.Value.Errors.Count > 0))
+			foreach(var kvp in modelStateDictionary.Where(kvp => kvp.Value.Errors.Count > 0))
 			{
 				PropertyError current = root;
 				foreach(string property in kvp.Key.Split('.', '[', ']').Where(k => k != ""))
@@ -61,49 +60,6 @@ namespace ExtMvc.Infrastructure
 				return root.Properties.ToDictionary(kvp => kvp.Key, kvp => BuildDictionary(kvp.Value));
 			}
 			return root.BuildMessage();
-		}
-	}
-
-	public class PropertyError
-	{
-		public PropertyError()
-		{
-			Errors = new ModelErrorCollection();
-			Properties = new Dictionary<string, PropertyError>();
-			Indexes = new Dictionary<int, PropertyError>();
-		}
-
-		public ModelErrorCollection Errors { get; set; }
-		public Dictionary<string, PropertyError> Properties { get; set; }
-		public Dictionary<int, PropertyError> Indexes { get; set; }
-
-		public PropertyError this[string property]
-		{
-			get
-			{
-				if(!Properties.ContainsKey(property))
-				{
-					Properties.Add(property, new PropertyError());
-				}
-				return Properties[property];
-			}
-		}
-
-		public PropertyError this[int index]
-		{
-			get
-			{
-				if(!Indexes.ContainsKey(index))
-				{
-					Indexes.Add(index, new PropertyError());
-				}
-				return Indexes[index];
-			}
-		}
-
-		public string BuildMessage()
-		{
-			return string.Join(". ", Errors.Select(e => e.Exception == null ? e.ErrorMessage : e.Exception.Message));
 		}
 	}
 }
