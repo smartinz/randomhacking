@@ -58,8 +58,8 @@ namespace ExtMvc.Controllers
 		{
 			_logger.DebugFormat("Get(id: {0}", id);
 			var customer = _session.Get<Customer>(id);
-			CustomerDto dto = _mapper.Map<Customer, CustomerDto>(customer);
-			return Json(new{ success = true, data = dto });
+			CustomerDto data = _mapper.Map<Customer, CustomerDto>(customer);
+			return Json(new{ success = true, data });
 		}
 
 		public ActionResult Update(CustomerDto item)
