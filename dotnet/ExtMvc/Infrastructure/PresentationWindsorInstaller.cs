@@ -6,7 +6,7 @@ using ExtMvc.Controllers;
 using MvcContrib.Castle;
 using SpikeWcf;
 
-namespace ExtMvc.Cfg
+namespace ExtMvc.Infrastructure
 {
 	public class PresentationWindsorInstaller : IWindsorInstaller
 	{

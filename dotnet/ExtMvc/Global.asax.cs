@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Castle.Windsor;
 using ExtMvc.Cfg;
+using ExtMvc.Infrastructure;
 using Microsoft.Web.Mvc;
 using MvcContrib.Castle;
 

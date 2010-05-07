@@ -117,7 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cfg\GlobalWindsorInstaller.cs" />
-    <Compile Include="Cfg\PresentationWindsorInstaller.cs" />
+    <Compile Include="Infrastructure\PresentationWindsorInstaller.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
