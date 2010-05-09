@@ -12,14 +12,7 @@ namespace ExtMvc.Infrastructure
 	{
 		public void Install(IWindsorContainer container, IConfigurationStore store)
 		{
-			container.Register(Component.For<IMappingEngine>().UsingFactoryMethod(CreateMappingEngine));
-			container.RegisterControllers(typeof(CustomerController).Assembly);
 		}
 
-		private static IMappingEngine CreateMappingEngine()
-		{
-			AutoMapperConfiguration.Configure();
-			return Mapper.Engine;
-		}
 	}
 }

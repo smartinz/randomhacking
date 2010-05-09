@@ -9,13 +9,14 @@ namespace SpikeWcf
 {
 	public static class AutoMapperConfiguration
 	{
-		public static void Configure()
+		public static IMappingEngine BuildMappingEngine()
 		{
 			Mapper.Reset();
 			//Mapper.Initialize(c=>c.ConstructServicesUsing()); // For IoC container
 			DomainToDto();
 			DtoToDomain();
 			Mapper.AssertConfigurationIsValid();
+		    return Mapper.Engine;
 		}
 
 		private static void DomainToDto()
