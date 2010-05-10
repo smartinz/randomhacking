@@ -67,9 +67,11 @@ namespace ExtMvc
 
 		private static ValidatorEngine CreateValidatorEngine()
 		{
-			var validatorEngine = new ValidatorEngine();
-			validatorEngine.Configure();
-			return validatorEngine;
+			var cfg = new XmlConfiguration();
+			cfg.Mappings.Add(new MappingConfiguration(typeof(Customer).Assembly.FullName, null));
+			var ve = new ValidatorEngine();
+			ve.Configure(cfg);
+			return ve;
 		}
 
 		private static ISessionFactory CreateSessionFactory(IKernel kernel)
@@ -78,7 +80,7 @@ namespace ExtMvc
 			NHibernate.Cfg.Configuration nhCfg = new NHibernate.Cfg.Configuration().Configure()
 				.SetProperty(NHibernate.Cfg.Environment.CurrentSessionContextClass, typeof(ConversationSessionContext).AssemblyQualifiedName)
 				.AddAssembly(typeof(Customer).Assembly);
-			ValidatorInitializer.Initialize(nhCfg, validatorEngine);
+			nhCfg.Initialize(validatorEngine);
 			return nhCfg.BuildSessionFactory();
 		}
 

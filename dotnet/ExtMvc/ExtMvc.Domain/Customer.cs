@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using NHibernate.Validator.Constraints;
 
 namespace ExtMvc.Domain
 {
@@ -8,7 +9,7 @@ namespace ExtMvc.Domain
 		{
 			Orders = new HashSet<Order>();
 		}
-
+		[Length(1)]
 		public virtual string CustomerId { get; set; }
 		public virtual string CompanyName { get; set; }
 		public virtual string ContactName { get; set; }
