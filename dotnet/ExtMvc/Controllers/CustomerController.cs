@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
 using Castle.Core.Logging;
+using Conversation;
 using ExtMvc.Data;
 using ExtMvc.Domain;
 using ExtMvc.Dtos;
@@ -26,24 +27,29 @@ namespace ExtMvc.Controllers
 
 		public ActionResult Find(string companyName, string contactName, string contactTitle, int start, int limit, string sort, string dir)
 		{
-			Tuple<IEnumerable<Customer>, int> tuple = _customerRepository.Find(companyName, contactName, contactTitle, start, limit, sort, dir);
-			CustomerDto[] items = _mapper.Map<IEnumerable<Customer>, CustomerDto[]>(tuple.Item1);
-			return Json(new{ items, count = tuple.Item2 });
+			using(_conversation.SetAsCurrent())
+			{
+				Tuple<IEnumerable<Customer>, int> tuple = _customerRepository.Find(companyName, contactName, contactTitle, start, limit, sort, dir);
+				CustomerDto[] items = _mapper.Map<IEnumerable<Customer>, CustomerDto[]>(tuple.Item1);
+				return Json(new{ items, count = tuple.Item2 });
+			}
 		}
 
 		public ActionResult Get(string id)
 		{
 			Logger.DebugFormat("Get(id: {0}", id);
-			Customer customer = _customerRepository.Read(id);
-			CustomerDto data = _mapper.Map<Customer, CustomerDto>(customer);
-			return Json(new{ success = true, data });
+			using(_conversation.SetAsCurrent())
+			{
+				Customer customer = _customerRepository.Read(id);
+				CustomerDto data = _mapper.Map<Customer, CustomerDto>(customer);
+				return Json(new{ success = true, data });
+			}
 		}
 
 		public ActionResult Update(CustomerDto item)
 		{
 			Logger.DebugFormat("Update(item: {0})", item);
 			ValidationManager.Validate(ModelState, item, "item");
-			_conversation.Accept = true;
 			return Json(ValidationManager.BuildResponse(ModelState));
 		}
 	}

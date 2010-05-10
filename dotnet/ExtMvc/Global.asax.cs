@@ -5,9 +5,11 @@ using System.Web.Routing;
 using AutoMapper;
 using Castle.Facilities.FactorySupport;
 using Castle.Facilities.Logging;
+using Castle.MicroKernel;
 using Castle.MicroKernel.Registration;
 using Castle.Services.Logging.Log4netIntegration;
 using Castle.Windsor;
+using Conversation;
 using ExtMvc.Controllers;
 using ExtMvc.Data;
 using ExtMvc.Infrastructure;
@@ -58,7 +60,8 @@ namespace ExtMvc
 			IMappingEngine mappingEngine = AutoMapperConfiguration.BuildMappingEngine();
 			_ioc.Register(Component.For<IMappingEngine>().Instance(mappingEngine));
 
-			_ioc.Register(Component.For<IConversation>().ImplementedBy<Conversation>());
+			_ioc.Register(Component.For<IConversationFactory>().UsingFactoryMethod(CreateConversationFactory));
+			_ioc.Register(Component.For<IConversation>().UsingFactoryMethod(CreateConversation).LifeStyle.PerWebRequest);
 			_ioc.Register(Component.For<CustomerRepository>().ImplementedBy<CustomerRepository>());
 
 			_ioc.RegisterControllers(typeof(CustomerController).Assembly);
@@ -69,35 +72,14 @@ namespace ExtMvc
 			ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
 		}
 
-		protected void Application_BeginRequest(object sender, EventArgs e)
+		private static IConversationFactory CreateConversationFactory(IKernel kernel)
 		{
-			var sessionFactory = _ioc.Resolve<ISessionFactory>();
-			ISession session = sessionFactory.OpenSession();
-			session.FlushMode = FlushMode.Commit;
-			session.BeginTransaction();
-			ManagedWebSessionContext.Bind(HttpContext.Current, session);
+			return new NhibernateConversationFactory(kernel.ResolveAll<ISessionFactory>());
 		}
 
-		protected void Application_EndRequest(object sender, EventArgs e)
+		private static IConversation CreateConversation(IKernel kernel)
 		{
-			var sessionFactory = _ioc.Resolve<ISessionFactory>();
-			ISession session = ManagedWebSessionContext.Unbind(HttpContext.Current, sessionFactory);
-			if(session != null)
-			{
-				var conversation = _ioc.Resolve<IConversation>();
-				if(session.Transaction != null && session.Transaction.IsActive)
-				{
-					if(conversation.Accept)
-					{
-						session.Transaction.Commit();
-					}
-					else
-					{
-						session.Transaction.Rollback();
-					}
-				}
-				session.Close();
-			}
+			return kernel.Resolve<IConversationFactory>().Open();
 		}
 
 		#region Nested type: Log4NetLoggerFactory

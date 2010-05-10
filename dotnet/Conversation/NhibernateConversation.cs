@@ -28,7 +28,7 @@ namespace Conversation
 			{
 				session.BeginTransaction();
 			}
-			ConversationSessionContext.Bind(_map);
+			CurrentConversationHolder.Instance.Bind(_map);
 			_state = ConversationState.InContext;
 			return new DisposeAction(ResetCurrent);
 		}
@@ -36,7 +36,7 @@ namespace Conversation
 		public void ResetCurrent()
 		{
 			CheckState(ConversationState.InContext);
-			ConversationSessionContext.UnBind(_map);
+			CurrentConversationHolder.Instance.UnBind(_map);
 			foreach(ISession session in _map.Values)
 			{
 				session.Transaction.Commit();

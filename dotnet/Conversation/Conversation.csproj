@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <OutputType>Library</OutputType>
     <NoStandardLibraries>false</NoStandardLibraries>
-    <AssemblyName>ClassLibrary</AssemblyName>
+    <AssemblyName>Conversation</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <RootNamespace>Conversation</RootNamespace>
@@ -58,16 +58,20 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConversationException.cs" />
     <Compile Include="ConversationSessionContext.cs" />
     <Compile Include="ConversationState.cs" />
+    <Compile Include="CurrentConversationHolder.cs" />
+    <Compile Include="DesktopCurrentConversationHolder.cs" />
     <Compile Include="DisposeAction.cs" />
     <Compile Include="IConversation.cs" />
     <Compile Include="IConversationFactory.cs" />
     <Compile Include="NhibernateConversation.cs" />
     <Compile Include="NhibernateConversationFactory.cs" />
+    <Compile Include="WebCurrentConversationHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
