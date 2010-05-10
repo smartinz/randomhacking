@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using ExtMvc.Domain;
-using ExtMvc.Dtos;
 using NHibernate;
 using NHibernate.Criterion;
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-	<class name="ExtMvc.Domain.Order, ExtMvc" table="`Orders`" schema="`dbo`">
+	<class name="ExtMvc.Domain.Order, ExtMvc.Domain" table="`Orders`" schema="`dbo`">
 		<id name="OrderId" column="`OrderID`" type="Int32" unsaved-value="0">
 			<generator class="native" />
 		</id>

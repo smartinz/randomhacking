@@ -12,6 +12,7 @@ using Conversation;
 using Conversation.NHibernate;
 using ExtMvc.Controllers;
 using ExtMvc.Data;
+using ExtMvc.Domain;
 using log4net.Config;
 using Microsoft.Web.Mvc;
 using MvcContrib.Castle;
@@ -46,21 +47,17 @@ namespace ExtMvc
 			_ioc.AddFacility<FactorySupportFacility>();
 			_ioc.AddFacility("logging", new LoggingFacility(typeof(Log4NetLoggerFactory).AssemblyQualifiedName, ""));
 
-			var validatorEngine = new ValidatorEngine();
-			validatorEngine.Configure();
-			_ioc.Register(Component.For<ValidatorEngine>().Instance(validatorEngine));
+			_ioc.Register(Component.For<ValidatorEngine>().UsingFactoryMethod(CreateValidatorEngine));
 
-			NHibernate.Cfg.Configuration nhCfg = new NHibernate.Cfg.Configuration().Configure();
-			nhCfg.Initialize(validatorEngine);
-			ISessionFactory sessionFactory = nhCfg.BuildSessionFactory();
-			_ioc.Register(Component.For<ISessionFactory>().Instance(sessionFactory));
+			_ioc.Register(Component.For<ISessionFactory>().UsingFactoryMethod(CreateSessionFactory));
 
 			IMappingEngine mappingEngine = AutoMapperConfiguration.BuildMappingEngine();
 			_ioc.Register(Component.For<IMappingEngine>().Instance(mappingEngine));
 
 			_ioc.Register(Component.For<IConversationFactory>().UsingFactoryMethod(CreateConversationFactory));
 			_ioc.Register(Component.For<IConversation>().UsingFactoryMethod(CreateConversation).LifeStyle.PerWebRequest);
-			_ioc.Register(Component.For<CustomerRepository>().ImplementedBy<CustomerRepository>());
+			_ioc.Register(Component.For<CustomerRepository>());
+			_ioc.Register(Component.For<OrderRepository>());
 
 			_ioc.RegisterControllers(typeof(CustomerController).Assembly);
 			ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(_ioc));
@@ -68,6 +65,23 @@ namespace ExtMvc
 			AreaRegistration.RegisterAllAreas();
 			RegisterRoutes(RouteTable.Routes);
 			ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
+		}
+
+		private static ValidatorEngine CreateValidatorEngine()
+		{
+			var validatorEngine = new ValidatorEngine();
+			validatorEngine.Configure();
+			return validatorEngine;
+		}
+
+		private static ISessionFactory CreateSessionFactory(IKernel kernel)
+		{
+			var validatorEngine = kernel.Resolve<ValidatorEngine>();
+			NHibernate.Cfg.Configuration nhCfg = new NHibernate.Cfg.Configuration().Configure()
+				.SetProperty(NHibernate.Cfg.Environment.CurrentSessionContextClass, typeof(ConversationSessionContext).AssemblyQualifiedName)
+				.AddAssembly(typeof(Customer).Assembly);
+			nhCfg.Initialize(validatorEngine);
+			return nhCfg.BuildSessionFactory();
 		}
 
 		private static IConversationFactory CreateConversationFactory(IKernel kernel)

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2">
-	<class name="ExtMvc.Domain.Customer, ExtMvc" table="`Customers`" schema="`dbo`">
+	<class name="ExtMvc.Domain.Customer, ExtMvc.Domain" table="`Customers`" schema="`dbo`">
 		<id name="CustomerId" column="`CustomerID`" type="String">
 			<generator class="assigned" />
 		</id>
@@ -16,7 +16,7 @@
 		<property name="Fax" column="`Fax`" type="String" not-null="false" />
 		<set name="Orders" inverse="true" cascade="save-update" lazy="true">
 			<key column="`CustomerID`" />
-			<one-to-many class="ExtMvc.Domain.Order, ExtMvc" />
+			<one-to-many class="ExtMvc.Domain.Order, ExtMvc.Domain" />
 		</set>
 	</class>
 </hibernate-mapping>
