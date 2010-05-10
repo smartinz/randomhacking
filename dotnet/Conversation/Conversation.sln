@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversation", "Conversation.csproj", "{D3339140-2B01-4F12-9792-03BE21B14058}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversation.Tests", "..\Conversation.Tests\Conversation.Tests.csproj", "{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}"
