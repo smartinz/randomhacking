@@ -2,13 +2,13 @@
 using NHibernate;
 using NHibernate.Engine;
 
-namespace Conversation
+namespace Conversation.NHibernate
 {
-	public class NhibernateConversationFactory : IConversationFactory
+	public class NHibernateConversationFactory : IConversationFactory
 	{
 		private readonly IEnumerable<ISessionFactory> _sessionFactories;
 
-		public NhibernateConversationFactory(IEnumerable<ISessionFactory> sessionFactories)
+		public NHibernateConversationFactory(IEnumerable<ISessionFactory> sessionFactories)
 		{
 			_sessionFactories = sessionFactories;
 		}
@@ -22,7 +22,7 @@ namespace Conversation
 				session.FlushMode = FlushMode.Never;
 				map.Add(sessionFactory, session);
 			}
-			return new NhibernateConversation(map);
+			return new NHibernateConversation(map);
 		}
 	}
 }

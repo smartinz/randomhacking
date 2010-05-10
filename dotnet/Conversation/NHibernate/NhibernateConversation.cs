@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using NHibernate;
 
-namespace Conversation
+namespace Conversation.NHibernate
 {
 	/// <summary>
 	/// This is an implementation of Conversation per Business Transaction pattern.
 	/// Doesn't work with tables with "assigned" generator class (like tables with IDENTITY column in SQL Server)
 	/// See http://fabiomaulo.blogspot.com/2008/12/identity-never-ending-story.html
 	/// </summary>
-	public class NhibernateConversation : IConversation
+	public class NHibernateConversation : IConversation
 	{
 		private readonly IDictionary<ISessionFactory, ISession> _map;
 		private ConversationState _state;
 
-		public NhibernateConversation(IDictionary<ISessionFactory, ISession> map)
+		public NHibernateConversation(IDictionary<ISessionFactory, ISession> map)
 		{
 			_map = map;
 			_state = ConversationState.Opened;
@@ -102,7 +102,7 @@ namespace Conversation
 			}
 		}
 
-		~NhibernateConversation()
+		~NHibernateConversation()
 		{
 			Dispose(false);
 		}

@@ -3,7 +3,7 @@ using NHibernate;
 using NHibernate.Context;
 using NHibernate.Engine;
 
-namespace Conversation
+namespace Conversation.NHibernate
 {
 	[Serializable]
 	public class ConversationSessionContext : ICurrentSessionContext

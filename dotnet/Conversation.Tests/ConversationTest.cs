@@ -1,4 +1,5 @@
 ﻿using System;
+using Conversation.NHibernate;
 using Conversation.Tests.Domain;
 using NHibernate;
 using NUnit.Framework;
@@ -12,12 +13,12 @@ namespace Conversation.Tests
 		public void SetUp()
 		{
 			_sessionFactory = TestDatabaseHelper.CreateTestDatabase();
-			_conversationFactory = new NhibernateConversationFactory(new[]{ _sessionFactory });
+			_conversationFactory = new NHibernateConversationFactory(new[]{ _sessionFactory });
 			SetUpFixture.SqlOperationsAppender.Clear();
 		}
 
 		private ISessionFactory _sessionFactory;
-		private NhibernateConversationFactory _conversationFactory;
+		private NHibernateConversationFactory _conversationFactory;
 
 		private Guid SaveTestEntities()
 		{

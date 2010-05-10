@@ -4,7 +4,7 @@ using System.Web;
 using NHibernate;
 using NHibernate.Engine;
 
-namespace Conversation
+namespace Conversation.NHibernate
 {
 	public abstract class CurrentConversationHolder
 	{

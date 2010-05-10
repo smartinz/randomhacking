@@ -62,16 +62,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConversationException.cs" />
-    <Compile Include="ConversationSessionContext.cs" />
+    <Compile Include="NHibernate\ConversationSessionContext.cs" />
     <Compile Include="ConversationState.cs" />
-    <Compile Include="CurrentConversationHolder.cs" />
-    <Compile Include="DesktopCurrentConversationHolder.cs" />
+    <Compile Include="NHibernate\CurrentConversationHolder.cs" />
+    <Compile Include="NHibernate\DesktopCurrentConversationHolder.cs" />
     <Compile Include="DisposeAction.cs" />
     <Compile Include="IConversation.cs" />
     <Compile Include="IConversationFactory.cs" />
-    <Compile Include="NhibernateConversation.cs" />
-    <Compile Include="NhibernateConversationFactory.cs" />
-    <Compile Include="WebCurrentConversationHolder.cs" />
+    <Compile Include="NHibernate\NHibernateConversation.cs" />
+    <Compile Include="NHibernate\NHibernateConversationFactory.cs" />
+    <Compile Include="NHibernate\WebCurrentConversationHolder.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

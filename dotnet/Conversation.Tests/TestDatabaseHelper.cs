@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using Conversation.NHibernate;
 using NHibernate;
 using NHibernate.ByteCode.Castle;
 using NHibernate.Cfg;

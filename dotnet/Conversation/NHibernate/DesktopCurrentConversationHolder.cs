@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using NHibernate;
 
-namespace Conversation
+namespace Conversation.NHibernate
 {
 	public class DesktopCurrentConversationHolder : CurrentConversationHolder
 	{

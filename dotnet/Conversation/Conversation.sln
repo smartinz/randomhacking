@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversation", "Conversatio
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversation.Tests", "..\Conversation.Tests\Conversation.Tests.csproj", "{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Conversation.NHibernate", "..\Conversation.NHibernate\Conversation.NHibernate.csproj", "{DBC243FF-C605-47F8-BC1B-EF3684367E01}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C5CB012-B0CD-4255-B3FD-93F2D5A6D9C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBC243FF-C605-47F8-BC1B-EF3684367E01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBC243FF-C605-47F8-BC1B-EF3684367E01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBC243FF-C605-47F8-BC1B-EF3684367E01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBC243FF-C605-47F8-BC1B-EF3684367E01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

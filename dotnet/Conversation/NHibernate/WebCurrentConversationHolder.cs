@@ -2,7 +2,7 @@
 using System.Web;
 using NHibernate;
 
-namespace Conversation
+namespace Conversation.NHibernate
 {
 	public class WebCurrentConversationHolder : CurrentConversationHolder
 	{

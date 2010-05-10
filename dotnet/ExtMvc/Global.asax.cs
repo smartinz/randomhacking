@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web;
+﻿using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMapper;
@@ -10,14 +9,13 @@ using Castle.MicroKernel.Registration;
 using Castle.Services.Logging.Log4netIntegration;
 using Castle.Windsor;
 using Conversation;
+using Conversation.NHibernate;
 using ExtMvc.Controllers;
 using ExtMvc.Data;
-using ExtMvc.Infrastructure;
 using log4net.Config;
 using Microsoft.Web.Mvc;
 using MvcContrib.Castle;
 using NHibernate;
-using NHibernate.Context;
 using NHibernate.Validator.Cfg;
 using NHibernate.Validator.Engine;
 using SpikeWcf;
@@ -74,7 +72,7 @@ namespace ExtMvc
 
 		private static IConversationFactory CreateConversationFactory(IKernel kernel)
 		{
-			return new NhibernateConversationFactory(kernel.ResolveAll<ISessionFactory>());
+			return new NHibernateConversationFactory(kernel.ResolveAll<ISessionFactory>());
 		}
 
 		private static IConversation CreateConversation(IKernel kernel)
