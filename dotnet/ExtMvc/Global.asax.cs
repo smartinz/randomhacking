@@ -3,10 +3,8 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMapper;
 using Castle.Facilities.FactorySupport;
-using Castle.Facilities.Logging;
 using Castle.MicroKernel;
 using Castle.MicroKernel.Registration;
-using Castle.Services.Logging.Log4netIntegration;
 using Castle.Windsor;
 using Conversation;
 using Conversation.NHibernate;
@@ -43,9 +41,9 @@ namespace ExtMvc
 
 		protected void Application_Start()
 		{
+			XmlConfigurator.Configure();
 			_ioc = new WindsorContainer();
 			_ioc.AddFacility<FactorySupportFacility>();
-			_ioc.AddFacility("logging", new LoggingFacility(typeof(Log4NetLoggerFactory).AssemblyQualifiedName, ""));
 
 			_ioc.Register(Component.For<ValidatorEngine>().UsingFactoryMethod(CreateValidatorEngine));
 
@@ -80,7 +78,7 @@ namespace ExtMvc
 			NHibernate.Cfg.Configuration nhCfg = new NHibernate.Cfg.Configuration().Configure()
 				.SetProperty(NHibernate.Cfg.Environment.CurrentSessionContextClass, typeof(ConversationSessionContext).AssemblyQualifiedName)
 				.AddAssembly(typeof(Customer).Assembly);
-			nhCfg.Initialize(validatorEngine);
+			ValidatorInitializer.Initialize(nhCfg, validatorEngine);
 			return nhCfg.BuildSessionFactory();
 		}
 
@@ -93,17 +91,5 @@ namespace ExtMvc
 		{
 			return kernel.Resolve<IConversationFactory>().Open();
 		}
-
-		#region Nested type: Log4NetLoggerFactory
-
-		public class Log4NetLoggerFactory : Log4netFactory
-		{
-			public Log4NetLoggerFactory()
-			{
-				XmlConfigurator.Configure();
-			}
-		}
-
-		#endregion
 	}
 }
