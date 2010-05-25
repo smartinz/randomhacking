@@ -1,0 +1,8 @@
+dotnet/**/bin
+dotnet/**/*.user
+dotnet/**/obj
+dotnet/**/*.suo
+java/GwtHelloWorld/war/WEB-INF/classes/*
+javascript/ExtJS/ext
+javascript/ExtJS/.settings
+javascript/ExtJS/.project
