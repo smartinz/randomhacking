@@ -24,9 +24,9 @@ namespace ExtMvc.Controllers
 		public ActionResult Find(int start, int limit, string sort, string dir)
 		{
 			Log.DebugFormat("Find(start: {0}, limit: {1}, sort: {2}, dir: {3})", start, limit, sort, dir);
-			Tuple<IEnumerable<Order>, int> tuple = _orderRepository.Find(start, limit, sort, dir);
-			OrderDto[] items = _mapper.Map<IEnumerable<Order>, OrderDto[]>(tuple.Item1);
-			return Json(new{ items, tuple.Item2 });
+			var set = _orderRepository.Search(null, null, null, null, null, null, null, null, null, null, null);
+			OrderDto[] items = _mapper.Map<IEnumerable<Order>, OrderDto[]>(set.AsEnumerable());
+			return Json(new{ items, set.Count() });
 		}
 	}
 }

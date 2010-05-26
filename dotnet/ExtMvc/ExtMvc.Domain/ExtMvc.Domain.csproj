@@ -36,15 +36,36 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.XML" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Category.cs" />
     <Compile Include="Customer.cs" />
+    <Compile Include="CustomerDemographic.cs" />
+    <Compile Include="Employee.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="OrderDetail.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs" />
+    <Compile Include="Shipper.cs" />
+    <Compile Include="Supplier.cs" />
+    <Compile Include="Sysdiagram.cs" />
+    <Compile Include="Territory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Customer.hbm.xml" />
-    <EmbeddedResource Include="Order.hbm.xml" />
+    <Content Include="Category.hbm.xml" />
+    <Content Include="Customer.hbm.xml" />
+    <Content Include="CustomerDemographic.hbm.xml" />
+    <Content Include="Employee.hbm.xml" />
+    <Content Include="Order.hbm.xml" />
+    <Content Include="OrderDetail.hbm.xml" />
+    <Content Include="Product.hbm.xml" />
+    <Content Include="Region.hbm.xml" />
+    <Content Include="Shipper.hbm.xml" />
+    <Content Include="Supplier.hbm.xml" />
+    <Content Include="Sysdiagram.hbm.xml" />
+    <Content Include="Territory.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

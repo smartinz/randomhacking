@@ -15,6 +15,8 @@
 		<property name="ShipRegion" column="`ShipRegion`" type="String" not-null="false" />
 		<property name="ShipPostalCode" column="`ShipPostalCode`" type="String" not-null="false" />
 		<property name="ShipCountry" column="`ShipCountry`" type="String" not-null="false" />
-		<many-to-one name="Customer" column="`CustomerID`" class="ExtMvc.Domain.Customer, ExtMvc" />
+		<many-to-one name="Customer" column="`CustomerID`" class="ExtMvc.Domain.Customer, ExtMvc.Domain" />
+		<many-to-one name="Employee" column="`EmployeeID`" class="ExtMvc.Domain.Employee, ExtMvc.Domain" />
+		<many-to-one name="Shipper" column="`ShipVia`" class="ExtMvc.Domain.Shipper, ExtMvc.Domain" />
 	</class>
 </hibernate-mapping>

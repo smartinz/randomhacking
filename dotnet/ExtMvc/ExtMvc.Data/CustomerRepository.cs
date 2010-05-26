@@ -1,47 +1,90 @@
-﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using ExtMvc.Domain;
+using Nexida.Infrastructure;
 using NHibernate;
-using NHibernate.Criterion;
+using NHibernate.Linq;
 
 namespace ExtMvc.Data
 {
 	public class CustomerRepository
 	{
-		private readonly ISessionFactory _sessionFactory;
+		private readonly ISessionFactory _northwind;
 
-		public CustomerRepository(ISessionFactory sessionFactory)
+
+		public CustomerRepository(ISessionFactory northwind)
 		{
-			_sessionFactory = sessionFactory;
+			_northwind = northwind;
 		}
 
-		public Tuple<IEnumerable<Customer>, int> Find(string companyName, string contactName, string contactTitle, int start, int limit, string sort, string dir)
+		public void Create(Customer v)
 		{
-			ICriteria crit = _sessionFactory.GetCurrentSession().CreateCriteria(typeof(Customer));
-			if (!string.IsNullOrEmpty(companyName))
-			{
-				crit.Add(Restrictions.InsensitiveLike("CompanyName", companyName, MatchMode.Start));
-			}
-			if (!string.IsNullOrEmpty(contactName))
-			{
-				crit.Add(Restrictions.InsensitiveLike("ContactName", companyName, MatchMode.Start));
-			}
-			if (!string.IsNullOrEmpty(contactTitle))
-			{
-				crit.Add(Restrictions.InsensitiveLike("ContactTitle", companyName, MatchMode.Start));
-			}
-			var count = CriteriaTransformer.Clone(crit).SetProjection(Projections.RowCount()).UniqueResult<int>();
-			if (!string.IsNullOrEmpty(sort))
-			{
-				crit.AddOrder(dir == "ASC" ? NHibernate.Criterion.Order.Asc(sort) : NHibernate.Criterion.Order.Desc(sort));
-			}
-			var customers = crit.SetFirstResult(start).SetMaxResults(limit).List<Customer>();
-			return new Tuple<IEnumerable<Customer>, int>(customers, count);
+			_northwind.GetCurrentSession().Save(v);
 		}
 
-		public Customer Read(string id)
+		public Customer Read(string customerId)
 		{
-			return _sessionFactory.GetCurrentSession().Get<Customer>(id);
+			return _northwind.GetCurrentSession().Load<Customer>(customerId);
+		}
+
+		public void Update(Customer v)
+		{
+			_northwind.GetCurrentSession().Update(v);
+		}
+
+		public void Delete(Customer v)
+		{
+			_northwind.GetCurrentSession().Delete(v);
+		}
+
+		public IPresentableSet<Customer> Search(string customerId, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone, string fax)
+		{
+			IQueryable<Customer> queryable = _northwind.GetCurrentSession().Linq<Customer>();
+			if(customerId != default(string))
+			{
+				queryable = queryable.Where(x => x.CustomerId.StartsWith(customerId));
+			}
+			if(companyName != default(string))
+			{
+				queryable = queryable.Where(x => x.CompanyName.StartsWith(companyName));
+			}
+			if(contactName != default(string))
+			{
+				queryable = queryable.Where(x => x.ContactName.StartsWith(contactName));
+			}
+			if(contactTitle != default(string))
+			{
+				queryable = queryable.Where(x => x.ContactTitle.StartsWith(contactTitle));
+			}
+			if(address != default(string))
+			{
+				queryable = queryable.Where(x => x.Address.StartsWith(address));
+			}
+			if(city != default(string))
+			{
+				queryable = queryable.Where(x => x.City.StartsWith(city));
+			}
+			if(region != default(string))
+			{
+				queryable = queryable.Where(x => x.Region.StartsWith(region));
+			}
+			if(postalCode != default(string))
+			{
+				queryable = queryable.Where(x => x.PostalCode.StartsWith(postalCode));
+			}
+			if(country != default(string))
+			{
+				queryable = queryable.Where(x => x.Country.StartsWith(country));
+			}
+			if(phone != default(string))
+			{
+				queryable = queryable.Where(x => x.Phone.StartsWith(phone));
+			}
+			if(fax != default(string))
+			{
+				queryable = queryable.Where(x => x.Fax.StartsWith(fax));
+			}
+
+			return new Nexida.Infrastructure.QueryablePresentableSet<Customer>(queryable);
 		}
 	}
 }
