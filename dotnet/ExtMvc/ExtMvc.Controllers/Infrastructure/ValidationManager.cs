@@ -1,15 +1,21 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
-using NHibernate.Validator.Cfg;
 using NHibernate.Validator.Engine;
 
 namespace ExtMvc.Infrastructure
 {
-	public static class ValidationManager
+	public class ValidationManager
 	{
-		public static void Validate(ModelStateDictionary modelState, object entity, string parameterName)
+		private readonly ValidatorEngine _validatorEngine;
+
+		public ValidationManager(ValidatorEngine validatorEngine)
 		{
-			InvalidValue[] invalidValues = Environment.SharedEngineProvider.GetEngine().Validate(entity);
+			_validatorEngine = validatorEngine;
+		}
+
+		public void Validate(ModelStateDictionary modelState, object entity, string parameterName)
+		{
+			InvalidValue[] invalidValues = _validatorEngine.Validate(entity);
 
 			foreach(InvalidValue invalidValue in invalidValues)
 			{

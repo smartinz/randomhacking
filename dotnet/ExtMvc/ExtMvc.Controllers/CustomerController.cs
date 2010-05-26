@@ -8,6 +8,7 @@ using ExtMvc.Domain;
 using ExtMvc.Dtos;
 using ExtMvc.Infrastructure;
 using log4net;
+using System.Linq;
 
 namespace ExtMvc.Controllers
 {
@@ -17,21 +18,25 @@ namespace ExtMvc.Controllers
 		private readonly IConversation _conversation;
 		private readonly IMappingEngine _mapper;
 		private readonly CustomerRepository _customerRepository;
+		private readonly ValidationManager _validationManager;
 
-		public CustomerController(IConversation conversation, IMappingEngine mapper, CustomerRepository customerRepository)
+		public CustomerController(IConversation conversation, IMappingEngine mapper, CustomerRepository customerRepository, ValidationManager validationManager)
 		{
 			_conversation = conversation;
 			_mapper = mapper;
 			_customerRepository = customerRepository;
+			_validationManager = validationManager;
 		}
 
 		public ActionResult Find(string companyName, string contactName, string contactTitle, int start, int limit, string sort, string dir)
 		{
 			using(_conversation.SetAsCurrent())
 			{
-				Tuple<IEnumerable<Customer>, int> tuple = _customerRepository.Find(companyName, contactName, contactTitle, start, limit, sort, dir);
-				CustomerDto[] items = _mapper.Map<IEnumerable<Customer>, CustomerDto[]>(tuple.Item1);
-				return Json(new{ items, count = tuple.Item2 });
+				var set = _customerRepository.Search(null, companyName, contactName, contactTitle, null, null, null, null, null, null, null);
+				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
+				var customers = set.AsEnumerable().ToArray();
+				CustomerDto[] items = _mapper.Map<IEnumerable<Customer>, CustomerDto[]>(set.AsEnumerable());
+				return Json(new{ items, count = set.Count() });
 			}
 		}
 
@@ -49,7 +54,7 @@ namespace ExtMvc.Controllers
 		public ActionResult Update(CustomerDto item)
 		{
 			Log.DebugFormat("Update(item: {0})", item);
-			ValidationManager.Validate(ModelState, item, "item");
+			_validationManager.Validate(ModelState, item, "item");
 			return Json(ValidationManager.BuildResponse(ModelState));
 		}
 	}

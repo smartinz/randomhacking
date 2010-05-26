@@ -68,6 +68,10 @@
       <Project>{09D5A5AD-C7B9-4AE1-A050-DECFB431C0F5}</Project>
       <Name>ExtMvc.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ExtMvc.Infrastructure\ExtMvc.Infrastructure.csproj">
+      <Project>{CB4AC17F-3718-4B44-B23E-7E065845BE66}</Project>
+      <Name>ExtMvc.Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
