@@ -4,13 +4,29 @@ namespace ExtMvc.Domain
 {
 	public class Sysdiagram
 	{
+		private string _name;
+
+		private int _principalId;
+
 		private int _diagramId;
+
+		private int? _version;
+
+		private byte[] _definition;
 
 
 		[NotNullNotEmpty]
-		public virtual string Name { get; set; }
+		public virtual string Name
+		{
+			get { return _name; }
+			set { _name = value; }
+		}
 
-		public virtual int PrincipalId { get; set; }
+		public virtual int PrincipalId
+		{
+			get { return _principalId; }
+			set { _principalId = value; }
+		}
 
 		public virtual int DiagramId
 		{
@@ -18,9 +34,17 @@ namespace ExtMvc.Domain
 			set { _diagramId = value; }
 		}
 
-		public virtual int? Version { get; set; }
+		public virtual int? Version
+		{
+			get { return _version; }
+			set { _version = value; }
+		}
 
-		public virtual byte[] Definition { get; set; }
+		public virtual byte[] Definition
+		{
+			get { return _definition; }
+			set { _definition = value; }
+		}
 
 		public override string ToString()
 		{

@@ -1,4 +1,3 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
@@ -6,56 +5,39 @@ using Conversation;
 using ExtMvc.Data;
 using ExtMvc.Domain;
 using ExtMvc.Dtos;
-using ExtMvc.Infrastructure;
 using log4net;
-using System.Linq;
+using Nexida.Infrastructure;
 
 namespace ExtMvc.Controllers
 {
 	public class CustomerController : Controller
 	{
 		private static readonly ILog Log = LogManager.GetLogger(typeof(CustomerController));
-		private readonly IConversation _conversation;
+		private readonly CustomerRepository _repository;
 		private readonly IMappingEngine _mapper;
-		private readonly CustomerRepository _customerRepository;
-		private readonly ValidationManager _validationManager;
+		private readonly IValidator _validator;
+		private readonly IConversation _conversation;
 
-		public CustomerController(IConversation conversation, IMappingEngine mapper, CustomerRepository customerRepository, ValidationManager validationManager)
+		public CustomerController(IConversation conversation, IMappingEngine mapper, CustomerRepository repository, IValidator validator)
 		{
 			_conversation = conversation;
 			_mapper = mapper;
-			_customerRepository = customerRepository;
-			_validationManager = validationManager;
+			_repository = repository;
+			_validator = validator;
 		}
 
-		public ActionResult Find(string companyName, string contactName, string contactTitle, int start, int limit, string sort, string dir)
+		public ActionResult Search(string customerId, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone, string fax, int start, int limit, string sort, string dir)
 		{
+			Log.DebugFormat("Search called");
+
+
 			using(_conversation.SetAsCurrent())
 			{
-				var set = _customerRepository.Search(null, companyName, contactName, contactTitle, null, null, null, null, null, null, null);
+				IPresentableSet<Customer> set = _repository.Search(customerId, companyName, contactName, contactTitle, address, city, region, postalCode, country, phone, fax);
 				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
-				var customers = set.AsEnumerable().ToArray();
 				CustomerDto[] items = _mapper.Map<IEnumerable<Customer>, CustomerDto[]>(set.AsEnumerable());
 				return Json(new{ items, count = set.Count() });
 			}
-		}
-
-		public ActionResult Get(string id)
-		{
-			Log.DebugFormat("Get(id: {0}", id);
-			using(_conversation.SetAsCurrent())
-			{
-				Customer customer = _customerRepository.Read(id);
-				CustomerDto data = _mapper.Map<Customer, CustomerDto>(customer);
-				return Json(new{ success = true, data });
-			}
-		}
-
-		public ActionResult Update(CustomerDto item)
-		{
-			Log.DebugFormat("Update(item: {0})", item);
-			_validationManager.Validate(ModelState, item, "item");
-			return Json(ValidationManager.BuildResponse(ModelState));
 		}
 	}
 }

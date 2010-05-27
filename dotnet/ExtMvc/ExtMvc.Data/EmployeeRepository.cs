@@ -105,7 +105,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.PhotoPath.StartsWith(photoPath));
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<Employee>(queryable);
+			return new QueryablePresentableSet<Employee>(queryable);
 		}
 	}
 }

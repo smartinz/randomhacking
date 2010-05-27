@@ -6,6 +6,24 @@ namespace ExtMvc.Domain
 	{
 		private int _productId;
 
+		private string _productName;
+
+		private string _quantityPerUnit;
+
+		private decimal? _unitPrice;
+
+		private short? _unitsInStock;
+
+		private short? _unitsOnOrder;
+
+		private short? _reorderLevel;
+
+		private bool _discontinued;
+
+		private Category _category;
+
+		private Supplier _supplier;
+
 
 		public virtual int ProductId
 		{
@@ -14,23 +32,59 @@ namespace ExtMvc.Domain
 		}
 
 		[NotNullNotEmpty]
-		public virtual string ProductName { get; set; }
+		public virtual string ProductName
+		{
+			get { return _productName; }
+			set { _productName = value; }
+		}
 
-		public virtual string QuantityPerUnit { get; set; }
+		public virtual string QuantityPerUnit
+		{
+			get { return _quantityPerUnit; }
+			set { _quantityPerUnit = value; }
+		}
 
-		public virtual decimal? UnitPrice { get; set; }
+		public virtual decimal? UnitPrice
+		{
+			get { return _unitPrice; }
+			set { _unitPrice = value; }
+		}
 
-		public virtual short? UnitsInStock { get; set; }
+		public virtual short? UnitsInStock
+		{
+			get { return _unitsInStock; }
+			set { _unitsInStock = value; }
+		}
 
-		public virtual short? UnitsOnOrder { get; set; }
+		public virtual short? UnitsOnOrder
+		{
+			get { return _unitsOnOrder; }
+			set { _unitsOnOrder = value; }
+		}
 
-		public virtual short? ReorderLevel { get; set; }
+		public virtual short? ReorderLevel
+		{
+			get { return _reorderLevel; }
+			set { _reorderLevel = value; }
+		}
 
-		public virtual bool Discontinued { get; set; }
+		public virtual bool Discontinued
+		{
+			get { return _discontinued; }
+			set { _discontinued = value; }
+		}
 
-		public virtual Category Category { get; set; }
+		public virtual Category Category
+		{
+			get { return _category; }
+			set { _category = value; }
+		}
 
-		public virtual Supplier Supplier { get; set; }
+		public virtual Supplier Supplier
+		{
+			get { return _supplier; }
+			set { _supplier = value; }
+		}
 
 		public override string ToString()
 		{

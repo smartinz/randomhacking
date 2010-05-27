@@ -7,6 +7,10 @@ namespace ExtMvc.Domain
 	{
 		private int _shipperId;
 
+		private string _companyName;
+
+		private string _phone;
+
 		private ICollection<Order> _orders = new HashSet<Order>();
 
 
@@ -17,9 +21,17 @@ namespace ExtMvc.Domain
 		}
 
 		[NotNullNotEmpty]
-		public virtual string CompanyName { get; set; }
+		public virtual string CompanyName
+		{
+			get { return _companyName; }
+			set { _companyName = value; }
+		}
 
-		public virtual string Phone { get; set; }
+		public virtual string Phone
+		{
+			get { return _phone; }
+			set { _phone = value; }
+		}
 
 		[NotNull]
 		public virtual ICollection<Order> Orders

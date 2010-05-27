@@ -84,7 +84,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.Fax.StartsWith(fax));
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<Customer>(queryable);
+			return new QueryablePresentableSet<Customer>(queryable);
 		}
 	}
 }

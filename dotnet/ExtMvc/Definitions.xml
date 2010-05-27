@@ -1,0 +1,3982 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.nexida.com/codegeneration/definitions/1">
+  <types>
+    <type id="Northwind.dbo.Categories">
+      <name>Category</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="CategoryID">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>CategoryId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>true</readOnly>
+            <columnName>CategoryID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="CategoryName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>CategoryName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CategoryName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Description">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Description</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Description</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Picture">
+          <typeId>http://www.w3.org/2001/XMLSchema base64Binary</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Picture</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Picture</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.Products.CategoryID">
+          <typeId>Northwind.dbo.Products</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Products</name>
+          <associationIdentifier>FkProductsCategories</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CategoryID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Categories.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Categories.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Categories.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Categories.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Categories.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Categories</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.CustomerDemographics">
+      <name>CustomerDemographic</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="CustomerTypeID">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>CustomerTypeId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CustomerTypeID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="CustomerDesc">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>CustomerDesc</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CustomerDesc</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.CustomerCustomerDemo.CustomerTypeID">
+          <typeId>Northwind.dbo.Customers</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Customers</name>
+          <associationIdentifier>CustomerCustomerDemo</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CustomerTypeID</columnName>
+            <manyToManyTableName>CustomerCustomerDemo</manyToManyTableName>
+            <manyToManyOtherFkColumnName>CustomerID</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.CustomerDemographics.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.CustomerDemographics.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.CustomerDemographics.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.CustomerDemographics.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.CustomerDemographics.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>CustomerDemographics</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.Customers">
+      <name>Customer</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="CustomerID">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>CustomerId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CustomerID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="CompanyName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>CompanyName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CompanyName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ContactName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ContactName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ContactName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ContactTitle">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ContactTitle</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ContactTitle</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Address">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Address</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Address</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="City">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>City</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>City</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Region">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Region</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Region</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="PostalCode">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>PostalCode</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>PostalCode</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Country">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Country</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Country</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Phone">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Phone</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Phone</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Fax">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Fax</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Fax</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.CustomerCustomerDemo.CustomerID">
+          <typeId>Northwind.dbo.CustomerDemographics</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Customerdemographics</name>
+          <associationIdentifier>CustomerCustomerDemo</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CustomerID</columnName>
+            <manyToManyTableName>CustomerCustomerDemo</manyToManyTableName>
+            <manyToManyOtherFkColumnName>CustomerTypeID</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.Orders.CustomerID">
+          <typeId>Northwind.dbo.Orders</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Orders</name>
+          <associationIdentifier>FkOrdersCustomers</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CustomerID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Customers.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Customers.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Customers.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Customers.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Customers.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Customers</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.Employees">
+      <name>Employee</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="EmployeeID">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>EmployeeId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>true</readOnly>
+            <columnName>EmployeeID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="LastName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>LastName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>LastName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="FirstName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>FirstName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>FirstName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Title">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Title</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Title</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="TitleOfCourtesy">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>TitleOfCourtesy</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>TitleOfCourtesy</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="BirthDate">
+          <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>BirthDate</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>BirthDate</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="HireDate">
+          <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>HireDate</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>HireDate</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Address">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Address</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Address</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="City">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>City</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>City</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Region">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Region</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Region</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="PostalCode">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>PostalCode</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>PostalCode</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Country">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Country</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Country</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="HomePhone">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>HomePhone</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>HomePhone</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Extension">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Extension</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Extension</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Photo">
+          <typeId>http://www.w3.org/2001/XMLSchema base64Binary</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Photo</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Photo</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Notes">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Notes</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Notes</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="PhotoPath">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>PhotoPath</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>PhotoPath</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ReportsTo">
+          <typeId>Northwind.dbo.Employees</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Employee_1</name>
+          <associationIdentifier>FkEmployeesEmployees</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ReportsTo</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.Employees.ReportsTo">
+          <typeId>Northwind.dbo.Employees</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Employees</name>
+          <associationIdentifier>FkEmployeesEmployees</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ReportsTo</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.EmployeeTerritories.EmployeeID">
+          <typeId>Northwind.dbo.Territories</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Territories</name>
+          <associationIdentifier>EmployeeTerritories</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>EmployeeID</columnName>
+            <manyToManyTableName>EmployeeTerritories</manyToManyTableName>
+            <manyToManyOtherFkColumnName>TerritoryID</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.Orders.EmployeeID">
+          <typeId>Northwind.dbo.Orders</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Orders</name>
+          <associationIdentifier>FkOrdersEmployees</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>EmployeeID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Employees.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Employees.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Employees.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Employees.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Employees.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Employees</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.Order Details">
+      <name>OrderDetail</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="OrderID">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>OrderId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>OrderID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ProductID">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>ProductId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ProductID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="UnitPrice">
+          <typeId>http://www.w3.org/2001/XMLSchema decimal</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>UnitPrice</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>UnitPrice</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Quantity">
+          <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Quantity</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Quantity</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Discount">
+          <typeId>http://www.w3.org/2001/XMLSchema float</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Discount</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Discount</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Order Details.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Order Details.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Order Details.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Order Details.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Order Details.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Order Details</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.Orders">
+      <name>Order</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="OrderID">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>OrderId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>true</readOnly>
+            <columnName>OrderID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="OrderDate">
+          <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>OrderDate</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>OrderDate</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="RequiredDate">
+          <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>RequiredDate</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>RequiredDate</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ShippedDate">
+          <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ShippedDate</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ShippedDate</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Freight">
+          <typeId>http://www.w3.org/2001/XMLSchema decimal</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Freight</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Freight</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ShipName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ShipName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ShipName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ShipAddress">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ShipAddress</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ShipAddress</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ShipCity">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ShipCity</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ShipCity</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ShipRegion">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ShipRegion</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ShipRegion</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ShipPostalCode">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ShipPostalCode</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ShipPostalCode</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ShipCountry">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ShipCountry</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ShipCountry</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="CustomerID">
+          <typeId>Northwind.dbo.Customers</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Customer</name>
+          <associationIdentifier>FkOrdersCustomers</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CustomerID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="EmployeeID">
+          <typeId>Northwind.dbo.Employees</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Employee</name>
+          <associationIdentifier>FkOrdersEmployees</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>EmployeeID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ShipVia">
+          <typeId>Northwind.dbo.Shippers</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Shipper</name>
+          <associationIdentifier>FkOrdersShippers</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ShipVia</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Orders.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Orders.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Orders.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Orders.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Orders.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Orders</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.Products">
+      <name>Product</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="ProductID">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>ProductId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>true</readOnly>
+            <columnName>ProductID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ProductName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>ProductName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ProductName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="QuantityPerUnit">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>QuantityPerUnit</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>QuantityPerUnit</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="UnitPrice">
+          <typeId>http://www.w3.org/2001/XMLSchema decimal</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>UnitPrice</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>UnitPrice</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="UnitsInStock">
+          <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>UnitsInStock</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>UnitsInStock</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="UnitsOnOrder">
+          <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>UnitsOnOrder</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>UnitsOnOrder</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ReorderLevel">
+          <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ReorderLevel</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ReorderLevel</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Discontinued">
+          <typeId>http://www.w3.org/2001/XMLSchema boolean</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Discontinued</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Discontinued</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="CategoryID">
+          <typeId>Northwind.dbo.Categories</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Category</name>
+          <associationIdentifier>FkProductsCategories</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CategoryID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="SupplierID">
+          <typeId>Northwind.dbo.Suppliers</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Supplier</name>
+          <associationIdentifier>FkProductsSuppliers</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>SupplierID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Products.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Products.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Products.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Products.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Products.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Products</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.Region">
+      <name>Region</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="RegionID">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>RegionId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>RegionID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="RegionDescription">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>RegionDescription</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>RegionDescription</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.Territories.RegionID">
+          <typeId>Northwind.dbo.Territories</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Territories</name>
+          <associationIdentifier>FkTerritoriesRegion</associationIdentifier>
+          <isInverseAssociation>true</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>RegionID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Region.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Region.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Region.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Region.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Region.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Region</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.Shippers">
+      <name>Shipper</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="ShipperID">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>ShipperId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>true</readOnly>
+            <columnName>ShipperID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="CompanyName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>CompanyName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CompanyName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Phone">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Phone</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Phone</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.Orders.ShipVia">
+          <typeId>Northwind.dbo.Orders</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Orders</name>
+          <associationIdentifier>FkOrdersShippers</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ShipVia</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Shippers.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Shippers.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Shippers.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Shippers.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Shippers.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Shippers</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.Suppliers">
+      <name>Supplier</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="SupplierID">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>SupplierId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>true</readOnly>
+            <columnName>SupplierID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="CompanyName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>CompanyName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>CompanyName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ContactName">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ContactName</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ContactName</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="ContactTitle">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>ContactTitle</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>ContactTitle</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Address">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Address</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Address</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="City">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>City</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>City</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Region">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Region</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Region</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="PostalCode">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>PostalCode</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>PostalCode</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Country">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Country</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Country</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Phone">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Phone</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Phone</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Fax">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Fax</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>Fax</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="HomePage">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>HomePage</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>HomePage</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.Products.SupplierID">
+          <typeId>Northwind.dbo.Products</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Products</name>
+          <associationIdentifier>FkProductsSuppliers</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>SupplierID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Suppliers.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Suppliers.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Suppliers.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Suppliers.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Suppliers.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Suppliers</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.sysdiagrams">
+      <name>Sysdiagram</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="name">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Name</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>name</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="principal_id">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>PrincipalId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>principal_id</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="diagram_id">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>DiagramId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>true</readOnly>
+            <columnName>diagram_id</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="version">
+          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Version</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>version</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="definition">
+          <typeId>http://www.w3.org/2001/XMLSchema base64Binary</typeId>
+          <canBeEmpty>true</canBeEmpty>
+          <many>false</many>
+          <name>Definition</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>definition</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.sysdiagrams.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.sysdiagrams.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.sysdiagrams.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.sysdiagrams.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.sysdiagrams.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>sysdiagrams</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+    <type id="Northwind.dbo.Territories">
+      <name>Territory</name>
+      <namespace />
+      <isDetail>false</isDetail>
+      <fields>
+        <field id="TerritoryID">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>TerritoryId</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>TerritoryID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="TerritoryDescription">
+          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>TerritoryDescription</name>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>TerritoryDescription</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+        <field id="Northwind.dbo.EmployeeTerritories.TerritoryID">
+          <typeId>Northwind.dbo.Employees</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>true</many>
+          <name>Employees</name>
+          <associationIdentifier>EmployeeTerritories</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>TerritoryID</columnName>
+            <manyToManyTableName>EmployeeTerritories</manyToManyTableName>
+            <manyToManyOtherFkColumnName>EmployeeID</manyToManyOtherFkColumnName>
+            <manyToManySchemaName>dbo</manyToManySchemaName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView xsi:nil="true" />
+          </presentation>
+        </field>
+        <field id="RegionID">
+          <typeId>Northwind.dbo.Region</typeId>
+          <canBeEmpty>false</canBeEmpty>
+          <many>false</many>
+          <name>Region</name>
+          <associationIdentifier>FkTerritoriesRegion</associationIdentifier>
+          <isInverseAssociation>false</isInverseAssociation>
+          <relationalMapping>
+            <readOnly>false</readOnly>
+            <columnName>RegionID</columnName>
+          </relationalMapping>
+          <presentation>
+            <orderInInstanceDescription xsi:nil="true" />
+            <orderInDetailView>1</orderInDetailView>
+            <orderInGridView>1</orderInGridView>
+          </presentation>
+        </field>
+      </fields>
+      <repository>
+        <create>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Territories.Create</operationId>
+          </operationReference>
+        </create>
+        <read>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Territories.Read</operationId>
+          </operationReference>
+        </read>
+        <update>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Territories.Update</operationId>
+          </operationReference>
+        </update>
+        <delete>
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Territories.Delete</operationId>
+          </operationReference>
+        </delete>
+        <search id="search">
+          <specialization />
+          <operationReference>
+            <serviceId>Northwind</serviceId>
+            <operationId>Northwind.dbo.Territories.Search</operationId>
+          </operationReference>
+        </search>
+      </repository>
+      <relationalMapping>
+        <tableName>Territories</tableName>
+        <schema>dbo</schema>
+      </relationalMapping>
+      <security />
+    </type>
+  </types>
+  <services>
+    <service id="Northwind">
+      <name>Northwind</name>
+      <namespace />
+      <relationalMapping>
+        <catalog>Northwind</catalog>
+      </relationalMapping>
+      <operations>
+        <operation id="Northwind.dbo.Categories.Create">
+          <name>CreateDboCategory</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Categories">
+              <typeId>Northwind.dbo.Categories</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>category</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Categories.Read">
+          <name>ReadDboCategory</name>
+          <return>
+            <typeId>Northwind.dbo.Categories</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="CategoryID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>categoryId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Categories</typeId>
+                <fieldId>CategoryID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Categories.Update">
+          <name>UpdateDboCategory</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Categories">
+              <typeId>Northwind.dbo.Categories</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>category</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Categories.Delete">
+          <name>DeleteDboCategory</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Categories">
+              <typeId>Northwind.dbo.Categories</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>category</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Categories.Search">
+          <name>SearchDboCategory</name>
+          <return>
+            <typeId>Northwind.dbo.Categories</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="CategoryID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>categoryId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Categories</typeId>
+                <fieldId>CategoryID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="CategoryName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>categoryName</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Categories</typeId>
+                <fieldId>CategoryName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Description">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>description</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Categories</typeId>
+                <fieldId>Description</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.CustomerDemographics.Create">
+          <name>CreateDboCustomerDemographic</name>
+          <parameters>
+            <parameter id="Northwind.dbo.CustomerDemographics">
+              <typeId>Northwind.dbo.CustomerDemographics</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>customerDemographic</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.CustomerDemographics.Read">
+          <name>ReadDboCustomerDemographic</name>
+          <return>
+            <typeId>Northwind.dbo.CustomerDemographics</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="CustomerTypeID">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>customerTypeId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.CustomerDemographics</typeId>
+                <fieldId>CustomerTypeID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.CustomerDemographics.Update">
+          <name>UpdateDboCustomerDemographic</name>
+          <parameters>
+            <parameter id="Northwind.dbo.CustomerDemographics">
+              <typeId>Northwind.dbo.CustomerDemographics</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>customerDemographic</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.CustomerDemographics.Delete">
+          <name>DeleteDboCustomerDemographic</name>
+          <parameters>
+            <parameter id="Northwind.dbo.CustomerDemographics">
+              <typeId>Northwind.dbo.CustomerDemographics</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>customerDemographic</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.CustomerDemographics.Search">
+          <name>SearchDboCustomerDemographic</name>
+          <return>
+            <typeId>Northwind.dbo.CustomerDemographics</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="CustomerTypeID">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>customerTypeId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.CustomerDemographics</typeId>
+                <fieldId>CustomerTypeID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="CustomerDesc">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>customerDesc</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.CustomerDemographics</typeId>
+                <fieldId>CustomerDesc</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Customers.Create">
+          <name>CreateDboCustomer</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Customers">
+              <typeId>Northwind.dbo.Customers</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>customer</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Customers.Read">
+          <name>ReadDboCustomer</name>
+          <return>
+            <typeId>Northwind.dbo.Customers</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="CustomerID">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>customerId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>CustomerID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Customers.Update">
+          <name>UpdateDboCustomer</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Customers">
+              <typeId>Northwind.dbo.Customers</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>customer</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Customers.Delete">
+          <name>DeleteDboCustomer</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Customers">
+              <typeId>Northwind.dbo.Customers</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>customer</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Customers.Search">
+          <name>SearchDboCustomer</name>
+          <return>
+            <typeId>Northwind.dbo.Customers</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="CustomerID">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>customerId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>CustomerID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="CompanyName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>companyName</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>CompanyName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ContactName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>contactName</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>ContactName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ContactTitle">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>contactTitle</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>ContactTitle</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Address">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>address</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>Address</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="City">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>city</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>City</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Region">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>region</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>Region</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="PostalCode">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>postalCode</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>PostalCode</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Country">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>country</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>Country</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Phone">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>phone</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>Phone</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Fax">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>fax</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Customers</typeId>
+                <fieldId>Fax</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Employees.Create">
+          <name>CreateDboEmployee</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Employees">
+              <typeId>Northwind.dbo.Employees</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>employee</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Employees.Read">
+          <name>ReadDboEmployee</name>
+          <return>
+            <typeId>Northwind.dbo.Employees</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="EmployeeID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>employeeId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>EmployeeID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Employees.Update">
+          <name>UpdateDboEmployee</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Employees">
+              <typeId>Northwind.dbo.Employees</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>employee</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Employees.Delete">
+          <name>DeleteDboEmployee</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Employees">
+              <typeId>Northwind.dbo.Employees</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>employee</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Employees.Search">
+          <name>SearchDboEmployee</name>
+          <return>
+            <typeId>Northwind.dbo.Employees</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="EmployeeID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>employeeId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>EmployeeID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="LastName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>lastName</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>LastName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="FirstName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>firstName</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>FirstName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Title">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>title</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>Title</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="TitleOfCourtesy">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>titleOfCourtesy</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>TitleOfCourtesy</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="BirthDate">
+              <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>birthDate</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>BirthDate</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="HireDate">
+              <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>hireDate</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>HireDate</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Address">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>address</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>Address</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="City">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>city</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>City</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Region">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>region</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>Region</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="PostalCode">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>postalCode</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>PostalCode</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Country">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>country</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>Country</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="HomePhone">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>homePhone</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>HomePhone</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Extension">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>extension</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>Extension</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Notes">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>notes</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>Notes</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="PhotoPath">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>photoPath</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Employees</typeId>
+                <fieldId>PhotoPath</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Order Details.Create">
+          <name>CreateDboOrderDetail</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Order Details">
+              <typeId>Northwind.dbo.Order Details</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>orderDetail</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Order Details.Read">
+          <name>ReadDboOrderDetail</name>
+          <return>
+            <typeId>Northwind.dbo.Order Details</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="OrderID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>orderId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Order Details</typeId>
+                <fieldId>OrderID</fieldId>
+              </fieldReference>
+            </parameter>
+            <parameter id="ProductID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>productId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Order Details</typeId>
+                <fieldId>ProductID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Order Details.Update">
+          <name>UpdateDboOrderDetail</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Order Details">
+              <typeId>Northwind.dbo.Order Details</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>orderDetail</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Order Details.Delete">
+          <name>DeleteDboOrderDetail</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Order Details">
+              <typeId>Northwind.dbo.Order Details</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>orderDetail</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Order Details.Search">
+          <name>SearchDboOrderDetail</name>
+          <return>
+            <typeId>Northwind.dbo.Order Details</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="OrderID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>orderId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Order Details</typeId>
+                <fieldId>OrderID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ProductID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>productId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Order Details</typeId>
+                <fieldId>ProductID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="UnitPrice">
+              <typeId>http://www.w3.org/2001/XMLSchema decimal</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>unitPrice</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Order Details</typeId>
+                <fieldId>UnitPrice</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Quantity">
+              <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>quantity</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Order Details</typeId>
+                <fieldId>Quantity</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Discount">
+              <typeId>http://www.w3.org/2001/XMLSchema float</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>discount</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Order Details</typeId>
+                <fieldId>Discount</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Orders.Create">
+          <name>CreateDboOrder</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Orders">
+              <typeId>Northwind.dbo.Orders</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>order</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Orders.Read">
+          <name>ReadDboOrder</name>
+          <return>
+            <typeId>Northwind.dbo.Orders</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="OrderID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>orderId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>OrderID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Orders.Update">
+          <name>UpdateDboOrder</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Orders">
+              <typeId>Northwind.dbo.Orders</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>order</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Orders.Delete">
+          <name>DeleteDboOrder</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Orders">
+              <typeId>Northwind.dbo.Orders</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>order</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Orders.Search">
+          <name>SearchDboOrder</name>
+          <return>
+            <typeId>Northwind.dbo.Orders</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="OrderID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>orderId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>OrderID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="OrderDate">
+              <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>orderDate</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>OrderDate</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="RequiredDate">
+              <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>requiredDate</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>RequiredDate</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ShippedDate">
+              <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>shippedDate</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>ShippedDate</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Freight">
+              <typeId>http://www.w3.org/2001/XMLSchema decimal</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>freight</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>Freight</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ShipName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>shipName</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>ShipName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ShipAddress">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>shipAddress</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>ShipAddress</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ShipCity">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>shipCity</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>ShipCity</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ShipRegion">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>shipRegion</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>ShipRegion</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ShipPostalCode">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>shipPostalCode</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>ShipPostalCode</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ShipCountry">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>shipCountry</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>ShipCountry</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Products.Create">
+          <name>CreateDboProduct</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Products">
+              <typeId>Northwind.dbo.Products</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>product</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Products.Read">
+          <name>ReadDboProduct</name>
+          <return>
+            <typeId>Northwind.dbo.Products</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="ProductID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>productId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>ProductID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Products.Update">
+          <name>UpdateDboProduct</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Products">
+              <typeId>Northwind.dbo.Products</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>product</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Products.Delete">
+          <name>DeleteDboProduct</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Products">
+              <typeId>Northwind.dbo.Products</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>product</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Products.Search">
+          <name>SearchDboProduct</name>
+          <return>
+            <typeId>Northwind.dbo.Products</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="ProductID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>productId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>ProductID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ProductName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>productName</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>ProductName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="QuantityPerUnit">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>quantityPerUnit</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>QuantityPerUnit</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="UnitPrice">
+              <typeId>http://www.w3.org/2001/XMLSchema decimal</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>unitPrice</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>UnitPrice</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="UnitsInStock">
+              <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>unitsInStock</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>UnitsInStock</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="UnitsOnOrder">
+              <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>unitsOnOrder</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>UnitsOnOrder</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ReorderLevel">
+              <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>reorderLevel</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>ReorderLevel</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Discontinued">
+              <typeId>http://www.w3.org/2001/XMLSchema boolean</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>discontinued</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>Discontinued</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Region.Create">
+          <name>CreateDboRegion</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Region">
+              <typeId>Northwind.dbo.Region</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>region</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Region.Read">
+          <name>ReadDboRegion</name>
+          <return>
+            <typeId>Northwind.dbo.Region</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="RegionID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>regionId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Region</typeId>
+                <fieldId>RegionID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Region.Update">
+          <name>UpdateDboRegion</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Region">
+              <typeId>Northwind.dbo.Region</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>region</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Region.Delete">
+          <name>DeleteDboRegion</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Region">
+              <typeId>Northwind.dbo.Region</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>region</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Region.Search">
+          <name>SearchDboRegion</name>
+          <return>
+            <typeId>Northwind.dbo.Region</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="RegionID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>regionId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Region</typeId>
+                <fieldId>RegionID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="RegionDescription">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>regionDescription</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Region</typeId>
+                <fieldId>RegionDescription</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Shippers.Create">
+          <name>CreateDboShipper</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Shippers">
+              <typeId>Northwind.dbo.Shippers</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>shipper</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Shippers.Read">
+          <name>ReadDboShipper</name>
+          <return>
+            <typeId>Northwind.dbo.Shippers</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="ShipperID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>shipperId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Shippers</typeId>
+                <fieldId>ShipperID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Shippers.Update">
+          <name>UpdateDboShipper</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Shippers">
+              <typeId>Northwind.dbo.Shippers</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>shipper</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Shippers.Delete">
+          <name>DeleteDboShipper</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Shippers">
+              <typeId>Northwind.dbo.Shippers</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>shipper</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Shippers.Search">
+          <name>SearchDboShipper</name>
+          <return>
+            <typeId>Northwind.dbo.Shippers</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="ShipperID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>shipperId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Shippers</typeId>
+                <fieldId>ShipperID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="CompanyName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>companyName</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Shippers</typeId>
+                <fieldId>CompanyName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Phone">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>phone</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Shippers</typeId>
+                <fieldId>Phone</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Suppliers.Create">
+          <name>CreateDboSupplier</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Suppliers">
+              <typeId>Northwind.dbo.Suppliers</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>supplier</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Suppliers.Read">
+          <name>ReadDboSupplier</name>
+          <return>
+            <typeId>Northwind.dbo.Suppliers</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="SupplierID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>supplierId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>SupplierID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Suppliers.Update">
+          <name>UpdateDboSupplier</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Suppliers">
+              <typeId>Northwind.dbo.Suppliers</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>supplier</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Suppliers.Delete">
+          <name>DeleteDboSupplier</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Suppliers">
+              <typeId>Northwind.dbo.Suppliers</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>supplier</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Suppliers.Search">
+          <name>SearchDboSupplier</name>
+          <return>
+            <typeId>Northwind.dbo.Suppliers</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="SupplierID">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>supplierId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>SupplierID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="CompanyName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>companyName</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>CompanyName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ContactName">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>contactName</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>ContactName</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ContactTitle">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>contactTitle</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>ContactTitle</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Address">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>address</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>Address</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="City">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>city</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>City</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Region">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>region</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>Region</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="PostalCode">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>postalCode</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>PostalCode</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Country">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>country</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>Country</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Phone">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>phone</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>Phone</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="Fax">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>fax</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>Fax</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="HomePage">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>homePage</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Suppliers</typeId>
+                <fieldId>HomePage</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.sysdiagrams.Create">
+          <name>CreateDboSysdiagram</name>
+          <parameters>
+            <parameter id="Northwind.dbo.sysdiagrams">
+              <typeId>Northwind.dbo.sysdiagrams</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>sysdiagram</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.sysdiagrams.Read">
+          <name>ReadDboSysdiagram</name>
+          <return>
+            <typeId>Northwind.dbo.sysdiagrams</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="diagram_id">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>diagramId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.sysdiagrams</typeId>
+                <fieldId>diagram_id</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.sysdiagrams.Update">
+          <name>UpdateDboSysdiagram</name>
+          <parameters>
+            <parameter id="Northwind.dbo.sysdiagrams">
+              <typeId>Northwind.dbo.sysdiagrams</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>sysdiagram</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.sysdiagrams.Delete">
+          <name>DeleteDboSysdiagram</name>
+          <parameters>
+            <parameter id="Northwind.dbo.sysdiagrams">
+              <typeId>Northwind.dbo.sysdiagrams</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>sysdiagram</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.sysdiagrams.Search">
+          <name>SearchDboSysdiagram</name>
+          <return>
+            <typeId>Northwind.dbo.sysdiagrams</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="name">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>name</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.sysdiagrams</typeId>
+                <fieldId>name</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="principal_id">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>principalId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.sysdiagrams</typeId>
+                <fieldId>principal_id</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="diagram_id">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>diagramId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.sysdiagrams</typeId>
+                <fieldId>diagram_id</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="version">
+              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>version</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.sysdiagrams</typeId>
+                <fieldId>version</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Territories.Create">
+          <name>CreateDboTerritory</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Territories">
+              <typeId>Northwind.dbo.Territories</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>territory</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Territories.Read">
+          <name>ReadDboTerritory</name>
+          <return>
+            <typeId>Northwind.dbo.Territories</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>false</many>
+          </return>
+          <parameters>
+            <parameter id="TerritoryID">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>territoryId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Territories</typeId>
+                <fieldId>TerritoryID</fieldId>
+              </fieldReference>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Territories.Update">
+          <name>UpdateDboTerritory</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Territories">
+              <typeId>Northwind.dbo.Territories</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>territory</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Territories.Delete">
+          <name>DeleteDboTerritory</name>
+          <parameters>
+            <parameter id="Northwind.dbo.Territories">
+              <typeId>Northwind.dbo.Territories</typeId>
+              <canBeEmpty>false</canBeEmpty>
+              <many>false</many>
+              <name>territory</name>
+            </parameter>
+          </parameters>
+        </operation>
+        <operation id="Northwind.dbo.Territories.Search">
+          <name>SearchDboTerritory</name>
+          <return>
+            <typeId>Northwind.dbo.Territories</typeId>
+            <canBeEmpty>false</canBeEmpty>
+            <many>true</many>
+          </return>
+          <parameters>
+            <parameter id="TerritoryID">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>territoryId</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Territories</typeId>
+                <fieldId>TerritoryID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="TerritoryDescription">
+              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>territoryDescription</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Territories</typeId>
+                <fieldId>TerritoryDescription</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>StringStartWith</compareOperator>
+              </relationalMapping>
+            </parameter>
+          </parameters>
+        </operation>
+      </operations>
+    </service>
+  </services>
+  <settings>
+    <baseNamespace>ExtMvc</baseNamespace>
+  </settings>
+</definitions>

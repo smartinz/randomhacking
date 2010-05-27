@@ -88,7 +88,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.HomePage.StartsWith(homePage));
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<Supplier>(queryable);
+			return new QueryablePresentableSet<Supplier>(queryable);
 		}
 	}
 }

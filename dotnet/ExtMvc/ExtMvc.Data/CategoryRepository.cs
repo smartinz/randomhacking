@@ -52,7 +52,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.Description.StartsWith(description));
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<Category>(queryable);
+			return new QueryablePresentableSet<Category>(queryable);
 		}
 	}
 }

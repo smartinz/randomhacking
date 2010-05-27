@@ -1,6 +1,10 @@
+using System.Xml;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+
 namespace ExtMvc.Domain
 {
-	public class OrderDetail : System.Xml.Serialization.IXmlSerializable
+	public class OrderDetail : IXmlSerializable
 	{
 		private int _orderId;
 
@@ -120,12 +124,12 @@ namespace ExtMvc.Domain
 		// Objects with composite keys must be serializable in order to work with NHibernate's lazy loading.
 		// Only the key part need to be serialized.
 
-		public virtual System.Xml.Schema.XmlSchema GetSchema()
+		public virtual XmlSchema GetSchema()
 		{
 			return null;
 		}
 
-		public virtual void ReadXml(System.Xml.XmlReader reader)
+		public virtual void ReadXml(XmlReader reader)
 		{
 			reader.MoveToContent();
 			reader.MoveToAttribute("OrderId");
@@ -134,7 +138,7 @@ namespace ExtMvc.Domain
 			ProductId = reader.ReadContentAsInt();
 		}
 
-		public virtual void WriteXml(System.Xml.XmlWriter writer)
+		public virtual void WriteXml(XmlWriter writer)
 		{
 			writer.WriteStartAttribute("OrderId");
 			writer.WriteValue(OrderId);

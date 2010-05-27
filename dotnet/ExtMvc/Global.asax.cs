@@ -12,6 +12,7 @@ using Conversation.NHibernate;
 using ExtMvc.Controllers;
 using ExtMvc.Data;
 using ExtMvc.Domain;
+using ExtMvc.Dtos;
 using ExtMvc.Infrastructure;
 using log4net.Config;
 using Microsoft.Practices.ServiceLocation;
@@ -20,7 +21,6 @@ using MvcContrib.Castle;
 using NHibernate;
 using NHibernate.Validator.Cfg;
 using NHibernate.Validator.Engine;
-using SpikeWcf;
 
 namespace ExtMvc
 {
@@ -52,8 +52,7 @@ namespace ExtMvc
 
 			ioc.Register(Component.For<ISessionFactory>().UsingFactoryMethod(CreateSessionFactory));
 
-			IMappingEngine mappingEngine = AutoMapperConfiguration.BuildMappingEngine();
-			ioc.Register(Component.For<IMappingEngine>().Instance(mappingEngine));
+			ioc.Register(Component.For<IMappingEngine>().UsingFactoryMethod(MappingEngineBuilder.Build));
 
 			ioc.Register(Component.For<IConversationFactory>().UsingFactoryMethod(CreateConversationFactory));
 			ioc.Register(Component.For<IConversation>().UsingFactoryMethod(CreateConversation).LifeStyle.PerWebRequest);

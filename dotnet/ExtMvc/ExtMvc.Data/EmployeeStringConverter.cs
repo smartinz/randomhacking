@@ -1,9 +1,10 @@
 using System;
 using ExtMvc.Domain;
+using Nexida.Infrastructure;
 
 namespace ExtMvc.Data
 {
-	public class EmployeeStringConverter : Nexida.Infrastructure.IStringConverter<Employee>
+	public class EmployeeStringConverter : IStringConverter<Employee>
 	{
 		private const char KeySeparator = '\\';
 		private readonly EmployeeRepository _repository;

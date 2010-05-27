@@ -61,7 +61,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.Discount == discount);
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<OrderDetail>(queryable);
+			return new QueryablePresentableSet<OrderDetail>(queryable);
 		}
 	}
 }

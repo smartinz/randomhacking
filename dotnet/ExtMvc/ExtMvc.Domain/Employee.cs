@@ -8,6 +8,40 @@ namespace ExtMvc.Domain
 	{
 		private int _employeeId;
 
+		private string _lastName;
+
+		private string _firstName;
+
+		private string _title;
+
+		private string _titleOfCourtesy;
+
+		private DateTime? _birthDate;
+
+		private DateTime? _hireDate;
+
+		private string _address;
+
+		private string _city;
+
+		private string _region;
+
+		private string _postalCode;
+
+		private string _country;
+
+		private string _homePhone;
+
+		private string _extension;
+
+		private byte[] _photo;
+
+		private string _notes;
+
+		private string _photoPath;
+
+		private Employee _employee_1;
+
 		private ICollection<Employee> _employees = new HashSet<Employee>();
 
 		private ICollection<Territory> _territories = new HashSet<Territory>();
@@ -22,40 +56,108 @@ namespace ExtMvc.Domain
 		}
 
 		[NotNullNotEmpty]
-		public virtual string LastName { get; set; }
+		public virtual string LastName
+		{
+			get { return _lastName; }
+			set { _lastName = value; }
+		}
 
 		[NotNullNotEmpty]
-		public virtual string FirstName { get; set; }
+		public virtual string FirstName
+		{
+			get { return _firstName; }
+			set { _firstName = value; }
+		}
 
-		public virtual string Title { get; set; }
+		public virtual string Title
+		{
+			get { return _title; }
+			set { _title = value; }
+		}
 
-		public virtual string TitleOfCourtesy { get; set; }
+		public virtual string TitleOfCourtesy
+		{
+			get { return _titleOfCourtesy; }
+			set { _titleOfCourtesy = value; }
+		}
 
-		public virtual DateTime? BirthDate { get; set; }
+		public virtual DateTime? BirthDate
+		{
+			get { return _birthDate; }
+			set { _birthDate = value; }
+		}
 
-		public virtual DateTime? HireDate { get; set; }
+		public virtual DateTime? HireDate
+		{
+			get { return _hireDate; }
+			set { _hireDate = value; }
+		}
 
-		public virtual string Address { get; set; }
+		public virtual string Address
+		{
+			get { return _address; }
+			set { _address = value; }
+		}
 
-		public virtual string City { get; set; }
+		public virtual string City
+		{
+			get { return _city; }
+			set { _city = value; }
+		}
 
-		public virtual string Region { get; set; }
+		public virtual string Region
+		{
+			get { return _region; }
+			set { _region = value; }
+		}
 
-		public virtual string PostalCode { get; set; }
+		public virtual string PostalCode
+		{
+			get { return _postalCode; }
+			set { _postalCode = value; }
+		}
 
-		public virtual string Country { get; set; }
+		public virtual string Country
+		{
+			get { return _country; }
+			set { _country = value; }
+		}
 
-		public virtual string HomePhone { get; set; }
+		public virtual string HomePhone
+		{
+			get { return _homePhone; }
+			set { _homePhone = value; }
+		}
 
-		public virtual string Extension { get; set; }
+		public virtual string Extension
+		{
+			get { return _extension; }
+			set { _extension = value; }
+		}
 
-		public virtual byte[] Photo { get; set; }
+		public virtual byte[] Photo
+		{
+			get { return _photo; }
+			set { _photo = value; }
+		}
 
-		public virtual string Notes { get; set; }
+		public virtual string Notes
+		{
+			get { return _notes; }
+			set { _notes = value; }
+		}
 
-		public virtual string PhotoPath { get; set; }
+		public virtual string PhotoPath
+		{
+			get { return _photoPath; }
+			set { _photoPath = value; }
+		}
 
-		public virtual Employee Employee_1 { get; set; }
+		public virtual Employee Employee_1
+		{
+			get { return _employee_1; }
+			set { _employee_1 = value; }
+		}
 
 		[NotNull]
 		public virtual ICollection<Employee> Employees

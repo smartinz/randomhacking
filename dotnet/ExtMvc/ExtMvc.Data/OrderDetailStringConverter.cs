@@ -1,9 +1,10 @@
 using System;
 using ExtMvc.Domain;
+using Nexida.Infrastructure;
 
 namespace ExtMvc.Data
 {
-	public class OrderDetailStringConverter : Nexida.Infrastructure.IStringConverter<OrderDetail>
+	public class OrderDetailStringConverter : IStringConverter<OrderDetail>
 	{
 		private const char KeySeparator = '\\';
 		private readonly OrderDetailRepository _repository;

@@ -48,7 +48,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.RegionDescription.StartsWith(regionDescription));
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<Region>(queryable);
+			return new QueryablePresentableSet<Region>(queryable);
 		}
 	}
 }

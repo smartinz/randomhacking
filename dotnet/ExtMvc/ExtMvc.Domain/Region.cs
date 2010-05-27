@@ -7,6 +7,8 @@ namespace ExtMvc.Domain
 	{
 		private int _regionId;
 
+		private string _regionDescription;
+
 		private ICollection<Territory> _territories = new HashSet<Territory>();
 
 
@@ -17,7 +19,11 @@ namespace ExtMvc.Domain
 		}
 
 		[NotNullNotEmpty]
-		public virtual string RegionDescription { get; set; }
+		public virtual string RegionDescription
+		{
+			get { return _regionDescription; }
+			set { _regionDescription = value; }
+		}
 
 		[NotNull]
 		public virtual ICollection<Territory> Territories

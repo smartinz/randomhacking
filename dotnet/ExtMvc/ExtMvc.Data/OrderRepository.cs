@@ -85,7 +85,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.ShipCountry.StartsWith(shipCountry));
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<Order>(queryable);
+			return new QueryablePresentableSet<Order>(queryable);
 		}
 	}
 }

@@ -32,7 +32,7 @@ namespace ExtMvc.Domain
 
 		public override string ToString()
 		{
-			return (_territoryId == null ? "" : _territoryId);
+			return (_territoryId ?? "");
 		}
 
 

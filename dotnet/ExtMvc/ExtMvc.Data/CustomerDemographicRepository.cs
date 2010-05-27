@@ -48,7 +48,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.CustomerDesc.StartsWith(customerDesc));
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<CustomerDemographic>(queryable);
+			return new QueryablePresentableSet<CustomerDemographic>(queryable);
 		}
 	}
 }

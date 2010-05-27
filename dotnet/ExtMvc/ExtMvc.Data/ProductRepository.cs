@@ -72,7 +72,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.Discontinued == discontinued);
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<Product>(queryable);
+			return new QueryablePresentableSet<Product>(queryable);
 		}
 	}
 }

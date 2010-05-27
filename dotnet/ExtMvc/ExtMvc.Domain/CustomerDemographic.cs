@@ -7,6 +7,8 @@ namespace ExtMvc.Domain
 	{
 		private string _customerTypeId;
 
+		private string _customerDesc;
+
 		private ICollection<Customer> _customers = new HashSet<Customer>();
 
 
@@ -17,7 +19,11 @@ namespace ExtMvc.Domain
 			set { _customerTypeId = value; }
 		}
 
-		public virtual string CustomerDesc { get; set; }
+		public virtual string CustomerDesc
+		{
+			get { return _customerDesc; }
+			set { _customerDesc = value; }
+		}
 
 		[NotNull]
 		public virtual ICollection<Customer> Customers

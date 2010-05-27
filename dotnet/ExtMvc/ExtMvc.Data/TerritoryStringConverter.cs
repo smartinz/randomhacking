@@ -1,9 +1,10 @@
 using System;
 using ExtMvc.Domain;
+using Nexida.Infrastructure;
 
 namespace ExtMvc.Data
 {
-	public class TerritoryStringConverter : Nexida.Infrastructure.IStringConverter<Territory>
+	public class TerritoryStringConverter : IStringConverter<Territory>
 	{
 		private const char KeySeparator = '\\';
 		private readonly TerritoryRepository _repository;

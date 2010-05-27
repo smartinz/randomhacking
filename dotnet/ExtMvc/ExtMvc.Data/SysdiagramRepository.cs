@@ -56,7 +56,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.Version == version);
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<Sysdiagram>(queryable);
+			return new QueryablePresentableSet<Sysdiagram>(queryable);
 		}
 	}
 }

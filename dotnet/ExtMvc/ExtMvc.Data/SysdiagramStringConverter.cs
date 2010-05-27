@@ -1,9 +1,10 @@
 using System;
 using ExtMvc.Domain;
+using Nexida.Infrastructure;
 
 namespace ExtMvc.Data
 {
-	public class SysdiagramStringConverter : Nexida.Infrastructure.IStringConverter<Sysdiagram>
+	public class SysdiagramStringConverter : IStringConverter<Sysdiagram>
 	{
 		private const char KeySeparator = '\\';
 		private readonly SysdiagramRepository _repository;

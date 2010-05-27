@@ -52,7 +52,7 @@ namespace ExtMvc.Data
 				queryable = queryable.Where(x => x.Phone.StartsWith(phone));
 			}
 
-			return new Nexida.Infrastructure.QueryablePresentableSet<Shipper>(queryable);
+			return new QueryablePresentableSet<Shipper>(queryable);
 		}
 	}
 }

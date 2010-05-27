@@ -7,6 +7,12 @@ namespace ExtMvc.Domain
 	{
 		private int _categoryId;
 
+		private string _categoryName;
+
+		private string _description;
+
+		private byte[] _picture;
+
 		private ICollection<Product> _products = new HashSet<Product>();
 
 
@@ -17,11 +23,23 @@ namespace ExtMvc.Domain
 		}
 
 		[NotNullNotEmpty]
-		public virtual string CategoryName { get; set; }
+		public virtual string CategoryName
+		{
+			get { return _categoryName; }
+			set { _categoryName = value; }
+		}
 
-		public virtual string Description { get; set; }
+		public virtual string Description
+		{
+			get { return _description; }
+			set { _description = value; }
+		}
 
-		public virtual byte[] Picture { get; set; }
+		public virtual byte[] Picture
+		{
+			get { return _picture; }
+			set { _picture = value; }
+		}
 
 		[NotNull]
 		public virtual ICollection<Product> Products

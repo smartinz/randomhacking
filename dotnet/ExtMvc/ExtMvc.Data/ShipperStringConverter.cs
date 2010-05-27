@@ -1,9 +1,10 @@
 using System;
 using ExtMvc.Domain;
+using Nexida.Infrastructure;
 
 namespace ExtMvc.Data
 {
-	public class ShipperStringConverter : Nexida.Infrastructure.IStringConverter<Shipper>
+	public class ShipperStringConverter : IStringConverter<Shipper>
 	{
 		private const char KeySeparator = '\\';
 		private readonly ShipperRepository _repository;
