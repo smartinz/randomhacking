@@ -57,6 +57,9 @@
     <Reference Include="Castle.Windsor">
       <HintPath>..\References\CastleWindsor-2.1.1\Castle.Windsor.dll</HintPath>
     </Reference>
+    <Reference Include="CommonServiceLocator.WindsorAdapter">
+      <HintPath>..\References\CommonServiceLocator-1.0_CastleWindsor-2.1.1_Adapter\CommonServiceLocator.WindsorAdapter.dll</HintPath>
+    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\References\NHibernate-2.1.2.GA\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -64,6 +67,9 @@
       <HintPath>..\References\log4net-1.2.10\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\References\CommonServiceLocator-1.0\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
     <Reference Include="MvcContrib">
       <HintPath>..\References\MVCContrib-2.0.36.0\MvcContrib.dll</HintPath>
     </Reference>

@@ -6,6 +6,7 @@ using Castle.Facilities.FactorySupport;
 using Castle.MicroKernel;
 using Castle.MicroKernel.Registration;
 using Castle.Windsor;
+using CommonServiceLocator.WindsorAdapter;
 using Conversation;
 using Conversation.NHibernate;
 using ExtMvc.Controllers;
@@ -13,6 +14,7 @@ using ExtMvc.Data;
 using ExtMvc.Domain;
 using ExtMvc.Infrastructure;
 using log4net.Config;
+using Microsoft.Practices.ServiceLocation;
 using Microsoft.Web.Mvc;
 using MvcContrib.Castle;
 using NHibernate;
@@ -27,7 +29,6 @@ namespace ExtMvc
 
 	public class MvcApplication : HttpApplication
 	{
-		private static IWindsorContainer _ioc;
 
 		public static void RegisterRoutes(RouteCollection routes)
 		{
@@ -43,28 +44,29 @@ namespace ExtMvc
 		protected void Application_Start()
 		{
 			XmlConfigurator.Configure();
-			_ioc = new WindsorContainer();
-			_ioc.AddFacility<FactorySupportFacility>();
+			IWindsorContainer ioc = new WindsorContainer();
+			ioc.AddFacility<FactorySupportFacility>();
 
-			_ioc.Register(Component.For<ValidatorEngine>().UsingFactoryMethod(CreateValidatorEngine));
-			_ioc.Register(Component.For<ValidationManager>());
+			ioc.Register(Component.For<ValidatorEngine>().UsingFactoryMethod(CreateValidatorEngine));
+			ioc.Register(Component.For<ValidationManager>());
 
-			_ioc.Register(Component.For<ISessionFactory>().UsingFactoryMethod(CreateSessionFactory));
+			ioc.Register(Component.For<ISessionFactory>().UsingFactoryMethod(CreateSessionFactory));
 
 			IMappingEngine mappingEngine = AutoMapperConfiguration.BuildMappingEngine();
-			_ioc.Register(Component.For<IMappingEngine>().Instance(mappingEngine));
+			ioc.Register(Component.For<IMappingEngine>().Instance(mappingEngine));
 
-			_ioc.Register(Component.For<IConversationFactory>().UsingFactoryMethod(CreateConversationFactory));
-			_ioc.Register(Component.For<IConversation>().UsingFactoryMethod(CreateConversation).LifeStyle.PerWebRequest);
-			_ioc.Register(Component.For<CustomerRepository>());
-			_ioc.Register(Component.For<OrderRepository>());
+			ioc.Register(Component.For<IConversationFactory>().UsingFactoryMethod(CreateConversationFactory));
+			ioc.Register(Component.For<IConversation>().UsingFactoryMethod(CreateConversation).LifeStyle.PerWebRequest);
+			ioc.Register(Component.For<CustomerRepository>());
+			ioc.Register(Component.For<OrderRepository>());
 
-			_ioc.RegisterControllers(typeof(CustomerController).Assembly);
-			ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(_ioc));
+			ioc.RegisterControllers(typeof(CustomerController).Assembly);
+			ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(ioc));
 
 			AreaRegistration.RegisterAllAreas();
 			RegisterRoutes(RouteTable.Routes);
 			ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
+			ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(ioc));
 		}
 
 		private static ValidatorEngine CreateValidatorEngine()
