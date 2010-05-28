@@ -8,6 +8,7 @@ using ExtMvc.Domain;
 using ExtMvc.Dtos;
 using log4net;
 using Nexida.Infrastructure;
+using Nexida.Infrastructure.Mvc;
 
 namespace ExtMvc.Controllers
 {
@@ -18,13 +19,66 @@ namespace ExtMvc.Controllers
 		private readonly IMappingEngine _mapper;
 		private readonly IValidator _validator;
 		private readonly IConversation _conversation;
+		private readonly IStringConverter<Employee> _stringConverter;
 
-		public EmployeeController(IConversation conversation, IMappingEngine mapper, EmployeeRepository repository, IValidator validator)
+		public EmployeeController(IConversation conversation, IMappingEngine mapper, EmployeeRepository repository, IValidator validator, IStringConverter<Employee> stringConverter)
 		{
 			_conversation = conversation;
 			_mapper = mapper;
 			_repository = repository;
 			_validator = validator;
+			_stringConverter = stringConverter;
+		}
+
+		public ActionResult Create(EmployeeDto item)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Employee itemMapped = _mapper.Map<EmployeeDto, Employee>(item);
+				ValidationHelpers.AddErrorsToModelState(ModelState, _validator.Validate(itemMapped), "item");
+				if(ModelState.IsValid)
+				{
+					_repository.Create(itemMapped);
+					_conversation.Flush();
+				}
+				return Json(new{ success = true });
+			}
+		}
+
+		public ActionResult Read(string stringId)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Employee item = _stringConverter.FromString(stringId);
+				EmployeeDto itemDto = _mapper.Map<Employee, EmployeeDto>(item);
+				return Json(itemDto);
+			}
+		}
+
+		public ActionResult Update(EmployeeDto item)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Employee itemMapped = _mapper.Map<EmployeeDto, Employee>(item);
+				ValidationHelpers.AddErrorsToModelState(ModelState, _validator.Validate(itemMapped), "item");
+				if(ModelState.IsValid)
+				{
+					_repository.Update(itemMapped);
+					_conversation.Flush();
+				}
+				return Json(new{ success = true });
+			}
+		}
+
+		public ActionResult Delete(EmployeeDto item)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Employee itemMapped = _mapper.Map<EmployeeDto, Employee>(item);
+				_repository.Delete(itemMapped);
+				_conversation.Flush();
+				return Json(new{ success = true });
+			}
 		}
 
 		public ActionResult Search(int? employeeId, string lastName, string firstName, string title, string titleOfCourtesy, DateTime? birthDate, DateTime? hireDate, string address, string city, string region, string postalCode, string country, string homePhone, string extension, string notes, string photoPath, int start, int limit, string sort, string dir)

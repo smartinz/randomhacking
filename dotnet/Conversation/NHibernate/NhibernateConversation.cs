@@ -6,9 +6,9 @@ using NHibernate;
 namespace Conversation.NHibernate
 {
 	/// <summary>
-	/// This is an implementation of Conversation per Business Transaction pattern.
-	/// Doesn't work with tables with "assigned" generator class (like tables with IDENTITY column in SQL Server)
-	/// See http://fabiomaulo.blogspot.com/2008/12/identity-never-ending-story.html
+	/// 	This is an implementation of Conversation per Business Transaction pattern.
+	/// 	Doesn't work with tables with "assigned" generator class (like tables with IDENTITY column in SQL Server)
+	/// 	See http://fabiomaulo.blogspot.com/2008/12/identity-never-ending-story.html
 	/// </summary>
 	public class NHibernateConversation : IConversation
 	{
@@ -64,13 +64,27 @@ namespace Conversation.NHibernate
 
 		public void Flush()
 		{
-			CheckState(ConversationState.Opened);
+			CheckState(ConversationState.Opened, ConversationState.InContext);
 			foreach(ISession session in _map.Values)
 			{
-				using(ITransaction tx = session.BeginTransaction())
+				if (_state == ConversationState.Opened)
+				{
+					session.BeginTransaction();
+				}
+				try
 				{
 					session.Flush();
-					tx.Commit();
+					if (_state == ConversationState.Opened)
+					{
+						session.Transaction.Commit();
+					}
+				}
+				finally
+				{
+					if (_state == ConversationState.Opened)
+					{
+						session.Transaction.Dispose();
+					}
 				}
 			}
 		}

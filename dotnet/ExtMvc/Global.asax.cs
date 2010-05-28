@@ -13,11 +13,11 @@ using ExtMvc.Controllers;
 using ExtMvc.Data;
 using ExtMvc.Domain;
 using ExtMvc.Dtos;
-using ExtMvc.Infrastructure;
 using log4net.Config;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Web.Mvc;
 using MvcContrib.Castle;
+using Nexida.Infrastructure.Mvc;
 using NHibernate;
 using NHibernate.Validator.Cfg;
 using NHibernate.Validator.Engine;
@@ -48,7 +48,6 @@ namespace ExtMvc
 			ioc.AddFacility<FactorySupportFacility>();
 
 			ioc.Register(Component.For<ValidatorEngine>().UsingFactoryMethod(CreateValidatorEngine));
-			ioc.Register(Component.For<ValidationManager>());
 
 			ioc.Register(Component.For<ISessionFactory>().UsingFactoryMethod(CreateSessionFactory));
 

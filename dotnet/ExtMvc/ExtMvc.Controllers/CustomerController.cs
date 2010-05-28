@@ -7,6 +7,7 @@ using ExtMvc.Domain;
 using ExtMvc.Dtos;
 using log4net;
 using Nexida.Infrastructure;
+using Nexida.Infrastructure.Mvc;
 
 namespace ExtMvc.Controllers
 {
@@ -17,13 +18,66 @@ namespace ExtMvc.Controllers
 		private readonly IMappingEngine _mapper;
 		private readonly IValidator _validator;
 		private readonly IConversation _conversation;
+		private readonly IStringConverter<Customer> _stringConverter;
 
-		public CustomerController(IConversation conversation, IMappingEngine mapper, CustomerRepository repository, IValidator validator)
+		public CustomerController(IConversation conversation, IMappingEngine mapper, CustomerRepository repository, IValidator validator, IStringConverter<Customer> stringConverter)
 		{
 			_conversation = conversation;
 			_mapper = mapper;
 			_repository = repository;
 			_validator = validator;
+			_stringConverter = stringConverter;
+		}
+
+		public ActionResult Create(CustomerDto item)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Customer itemMapped = _mapper.Map<CustomerDto, Customer>(item);
+				ValidationHelpers.AddErrorsToModelState(ModelState, _validator.Validate(itemMapped), "item");
+				if(ModelState.IsValid)
+				{
+					_repository.Create(itemMapped);
+					_conversation.Flush();
+				}
+				return Json(new{ success = true });
+			}
+		}
+
+		public ActionResult Read(string stringId)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Customer item = _stringConverter.FromString(stringId);
+				CustomerDto itemDto = _mapper.Map<Customer, CustomerDto>(item);
+				return Json(itemDto);
+			}
+		}
+
+		public ActionResult Update(CustomerDto item)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Customer itemMapped = _mapper.Map<CustomerDto, Customer>(item);
+				ValidationHelpers.AddErrorsToModelState(ModelState, _validator.Validate(itemMapped), "item");
+				if(ModelState.IsValid)
+				{
+					_repository.Update(itemMapped);
+					_conversation.Flush();
+				}
+				return Json(new{ success = true });
+			}
+		}
+
+		public ActionResult Delete(CustomerDto item)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Customer itemMapped = _mapper.Map<CustomerDto, Customer>(item);
+				_repository.Delete(itemMapped);
+				_conversation.Flush();
+				return Json(new{ success = true });
+			}
 		}
 
 		public ActionResult Search(string customerId, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone, string fax, int start, int limit, string sort, string dir)

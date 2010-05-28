@@ -128,7 +128,6 @@
     </Compile>
     <Compile Include="Infrastructure\JsonValueProviderFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Tests\ValidationManagerTests.cs" />
     <Compile Include="Views\Shared\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1082,6 +1081,10 @@
     <ProjectReference Include="ExtMvc.Dtos\ExtMvc.Dtos.csproj">
       <Project>{C55554A8-E7BE-4EAE-AB9F-FAE3D3C612A8}</Project>
       <Name>ExtMvc.Dtos</Name>
+    </ProjectReference>
+    <ProjectReference Include="ExtMvc.Infrastructure\ExtMvc.Infrastructure.csproj">
+      <Project>{CB4AC17F-3718-4B44-B23E-7E065845BE66}</Project>
+      <Name>ExtMvc.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

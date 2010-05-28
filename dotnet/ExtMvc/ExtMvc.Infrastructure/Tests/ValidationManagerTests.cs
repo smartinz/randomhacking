@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Web.Mvc;
-using ExtMvc.Infrastructure;
+using Nexida.Infrastructure.Mvc;
 using NUnit.Framework;
 
-namespace ExtMvc.Tests
+namespace Nexida.Infrastructure.Tests
 {
 	[TestFixture]
 	public class ValidationManagerTests
 	{
-
 		[Test]
 		public void Should_skip_properties_without_errors()
 		{
 			var msd = new ModelStateDictionary();
 			msd.Add("item.Property1", new ModelState());
 			msd.AddModelError("item.Property2", "Error");
-			PropertyError pe = ValidationManager.MakeHierarchical(msd);
+			ValidationHelpers.PropertyError pe = ValidationHelpers.MakeHierarchical(msd);
 			Assert.That(pe["item"].Properties.Count, Is.EqualTo(1));
 		}
 
@@ -28,13 +26,13 @@ namespace ExtMvc.Tests
 			var exception = new Exception("Exception");
 			msd.AddModelError("item.Property", exception);
 
-			PropertyError pe = ValidationManager.MakeHierarchical(msd);
-	
+			ValidationHelpers.PropertyError pe = ValidationHelpers.MakeHierarchical(msd);
+
 			Assert.That(pe["item"]["Property"].Errors[0].ErrorMessage, Is.EqualTo("Error"));
 			Assert.That(pe["item"]["Property"].Errors[1].Exception, Is.SameAs(exception));
 
-			dynamic d = ValidationManager.BuildDictionary(pe);
-	
+			dynamic d = ValidationHelpers.BuildErrorDictionary(pe);
+
 			Assert.That(d["item"]["Property"], Is.EqualTo("Error. Exception"));
 		}
 
@@ -45,13 +43,13 @@ namespace ExtMvc.Tests
 			msd.AddModelError("item.Property[0].SubProperty", "Error1");
 			msd.AddModelError("item.Property[1].SubProperty", "Error2");
 
-			PropertyError pe = ValidationManager.MakeHierarchical(msd);
-	
+			ValidationHelpers.PropertyError pe = ValidationHelpers.MakeHierarchical(msd);
+
 			Assert.That(pe["item"]["Property"][0]["SubProperty"].BuildMessage(), Is.EqualTo("Error1"));
 			Assert.That(pe["item"]["Property"][1]["SubProperty"].BuildMessage(), Is.EqualTo("Error2"));
 
-			dynamic d = ValidationManager.BuildDictionary(pe);
-	
+			dynamic d = ValidationHelpers.BuildErrorDictionary(pe);
+
 			Assert.That(d["item"]["Property"][0]["SubProperty"], Is.EqualTo("Error1"));
 			Assert.That(d["item"]["Property"][1]["SubProperty"], Is.EqualTo("Error2"));
 		}

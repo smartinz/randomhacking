@@ -7,6 +7,7 @@ using ExtMvc.Domain;
 using ExtMvc.Dtos;
 using log4net;
 using Nexida.Infrastructure;
+using Nexida.Infrastructure.Mvc;
 
 namespace ExtMvc.Controllers
 {
@@ -17,13 +18,66 @@ namespace ExtMvc.Controllers
 		private readonly IMappingEngine _mapper;
 		private readonly IValidator _validator;
 		private readonly IConversation _conversation;
+		private readonly IStringConverter<Shipper> _stringConverter;
 
-		public ShipperController(IConversation conversation, IMappingEngine mapper, ShipperRepository repository, IValidator validator)
+		public ShipperController(IConversation conversation, IMappingEngine mapper, ShipperRepository repository, IValidator validator, IStringConverter<Shipper> stringConverter)
 		{
 			_conversation = conversation;
 			_mapper = mapper;
 			_repository = repository;
 			_validator = validator;
+			_stringConverter = stringConverter;
+		}
+
+		public ActionResult Create(ShipperDto item)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Shipper itemMapped = _mapper.Map<ShipperDto, Shipper>(item);
+				ValidationHelpers.AddErrorsToModelState(ModelState, _validator.Validate(itemMapped), "item");
+				if(ModelState.IsValid)
+				{
+					_repository.Create(itemMapped);
+					_conversation.Flush();
+				}
+				return Json(new{ success = true });
+			}
+		}
+
+		public ActionResult Read(string stringId)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Shipper item = _stringConverter.FromString(stringId);
+				ShipperDto itemDto = _mapper.Map<Shipper, ShipperDto>(item);
+				return Json(itemDto);
+			}
+		}
+
+		public ActionResult Update(ShipperDto item)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Shipper itemMapped = _mapper.Map<ShipperDto, Shipper>(item);
+				ValidationHelpers.AddErrorsToModelState(ModelState, _validator.Validate(itemMapped), "item");
+				if(ModelState.IsValid)
+				{
+					_repository.Update(itemMapped);
+					_conversation.Flush();
+				}
+				return Json(new{ success = true });
+			}
+		}
+
+		public ActionResult Delete(ShipperDto item)
+		{
+			using(_conversation.SetAsCurrent())
+			{
+				Shipper itemMapped = _mapper.Map<ShipperDto, Shipper>(item);
+				_repository.Delete(itemMapped);
+				_conversation.Flush();
+				return Json(new{ success = true });
+			}
 		}
 
 		public ActionResult Search(int? shipperId, string companyName, string phone, int start, int limit, string sort, string dir)

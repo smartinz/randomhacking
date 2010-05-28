@@ -52,8 +52,6 @@
     <Compile Include="CustomerDemographicController.cs" />
     <Compile Include="EmployeeController.cs" />
     <Compile Include="HomeController.cs" />
-    <Compile Include="Infrastructure\PropertyError.cs" />
-    <Compile Include="Infrastructure\ValidationManager.cs" />
     <Compile Include="OrderController.cs" />
     <Compile Include="OrderDetailController.cs" />
     <Compile Include="ProductController.cs" />
