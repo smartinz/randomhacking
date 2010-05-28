@@ -1,8 +1,8 @@
 /*jslint white: true, browser: true, devel: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
-/*global Ext, ExtMvc, Rpc */
+/*global Ext, Rpc, ExtMvc */
 "use strict";
 
-Ext.namespace("ExtMvc");
+Ext.namespace('ExtMvc');
 
 ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	border: false,
@@ -29,27 +29,29 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 			border: false,
 			padding: 10,
 			items: [
-				{ name: 'CompanyName', fieldLabel: 'Company name', xtype: 'textfield', anchor: '100%' },
-				{ name: 'ContactName', fieldLabel: 'Contact name', xtype: 'textfield', anchor: '100%' },
-				{ name: 'ContactTitle', fieldLabel: 'Contact title', xtype: 'textfield', anchor: '100%' },
-				{ name: 'Address', fieldLabel: 'Address', xtype: 'textfield', anchor: '100%' },
-				{ name: 'City', fieldLabel: 'City', xtype: 'textfield', anchor: '100%' },
-				{ name: 'Region', fieldLabel: 'Region', xtype: 'textfield', anchor: '100%' },
-				{ name: 'PostalCode', fieldLabel: 'Postal code', xtype: 'textfield', anchor: '100%' },
-				{ name: 'Country', fieldLabel: 'Country', xtype: 'textfield', anchor: '100%' },
-				{ name: 'Phone', fieldLabel: 'Phone', xtype: 'textfield', anchor: '100%' },
-				{ name: 'Fax', fieldLabel: 'Fax', xtype: 'textfield', anchor: '100%' },
-				new ExtMvc.CustomerField({ name: 'Test', fieldLabel: 'Customer', anchor: '100%' })
-			]
-		}, {
-			flex: 1,
-			xtype: 'tabpanel',
-			plain: true,
-			border: false,
-			activeTab: 0,
-			deferredRender: false, // IMPORTANT! See http://www.extjs.com/deploy/dev/examples/form/dynamic.js
-			items: [
-				new ExtMvc.OrderListField({ title: 'Orders', name: 'Orders' })
+
+								{ name: 'CustomerId', fieldLabel: 'CustomerId', xtype: 'textfield', anchor: '100%' }
+								, 
+								{ name: 'CompanyName', fieldLabel: 'CompanyName', xtype: 'textfield', anchor: '100%' }
+								, 
+								{ name: 'ContactName', fieldLabel: 'ContactName', xtype: 'textfield', anchor: '100%' }
+								, 
+								{ name: 'ContactTitle', fieldLabel: 'ContactTitle', xtype: 'textfield', anchor: '100%' }
+								, 
+								{ name: 'Address', fieldLabel: 'Address', xtype: 'textfield', anchor: '100%' }
+								, 
+								{ name: 'City', fieldLabel: 'City', xtype: 'textfield', anchor: '100%' }
+								, 
+								{ name: 'Region', fieldLabel: 'Region', xtype: 'textfield', anchor: '100%' }
+								, 
+								{ name: 'PostalCode', fieldLabel: 'PostalCode', xtype: 'textfield', anchor: '100%' }
+								, 
+								{ name: 'Country', fieldLabel: 'Country', xtype: 'textfield', anchor: '100%' }
+								, 
+								{ name: 'Phone', fieldLabel: 'Phone', xtype: 'textfield', anchor: '100%' }
+								, 
+								{ name: 'Fax', fieldLabel: 'Fax', xtype: 'textfield', anchor: '100%' }
+								
 			]
 		}];
 
@@ -57,31 +59,12 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 
 		this.getForm().on('actionfailed', this.actionFailedHandler, this);
 	},
-/*
-	actionFailedHandler: function (form, action) {
-		Ext.MessageBox.show({
-			title: 'Error',
-			msg: 'Error occured while trying to interact with the server',
-			buttons: Ext.MessageBox.OK,
-			icon: Ext.MessageBox.ERROR
-		});
-	},
-*/
-	/*
-	// For a less invasive wait message
-	onRender: function (ct, position) {
-	ExtMvc.CustomerFormPanel.superclass.onRender.call(this, ct, position);
-	if (!this.getForm().waitMsgTarget) {
-	this.getForm().waitMsgTarget = this.el.id;
-	}
-	},
-	*/
 
 	loadClick: function () {
 		this.el.mask('Loading...', 'x-mask-loading');
 		Rpc.call({
-			url: '/Customer/Get',
-			params: { id: 'ALFKI' },
+			url: '/Customer/Read',
+			params: { stringId: 'ALFKI' },
 			scope: this,
 			success: function (ret) {
 				this.getForm().setValues(ret.data);

@@ -6,7 +6,7 @@ using NHibernate.Linq;
 
 namespace ExtMvc.Data
 {
-	public class SysdiagramRepository
+	public class SysdiagramRepository : IRepository
 	{
 		private readonly ISessionFactory _northwind;
 

@@ -2,7 +2,7 @@
 /*global Ext, ExtMvc */
 "use strict";
 
-Ext.namespace("ExtMvc");
+Ext.namespace('ExtMvc');
 
 ExtMvc.OrderListField = Ext.extend(Ext.form.Field, {
 	initComponent: function () {

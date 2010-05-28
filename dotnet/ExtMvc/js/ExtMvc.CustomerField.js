@@ -1,7 +1,7 @@
 /*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
 /*global Ext, ExtMvc */
 "use strict";
-Ext.namespace("ExtMvc");
+Ext.namespace('ExtMvc');
 
 ExtMvc.CustomerField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
@@ -21,7 +21,7 @@ ExtMvc.CustomerField = Ext.extend(Ext.form.TriggerField, {
 	},
 
 	searchPanel_itemSelected: function (sender, item) {
-		this.setValue(item.CustomerId);
+		this.setValue(item.StringId);
 		this.window.close();
 	}
 });

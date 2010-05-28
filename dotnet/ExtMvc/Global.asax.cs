@@ -17,7 +17,8 @@ using log4net.Config;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Web.Mvc;
 using MvcContrib.Castle;
-using Nexida.Infrastructure.Mvc;
+using Nexida.CodeGen.TemplateProject.CSharp.MvcExt.Infrastructure;
+using Nexida.Infrastructure;
 using NHibernate;
 using NHibernate.Validator.Cfg;
 using NHibernate.Validator.Engine;
@@ -29,7 +30,6 @@ namespace ExtMvc
 
 	public class MvcApplication : HttpApplication
 	{
-
 		public static void RegisterRoutes(RouteCollection routes)
 		{
 			routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
@@ -48,15 +48,16 @@ namespace ExtMvc
 			ioc.AddFacility<FactorySupportFacility>();
 
 			ioc.Register(Component.For<ValidatorEngine>().UsingFactoryMethod(CreateValidatorEngine));
+			ioc.Register(Component.For<Nexida.Infrastructure.IValidator>().ImplementedBy<NHibernateValidator>());
 
 			ioc.Register(Component.For<ISessionFactory>().UsingFactoryMethod(CreateSessionFactory));
+			ioc.Register(Component.For<IConversationFactory>().UsingFactoryMethod(CreateConversationFactory));
+			ioc.Register(Component.For<IConversation>().UsingFactoryMethod(CreateConversation).LifeStyle.PerWebRequest);
 
 			ioc.Register(Component.For<IMappingEngine>().UsingFactoryMethod(MappingEngineBuilder.Build));
 
-			ioc.Register(Component.For<IConversationFactory>().UsingFactoryMethod(CreateConversationFactory));
-			ioc.Register(Component.For<IConversation>().UsingFactoryMethod(CreateConversation).LifeStyle.PerWebRequest);
-			ioc.Register(Component.For<CustomerRepository>());
-			ioc.Register(Component.For<OrderRepository>());
+			ioc.Register(AllTypes.FromAssemblyContaining<CustomerStringConverter>().BasedOn(typeof(IStringConverter<>)).WithService.Base());
+			ioc.Register(AllTypes.FromAssemblyContaining<CustomerRepository>().BasedOn<IRepository>());
 
 			ioc.RegisterControllers(typeof(CustomerController).Assembly);
 			ControllerBuilder.Current.SetControllerFactory(new WindsorControllerFactory(ioc));

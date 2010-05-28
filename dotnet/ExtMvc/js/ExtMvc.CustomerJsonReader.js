@@ -2,15 +2,15 @@
 /*global Ext, ExtMvc */
 "use strict";
 
-Ext.namespace("ExtMvc");
+Ext.namespace('ExtMvc');
 
 ExtMvc.CustomerJsonReader = Ext.extend(Ext.data.JsonReader, {
 	constructor: function (meta, recordType) {
 		var cfg = {
 			root: 'items',
-			idProperty: 'CustomerId',
+			idProperty: 'StringId',
 			totalProperty: 'count',
-			fields: ['CustomerId', 'CompanyName', 'ContactName', 'ContactTitle', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'Phone', 'Fax']
+			fields: ['StringId', 'CustomerId', 'CompanyName', 'ContactName', 'ContactTitle', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'Phone', 'Fax', 'Customerdemographics', 'Orders']
 		};
 		ExtMvc.CustomerJsonReader.superclass.constructor.call(this, Ext.apply(meta || {}, cfg), recordType);
 	}

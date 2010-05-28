@@ -1,8 +1,8 @@
 /*jslint white: true, browser: true, onevar: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, strict: true, newcap: true, immed: true */
-/*global Ext, ExtMvc, Rpc */
+/*global Ext, Rpc, ExtMvc */
 "use strict";
 
-Ext.namespace("ExtMvc");
+Ext.namespace('ExtMvc');
 
 ExtMvc.CustomerSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'vbox',
@@ -13,7 +13,7 @@ ExtMvc.CustomerSearchContainer = Ext.extend(Ext.Container, {
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
-				url: '/Customer/Find'
+				url: '/Customer/Search'
 			}),
 			remoteSort: true,
 			reader: new ExtMvc.CustomerJsonReader()
@@ -40,19 +40,59 @@ ExtMvc.CustomerSearchContainer = Ext.extend(Ext.Container, {
 			border: false,
 			padding: 10,
 			items: [{
+				name: 'customerId',
+				xtype: 'textfield',
+				fieldLabel: 'customerId',
+				anchor: '100%'
+			}, {
 				name: 'companyName',
 				xtype: 'textfield',
-				fieldLabel: 'Company Name',
+				fieldLabel: 'companyName',
 				anchor: '100%'
 			}, {
 				name: 'contactName',
 				xtype: 'textfield',
-				fieldLabel: 'Contact Name',
+				fieldLabel: 'contactName',
 				anchor: '100%'
 			}, {
 				name: 'contactTitle',
 				xtype: 'textfield',
-				fieldLabel: 'Contact Title',
+				fieldLabel: 'contactTitle',
+				anchor: '100%'
+			}, {
+				name: 'address',
+				xtype: 'textfield',
+				fieldLabel: 'address',
+				anchor: '100%'
+			}, {
+				name: 'city',
+				xtype: 'textfield',
+				fieldLabel: 'city',
+				anchor: '100%'
+			}, {
+				name: 'region',
+				xtype: 'textfield',
+				fieldLabel: 'region',
+				anchor: '100%'
+			}, {
+				name: 'postalCode',
+				xtype: 'textfield',
+				fieldLabel: 'postalCode',
+				anchor: '100%'
+			}, {
+				name: 'country',
+				xtype: 'textfield',
+				fieldLabel: 'country',
+				anchor: '100%'
+			}, {
+				name: 'phone',
+				xtype: 'textfield',
+				fieldLabel: 'phone',
+				anchor: '100%'
+			}, {
+				name: 'fax',
+				xtype: 'textfield',
+				fieldLabel: 'fax',
 				anchor: '100%'
 			}],
 			buttons: [{
