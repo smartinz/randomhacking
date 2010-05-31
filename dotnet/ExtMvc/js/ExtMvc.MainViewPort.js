@@ -5,246 +5,240 @@
 Ext.namespace('ExtMvc');
 
 ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
-	layout: 'fit',
+	layout: 'border',
 	hideBorders: true,
 	initComponent: function () {
-		this.items = [{
-			xtype: 'panel',
-			tbar: {
-				xtype: 'toolbar',
-				items: [{
+
+		this.treePanel = new Ext.tree.TreePanel({
+			xtype: 'treepanel',
+			title: 'Main Menu',
+			region: 'west',
+			split: true,
+			collapsible: true,
+			width: 200,
+			rootVisible: false,
+			root: {
+				text: 'Root Node',
+				children: [{
 					text: 'Category',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchCategoryClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchCategoryClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'CustomerDemographic',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchCustomerDemographicClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchCustomerDemographicClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'Customer',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchCustomerClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchCustomerClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'Employee',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchEmployeeClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchEmployeeClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'OrderDetail',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchOrderDetailClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchOrderDetailClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'Order',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchOrderClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchOrderClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'Product',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchProductClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchProductClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'Region',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchRegionClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchRegionClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'Shipper',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchShipperClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchShipperClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'Supplier',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchSupplierClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchSupplierClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'Sysdiagram',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchSysdiagramClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchSysdiagramClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}, {
 					text: 'Territory',
-					menu: {
-						items: [{
-							text: 'Search ',
-							handler: this.searchTerritoryClick,
+					children: [{
+						text: 'Search ',
+						leaf: true,
+						listeners: {
+							click: this.searchTerritoryClick,
 							scope: this
-						}]
-					}
+						}
+					}]
 				}]
-			}
-		}];
+			},
+			loader: {}
+		});
+
+		this.tabPanel = new Ext.TabPanel({
+			xtype: 'tabpanel',
+			activeTab: 0,
+			region: 'center',
+			items: [{
+				xtype: 'panel',
+				title: 'Welcome Page'
+			}]
+		});
+
+		this.items = [this.treePanel, this.tabPanel];
 		ExtMvc.MainViewport.superclass.initComponent.call(this);
 	},
-	
+
 	searchCategoryClick: function () {
-			var window = new Ext.Window({
-				title: 'Search Category ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.CategorySearchContainer()
-			});
-			window.show();
-		}, searchCustomerDemographicClick: function () {
-			var window = new Ext.Window({
-				title: 'Search CustomerDemographic ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.CustomerDemographicSearchContainer()
-			});
-			window.show();
-		}, searchCustomerClick: function () {
-			var window = new Ext.Window({
-				title: 'Search Customer ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.CustomerSearchContainer()
-			});
-			window.show();
-		}, searchEmployeeClick: function () {
-			var window = new Ext.Window({
-				title: 'Search Employee ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.EmployeeSearchContainer()
-			});
-			window.show();
-		}, searchOrderDetailClick: function () {
-			var window = new Ext.Window({
-				title: 'Search OrderDetail ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.OrderDetailSearchContainer()
-			});
-			window.show();
-		}, searchOrderClick: function () {
-			var window = new Ext.Window({
-				title: 'Search Order ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.OrderSearchContainer()
-			});
-			window.show();
-		}, searchProductClick: function () {
-			var window = new Ext.Window({
-				title: 'Search Product ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.ProductSearchContainer()
-			});
-			window.show();
-		}, searchRegionClick: function () {
-			var window = new Ext.Window({
-				title: 'Search Region ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.RegionSearchContainer()
-			});
-			window.show();
-		}, searchShipperClick: function () {
-			var window = new Ext.Window({
-				title: 'Search Shipper ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.ShipperSearchContainer()
-			});
-			window.show();
-		}, searchSupplierClick: function () {
-			var window = new Ext.Window({
-				title: 'Search Supplier ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.SupplierSearchContainer()
-			});
-			window.show();
-		}, searchSysdiagramClick: function () {
-			var window = new Ext.Window({
-				title: 'Search Sysdiagram ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.SysdiagramSearchContainer()
-			});
-			window.show();
-		}, searchTerritoryClick: function () {
-			var window = new Ext.Window({
-				title: 'Search Territory ',
-				width: 300,
-				height: 300,
-				layout: 'fit',
-				maximizable: true,
-				items: new ExtMvc.TerritorySearchContainer()
-			});
-			window.show();
-		}
+		this.tabPanel.add(new ExtMvc.CategorySearchContainer({
+			title: 'Search Category ',
+			closable: true
+		})).show();
+	},
+
+	searchCustomerDemographicClick: function () {
+		this.tabPanel.add(new ExtMvc.CustomerDemographicSearchContainer({
+			title: 'Search CustomerDemographic ',
+			closable: true
+		})).show();
+	},
+
+	searchCustomerClick: function () {
+		this.tabPanel.add(new ExtMvc.CustomerSearchContainer({
+			title: 'Search Customer ',
+			closable: true
+		})).show();
+	},
+
+	searchEmployeeClick: function () {
+		this.tabPanel.add(new ExtMvc.EmployeeSearchContainer({
+			title: 'Search Employee ',
+			closable: true
+		})).show();
+	},
+
+	searchOrderDetailClick: function () {
+		this.tabPanel.add(new ExtMvc.OrderDetailSearchContainer({
+			title: 'Search OrderDetail ',
+			closable: true
+		})).show();
+	},
+
+	searchOrderClick: function () {
+		this.tabPanel.add(new ExtMvc.OrderSearchContainer({
+			title: 'Search Order ',
+			closable: true
+		})).show();
+	},
+
+	searchProductClick: function () {
+		this.tabPanel.add(new ExtMvc.ProductSearchContainer({
+			title: 'Search Product ',
+			closable: true
+		})).show();
+	},
+
+	searchRegionClick: function () {
+		this.tabPanel.add(new ExtMvc.RegionSearchContainer({
+			title: 'Search Region ',
+			closable: true
+		})).show();
+	},
+
+	searchShipperClick: function () {
+		this.tabPanel.add(new ExtMvc.ShipperSearchContainer({
+			title: 'Search Shipper ',
+			closable: true
+		})).show();
+	},
+
+	searchSupplierClick: function () {
+		this.tabPanel.add(new ExtMvc.SupplierSearchContainer({
+			title: 'Search Supplier ',
+			closable: true
+		})).show();
+	},
+
+	searchSysdiagramClick: function () {
+		this.tabPanel.add(new ExtMvc.SysdiagramSearchContainer({
+			title: 'Search Sysdiagram ',
+			closable: true
+		})).show();
+	},
+
+	searchTerritoryClick: function () {
+		this.tabPanel.add(new ExtMvc.TerritorySearchContainer({
+			title: 'Search Territory ',
+			closable: true
+		})).show();
+	}
 });
