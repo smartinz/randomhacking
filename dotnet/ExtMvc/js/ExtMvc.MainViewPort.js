@@ -6,7 +6,6 @@ Ext.namespace('ExtMvc');
 
 ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 	layout: 'border',
-	hideBorders: true,
 	initComponent: function () {
 
 		this.treePanel = new Ext.tree.TreePanel({
@@ -22,120 +21,144 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 				children: [{
 					text: 'Category',
 					children: [{
-						text: 'Search ',
+						text: 'Search Category',
 						leaf: true,
 						listeners: {
-							click: this.searchCategoryClick,
+							click: function () {
+								this.openTab('Search Category', ExtMvc.CategorySearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'CustomerDemographic',
 					children: [{
-						text: 'Search ',
+						text: 'Search CustomerDemographic',
 						leaf: true,
 						listeners: {
-							click: this.searchCustomerDemographicClick,
+							click: function () {
+								this.openTab('Search CustomerDemographic', ExtMvc.CustomerDemographicSearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Customer',
 					children: [{
-						text: 'Search ',
+						text: 'Search Customer',
 						leaf: true,
 						listeners: {
-							click: this.searchCustomerClick,
+							click: function () {
+								this.openTab('Search Customer', ExtMvc.CustomerSearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Employee',
 					children: [{
-						text: 'Search ',
+						text: 'Search Employee',
 						leaf: true,
 						listeners: {
-							click: this.searchEmployeeClick,
+							click: function () {
+								this.openTab('Search Employee', ExtMvc.EmployeeSearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'OrderDetail',
 					children: [{
-						text: 'Search ',
+						text: 'Search OrderDetail',
 						leaf: true,
 						listeners: {
-							click: this.searchOrderDetailClick,
+							click: function () {
+								this.openTab('Search OrderDetail', ExtMvc.OrderDetailSearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Order',
 					children: [{
-						text: 'Search ',
+						text: 'Search Order',
 						leaf: true,
 						listeners: {
-							click: this.searchOrderClick,
+							click: function () {
+								this.openTab('Search Order', ExtMvc.OrderSearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Product',
 					children: [{
-						text: 'Search ',
+						text: 'Search Product',
 						leaf: true,
 						listeners: {
-							click: this.searchProductClick,
+							click: function () {
+								this.openTab('Search Product', ExtMvc.ProductSearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Region',
 					children: [{
-						text: 'Search ',
+						text: 'Search Region',
 						leaf: true,
 						listeners: {
-							click: this.searchRegionClick,
+							click: function () {
+								this.openTab('Search Region', ExtMvc.RegionSearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Shipper',
 					children: [{
-						text: 'Search ',
+						text: 'Search Shipper',
 						leaf: true,
 						listeners: {
-							click: this.searchShipperClick,
+							click: function () {
+								this.openTab('Search Shipper', ExtMvc.ShipperSearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Supplier',
 					children: [{
-						text: 'Search ',
+						text: 'Search Supplier',
 						leaf: true,
 						listeners: {
-							click: this.searchSupplierClick,
+							click: function () {
+								this.openTab('Search Supplier', ExtMvc.SupplierSearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Sysdiagram',
 					children: [{
-						text: 'Search ',
+						text: 'Search Sysdiagram',
 						leaf: true,
 						listeners: {
-							click: this.searchSysdiagramClick,
+							click: function () {
+								this.openTab('Search Sysdiagram', ExtMvc.SysdiagramSearchContainer);
+							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Territory',
 					children: [{
-						text: 'Search ',
+						text: 'Search Territory',
 						leaf: true,
 						listeners: {
-							click: this.searchTerritoryClick,
+							click: function () {
+								this.openTab('Search Territory', ExtMvc.TerritorySearchContainer);
+							},
 							scope: this
 						}
 					}]
@@ -158,87 +181,21 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 		ExtMvc.MainViewport.superclass.initComponent.call(this);
 	},
 
-	searchCategoryClick: function () {
-		this.tabPanel.add(new ExtMvc.CategorySearchContainer({
-			title: 'Search Category ',
-			closable: true
-		})).show();
-	},
+	openTab: function (title, Constructor) {
+		var tab;
 
-	searchCustomerDemographicClick: function () {
-		this.tabPanel.add(new ExtMvc.CustomerDemographicSearchContainer({
-			title: 'Search CustomerDemographic ',
-			closable: true
-		})).show();
-	},
+		Ext.each(this.tabPanel.items.items, function (item) {
+			if (item.title === title) {
+				tab = item;
+				return false;
+			}
+		});
 
-	searchCustomerClick: function () {
-		this.tabPanel.add(new ExtMvc.CustomerSearchContainer({
-			title: 'Search Customer ',
+		tab = tab || this.tabPanel.add(new Constructor({
+			title: title,
 			closable: true
-		})).show();
-	},
+		}));
 
-	searchEmployeeClick: function () {
-		this.tabPanel.add(new ExtMvc.EmployeeSearchContainer({
-			title: 'Search Employee ',
-			closable: true
-		})).show();
-	},
-
-	searchOrderDetailClick: function () {
-		this.tabPanel.add(new ExtMvc.OrderDetailSearchContainer({
-			title: 'Search OrderDetail ',
-			closable: true
-		})).show();
-	},
-
-	searchOrderClick: function () {
-		this.tabPanel.add(new ExtMvc.OrderSearchContainer({
-			title: 'Search Order ',
-			closable: true
-		})).show();
-	},
-
-	searchProductClick: function () {
-		this.tabPanel.add(new ExtMvc.ProductSearchContainer({
-			title: 'Search Product ',
-			closable: true
-		})).show();
-	},
-
-	searchRegionClick: function () {
-		this.tabPanel.add(new ExtMvc.RegionSearchContainer({
-			title: 'Search Region ',
-			closable: true
-		})).show();
-	},
-
-	searchShipperClick: function () {
-		this.tabPanel.add(new ExtMvc.ShipperSearchContainer({
-			title: 'Search Shipper ',
-			closable: true
-		})).show();
-	},
-
-	searchSupplierClick: function () {
-		this.tabPanel.add(new ExtMvc.SupplierSearchContainer({
-			title: 'Search Supplier ',
-			closable: true
-		})).show();
-	},
-
-	searchSysdiagramClick: function () {
-		this.tabPanel.add(new ExtMvc.SysdiagramSearchContainer({
-			title: 'Search Sysdiagram ',
-			closable: true
-		})).show();
-	},
-
-	searchTerritoryClick: function () {
-		this.tabPanel.add(new ExtMvc.TerritorySearchContainer({
-			title: 'Search Territory ',
-			closable: true
-		})).show();
+		tab.show();
 	}
 });
