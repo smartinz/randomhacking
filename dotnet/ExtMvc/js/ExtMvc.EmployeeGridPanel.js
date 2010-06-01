@@ -10,43 +10,7 @@ ExtMvc.EmployeeGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-
-								{ dataIndex: 'EmployeeId', header: 'EmployeeId' }
-								, 
-								{ dataIndex: 'LastName', header: 'LastName' }
-								, 
-								{ dataIndex: 'FirstName', header: 'FirstName' }
-								, 
-								{ dataIndex: 'Title', header: 'Title' }
-								, 
-								{ dataIndex: 'TitleOfCourtesy', header: 'TitleOfCourtesy' }
-								, 
-								{ dataIndex: 'BirthDate', header: 'BirthDate' }
-								, 
-								{ dataIndex: 'HireDate', header: 'HireDate' }
-								, 
-								{ dataIndex: 'Address', header: 'Address' }
-								, 
-								{ dataIndex: 'City', header: 'City' }
-								, 
-								{ dataIndex: 'Region', header: 'Region' }
-								, 
-								{ dataIndex: 'PostalCode', header: 'PostalCode' }
-								, 
-								{ dataIndex: 'Country', header: 'Country' }
-								, 
-								{ dataIndex: 'HomePhone', header: 'HomePhone' }
-								, 
-								{ dataIndex: 'Extension', header: 'Extension' }
-								, 
-								{ dataIndex: 'Photo', header: 'Photo' }
-								, 
-								{ dataIndex: 'Notes', header: 'Notes' }
-								, 
-								{ dataIndex: 'PhotoPath', header: 'PhotoPath' }
-								, 
-								{ dataIndex: 'Employee_1', header: 'Employee_1' }
-								
+				{ dataIndex: 'EmployeeId', header: 'EmployeeId', xtype: 'numbercolumn' }, { dataIndex: 'LastName', header: 'LastName', xtype: 'gridcolumn' }, { dataIndex: 'FirstName', header: 'FirstName', xtype: 'gridcolumn' }, { dataIndex: 'Title', header: 'Title', xtype: 'gridcolumn' }, { dataIndex: 'TitleOfCourtesy', header: 'TitleOfCourtesy', xtype: 'gridcolumn' }, { dataIndex: 'BirthDate', header: 'BirthDate', xtype: 'datecolumn' }, { dataIndex: 'HireDate', header: 'HireDate', xtype: 'datecolumn' }, { dataIndex: 'Address', header: 'Address', xtype: 'gridcolumn' }, { dataIndex: 'City', header: 'City', xtype: 'gridcolumn' }, { dataIndex: 'Region', header: 'Region', xtype: 'gridcolumn' }, { dataIndex: 'PostalCode', header: 'PostalCode', xtype: 'gridcolumn' }, { dataIndex: 'Country', header: 'Country', xtype: 'gridcolumn' }, { dataIndex: 'HomePhone', header: 'HomePhone', xtype: 'gridcolumn' }, { dataIndex: 'Extension', header: 'Extension', xtype: 'gridcolumn' }
 			]
 		});
 		ExtMvc.EmployeeGridPanel.superclass.initComponent.call(this);

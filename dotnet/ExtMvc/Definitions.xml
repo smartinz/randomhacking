@@ -49,7 +49,7 @@
             <columnName>Description</columnName>
           </relationalMapping>
           <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
+            <orderInInstanceDescription>1</orderInInstanceDescription>
             <orderInDetailView>1</orderInDetailView>
             <orderInGridView>1</orderInGridView>
           </presentation>
@@ -114,7 +114,7 @@
           </operationReference>
         </delete>
         <search id="search">
-          <specialization />
+          <specialization>Normal</specialization>
           <operationReference>
             <serviceId>Northwind</serviceId>
             <operationId>Northwind.dbo.Categories.Search</operationId>
@@ -125,12 +125,17 @@
         <tableName>Categories</tableName>
         <schema>dbo</schema>
       </relationalMapping>
-      <security />
+      <security>
+        <viewToken>Viewers</viewToken>
+        <createToken>Editors</createToken>
+        <editToken>Editors</editToken>
+        <deleteToken>Editors</deleteToken>
+      </security>
     </type>
     <type id="Northwind.dbo.CustomerDemographics">
       <name>CustomerDemographic</name>
       <namespace />
-      <isDetail>false</isDetail>
+      <isDetail>true</isDetail>
       <fields>
         <field id="CustomerTypeID">
           <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
@@ -159,29 +164,9 @@
             <columnName>CustomerDesc</columnName>
           </relationalMapping>
           <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
+            <orderInInstanceDescription>1</orderInInstanceDescription>
             <orderInDetailView>1</orderInDetailView>
             <orderInGridView>1</orderInGridView>
-          </presentation>
-        </field>
-        <field id="Northwind.dbo.CustomerCustomerDemo.CustomerTypeID">
-          <typeId>Northwind.dbo.Customers</typeId>
-          <canBeEmpty>false</canBeEmpty>
-          <many>true</many>
-          <name>Customers</name>
-          <associationIdentifier>CustomerCustomerDemo</associationIdentifier>
-          <isInverseAssociation>true</isInverseAssociation>
-          <relationalMapping>
-            <readOnly>false</readOnly>
-            <columnName>CustomerTypeID</columnName>
-            <manyToManyTableName>CustomerCustomerDemo</manyToManyTableName>
-            <manyToManyOtherFkColumnName>CustomerID</manyToManyOtherFkColumnName>
-            <manyToManySchemaName>dbo</manyToManySchemaName>
-          </relationalMapping>
-          <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
-            <orderInDetailView>1</orderInDetailView>
-            <orderInGridView xsi:nil="true" />
           </presentation>
         </field>
       </fields>
@@ -211,7 +196,7 @@
           </operationReference>
         </delete>
         <search id="search">
-          <specialization />
+          <specialization>Normal</specialization>
           <operationReference>
             <serviceId>Northwind</serviceId>
             <operationId>Northwind.dbo.CustomerDemographics.Search</operationId>
@@ -272,7 +257,7 @@
             <columnName>ContactName</columnName>
           </relationalMapping>
           <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
+            <orderInInstanceDescription>1</orderInInstanceDescription>
             <orderInDetailView>1</orderInDetailView>
             <orderInGridView>1</orderInGridView>
           </presentation>
@@ -469,7 +454,7 @@
           </operationReference>
         </delete>
         <search id="search">
-          <specialization />
+          <specialization>Normal</specialization>
           <operationReference>
             <serviceId>Northwind</serviceId>
             <operationId>Northwind.dbo.Customers.Search</operationId>
@@ -480,7 +465,12 @@
         <tableName>Customers</tableName>
         <schema>dbo</schema>
       </relationalMapping>
-      <security />
+      <security>
+        <viewToken>Viewers</viewToken>
+        <createToken>Editors</createToken>
+        <editToken>Editors</editToken>
+        <deleteToken>Editors</deleteToken>
+      </security>
     </type>
     <type id="Northwind.dbo.Employees">
       <name>Employee</name>
@@ -514,7 +504,7 @@
             <columnName>LastName</columnName>
           </relationalMapping>
           <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
+            <orderInInstanceDescription>2</orderInInstanceDescription>
             <orderInDetailView>1</orderInDetailView>
             <orderInGridView>1</orderInGridView>
           </presentation>
@@ -530,7 +520,7 @@
             <columnName>FirstName</columnName>
           </relationalMapping>
           <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
+            <orderInInstanceDescription>1</orderInInstanceDescription>
             <orderInDetailView>1</orderInDetailView>
             <orderInGridView>1</orderInGridView>
           </presentation>
@@ -724,7 +714,7 @@
           <presentation>
             <orderInInstanceDescription xsi:nil="true" />
             <orderInDetailView>1</orderInDetailView>
-            <orderInGridView>1</orderInGridView>
+            <orderInGridView xsi:nil="true" />
           </presentation>
         </field>
         <field id="Notes">
@@ -740,7 +730,7 @@
           <presentation>
             <orderInInstanceDescription xsi:nil="true" />
             <orderInDetailView>1</orderInDetailView>
-            <orderInGridView>1</orderInGridView>
+            <orderInGridView xsi:nil="true" />
           </presentation>
         </field>
         <field id="PhotoPath">
@@ -756,14 +746,14 @@
           <presentation>
             <orderInInstanceDescription xsi:nil="true" />
             <orderInDetailView>1</orderInDetailView>
-            <orderInGridView>1</orderInGridView>
+            <orderInGridView xsi:nil="true" />
           </presentation>
         </field>
         <field id="ReportsTo">
           <typeId>Northwind.dbo.Employees</typeId>
           <canBeEmpty>true</canBeEmpty>
           <many>false</many>
-          <name>Employee_1</name>
+          <name>RelatedEmployee</name>
           <associationIdentifier>FkEmployeesEmployees</associationIdentifier>
           <isInverseAssociation>true</isInverseAssociation>
           <relationalMapping>
@@ -857,7 +847,7 @@
           </operationReference>
         </delete>
         <search id="search">
-          <specialization />
+          <specialization>Normal</specialization>
           <operationReference>
             <serviceId>Northwind</serviceId>
             <operationId>Northwind.dbo.Employees.Search</operationId>
@@ -868,7 +858,12 @@
         <tableName>Employees</tableName>
         <schema>dbo</schema>
       </relationalMapping>
-      <security />
+      <security>
+        <viewToken>Viewers</viewToken>
+        <createToken>Editors</createToken>
+        <editToken>Editors</editToken>
+        <deleteToken>Editors</deleteToken>
+      </security>
     </type>
     <type id="Northwind.dbo.Order Details">
       <name>OrderDetail</name>
@@ -1254,7 +1249,7 @@
           </operationReference>
         </delete>
         <search id="search">
-          <specialization />
+          <specialization>Normal</specialization>
           <operationReference>
             <serviceId>Northwind</serviceId>
             <operationId>Northwind.dbo.Orders.Search</operationId>
@@ -1265,7 +1260,12 @@
         <tableName>Orders</tableName>
         <schema>dbo</schema>
       </relationalMapping>
-      <security />
+      <security>
+        <viewToken>Viewers</viewToken>
+        <createToken>Editors</createToken>
+        <editToken>Editors</editToken>
+        <deleteToken>Editors</deleteToken>
+      </security>
     </type>
     <type id="Northwind.dbo.Products">
       <name>Product</name>
@@ -1299,7 +1299,7 @@
             <columnName>ProductName</columnName>
           </relationalMapping>
           <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
+            <orderInInstanceDescription>1</orderInInstanceDescription>
             <orderInDetailView>1</orderInDetailView>
             <orderInGridView>1</orderInGridView>
           </presentation>
@@ -1461,7 +1461,7 @@
           </operationReference>
         </delete>
         <search id="search">
-          <specialization />
+          <specialization>Normal</specialization>
           <operationReference>
             <serviceId>Northwind</serviceId>
             <operationId>Northwind.dbo.Products.Search</operationId>
@@ -1472,7 +1472,12 @@
         <tableName>Products</tableName>
         <schema>dbo</schema>
       </relationalMapping>
-      <security />
+      <security>
+        <viewToken>Viewers</viewToken>
+        <createToken>Editors</createToken>
+        <editToken>Editors</editToken>
+        <deleteToken>Editors</deleteToken>
+      </security>
     </type>
     <type id="Northwind.dbo.Region">
       <name>Region</name>
@@ -1506,7 +1511,7 @@
             <columnName>RegionDescription</columnName>
           </relationalMapping>
           <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
+            <orderInInstanceDescription>1</orderInInstanceDescription>
             <orderInDetailView>1</orderInDetailView>
             <orderInGridView>1</orderInGridView>
           </presentation>
@@ -1555,7 +1560,7 @@
           </operationReference>
         </delete>
         <search id="search">
-          <specialization />
+          <specialization>Normal</specialization>
           <operationReference>
             <serviceId>Northwind</serviceId>
             <operationId>Northwind.dbo.Region.Search</operationId>
@@ -1566,7 +1571,12 @@
         <tableName>Region</tableName>
         <schema>dbo</schema>
       </relationalMapping>
-      <security />
+      <security>
+        <viewToken>Viewers</viewToken>
+        <createToken>Editors</createToken>
+        <editToken>Editors</editToken>
+        <deleteToken>Editors</deleteToken>
+      </security>
     </type>
     <type id="Northwind.dbo.Shippers">
       <name>Shipper</name>
@@ -1600,7 +1610,7 @@
             <columnName>CompanyName</columnName>
           </relationalMapping>
           <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
+            <orderInInstanceDescription>1</orderInInstanceDescription>
             <orderInDetailView>1</orderInDetailView>
             <orderInGridView>1</orderInGridView>
           </presentation>
@@ -1665,7 +1675,7 @@
           </operationReference>
         </delete>
         <search id="search">
-          <specialization />
+          <specialization>Normal</specialization>
           <operationReference>
             <serviceId>Northwind</serviceId>
             <operationId>Northwind.dbo.Shippers.Search</operationId>
@@ -1676,7 +1686,12 @@
         <tableName>Shippers</tableName>
         <schema>dbo</schema>
       </relationalMapping>
-      <security />
+      <security>
+        <viewToken>Viewers</viewToken>
+        <createToken>Editors</createToken>
+        <editToken>Editors</editToken>
+        <deleteToken>Editors</deleteToken>
+      </security>
     </type>
     <type id="Northwind.dbo.Suppliers">
       <name>Supplier</name>
@@ -1710,7 +1725,7 @@
             <columnName>CompanyName</columnName>
           </relationalMapping>
           <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
+            <orderInInstanceDescription>1</orderInInstanceDescription>
             <orderInDetailView>1</orderInDetailView>
             <orderInGridView>1</orderInGridView>
           </presentation>
@@ -1919,7 +1934,7 @@
           </operationReference>
         </delete>
         <search id="search">
-          <specialization />
+          <specialization>Normal</specialization>
           <operationReference>
             <serviceId>Northwind</serviceId>
             <operationId>Northwind.dbo.Suppliers.Search</operationId>
@@ -1930,132 +1945,12 @@
         <tableName>Suppliers</tableName>
         <schema>dbo</schema>
       </relationalMapping>
-      <security />
-    </type>
-    <type id="Northwind.dbo.sysdiagrams">
-      <name>Sysdiagram</name>
-      <namespace />
-      <isDetail>false</isDetail>
-      <fields>
-        <field id="name">
-          <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-          <canBeEmpty>false</canBeEmpty>
-          <many>false</many>
-          <name>Name</name>
-          <isInverseAssociation>false</isInverseAssociation>
-          <relationalMapping>
-            <readOnly>false</readOnly>
-            <columnName>name</columnName>
-          </relationalMapping>
-          <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
-            <orderInDetailView>1</orderInDetailView>
-            <orderInGridView>1</orderInGridView>
-          </presentation>
-        </field>
-        <field id="principal_id">
-          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
-          <canBeEmpty>false</canBeEmpty>
-          <many>false</many>
-          <name>PrincipalId</name>
-          <isInverseAssociation>false</isInverseAssociation>
-          <relationalMapping>
-            <readOnly>false</readOnly>
-            <columnName>principal_id</columnName>
-          </relationalMapping>
-          <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
-            <orderInDetailView>1</orderInDetailView>
-            <orderInGridView>1</orderInGridView>
-          </presentation>
-        </field>
-        <field id="diagram_id">
-          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
-          <canBeEmpty>false</canBeEmpty>
-          <many>false</many>
-          <name>DiagramId</name>
-          <isInverseAssociation>false</isInverseAssociation>
-          <relationalMapping>
-            <readOnly>true</readOnly>
-            <columnName>diagram_id</columnName>
-          </relationalMapping>
-          <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
-            <orderInDetailView>1</orderInDetailView>
-            <orderInGridView>1</orderInGridView>
-          </presentation>
-        </field>
-        <field id="version">
-          <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
-          <canBeEmpty>true</canBeEmpty>
-          <many>false</many>
-          <name>Version</name>
-          <isInverseAssociation>false</isInverseAssociation>
-          <relationalMapping>
-            <readOnly>false</readOnly>
-            <columnName>version</columnName>
-          </relationalMapping>
-          <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
-            <orderInDetailView>1</orderInDetailView>
-            <orderInGridView>1</orderInGridView>
-          </presentation>
-        </field>
-        <field id="definition">
-          <typeId>http://www.w3.org/2001/XMLSchema base64Binary</typeId>
-          <canBeEmpty>true</canBeEmpty>
-          <many>false</many>
-          <name>Definition</name>
-          <isInverseAssociation>false</isInverseAssociation>
-          <relationalMapping>
-            <readOnly>false</readOnly>
-            <columnName>definition</columnName>
-          </relationalMapping>
-          <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
-            <orderInDetailView>1</orderInDetailView>
-            <orderInGridView>1</orderInGridView>
-          </presentation>
-        </field>
-      </fields>
-      <repository>
-        <create>
-          <operationReference>
-            <serviceId>Northwind</serviceId>
-            <operationId>Northwind.dbo.sysdiagrams.Create</operationId>
-          </operationReference>
-        </create>
-        <read>
-          <operationReference>
-            <serviceId>Northwind</serviceId>
-            <operationId>Northwind.dbo.sysdiagrams.Read</operationId>
-          </operationReference>
-        </read>
-        <update>
-          <operationReference>
-            <serviceId>Northwind</serviceId>
-            <operationId>Northwind.dbo.sysdiagrams.Update</operationId>
-          </operationReference>
-        </update>
-        <delete>
-          <operationReference>
-            <serviceId>Northwind</serviceId>
-            <operationId>Northwind.dbo.sysdiagrams.Delete</operationId>
-          </operationReference>
-        </delete>
-        <search id="search">
-          <specialization />
-          <operationReference>
-            <serviceId>Northwind</serviceId>
-            <operationId>Northwind.dbo.sysdiagrams.Search</operationId>
-          </operationReference>
-        </search>
-      </repository>
-      <relationalMapping>
-        <tableName>sysdiagrams</tableName>
-        <schema>dbo</schema>
-      </relationalMapping>
-      <security />
+      <security>
+        <viewToken>Viewers</viewToken>
+        <createToken>Editors</createToken>
+        <editToken>Editors</editToken>
+        <deleteToken>Editors</deleteToken>
+      </security>
     </type>
     <type id="Northwind.dbo.Territories">
       <name>Territory</name>
@@ -2089,7 +1984,7 @@
             <columnName>TerritoryDescription</columnName>
           </relationalMapping>
           <presentation>
-            <orderInInstanceDescription xsi:nil="true" />
+            <orderInInstanceDescription>1</orderInInstanceDescription>
             <orderInDetailView>1</orderInDetailView>
             <orderInGridView>1</orderInGridView>
           </presentation>
@@ -2158,7 +2053,7 @@
           </operationReference>
         </delete>
         <search id="search">
-          <specialization />
+          <specialization>Normal</specialization>
           <operationReference>
             <serviceId>Northwind</serviceId>
             <operationId>Northwind.dbo.Territories.Search</operationId>
@@ -2169,7 +2064,12 @@
         <tableName>Territories</tableName>
         <schema>dbo</schema>
       </relationalMapping>
-      <security />
+      <security>
+        <viewToken>Viewers</viewToken>
+        <createToken>Editors</createToken>
+        <editToken>Editors</editToken>
+        <deleteToken>Editors</deleteToken>
+      </security>
     </type>
   </types>
   <services>
@@ -2240,47 +2140,7 @@
             <canBeEmpty>false</canBeEmpty>
             <many>true</many>
           </return>
-          <parameters>
-            <parameter id="CategoryID">
-              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>categoryId</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Categories</typeId>
-                <fieldId>CategoryID</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>Equal</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="CategoryName">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>categoryName</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Categories</typeId>
-                <fieldId>CategoryName</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Description">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>description</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Categories</typeId>
-                <fieldId>Description</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-          </parameters>
+          <parameters />
         </operation>
         <operation id="Northwind.dbo.CustomerDemographics.Create">
           <name>CreateDboCustomerDemographic</name>
@@ -2353,7 +2213,7 @@
                 <fieldId>CustomerTypeID</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="CustomerDesc">
@@ -2366,7 +2226,7 @@
                 <fieldId>CustomerDesc</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
           </parameters>
@@ -2432,33 +2292,7 @@
             <many>true</many>
           </return>
           <parameters>
-            <parameter id="CustomerID">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>customerId</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Customers</typeId>
-                <fieldId>CustomerID</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="CompanyName">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>companyName</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Customers</typeId>
-                <fieldId>CompanyName</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="ContactName">
+            <parameter id="contactName">
               <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
               <canBeEmpty>true</canBeEmpty>
               <many>false</many>
@@ -2468,111 +2302,7 @@
                 <fieldId>ContactName</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="ContactTitle">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>contactTitle</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Customers</typeId>
-                <fieldId>ContactTitle</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Address">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>address</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Customers</typeId>
-                <fieldId>Address</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="City">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>city</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Customers</typeId>
-                <fieldId>City</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Region">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>region</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Customers</typeId>
-                <fieldId>Region</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="PostalCode">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>postalCode</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Customers</typeId>
-                <fieldId>PostalCode</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Country">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>country</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Customers</typeId>
-                <fieldId>Country</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Phone">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>phone</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Customers</typeId>
-                <fieldId>Phone</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Fax">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>fax</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Customers</typeId>
-                <fieldId>Fax</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>StringContain</compareOperator>
               </relationalMapping>
             </parameter>
           </parameters>
@@ -2637,216 +2367,7 @@
             <canBeEmpty>false</canBeEmpty>
             <many>true</many>
           </return>
-          <parameters>
-            <parameter id="EmployeeID">
-              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>employeeId</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>EmployeeID</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>Equal</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="LastName">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>lastName</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>LastName</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="FirstName">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>firstName</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>FirstName</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Title">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>title</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>Title</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="TitleOfCourtesy">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>titleOfCourtesy</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>TitleOfCourtesy</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="BirthDate">
-              <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>birthDate</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>BirthDate</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>Equal</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="HireDate">
-              <typeId>http://www.w3.org/2001/XMLSchema dateTime</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>hireDate</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>HireDate</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>Equal</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Address">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>address</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>Address</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="City">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>city</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>City</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Region">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>region</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>Region</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="PostalCode">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>postalCode</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>PostalCode</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Country">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>country</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>Country</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="HomePhone">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>homePhone</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>HomePhone</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Extension">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>extension</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>Extension</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="Notes">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>notes</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>Notes</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="PhotoPath">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>photoPath</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Employees</typeId>
-                <fieldId>PhotoPath</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-          </parameters>
+          <parameters />
         </operation>
         <operation id="Northwind.dbo.Order Details.Create">
           <name>CreateDboOrderDetail</name>
@@ -3122,7 +2643,7 @@
                 <fieldId>ShipName</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="ShipAddress">
@@ -3135,7 +2656,7 @@
                 <fieldId>ShipAddress</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="ShipCity">
@@ -3148,7 +2669,7 @@
                 <fieldId>ShipCity</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="ShipRegion">
@@ -3161,7 +2682,7 @@
                 <fieldId>ShipRegion</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="ShipPostalCode">
@@ -3174,7 +2695,7 @@
                 <fieldId>ShipPostalCode</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="ShipCountry">
@@ -3187,7 +2708,46 @@
                 <fieldId>ShipCountry</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="CustomerID">
+              <typeId>Northwind.dbo.Customers</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>customer</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>CustomerID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="EmployeeID">
+              <typeId>Northwind.dbo.Employees</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>employee</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>EmployeeID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="ShipVia">
+              <typeId>Northwind.dbo.Shippers</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>shipper</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Orders</typeId>
+                <fieldId>ShipVia</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
           </parameters>
@@ -3279,71 +2839,6 @@
                 <compareOperator>StringStartWith</compareOperator>
               </relationalMapping>
             </parameter>
-            <parameter id="QuantityPerUnit">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>quantityPerUnit</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Products</typeId>
-                <fieldId>QuantityPerUnit</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="UnitPrice">
-              <typeId>http://www.w3.org/2001/XMLSchema decimal</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>unitPrice</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Products</typeId>
-                <fieldId>UnitPrice</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>Equal</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="UnitsInStock">
-              <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>unitsInStock</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Products</typeId>
-                <fieldId>UnitsInStock</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>Equal</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="UnitsOnOrder">
-              <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>unitsOnOrder</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Products</typeId>
-                <fieldId>UnitsOnOrder</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>Equal</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="ReorderLevel">
-              <typeId>http://www.w3.org/2001/XMLSchema short</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>reorderLevel</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Products</typeId>
-                <fieldId>ReorderLevel</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>Equal</compareOperator>
-              </relationalMapping>
-            </parameter>
             <parameter id="Discontinued">
               <typeId>http://www.w3.org/2001/XMLSchema boolean</typeId>
               <canBeEmpty>true</canBeEmpty>
@@ -3352,6 +2847,32 @@
               <fieldReference>
                 <typeId>Northwind.dbo.Products</typeId>
                 <fieldId>Discontinued</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="CategoryID">
+              <typeId>Northwind.dbo.Categories</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>category</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>CategoryID</fieldId>
+              </fieldReference>
+              <relationalMapping>
+                <compareOperator>Equal</compareOperator>
+              </relationalMapping>
+            </parameter>
+            <parameter id="SupplierID">
+              <typeId>Northwind.dbo.Suppliers</typeId>
+              <canBeEmpty>true</canBeEmpty>
+              <many>false</many>
+              <name>supplier</name>
+              <fieldReference>
+                <typeId>Northwind.dbo.Products</typeId>
+                <fieldId>SupplierID</fieldId>
               </fieldReference>
               <relationalMapping>
                 <compareOperator>Equal</compareOperator>
@@ -3443,7 +2964,7 @@
                 <fieldId>RegionDescription</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
           </parameters>
@@ -3532,7 +3053,7 @@
                 <fieldId>CompanyName</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="Phone">
@@ -3545,7 +3066,7 @@
                 <fieldId>Phone</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
           </parameters>
@@ -3634,7 +3155,7 @@
                 <fieldId>CompanyName</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="ContactName">
@@ -3647,7 +3168,7 @@
                 <fieldId>ContactName</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="ContactTitle">
@@ -3660,7 +3181,7 @@
                 <fieldId>ContactTitle</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="Address">
@@ -3673,7 +3194,7 @@
                 <fieldId>Address</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="City">
@@ -3686,7 +3207,7 @@
                 <fieldId>City</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="Region">
@@ -3699,7 +3220,7 @@
                 <fieldId>Region</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="PostalCode">
@@ -3712,7 +3233,7 @@
                 <fieldId>PostalCode</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="Country">
@@ -3725,7 +3246,7 @@
                 <fieldId>Country</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="Phone">
@@ -3738,7 +3259,7 @@
                 <fieldId>Phone</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="Fax">
@@ -3751,7 +3272,7 @@
                 <fieldId>Fax</fieldId>
               </fieldReference>
               <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
+                <compareOperator>Equal</compareOperator>
               </relationalMapping>
             </parameter>
             <parameter id="HomePage">
@@ -3762,121 +3283,6 @@
               <fieldReference>
                 <typeId>Northwind.dbo.Suppliers</typeId>
                 <fieldId>HomePage</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-          </parameters>
-        </operation>
-        <operation id="Northwind.dbo.sysdiagrams.Create">
-          <name>CreateDboSysdiagram</name>
-          <parameters>
-            <parameter id="Northwind.dbo.sysdiagrams">
-              <typeId>Northwind.dbo.sysdiagrams</typeId>
-              <canBeEmpty>false</canBeEmpty>
-              <many>false</many>
-              <name>sysdiagram</name>
-            </parameter>
-          </parameters>
-        </operation>
-        <operation id="Northwind.dbo.sysdiagrams.Read">
-          <name>ReadDboSysdiagram</name>
-          <return>
-            <typeId>Northwind.dbo.sysdiagrams</typeId>
-            <canBeEmpty>false</canBeEmpty>
-            <many>false</many>
-          </return>
-          <parameters>
-            <parameter id="diagram_id">
-              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
-              <canBeEmpty>false</canBeEmpty>
-              <many>false</many>
-              <name>diagramId</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.sysdiagrams</typeId>
-                <fieldId>diagram_id</fieldId>
-              </fieldReference>
-            </parameter>
-          </parameters>
-        </operation>
-        <operation id="Northwind.dbo.sysdiagrams.Update">
-          <name>UpdateDboSysdiagram</name>
-          <parameters>
-            <parameter id="Northwind.dbo.sysdiagrams">
-              <typeId>Northwind.dbo.sysdiagrams</typeId>
-              <canBeEmpty>false</canBeEmpty>
-              <many>false</many>
-              <name>sysdiagram</name>
-            </parameter>
-          </parameters>
-        </operation>
-        <operation id="Northwind.dbo.sysdiagrams.Delete">
-          <name>DeleteDboSysdiagram</name>
-          <parameters>
-            <parameter id="Northwind.dbo.sysdiagrams">
-              <typeId>Northwind.dbo.sysdiagrams</typeId>
-              <canBeEmpty>false</canBeEmpty>
-              <many>false</many>
-              <name>sysdiagram</name>
-            </parameter>
-          </parameters>
-        </operation>
-        <operation id="Northwind.dbo.sysdiagrams.Search">
-          <name>SearchDboSysdiagram</name>
-          <return>
-            <typeId>Northwind.dbo.sysdiagrams</typeId>
-            <canBeEmpty>false</canBeEmpty>
-            <many>true</many>
-          </return>
-          <parameters>
-            <parameter id="name">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>name</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.sysdiagrams</typeId>
-                <fieldId>name</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="principal_id">
-              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>principalId</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.sysdiagrams</typeId>
-                <fieldId>principal_id</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>Equal</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="diagram_id">
-              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>diagramId</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.sysdiagrams</typeId>
-                <fieldId>diagram_id</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>Equal</compareOperator>
-              </relationalMapping>
-            </parameter>
-            <parameter id="version">
-              <typeId>http://www.w3.org/2001/XMLSchema int</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>version</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.sysdiagrams</typeId>
-                <fieldId>version</fieldId>
               </fieldReference>
               <relationalMapping>
                 <compareOperator>Equal</compareOperator>
@@ -3945,19 +3351,6 @@
             <many>true</many>
           </return>
           <parameters>
-            <parameter id="TerritoryID">
-              <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
-              <canBeEmpty>true</canBeEmpty>
-              <many>false</many>
-              <name>territoryId</name>
-              <fieldReference>
-                <typeId>Northwind.dbo.Territories</typeId>
-                <fieldId>TerritoryID</fieldId>
-              </fieldReference>
-              <relationalMapping>
-                <compareOperator>StringStartWith</compareOperator>
-              </relationalMapping>
-            </parameter>
             <parameter id="TerritoryDescription">
               <typeId>http://www.w3.org/2001/XMLSchema string</typeId>
               <canBeEmpty>true</canBeEmpty>

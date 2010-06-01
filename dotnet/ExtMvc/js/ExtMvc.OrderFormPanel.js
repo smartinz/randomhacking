@@ -52,9 +52,9 @@ ExtMvc.OrderFormPanel = Ext.extend(Ext.form.FormPanel, {
 								, 
 								{ name: 'ShipCountry', fieldLabel: 'ShipCountry', xtype: 'textfield', anchor: '100%' }
 								, 
-								{ name: 'Customer', fieldLabel: 'Customer', xtype: 'textfield', anchor: '100%' }
+								{ name: 'Customer', fieldLabel: 'Customer', xtype: 'ExtMvc.CustomerField', anchor: '100%' }
 								, 
-								{ name: 'Employee', fieldLabel: 'Employee', xtype: 'textfield', anchor: '100%' }
+								{ name: 'Employee', fieldLabel: 'Employee', xtype: 'ExtMvc.EmployeeField', anchor: '100%' }
 								
 			]
 		}];

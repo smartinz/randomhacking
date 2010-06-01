@@ -10,7 +10,7 @@ ExtMvc.CustomerJsonReader = Ext.extend(Ext.data.JsonReader, {
 			root: 'items',
 			idProperty: 'StringId',
 			totalProperty: 'count',
-			fields: ['StringId', 'CustomerId', 'CompanyName', 'ContactName', 'ContactTitle', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'Phone', 'Fax', 'Customerdemographics', 'Orders']
+			fields: ['StringId', 'CustomerId', 'CompanyName', 'ContactName', 'ContactTitle', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'Phone', 'Fax', 'Customerdemographics']
 		};
 		ExtMvc.CustomerJsonReader.superclass.constructor.call(this, Ext.apply(meta || {}, cfg), recordType);
 	}

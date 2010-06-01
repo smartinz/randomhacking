@@ -53,6 +53,16 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 								{ name: 'Fax', fieldLabel: 'Fax', xtype: 'textfield', anchor: '100%' }
 								
 			]
+		}, {
+			flex: 1,
+			xtype: 'tabpanel',
+			plain: true,
+			border: false,
+			activeTab: 0,
+			deferredRender: false, // IMPORTANT! See http://www.extjs.com/deploy/dev/examples/form/dynamic.js
+			items: [
+				{ name: 'Customerdemographics', title: 'Customerdemographics', xtype: 'ExtMvc.CustomerDemographicListField' }
+			]
 		}];
 
 		ExtMvc.CustomerFormPanel.superclass.initComponent.call(this);

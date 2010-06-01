@@ -7,7 +7,7 @@ ExtMvc.CustomerDemographicField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
 	hideTrigger: true,
 	onTriggerClick: function () {
-		var searchPanel = new ExtMvc.CustomerDemographicSearchContainer();
+		var searchPanel = new ExtMvc.CustomerDemographicNormalSearchContainer();
 		this.window = new Ext.Window({
 			modal: true,
 			title: 'Search CustomerDemographic',
@@ -25,3 +25,5 @@ ExtMvc.CustomerDemographicField = Ext.extend(Ext.form.TriggerField, {
 		this.window.close();
 	}
 });
+
+Ext.reg('ExtMvc.CustomerDemographicField', ExtMvc.CustomerDemographicField);

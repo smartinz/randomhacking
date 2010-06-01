@@ -10,17 +10,7 @@ ExtMvc.CustomerGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-				{ dataIndex: 'CustomerId', header: 'CustomerId' },
-				{ dataIndex: 'CompanyName', header: 'CompanyName' },
-				{ dataIndex: 'ContactName', header: 'ContactName' },
-				{ dataIndex: 'ContactTitle', header: 'ContactTitle' },
-				{ dataIndex: 'Address', header: 'Address' },
-				{ dataIndex: 'City', header: 'City' },
-				{ dataIndex: 'Region', header: 'Region' },
-				{ dataIndex: 'PostalCode', header: 'PostalCode' },
-				{ dataIndex: 'Country', header: 'Country' },
-				{ dataIndex: 'Phone', header: 'Phone' },
-				{ dataIndex: 'Fax', header: 'Fax' }
+				{ dataIndex: 'CustomerId', header: 'CustomerId', xtype: 'gridcolumn' }, { dataIndex: 'CompanyName', header: 'CompanyName', xtype: 'gridcolumn' }, { dataIndex: 'ContactName', header: 'ContactName', xtype: 'gridcolumn' }, { dataIndex: 'ContactTitle', header: 'ContactTitle', xtype: 'gridcolumn' }, { dataIndex: 'Address', header: 'Address', xtype: 'gridcolumn' }, { dataIndex: 'City', header: 'City', xtype: 'gridcolumn' }, { dataIndex: 'Region', header: 'Region', xtype: 'gridcolumn' }, { dataIndex: 'PostalCode', header: 'PostalCode', xtype: 'gridcolumn' }, { dataIndex: 'Country', header: 'Country', xtype: 'gridcolumn' }, { dataIndex: 'Phone', header: 'Phone', xtype: 'gridcolumn' }, { dataIndex: 'Fax', header: 'Fax', xtype: 'gridcolumn' }
 			]
 		});
 		ExtMvc.CustomerGridPanel.superclass.initComponent.call(this);

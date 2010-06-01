@@ -1,23 +1,14 @@
-using System.Collections.Generic;
 using NHibernate.Validator.Constraints;
 
 namespace ExtMvc.Domain
 {
 	public class CustomerDemographic
 	{
-		private string _customerTypeId;
-
 		private string _customerDesc;
-
-		private ICollection<Customer> _customers = new HashSet<Customer>();
 
 
 		[NotNullNotEmpty]
-		public virtual string CustomerTypeId
-		{
-			get { return _customerTypeId; }
-			set { _customerTypeId = value; }
-		}
+		public virtual string CustomerTypeId { get; set; }
 
 		public virtual string CustomerDesc
 		{
@@ -25,16 +16,9 @@ namespace ExtMvc.Domain
 			set { _customerDesc = value; }
 		}
 
-		[NotNull]
-		public virtual ICollection<Customer> Customers
-		{
-			get { return _customers; }
-			private set { _customers = value; }
-		}
-
 		public override string ToString()
 		{
-			return (_customerTypeId == null ? "" : _customerTypeId);
+			return (_customerDesc == null ? "" : _customerDesc);
 		}
 
 
@@ -52,7 +36,7 @@ namespace ExtMvc.Domain
 			{
 				return other.CustomerTypeId == CustomerTypeId;
 			}
-			return other.CustomerTypeId == CustomerTypeId && other.CustomerDesc == CustomerDesc && 1 == 1;
+			return other.CustomerTypeId == CustomerTypeId && other.CustomerDesc == CustomerDesc;
 		}
 
 		public override bool Equals(object obj)

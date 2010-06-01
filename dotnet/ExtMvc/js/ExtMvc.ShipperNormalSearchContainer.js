@@ -4,7 +4,7 @@
 
 Ext.namespace('ExtMvc');
 
-ExtMvc.ProductSearchContainer = Ext.extend(Ext.Container, {
+ExtMvc.ShipperNormalSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'vbox',
 	layoutConfig: {
 		align: 'stretch',
@@ -13,12 +13,12 @@ ExtMvc.ProductSearchContainer = Ext.extend(Ext.Container, {
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
-				url: '/Product/Search'
+				url: '/Shipper/SearchNormal'
 			}),
 			remoteSort: true,
-			reader: new ExtMvc.ProductJsonReader()
+			reader: new ExtMvc.ShipperJsonReader()
 		});
-		this.gridPanel = new ExtMvc.ProductGridPanel({
+		this.gridPanel = new ExtMvc.ShipperGridPanel({
 			flex: 1,
 			store: store,
 			bbar: new Ext.PagingToolbar({
@@ -39,47 +39,7 @@ ExtMvc.ProductSearchContainer = Ext.extend(Ext.Container, {
 			labelWidth: 100,
 			border: false,
 			padding: 10,
-			items: [{
-				name: 'productId',
-				xtype: 'textfield',
-				fieldLabel: 'productId',
-				anchor: '100%'
-			}, {
-				name: 'productName',
-				xtype: 'textfield',
-				fieldLabel: 'productName',
-				anchor: '100%'
-			}, {
-				name: 'quantityPerUnit',
-				xtype: 'textfield',
-				fieldLabel: 'quantityPerUnit',
-				anchor: '100%'
-			}, {
-				name: 'unitPrice',
-				xtype: 'textfield',
-				fieldLabel: 'unitPrice',
-				anchor: '100%'
-			}, {
-				name: 'unitsInStock',
-				xtype: 'textfield',
-				fieldLabel: 'unitsInStock',
-				anchor: '100%'
-			}, {
-				name: 'unitsOnOrder',
-				xtype: 'textfield',
-				fieldLabel: 'unitsOnOrder',
-				anchor: '100%'
-			}, {
-				name: 'reorderLevel',
-				xtype: 'textfield',
-				fieldLabel: 'reorderLevel',
-				anchor: '100%'
-			}, {
-				name: 'discontinued',
-				xtype: 'textfield',
-				fieldLabel: 'discontinued',
-				anchor: '100%'
-			}],
+			items: [{ name: 'shipperId', xtype: 'textfield', fieldLabel: 'shipperId', anchor: '100%' }, { name: 'companyName', xtype: 'textfield', fieldLabel: 'companyName', anchor: '100%' }, { name: 'phone', xtype: 'textfield', fieldLabel: 'phone', anchor: '100%' }],
 			buttons: [{
 				xtype: 'button',
 				text: 'Search',
@@ -92,7 +52,7 @@ ExtMvc.ProductSearchContainer = Ext.extend(Ext.Container, {
 
 		this.addEvents('itemselected');
 
-		ExtMvc.ProductSearchContainer.superclass.initComponent.call(this);
+		ExtMvc.ShipperNormalSearchContainer.superclass.initComponent.call(this);
 	},
 
 	gridPanel_rowDblClick: function (grid, rowIndex, event) {

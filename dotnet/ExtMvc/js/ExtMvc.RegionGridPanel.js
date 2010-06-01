@@ -10,11 +10,7 @@ ExtMvc.RegionGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-
-								{ dataIndex: 'RegionId', header: 'RegionId' }
-								, 
-								{ dataIndex: 'RegionDescription', header: 'RegionDescription' }
-								
+				{ dataIndex: 'RegionId', header: 'RegionId', xtype: 'numbercolumn' }, { dataIndex: 'RegionDescription', header: 'RegionDescription', xtype: 'gridcolumn' }
 			]
 		});
 		ExtMvc.RegionGridPanel.superclass.initComponent.call(this);

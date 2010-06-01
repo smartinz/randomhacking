@@ -49,7 +49,6 @@
   <ItemGroup>
     <Compile Include="CategoryController.cs" />
     <Compile Include="CustomerController.cs" />
-    <Compile Include="CustomerDemographicController.cs" />
     <Compile Include="EmployeeController.cs" />
     <Compile Include="HomeController.cs" />
     <Compile Include="OrderController.cs" />
@@ -59,7 +58,6 @@
     <Compile Include="RegionController.cs" />
     <Compile Include="ShipperController.cs" />
     <Compile Include="SupplierController.cs" />
-    <Compile Include="SysdiagramController.cs" />
     <Compile Include="TerritoryController.cs" />
     <Compile Include="TestController.cs" />
   </ItemGroup>

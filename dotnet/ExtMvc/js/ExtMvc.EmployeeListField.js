@@ -61,3 +61,5 @@ ExtMvc.EmployeeListField = Ext.extend(Ext.form.Field, {
 		return this.gridPanel.getStore().proxy.data.items;
 	}
 });
+
+Ext.reg('ExtMvc.EmployeeListField', ExtMvc.EmployeeListField);

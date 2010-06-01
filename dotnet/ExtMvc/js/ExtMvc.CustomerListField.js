@@ -61,3 +61,5 @@ ExtMvc.CustomerListField = Ext.extend(Ext.form.Field, {
 		return this.gridPanel.getStore().proxy.data.items;
 	}
 });
+
+Ext.reg('ExtMvc.CustomerListField', ExtMvc.CustomerListField);

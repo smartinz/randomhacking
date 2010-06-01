@@ -4,7 +4,7 @@
 
 Ext.namespace('ExtMvc');
 
-ExtMvc.ShipperSearchContainer = Ext.extend(Ext.Container, {
+ExtMvc.EmployeeNormalSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'vbox',
 	layoutConfig: {
 		align: 'stretch',
@@ -13,12 +13,12 @@ ExtMvc.ShipperSearchContainer = Ext.extend(Ext.Container, {
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
-				url: '/Shipper/Search'
+				url: '/Employee/SearchNormal'
 			}),
 			remoteSort: true,
-			reader: new ExtMvc.ShipperJsonReader()
+			reader: new ExtMvc.EmployeeJsonReader()
 		});
-		this.gridPanel = new ExtMvc.ShipperGridPanel({
+		this.gridPanel = new ExtMvc.EmployeeGridPanel({
 			flex: 1,
 			store: store,
 			bbar: new Ext.PagingToolbar({
@@ -39,22 +39,7 @@ ExtMvc.ShipperSearchContainer = Ext.extend(Ext.Container, {
 			labelWidth: 100,
 			border: false,
 			padding: 10,
-			items: [{
-				name: 'shipperId',
-				xtype: 'textfield',
-				fieldLabel: 'shipperId',
-				anchor: '100%'
-			}, {
-				name: 'companyName',
-				xtype: 'textfield',
-				fieldLabel: 'companyName',
-				anchor: '100%'
-			}, {
-				name: 'phone',
-				xtype: 'textfield',
-				fieldLabel: 'phone',
-				anchor: '100%'
-			}],
+			items: [],
 			buttons: [{
 				xtype: 'button',
 				text: 'Search',
@@ -67,7 +52,7 @@ ExtMvc.ShipperSearchContainer = Ext.extend(Ext.Container, {
 
 		this.addEvents('itemselected');
 
-		ExtMvc.ShipperSearchContainer.superclass.initComponent.call(this);
+		ExtMvc.EmployeeNormalSearchContainer.superclass.initComponent.call(this);
 	},
 
 	gridPanel_rowDblClick: function (grid, rowIndex, event) {

@@ -7,7 +7,7 @@ ExtMvc.TerritoryField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
 	hideTrigger: true,
 	onTriggerClick: function () {
-		var searchPanel = new ExtMvc.TerritorySearchContainer();
+		var searchPanel = new ExtMvc.TerritoryNormalSearchContainer();
 		this.window = new Ext.Window({
 			modal: true,
 			title: 'Search Territory',
@@ -25,3 +25,5 @@ ExtMvc.TerritoryField = Ext.extend(Ext.form.TriggerField, {
 		this.window.close();
 	}
 });
+
+Ext.reg('ExtMvc.TerritoryField', ExtMvc.TerritoryField);

@@ -6,41 +6,9 @@ namespace ExtMvc.Domain
 {
 	public class Employee
 	{
-		private int _employeeId;
-
 		private string _lastName;
 
 		private string _firstName;
-
-		private string _title;
-
-		private string _titleOfCourtesy;
-
-		private DateTime? _birthDate;
-
-		private DateTime? _hireDate;
-
-		private string _address;
-
-		private string _city;
-
-		private string _region;
-
-		private string _postalCode;
-
-		private string _country;
-
-		private string _homePhone;
-
-		private string _extension;
-
-		private byte[] _photo;
-
-		private string _notes;
-
-		private string _photoPath;
-
-		private Employee _employee_1;
 
 		private ICollection<Employee> _employees = new HashSet<Employee>();
 
@@ -49,11 +17,7 @@ namespace ExtMvc.Domain
 		private ICollection<Order> _orders = new HashSet<Order>();
 
 
-		public virtual int EmployeeId
-		{
-			get { return _employeeId; }
-			set { _employeeId = value; }
-		}
+		public virtual int EmployeeId { get; set; }
 
 		[NotNullNotEmpty]
 		public virtual string LastName
@@ -69,95 +33,35 @@ namespace ExtMvc.Domain
 			set { _firstName = value; }
 		}
 
-		public virtual string Title
-		{
-			get { return _title; }
-			set { _title = value; }
-		}
+		public virtual string Title { get; set; }
 
-		public virtual string TitleOfCourtesy
-		{
-			get { return _titleOfCourtesy; }
-			set { _titleOfCourtesy = value; }
-		}
+		public virtual string TitleOfCourtesy { get; set; }
 
-		public virtual DateTime? BirthDate
-		{
-			get { return _birthDate; }
-			set { _birthDate = value; }
-		}
+		public virtual DateTime? BirthDate { get; set; }
 
-		public virtual DateTime? HireDate
-		{
-			get { return _hireDate; }
-			set { _hireDate = value; }
-		}
+		public virtual DateTime? HireDate { get; set; }
 
-		public virtual string Address
-		{
-			get { return _address; }
-			set { _address = value; }
-		}
+		public virtual string Address { get; set; }
 
-		public virtual string City
-		{
-			get { return _city; }
-			set { _city = value; }
-		}
+		public virtual string City { get; set; }
 
-		public virtual string Region
-		{
-			get { return _region; }
-			set { _region = value; }
-		}
+		public virtual string Region { get; set; }
 
-		public virtual string PostalCode
-		{
-			get { return _postalCode; }
-			set { _postalCode = value; }
-		}
+		public virtual string PostalCode { get; set; }
 
-		public virtual string Country
-		{
-			get { return _country; }
-			set { _country = value; }
-		}
+		public virtual string Country { get; set; }
 
-		public virtual string HomePhone
-		{
-			get { return _homePhone; }
-			set { _homePhone = value; }
-		}
+		public virtual string HomePhone { get; set; }
 
-		public virtual string Extension
-		{
-			get { return _extension; }
-			set { _extension = value; }
-		}
+		public virtual string Extension { get; set; }
 
-		public virtual byte[] Photo
-		{
-			get { return _photo; }
-			set { _photo = value; }
-		}
+		public virtual byte[] Photo { get; set; }
 
-		public virtual string Notes
-		{
-			get { return _notes; }
-			set { _notes = value; }
-		}
+		public virtual string Notes { get; set; }
 
-		public virtual string PhotoPath
-		{
-			get { return _photoPath; }
-			set { _photoPath = value; }
-		}
+		public virtual string PhotoPath { get; set; }
 
-		public virtual Employee Employee_1
-		{
-			get { return _employee_1; }
-			set { _employee_1 = value; }
-		}
+		public virtual Employee RelatedEmployee { get; set; }
 
 		[NotNull]
 		public virtual ICollection<Employee> Employees
@@ -182,7 +86,7 @@ namespace ExtMvc.Domain
 
 		public override string ToString()
 		{
-			return (_employeeId == null ? "" : _employeeId.ToString());
+			return (_firstName == null ? "" : _firstName) + " " + (_lastName == null ? "" : _lastName);
 		}
 
 
@@ -200,7 +104,7 @@ namespace ExtMvc.Domain
 			{
 				return other.EmployeeId == EmployeeId;
 			}
-			return other.EmployeeId == EmployeeId && other.LastName == LastName && other.FirstName == FirstName && other.Title == Title && other.TitleOfCourtesy == TitleOfCourtesy && other.BirthDate == BirthDate && other.HireDate == HireDate && other.Address == Address && other.City == City && other.Region == Region && other.PostalCode == PostalCode && other.Country == Country && other.HomePhone == HomePhone && other.Extension == Extension && other.Photo == Photo && other.Notes == Notes && other.PhotoPath == PhotoPath && other.Employee_1 == Employee_1 && 1 == 1 && 1 == 1 && 1 == 1;
+			return other.EmployeeId == EmployeeId && other.LastName == LastName && other.FirstName == FirstName && other.Title == Title && other.TitleOfCourtesy == TitleOfCourtesy && other.BirthDate == BirthDate && other.HireDate == HireDate && other.Address == Address && other.City == City && other.Region == Region && other.PostalCode == PostalCode && other.Country == Country && other.HomePhone == HomePhone && other.Extension == Extension && other.Photo == Photo && other.Notes == Notes && other.PhotoPath == PhotoPath && other.RelatedEmployee == RelatedEmployee && 1 == 1 && 1 == 1 && 1 == 1;
 		}
 
 		public override bool Equals(object obj)
@@ -258,7 +162,7 @@ namespace ExtMvc.Domain
 					result = (result*397) ^ ((Photo != default(byte[])) ? Photo.GetHashCode() : 0);
 					result = (result*397) ^ ((Notes != default(string)) ? Notes.GetHashCode() : 0);
 					result = (result*397) ^ ((PhotoPath != default(string)) ? PhotoPath.GetHashCode() : 0);
-					result = (result*397) ^ ((Employee_1 != default(Employee)) ? Employee_1.GetHashCode() : 0);
+					result = (result*397) ^ ((RelatedEmployee != default(Employee)) ? RelatedEmployee.GetHashCode() : 0);
 				}
 				return result;
 			}

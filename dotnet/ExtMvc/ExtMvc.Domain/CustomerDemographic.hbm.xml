@@ -6,9 +6,5 @@
 			<generator class="assigned" />
 		</id>
 		<property name="CustomerDesc" column="`CustomerDesc`" type="String" not-null="false" />
-		<set name="Customers" table="`CustomerCustomerDemo`" schema="`dbo`" inverse="true" cascade="save-update" lazy="true">
-			<key column="`CustomerTypeID`" />
-			<many-to-many class="ExtMvc.Domain.Customer, ExtMvc.Domain" column="`CustomerID`" />
-		</set>
 	</class>
 </hibernate-mapping>

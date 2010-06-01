@@ -5,20 +5,20 @@ namespace ExtMvc.Domain
 {
 	public class Territory
 	{
-		private string _territoryId;
+		private string _territoryDescription;
 
 		private ICollection<Employee> _employees = new HashSet<Employee>();
 
 
 		[NotNullNotEmpty]
-		public virtual string TerritoryId
-		{
-			get { return _territoryId; }
-			set { _territoryId = value; }
-		}
+		public virtual string TerritoryId { get; set; }
 
 		[NotNullNotEmpty]
-		public virtual string TerritoryDescription { get; set; }
+		public virtual string TerritoryDescription
+		{
+			get { return _territoryDescription; }
+			set { _territoryDescription = value; }
+		}
 
 		[NotNull]
 		public virtual ICollection<Employee> Employees
@@ -32,7 +32,7 @@ namespace ExtMvc.Domain
 
 		public override string ToString()
 		{
-			return (_territoryId ?? "");
+			return (_territoryDescription == null ? "" : _territoryDescription);
 		}
 
 

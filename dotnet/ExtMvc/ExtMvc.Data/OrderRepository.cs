@@ -37,7 +37,7 @@ namespace ExtMvc.Data
 			_northwind.GetCurrentSession().Delete(v);
 		}
 
-		public IPresentableSet<Order> Search(int? orderId, DateTime? orderDate, DateTime? requiredDate, DateTime? shippedDate, decimal? freight, string shipName, string shipAddress, string shipCity, string shipRegion, string shipPostalCode, string shipCountry)
+		public IPresentableSet<Order> SearchNormal(int? orderId, DateTime? orderDate, DateTime? requiredDate, DateTime? shippedDate, decimal? freight, string shipName, string shipAddress, string shipCity, string shipRegion, string shipPostalCode, string shipCountry, Customer customer, Employee employee, Shipper shipper)
 		{
 			IQueryable<Order> queryable = _northwind.GetCurrentSession().Linq<Order>();
 			if(orderId != default(int?))
@@ -60,29 +60,41 @@ namespace ExtMvc.Data
 			{
 				queryable = queryable.Where(x => x.Freight == freight);
 			}
-			if(shipName != default(string))
+			if(!string.IsNullOrEmpty(shipName))
 			{
-				queryable = queryable.Where(x => x.ShipName.StartsWith(shipName));
+				queryable = queryable.Where(x => x.ShipName == shipName);
 			}
-			if(shipAddress != default(string))
+			if(!string.IsNullOrEmpty(shipAddress))
 			{
-				queryable = queryable.Where(x => x.ShipAddress.StartsWith(shipAddress));
+				queryable = queryable.Where(x => x.ShipAddress == shipAddress);
 			}
-			if(shipCity != default(string))
+			if(!string.IsNullOrEmpty(shipCity))
 			{
-				queryable = queryable.Where(x => x.ShipCity.StartsWith(shipCity));
+				queryable = queryable.Where(x => x.ShipCity == shipCity);
 			}
-			if(shipRegion != default(string))
+			if(!string.IsNullOrEmpty(shipRegion))
 			{
-				queryable = queryable.Where(x => x.ShipRegion.StartsWith(shipRegion));
+				queryable = queryable.Where(x => x.ShipRegion == shipRegion);
 			}
-			if(shipPostalCode != default(string))
+			if(!string.IsNullOrEmpty(shipPostalCode))
 			{
-				queryable = queryable.Where(x => x.ShipPostalCode.StartsWith(shipPostalCode));
+				queryable = queryable.Where(x => x.ShipPostalCode == shipPostalCode);
 			}
-			if(shipCountry != default(string))
+			if(!string.IsNullOrEmpty(shipCountry))
 			{
-				queryable = queryable.Where(x => x.ShipCountry.StartsWith(shipCountry));
+				queryable = queryable.Where(x => x.ShipCountry == shipCountry);
+			}
+			if(customer != default(Customer))
+			{
+				queryable = queryable.Where(x => x.Customer == customer);
+			}
+			if(employee != default(Employee))
+			{
+				queryable = queryable.Where(x => x.Employee == employee);
+			}
+			if(shipper != default(Shipper))
+			{
+				queryable = queryable.Where(x => x.Shipper == shipper);
 			}
 
 			return new QueryablePresentableSet<Order>(queryable);

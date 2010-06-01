@@ -10,13 +10,7 @@ ExtMvc.TerritoryGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-
-								{ dataIndex: 'TerritoryId', header: 'TerritoryId' }
-								, 
-								{ dataIndex: 'TerritoryDescription', header: 'TerritoryDescription' }
-								, 
-								{ dataIndex: 'Region', header: 'Region' }
-								
+				{ dataIndex: 'TerritoryId', header: 'TerritoryId', xtype: 'gridcolumn' }, { dataIndex: 'TerritoryDescription', header: 'TerritoryDescription', xtype: 'gridcolumn' }, { dataIndex: 'Region', header: 'Region', xtype: 'ExtMvc.RegionColumn' }
 			]
 		});
 		ExtMvc.TerritoryGridPanel.superclass.initComponent.call(this);

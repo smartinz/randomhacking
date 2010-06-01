@@ -5,29 +5,15 @@ namespace ExtMvc.Domain
 {
 	public class Category
 	{
-		private int _categoryId;
-
-		private string _categoryName;
-
 		private string _description;
-
-		private byte[] _picture;
 
 		private ICollection<Product> _products = new HashSet<Product>();
 
 
-		public virtual int CategoryId
-		{
-			get { return _categoryId; }
-			set { _categoryId = value; }
-		}
+		public virtual int CategoryId { get; set; }
 
 		[NotNullNotEmpty]
-		public virtual string CategoryName
-		{
-			get { return _categoryName; }
-			set { _categoryName = value; }
-		}
+		public virtual string CategoryName { get; set; }
 
 		public virtual string Description
 		{
@@ -35,11 +21,7 @@ namespace ExtMvc.Domain
 			set { _description = value; }
 		}
 
-		public virtual byte[] Picture
-		{
-			get { return _picture; }
-			set { _picture = value; }
-		}
+		public virtual byte[] Picture { get; set; }
 
 		[NotNull]
 		public virtual ICollection<Product> Products
@@ -50,7 +32,7 @@ namespace ExtMvc.Domain
 
 		public override string ToString()
 		{
-			return (_categoryId == null ? "" : _categoryId.ToString());
+			return (_description == null ? "" : _description);
 		}
 
 

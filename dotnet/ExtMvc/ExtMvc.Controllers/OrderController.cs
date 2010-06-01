@@ -81,14 +81,18 @@ namespace ExtMvc.Controllers
 			}
 		}
 
-		public ActionResult Search(int? orderId, DateTime? orderDate, DateTime? requiredDate, DateTime? shippedDate, decimal? freight, string shipName, string shipAddress, string shipCity, string shipRegion, string shipPostalCode, string shipCountry, int start, int limit, string sort, string dir)
+		public ActionResult SearchNormal(int? orderId, DateTime? orderDate, DateTime? requiredDate, DateTime? shippedDate, decimal? freight, string shipName, string shipAddress, string shipCity, string shipRegion, string shipPostalCode, string shipCountry, CustomerReferenceDto customer, EmployeeReferenceDto employee, ShipperReferenceDto shipper, int start, int limit, string sort, string dir)
 		{
-			Log.DebugFormat("Search called");
+			Log.DebugFormat("SearchNormal called");
+
+			Customer customerMapped = _mapper.Map<CustomerReferenceDto, Customer>(customer);
+			Employee employeeMapped = _mapper.Map<EmployeeReferenceDto, Employee>(employee);
+			Shipper shipperMapped = _mapper.Map<ShipperReferenceDto, Shipper>(shipper);
 
 
 			using(_conversation.SetAsCurrent())
 			{
-				IPresentableSet<Order> set = _repository.Search(orderId, orderDate, requiredDate, shippedDate, freight, shipName, shipAddress, shipCity, shipRegion, shipPostalCode, shipCountry);
+				var set = _repository.SearchNormal(orderId, orderDate, requiredDate, shippedDate, freight, shipName, shipAddress, shipCity, shipRegion, shipPostalCode, shipCountry, customerMapped, employeeMapped, shipperMapped);
 				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
 				OrderDto[] items = _mapper.Map<IEnumerable<Order>, OrderDto[]>(set.AsEnumerable());
 				return Json(new{ items, count = set.Count() });

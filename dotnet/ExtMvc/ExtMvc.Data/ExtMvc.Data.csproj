@@ -69,8 +69,6 @@
     <Compile Include="ShipperStringConverter.cs" />
     <Compile Include="SupplierRepository.cs" />
     <Compile Include="SupplierStringConverter.cs" />
-    <Compile Include="SysdiagramRepository.cs" />
-    <Compile Include="SysdiagramStringConverter.cs" />
     <Compile Include="TerritoryRepository.cs" />
     <Compile Include="TerritoryStringConverter.cs" />
   </ItemGroup>

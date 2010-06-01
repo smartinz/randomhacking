@@ -36,20 +36,20 @@ namespace ExtMvc.Data
 			_northwind.GetCurrentSession().Delete(v);
 		}
 
-		public IPresentableSet<Shipper> Search(int? shipperId, string companyName, string phone)
+		public IPresentableSet<Shipper> SearchNormal(int? shipperId, string companyName, string phone)
 		{
 			IQueryable<Shipper> queryable = _northwind.GetCurrentSession().Linq<Shipper>();
 			if(shipperId != default(int?))
 			{
 				queryable = queryable.Where(x => x.ShipperId == shipperId);
 			}
-			if(companyName != default(string))
+			if(!string.IsNullOrEmpty(companyName))
 			{
-				queryable = queryable.Where(x => x.CompanyName.StartsWith(companyName));
+				queryable = queryable.Where(x => x.CompanyName == companyName);
 			}
-			if(phone != default(string))
+			if(!string.IsNullOrEmpty(phone))
 			{
-				queryable = queryable.Where(x => x.Phone.StartsWith(phone));
+				queryable = queryable.Where(x => x.Phone == phone);
 			}
 
 			return new QueryablePresentableSet<Shipper>(queryable);

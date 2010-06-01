@@ -7,7 +7,7 @@ ExtMvc.OrderField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
 	hideTrigger: true,
 	onTriggerClick: function () {
-		var searchPanel = new ExtMvc.OrderSearchContainer();
+		var searchPanel = new ExtMvc.OrderNormalSearchContainer();
 		this.window = new Ext.Window({
 			modal: true,
 			title: 'Search Order',
@@ -25,3 +25,5 @@ ExtMvc.OrderField = Ext.extend(Ext.form.TriggerField, {
 		this.window.close();
 	}
 });
+
+Ext.reg('ExtMvc.OrderField', ExtMvc.OrderField);

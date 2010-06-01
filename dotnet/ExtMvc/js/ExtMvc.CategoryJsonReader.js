@@ -10,7 +10,7 @@ ExtMvc.CategoryJsonReader = Ext.extend(Ext.data.JsonReader, {
 			root: 'items',
 			idProperty: 'StringId',
 			totalProperty: 'count',
-			fields: ['StringId', 'CategoryId', 'CategoryName', 'Description', 'Picture', 'Products']
+			fields: ['StringId', 'CategoryId', 'CategoryName', 'Description']
 		};
 		ExtMvc.CategoryJsonReader.superclass.constructor.call(this, Ext.apply(meta || {}, cfg), recordType);
 	}

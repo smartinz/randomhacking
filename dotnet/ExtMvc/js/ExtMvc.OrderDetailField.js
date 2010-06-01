@@ -25,3 +25,5 @@ ExtMvc.OrderDetailField = Ext.extend(Ext.form.TriggerField, {
 		this.window.close();
 	}
 });
+
+Ext.reg('ExtMvc.OrderDetailField', ExtMvc.OrderDetailField);

@@ -7,7 +7,7 @@ ExtMvc.SupplierField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
 	hideTrigger: true,
 	onTriggerClick: function () {
-		var searchPanel = new ExtMvc.SupplierSearchContainer();
+		var searchPanel = new ExtMvc.SupplierNormalSearchContainer();
 		this.window = new Ext.Window({
 			modal: true,
 			title: 'Search Supplier',
@@ -25,3 +25,5 @@ ExtMvc.SupplierField = Ext.extend(Ext.form.TriggerField, {
 		this.window.close();
 	}
 });
+
+Ext.reg('ExtMvc.SupplierField', ExtMvc.SupplierField);

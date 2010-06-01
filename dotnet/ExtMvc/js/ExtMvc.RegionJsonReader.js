@@ -10,7 +10,7 @@ ExtMvc.RegionJsonReader = Ext.extend(Ext.data.JsonReader, {
 			root: 'items',
 			idProperty: 'StringId',
 			totalProperty: 'count',
-			fields: ['StringId', 'RegionId', 'RegionDescription', 'Territories']
+			fields: ['StringId', 'RegionId', 'RegionDescription']
 		};
 		ExtMvc.RegionJsonReader.superclass.constructor.call(this, Ext.apply(meta || {}, cfg), recordType);
 	}

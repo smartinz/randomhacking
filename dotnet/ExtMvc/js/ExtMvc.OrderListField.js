@@ -61,3 +61,5 @@ ExtMvc.OrderListField = Ext.extend(Ext.form.Field, {
 		return this.gridPanel.getStore().proxy.data.items;
 	}
 });
+
+Ext.reg('ExtMvc.OrderListField', ExtMvc.OrderListField);

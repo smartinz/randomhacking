@@ -68,8 +68,6 @@
     <Compile Include="ShipperReferenceDto.cs" />
     <Compile Include="SupplierDto.cs" />
     <Compile Include="SupplierReferenceDto.cs" />
-    <Compile Include="SysdiagramDto.cs" />
-    <Compile Include="SysdiagramReferenceDto.cs" />
     <Compile Include="TerritoryDto.cs" />
     <Compile Include="TerritoryReferenceDto.cs" />
   </ItemGroup>

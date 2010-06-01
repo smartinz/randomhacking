@@ -10,11 +10,7 @@ ExtMvc.CustomerDemographicGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-
-								{ dataIndex: 'CustomerTypeId', header: 'CustomerTypeId' }
-								, 
-								{ dataIndex: 'CustomerDesc', header: 'CustomerDesc' }
-								
+				{ dataIndex: 'CustomerTypeId', header: 'CustomerTypeId', xtype: 'gridcolumn' }, { dataIndex: 'CustomerDesc', header: 'CustomerDesc', xtype: 'gridcolumn' }
 			]
 		});
 		ExtMvc.CustomerDemographicGridPanel.superclass.initComponent.call(this);

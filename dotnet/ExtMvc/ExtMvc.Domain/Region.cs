@@ -5,18 +5,12 @@ namespace ExtMvc.Domain
 {
 	public class Region
 	{
-		private int _regionId;
-
 		private string _regionDescription;
 
 		private ICollection<Territory> _territories = new HashSet<Territory>();
 
 
-		public virtual int RegionId
-		{
-			get { return _regionId; }
-			set { _regionId = value; }
-		}
+		public virtual int RegionId { get; set; }
 
 		[NotNullNotEmpty]
 		public virtual string RegionDescription
@@ -34,7 +28,7 @@ namespace ExtMvc.Domain
 
 		public override string ToString()
 		{
-			return (_regionId == null ? "" : _regionId.ToString());
+			return (_regionDescription == null ? "" : _regionDescription);
 		}
 
 

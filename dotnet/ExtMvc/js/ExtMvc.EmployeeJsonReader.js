@@ -10,7 +10,7 @@ ExtMvc.EmployeeJsonReader = Ext.extend(Ext.data.JsonReader, {
 			root: 'items',
 			idProperty: 'StringId',
 			totalProperty: 'count',
-			fields: ['StringId', 'EmployeeId', 'LastName', 'FirstName', 'Title', 'TitleOfCourtesy', 'BirthDate', 'HireDate', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'HomePhone', 'Extension', 'Photo', 'Notes', 'PhotoPath', 'Employee_1', 'Employees', 'Territories', 'Orders']
+			fields: ['StringId', 'EmployeeId', 'LastName', 'FirstName', 'Title', 'TitleOfCourtesy', 'BirthDate', 'HireDate', 'Address', 'City', 'Region', 'PostalCode', 'Country', 'HomePhone', 'Extension', 'Notes', 'PhotoPath']
 		};
 		ExtMvc.EmployeeJsonReader.superclass.constructor.call(this, Ext.apply(meta || {}, cfg), recordType);
 	}

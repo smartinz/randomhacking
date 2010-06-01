@@ -10,17 +10,7 @@ ExtMvc.OrderDetailGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-
-								{ dataIndex: 'OrderId', header: 'OrderId' }
-								, 
-								{ dataIndex: 'ProductId', header: 'ProductId' }
-								, 
-								{ dataIndex: 'UnitPrice', header: 'UnitPrice' }
-								, 
-								{ dataIndex: 'Quantity', header: 'Quantity' }
-								, 
-								{ dataIndex: 'Discount', header: 'Discount' }
-								
+				{ dataIndex: 'OrderId', header: 'OrderId', xtype: 'numbercolumn' }, { dataIndex: 'ProductId', header: 'ProductId', xtype: 'numbercolumn' }, { dataIndex: 'UnitPrice', header: 'UnitPrice', xtype: 'numbercolumn' }, { dataIndex: 'Quantity', header: 'Quantity', xtype: 'numbercolumn' }, { dataIndex: 'Discount', header: 'Discount', xtype: 'numbercolumn' }
 			]
 		});
 		ExtMvc.OrderDetailGridPanel.superclass.initComponent.call(this);

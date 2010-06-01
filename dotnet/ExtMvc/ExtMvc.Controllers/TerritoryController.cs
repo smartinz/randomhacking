@@ -80,14 +80,14 @@ namespace ExtMvc.Controllers
 			}
 		}
 
-		public ActionResult Search(string territoryId, string territoryDescription, int start, int limit, string sort, string dir)
+		public ActionResult SearchNormal(string territoryDescription, int start, int limit, string sort, string dir)
 		{
-			Log.DebugFormat("Search called");
+			Log.DebugFormat("SearchNormal called");
 
 
 			using(_conversation.SetAsCurrent())
 			{
-				IPresentableSet<Territory> set = _repository.Search(territoryId, territoryDescription);
+				var set = _repository.SearchNormal(territoryDescription);
 				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
 				TerritoryDto[] items = _mapper.Map<IEnumerable<Territory>, TerritoryDto[]>(set.AsEnumerable());
 				return Json(new{ items, count = set.Count() });

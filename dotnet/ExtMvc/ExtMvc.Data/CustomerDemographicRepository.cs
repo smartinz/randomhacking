@@ -36,16 +36,16 @@ namespace ExtMvc.Data
 			_northwind.GetCurrentSession().Delete(v);
 		}
 
-		public IPresentableSet<CustomerDemographic> Search(string customerTypeId, string customerDesc)
+		public IPresentableSet<CustomerDemographic> SearchNormal(string customerTypeId, string customerDesc)
 		{
 			IQueryable<CustomerDemographic> queryable = _northwind.GetCurrentSession().Linq<CustomerDemographic>();
-			if(customerTypeId != default(string))
+			if(!string.IsNullOrEmpty(customerTypeId))
 			{
-				queryable = queryable.Where(x => x.CustomerTypeId.StartsWith(customerTypeId));
+				queryable = queryable.Where(x => x.CustomerTypeId == customerTypeId);
 			}
-			if(customerDesc != default(string))
+			if(!string.IsNullOrEmpty(customerDesc))
 			{
-				queryable = queryable.Where(x => x.CustomerDesc.StartsWith(customerDesc));
+				queryable = queryable.Where(x => x.CustomerDesc == customerDesc);
 			}
 
 			return new QueryablePresentableSet<CustomerDemographic>(queryable);

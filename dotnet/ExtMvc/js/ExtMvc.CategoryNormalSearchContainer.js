@@ -4,7 +4,7 @@
 
 Ext.namespace('ExtMvc');
 
-ExtMvc.RegionSearchContainer = Ext.extend(Ext.Container, {
+ExtMvc.CategoryNormalSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'vbox',
 	layoutConfig: {
 		align: 'stretch',
@@ -13,12 +13,12 @@ ExtMvc.RegionSearchContainer = Ext.extend(Ext.Container, {
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
-				url: '/Region/Search'
+				url: '/Category/SearchNormal'
 			}),
 			remoteSort: true,
-			reader: new ExtMvc.RegionJsonReader()
+			reader: new ExtMvc.CategoryJsonReader()
 		});
-		this.gridPanel = new ExtMvc.RegionGridPanel({
+		this.gridPanel = new ExtMvc.CategoryGridPanel({
 			flex: 1,
 			store: store,
 			bbar: new Ext.PagingToolbar({
@@ -39,17 +39,7 @@ ExtMvc.RegionSearchContainer = Ext.extend(Ext.Container, {
 			labelWidth: 100,
 			border: false,
 			padding: 10,
-			items: [{
-				name: 'regionId',
-				xtype: 'textfield',
-				fieldLabel: 'regionId',
-				anchor: '100%'
-			}, {
-				name: 'regionDescription',
-				xtype: 'textfield',
-				fieldLabel: 'regionDescription',
-				anchor: '100%'
-			}],
+			items: [],
 			buttons: [{
 				xtype: 'button',
 				text: 'Search',
@@ -62,7 +52,7 @@ ExtMvc.RegionSearchContainer = Ext.extend(Ext.Container, {
 
 		this.addEvents('itemselected');
 
-		ExtMvc.RegionSearchContainer.superclass.initComponent.call(this);
+		ExtMvc.CategoryNormalSearchContainer.superclass.initComponent.call(this);
 	},
 
 	gridPanel_rowDblClick: function (grid, rowIndex, event) {

@@ -40,7 +40,7 @@ namespace ExtMvc.Dtos
 
 		public string PhotoPath { get; set; }
 
-		// public ExtMvc.Dtos.EmployeeReferenceDto Employee_1 { get; set; }
+		// public ExtMvc.Dtos.EmployeeReferenceDto RelatedEmployee { get; set; }
 
 		// public ExtMvc.Dtos.EmployeeReferenceDto[] Employees { get; set; }
 

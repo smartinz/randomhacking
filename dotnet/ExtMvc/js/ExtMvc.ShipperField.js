@@ -7,7 +7,7 @@ ExtMvc.ShipperField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
 	hideTrigger: true,
 	onTriggerClick: function () {
-		var searchPanel = new ExtMvc.ShipperSearchContainer();
+		var searchPanel = new ExtMvc.ShipperNormalSearchContainer();
 		this.window = new Ext.Window({
 			modal: true,
 			title: 'Search Shipper',
@@ -25,3 +25,5 @@ ExtMvc.ShipperField = Ext.extend(Ext.form.TriggerField, {
 		this.window.close();
 	}
 });
+
+Ext.reg('ExtMvc.ShipperField', ExtMvc.ShipperField);

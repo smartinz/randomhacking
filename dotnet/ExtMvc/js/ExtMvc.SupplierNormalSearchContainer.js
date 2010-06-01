@@ -4,7 +4,7 @@
 
 Ext.namespace('ExtMvc');
 
-ExtMvc.SupplierSearchContainer = Ext.extend(Ext.Container, {
+ExtMvc.SupplierNormalSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'vbox',
 	layoutConfig: {
 		align: 'stretch',
@@ -13,7 +13,7 @@ ExtMvc.SupplierSearchContainer = Ext.extend(Ext.Container, {
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
-				url: '/Supplier/Search'
+				url: '/Supplier/SearchNormal'
 			}),
 			remoteSort: true,
 			reader: new ExtMvc.SupplierJsonReader()
@@ -39,67 +39,7 @@ ExtMvc.SupplierSearchContainer = Ext.extend(Ext.Container, {
 			labelWidth: 100,
 			border: false,
 			padding: 10,
-			items: [{
-				name: 'supplierId',
-				xtype: 'textfield',
-				fieldLabel: 'supplierId',
-				anchor: '100%'
-			}, {
-				name: 'companyName',
-				xtype: 'textfield',
-				fieldLabel: 'companyName',
-				anchor: '100%'
-			}, {
-				name: 'contactName',
-				xtype: 'textfield',
-				fieldLabel: 'contactName',
-				anchor: '100%'
-			}, {
-				name: 'contactTitle',
-				xtype: 'textfield',
-				fieldLabel: 'contactTitle',
-				anchor: '100%'
-			}, {
-				name: 'address',
-				xtype: 'textfield',
-				fieldLabel: 'address',
-				anchor: '100%'
-			}, {
-				name: 'city',
-				xtype: 'textfield',
-				fieldLabel: 'city',
-				anchor: '100%'
-			}, {
-				name: 'region',
-				xtype: 'textfield',
-				fieldLabel: 'region',
-				anchor: '100%'
-			}, {
-				name: 'postalCode',
-				xtype: 'textfield',
-				fieldLabel: 'postalCode',
-				anchor: '100%'
-			}, {
-				name: 'country',
-				xtype: 'textfield',
-				fieldLabel: 'country',
-				anchor: '100%'
-			}, {
-				name: 'phone',
-				xtype: 'textfield',
-				fieldLabel: 'phone',
-				anchor: '100%'
-			}, {
-				name: 'fax',
-				xtype: 'textfield',
-				fieldLabel: 'fax',
-				anchor: '100%'
-			}, {
-				name: 'homePage',
-				xtype: 'textfield',
-				fieldLabel: 'homePage',
-				anchor: '100%'
-			}],
+			items: [{ name: 'supplierId', xtype: 'textfield', fieldLabel: 'supplierId', anchor: '100%' }, { name: 'companyName', xtype: 'textfield', fieldLabel: 'companyName', anchor: '100%' }, { name: 'contactName', xtype: 'textfield', fieldLabel: 'contactName', anchor: '100%' }, { name: 'contactTitle', xtype: 'textfield', fieldLabel: 'contactTitle', anchor: '100%' }, { name: 'address', xtype: 'textfield', fieldLabel: 'address', anchor: '100%' }, { name: 'city', xtype: 'textfield', fieldLabel: 'city', anchor: '100%' }, { name: 'region', xtype: 'textfield', fieldLabel: 'region', anchor: '100%' }, { name: 'postalCode', xtype: 'textfield', fieldLabel: 'postalCode', anchor: '100%' }, { name: 'country', xtype: 'textfield', fieldLabel: 'country', anchor: '100%' }, { name: 'phone', xtype: 'textfield', fieldLabel: 'phone', anchor: '100%' }, { name: 'fax', xtype: 'textfield', fieldLabel: 'fax', anchor: '100%' }, { name: 'homePage', xtype: 'textfield', fieldLabel: 'homePage', anchor: '100%' }],
 			buttons: [{
 				xtype: 'button',
 				text: 'Search',
@@ -112,7 +52,7 @@ ExtMvc.SupplierSearchContainer = Ext.extend(Ext.Container, {
 
 		this.addEvents('itemselected');
 
-		ExtMvc.SupplierSearchContainer.superclass.initComponent.call(this);
+		ExtMvc.SupplierNormalSearchContainer.superclass.initComponent.call(this);
 	},
 
 	gridPanel_rowDblClick: function (grid, rowIndex, event) {

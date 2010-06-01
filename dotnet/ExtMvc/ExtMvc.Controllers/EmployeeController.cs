@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using AutoMapper;
@@ -81,14 +80,14 @@ namespace ExtMvc.Controllers
 			}
 		}
 
-		public ActionResult Search(int? employeeId, string lastName, string firstName, string title, string titleOfCourtesy, DateTime? birthDate, DateTime? hireDate, string address, string city, string region, string postalCode, string country, string homePhone, string extension, string notes, string photoPath, int start, int limit, string sort, string dir)
+		public ActionResult SearchNormal(int start, int limit, string sort, string dir)
 		{
-			Log.DebugFormat("Search called");
+			Log.DebugFormat("SearchNormal called");
 
 
 			using(_conversation.SetAsCurrent())
 			{
-				IPresentableSet<Employee> set = _repository.Search(employeeId, lastName, firstName, title, titleOfCourtesy, birthDate, hireDate, address, city, region, postalCode, country, homePhone, extension, notes, photoPath);
+				var set = _repository.SearchNormal();
 				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
 				EmployeeDto[] items = _mapper.Map<IEnumerable<Employee>, EmployeeDto[]>(set.AsEnumerable());
 				return Json(new{ items, count = set.Count() });

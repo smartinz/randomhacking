@@ -36,14 +36,10 @@ namespace ExtMvc.Data
 			_northwind.GetCurrentSession().Delete(v);
 		}
 
-		public IPresentableSet<Territory> Search(string territoryId, string territoryDescription)
+		public IPresentableSet<Territory> SearchNormal(string territoryDescription)
 		{
 			IQueryable<Territory> queryable = _northwind.GetCurrentSession().Linq<Territory>();
-			if(territoryId != default(string))
-			{
-				queryable = queryable.Where(x => x.TerritoryId.StartsWith(territoryId));
-			}
-			if(territoryDescription != default(string))
+			if(!string.IsNullOrEmpty(territoryDescription))
 			{
 				queryable = queryable.Where(x => x.TerritoryDescription.StartsWith(territoryDescription));
 			}

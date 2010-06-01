@@ -80,14 +80,14 @@ namespace ExtMvc.Controllers
 			}
 		}
 
-		public ActionResult Search(string customerId, string companyName, string contactName, string contactTitle, string address, string city, string region, string postalCode, string country, string phone, string fax, int start, int limit, string sort, string dir)
+		public ActionResult SearchNormal(string contactName, int start, int limit, string sort, string dir)
 		{
-			Log.DebugFormat("Search called");
+			Log.DebugFormat("SearchNormal called");
 
 
 			using(_conversation.SetAsCurrent())
 			{
-				IPresentableSet<Customer> set = _repository.Search(customerId, companyName, contactName, contactTitle, address, city, region, postalCode, country, phone, fax);
+				var set = _repository.SearchNormal(contactName);
 				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
 				CustomerDto[] items = _mapper.Map<IEnumerable<Customer>, CustomerDto[]>(set.AsEnumerable());
 				return Json(new{ items, count = set.Count() });

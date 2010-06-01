@@ -5,20 +5,12 @@ namespace ExtMvc.Domain
 {
 	public class Shipper
 	{
-		private int _shipperId;
-
 		private string _companyName;
-
-		private string _phone;
 
 		private ICollection<Order> _orders = new HashSet<Order>();
 
 
-		public virtual int ShipperId
-		{
-			get { return _shipperId; }
-			set { _shipperId = value; }
-		}
+		public virtual int ShipperId { get; set; }
 
 		[NotNullNotEmpty]
 		public virtual string CompanyName
@@ -27,11 +19,7 @@ namespace ExtMvc.Domain
 			set { _companyName = value; }
 		}
 
-		public virtual string Phone
-		{
-			get { return _phone; }
-			set { _phone = value; }
-		}
+		public virtual string Phone { get; set; }
 
 		[NotNull]
 		public virtual ICollection<Order> Orders
@@ -42,7 +30,7 @@ namespace ExtMvc.Domain
 
 		public override string ToString()
 		{
-			return (_shipperId == null ? "" : _shipperId.ToString());
+			return (_companyName == null ? "" : _companyName);
 		}
 
 

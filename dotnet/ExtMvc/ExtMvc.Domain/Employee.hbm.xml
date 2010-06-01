@@ -21,7 +21,7 @@
 		<property name="Photo" column="`Photo`" type="BinaryBlob" not-null="false" />
 		<property name="Notes" column="`Notes`" type="String" not-null="false" />
 		<property name="PhotoPath" column="`PhotoPath`" type="String" not-null="false" />
-		<many-to-one name="Employee_1" column="`ReportsTo`" class="ExtMvc.Domain.Employee, ExtMvc.Domain" />
+		<many-to-one name="RelatedEmployee" column="`ReportsTo`" class="ExtMvc.Domain.Employee, ExtMvc.Domain" />
 		<set name="Employees" inverse="true" cascade="save-update" lazy="true">
 			<key column="`ReportsTo`" />
 			<one-to-many class="ExtMvc.Domain.Employee, ExtMvc.Domain" />

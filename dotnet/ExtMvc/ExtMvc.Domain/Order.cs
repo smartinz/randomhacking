@@ -6,32 +6,6 @@ namespace ExtMvc.Domain
 	{
 		private int _orderId;
 
-		private DateTime? _orderDate;
-
-		private DateTime? _requiredDate;
-
-		private DateTime? _shippedDate;
-
-		private decimal? _freight;
-
-		private string _shipName;
-
-		private string _shipAddress;
-
-		private string _shipCity;
-
-		private string _shipRegion;
-
-		private string _shipPostalCode;
-
-		private string _shipCountry;
-
-		private Customer _customer;
-
-		private Employee _employee;
-
-		private Shipper _shipper;
-
 
 		public virtual int OrderId
 		{
@@ -39,83 +13,31 @@ namespace ExtMvc.Domain
 			set { _orderId = value; }
 		}
 
-		public virtual DateTime? OrderDate
-		{
-			get { return _orderDate; }
-			set { _orderDate = value; }
-		}
+		public virtual DateTime? OrderDate { get; set; }
 
-		public virtual DateTime? RequiredDate
-		{
-			get { return _requiredDate; }
-			set { _requiredDate = value; }
-		}
+		public virtual DateTime? RequiredDate { get; set; }
 
-		public virtual DateTime? ShippedDate
-		{
-			get { return _shippedDate; }
-			set { _shippedDate = value; }
-		}
+		public virtual DateTime? ShippedDate { get; set; }
 
-		public virtual decimal? Freight
-		{
-			get { return _freight; }
-			set { _freight = value; }
-		}
+		public virtual decimal? Freight { get; set; }
 
-		public virtual string ShipName
-		{
-			get { return _shipName; }
-			set { _shipName = value; }
-		}
+		public virtual string ShipName { get; set; }
 
-		public virtual string ShipAddress
-		{
-			get { return _shipAddress; }
-			set { _shipAddress = value; }
-		}
+		public virtual string ShipAddress { get; set; }
 
-		public virtual string ShipCity
-		{
-			get { return _shipCity; }
-			set { _shipCity = value; }
-		}
+		public virtual string ShipCity { get; set; }
 
-		public virtual string ShipRegion
-		{
-			get { return _shipRegion; }
-			set { _shipRegion = value; }
-		}
+		public virtual string ShipRegion { get; set; }
 
-		public virtual string ShipPostalCode
-		{
-			get { return _shipPostalCode; }
-			set { _shipPostalCode = value; }
-		}
+		public virtual string ShipPostalCode { get; set; }
 
-		public virtual string ShipCountry
-		{
-			get { return _shipCountry; }
-			set { _shipCountry = value; }
-		}
+		public virtual string ShipCountry { get; set; }
 
-		public virtual Customer Customer
-		{
-			get { return _customer; }
-			set { _customer = value; }
-		}
+		public virtual Customer Customer { get; set; }
 
-		public virtual Employee Employee
-		{
-			get { return _employee; }
-			set { _employee = value; }
-		}
+		public virtual Employee Employee { get; set; }
 
-		public virtual Shipper Shipper
-		{
-			get { return _shipper; }
-			set { _shipper = value; }
-		}
+		public virtual Shipper Shipper { get; set; }
 
 		public override string ToString()
 		{

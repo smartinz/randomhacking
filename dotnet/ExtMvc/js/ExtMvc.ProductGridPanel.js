@@ -10,27 +10,7 @@ ExtMvc.ProductGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-
-								{ dataIndex: 'ProductId', header: 'ProductId' }
-								, 
-								{ dataIndex: 'ProductName', header: 'ProductName' }
-								, 
-								{ dataIndex: 'QuantityPerUnit', header: 'QuantityPerUnit' }
-								, 
-								{ dataIndex: 'UnitPrice', header: 'UnitPrice' }
-								, 
-								{ dataIndex: 'UnitsInStock', header: 'UnitsInStock' }
-								, 
-								{ dataIndex: 'UnitsOnOrder', header: 'UnitsOnOrder' }
-								, 
-								{ dataIndex: 'ReorderLevel', header: 'ReorderLevel' }
-								, 
-								{ dataIndex: 'Discontinued', header: 'Discontinued' }
-								, 
-								{ dataIndex: 'Category', header: 'Category' }
-								, 
-								{ dataIndex: 'Supplier', header: 'Supplier' }
-								
+				{ dataIndex: 'ProductId', header: 'ProductId', xtype: 'numbercolumn' }, { dataIndex: 'ProductName', header: 'ProductName', xtype: 'gridcolumn' }, { dataIndex: 'QuantityPerUnit', header: 'QuantityPerUnit', xtype: 'gridcolumn' }, { dataIndex: 'UnitPrice', header: 'UnitPrice', xtype: 'numbercolumn' }, { dataIndex: 'UnitsInStock', header: 'UnitsInStock', xtype: 'numbercolumn' }, { dataIndex: 'UnitsOnOrder', header: 'UnitsOnOrder', xtype: 'numbercolumn' }, { dataIndex: 'ReorderLevel', header: 'ReorderLevel', xtype: 'numbercolumn' }, { dataIndex: 'Discontinued', header: 'Discontinued', xtype: 'booleancolumn' }, { dataIndex: 'Category', header: 'Category', xtype: 'ExtMvc.CategoryColumn' }
 			]
 		});
 		ExtMvc.ProductGridPanel.superclass.initComponent.call(this);

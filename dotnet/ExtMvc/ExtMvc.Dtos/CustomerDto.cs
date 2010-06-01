@@ -26,7 +26,7 @@ namespace ExtMvc.Dtos
 
 		public string Fax { get; set; }
 
-		// public ExtMvc.Dtos.CustomerDemographicReferenceDto[] Customerdemographics { get; set; }
+		public CustomerDemographicDto[] Customerdemographics { get; set; }
 
 		// public ExtMvc.Dtos.OrderReferenceDto[] Orders { get; set; }
 	}

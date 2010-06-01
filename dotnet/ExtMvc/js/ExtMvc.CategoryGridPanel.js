@@ -10,15 +10,7 @@ ExtMvc.CategoryGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-
-								{ dataIndex: 'CategoryId', header: 'CategoryId' }
-								, 
-								{ dataIndex: 'CategoryName', header: 'CategoryName' }
-								, 
-								{ dataIndex: 'Description', header: 'Description' }
-								, 
-								{ dataIndex: 'Picture', header: 'Picture' }
-								
+				{ dataIndex: 'CategoryId', header: 'CategoryId', xtype: 'numbercolumn' }, { dataIndex: 'CategoryName', header: 'CategoryName', xtype: 'gridcolumn' }, { dataIndex: 'Description', header: 'Description', xtype: 'gridcolumn' }
 			]
 		});
 		ExtMvc.CategoryGridPanel.superclass.initComponent.call(this);

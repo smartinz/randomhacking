@@ -4,7 +4,7 @@
 
 Ext.namespace('ExtMvc');
 
-ExtMvc.CategorySearchContainer = Ext.extend(Ext.Container, {
+ExtMvc.ProductNormalSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'vbox',
 	layoutConfig: {
 		align: 'stretch',
@@ -13,12 +13,12 @@ ExtMvc.CategorySearchContainer = Ext.extend(Ext.Container, {
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
-				url: '/Category/Search'
+				url: '/Product/SearchNormal'
 			}),
 			remoteSort: true,
-			reader: new ExtMvc.CategoryJsonReader()
+			reader: new ExtMvc.ProductJsonReader()
 		});
-		this.gridPanel = new ExtMvc.CategoryGridPanel({
+		this.gridPanel = new ExtMvc.ProductGridPanel({
 			flex: 1,
 			store: store,
 			bbar: new Ext.PagingToolbar({
@@ -39,22 +39,7 @@ ExtMvc.CategorySearchContainer = Ext.extend(Ext.Container, {
 			labelWidth: 100,
 			border: false,
 			padding: 10,
-			items: [{
-				name: 'categoryId',
-				xtype: 'textfield',
-				fieldLabel: 'categoryId',
-				anchor: '100%'
-			}, {
-				name: 'categoryName',
-				xtype: 'textfield',
-				fieldLabel: 'categoryName',
-				anchor: '100%'
-			}, {
-				name: 'description',
-				xtype: 'textfield',
-				fieldLabel: 'description',
-				anchor: '100%'
-			}],
+			items: [{ name: 'productId', xtype: 'textfield', fieldLabel: 'productId', anchor: '100%' }, { name: 'productName', xtype: 'textfield', fieldLabel: 'productName', anchor: '100%' }, { name: 'discontinued', xtype: 'textfield', fieldLabel: 'discontinued', anchor: '100%' }, { name: 'category', xtype: 'ExtMvc.CategoryField', fieldLabel: 'category', anchor: '100%' }, { name: 'supplier', xtype: 'ExtMvc.SupplierField', fieldLabel: 'supplier', anchor: '100%' }],
 			buttons: [{
 				xtype: 'button',
 				text: 'Search',
@@ -67,7 +52,7 @@ ExtMvc.CategorySearchContainer = Ext.extend(Ext.Container, {
 
 		this.addEvents('itemselected');
 
-		ExtMvc.CategorySearchContainer.superclass.initComponent.call(this);
+		ExtMvc.ProductNormalSearchContainer.superclass.initComponent.call(this);
 	},
 
 	gridPanel_rowDblClick: function (grid, rowIndex, event) {

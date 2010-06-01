@@ -10,35 +10,7 @@ ExtMvc.OrderGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-
-								{ dataIndex: 'OrderId', header: 'OrderId' }
-								, 
-								{ dataIndex: 'OrderDate', header: 'OrderDate' }
-								, 
-								{ dataIndex: 'RequiredDate', header: 'RequiredDate' }
-								, 
-								{ dataIndex: 'ShippedDate', header: 'ShippedDate' }
-								, 
-								{ dataIndex: 'Freight', header: 'Freight' }
-								, 
-								{ dataIndex: 'ShipName', header: 'ShipName' }
-								, 
-								{ dataIndex: 'ShipAddress', header: 'ShipAddress' }
-								, 
-								{ dataIndex: 'ShipCity', header: 'ShipCity' }
-								, 
-								{ dataIndex: 'ShipRegion', header: 'ShipRegion' }
-								, 
-								{ dataIndex: 'ShipPostalCode', header: 'ShipPostalCode' }
-								, 
-								{ dataIndex: 'ShipCountry', header: 'ShipCountry' }
-								, 
-								{ dataIndex: 'Customer', header: 'Customer' }
-								, 
-								{ dataIndex: 'Employee', header: 'Employee' }
-								, 
-								{ dataIndex: 'Shipper', header: 'Shipper' }
-								
+				{ dataIndex: 'OrderId', header: 'OrderId', xtype: 'numbercolumn' }, { dataIndex: 'OrderDate', header: 'OrderDate', xtype: 'datecolumn' }, { dataIndex: 'RequiredDate', header: 'RequiredDate', xtype: 'datecolumn' }, { dataIndex: 'ShippedDate', header: 'ShippedDate', xtype: 'datecolumn' }, { dataIndex: 'Freight', header: 'Freight', xtype: 'numbercolumn' }, { dataIndex: 'ShipName', header: 'ShipName', xtype: 'gridcolumn' }, { dataIndex: 'ShipAddress', header: 'ShipAddress', xtype: 'gridcolumn' }, { dataIndex: 'ShipCity', header: 'ShipCity', xtype: 'gridcolumn' }, { dataIndex: 'ShipRegion', header: 'ShipRegion', xtype: 'gridcolumn' }, { dataIndex: 'ShipPostalCode', header: 'ShipPostalCode', xtype: 'gridcolumn' }, { dataIndex: 'ShipCountry', header: 'ShipCountry', xtype: 'gridcolumn' }, { dataIndex: 'Customer', header: 'Customer', xtype: 'ExtMvc.CustomerColumn' }, { dataIndex: 'Employee', header: 'Employee', xtype: 'ExtMvc.EmployeeColumn' }
 			]
 		});
 		ExtMvc.OrderGridPanel.superclass.initComponent.call(this);

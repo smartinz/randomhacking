@@ -5,27 +5,7 @@ namespace ExtMvc.Domain
 {
 	public class Customer
 	{
-		private string _customerId;
-
-		private string _companyName;
-
 		private string _contactName;
-
-		private string _contactTitle;
-
-		private string _address;
-
-		private string _city;
-
-		private string _region;
-
-		private string _postalCode;
-
-		private string _country;
-
-		private string _phone;
-
-		private string _fax;
 
 		private ICollection<CustomerDemographic> _customerdemographics = new HashSet<CustomerDemographic>();
 
@@ -33,18 +13,10 @@ namespace ExtMvc.Domain
 
 
 		[NotNullNotEmpty]
-		public virtual string CustomerId
-		{
-			get { return _customerId; }
-			set { _customerId = value; }
-		}
+		public virtual string CustomerId { get; set; }
 
 		[NotNullNotEmpty]
-		public virtual string CompanyName
-		{
-			get { return _companyName; }
-			set { _companyName = value; }
-		}
+		public virtual string CompanyName { get; set; }
 
 		public virtual string ContactName
 		{
@@ -52,53 +24,21 @@ namespace ExtMvc.Domain
 			set { _contactName = value; }
 		}
 
-		public virtual string ContactTitle
-		{
-			get { return _contactTitle; }
-			set { _contactTitle = value; }
-		}
+		public virtual string ContactTitle { get; set; }
 
-		public virtual string Address
-		{
-			get { return _address; }
-			set { _address = value; }
-		}
+		public virtual string Address { get; set; }
 
-		public virtual string City
-		{
-			get { return _city; }
-			set { _city = value; }
-		}
+		public virtual string City { get; set; }
 
-		public virtual string Region
-		{
-			get { return _region; }
-			set { _region = value; }
-		}
+		public virtual string Region { get; set; }
 
-		public virtual string PostalCode
-		{
-			get { return _postalCode; }
-			set { _postalCode = value; }
-		}
+		public virtual string PostalCode { get; set; }
 
-		public virtual string Country
-		{
-			get { return _country; }
-			set { _country = value; }
-		}
+		public virtual string Country { get; set; }
 
-		public virtual string Phone
-		{
-			get { return _phone; }
-			set { _phone = value; }
-		}
+		public virtual string Phone { get; set; }
 
-		public virtual string Fax
-		{
-			get { return _fax; }
-			set { _fax = value; }
-		}
+		public virtual string Fax { get; set; }
 
 		[NotNull]
 		public virtual ICollection<CustomerDemographic> Customerdemographics
@@ -116,7 +56,7 @@ namespace ExtMvc.Domain
 
 		public override string ToString()
 		{
-			return (_customerId == null ? "" : _customerId);
+			return (_contactName == null ? "" : _contactName);
 		}
 
 

@@ -10,31 +10,7 @@ ExtMvc.SupplierGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-
-								{ dataIndex: 'SupplierId', header: 'SupplierId' }
-								, 
-								{ dataIndex: 'CompanyName', header: 'CompanyName' }
-								, 
-								{ dataIndex: 'ContactName', header: 'ContactName' }
-								, 
-								{ dataIndex: 'ContactTitle', header: 'ContactTitle' }
-								, 
-								{ dataIndex: 'Address', header: 'Address' }
-								, 
-								{ dataIndex: 'City', header: 'City' }
-								, 
-								{ dataIndex: 'Region', header: 'Region' }
-								, 
-								{ dataIndex: 'PostalCode', header: 'PostalCode' }
-								, 
-								{ dataIndex: 'Country', header: 'Country' }
-								, 
-								{ dataIndex: 'Phone', header: 'Phone' }
-								, 
-								{ dataIndex: 'Fax', header: 'Fax' }
-								, 
-								{ dataIndex: 'HomePage', header: 'HomePage' }
-								
+				{ dataIndex: 'SupplierId', header: 'SupplierId', xtype: 'numbercolumn' }, { dataIndex: 'CompanyName', header: 'CompanyName', xtype: 'gridcolumn' }, { dataIndex: 'ContactName', header: 'ContactName', xtype: 'gridcolumn' }, { dataIndex: 'ContactTitle', header: 'ContactTitle', xtype: 'gridcolumn' }, { dataIndex: 'Address', header: 'Address', xtype: 'gridcolumn' }, { dataIndex: 'City', header: 'City', xtype: 'gridcolumn' }, { dataIndex: 'Region', header: 'Region', xtype: 'gridcolumn' }, { dataIndex: 'PostalCode', header: 'PostalCode', xtype: 'gridcolumn' }, { dataIndex: 'Country', header: 'Country', xtype: 'gridcolumn' }, { dataIndex: 'Phone', header: 'Phone', xtype: 'gridcolumn' }, { dataIndex: 'Fax', header: 'Fax', xtype: 'gridcolumn' }, { dataIndex: 'HomePage', header: 'HomePage', xtype: 'gridcolumn' }
 			]
 		});
 		ExtMvc.SupplierGridPanel.superclass.initComponent.call(this);

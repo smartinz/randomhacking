@@ -10,12 +10,6 @@ namespace ExtMvc.Domain
 
 		private int _productId;
 
-		private decimal _unitPrice;
-
-		private short _quantity;
-
-		private float _discount;
-
 
 		public virtual int OrderId
 		{
@@ -29,23 +23,11 @@ namespace ExtMvc.Domain
 			set { _productId = value; }
 		}
 
-		public virtual decimal UnitPrice
-		{
-			get { return _unitPrice; }
-			set { _unitPrice = value; }
-		}
+		public virtual decimal UnitPrice { get; set; }
 
-		public virtual short Quantity
-		{
-			get { return _quantity; }
-			set { _quantity = value; }
-		}
+		public virtual short Quantity { get; set; }
 
-		public virtual float Discount
-		{
-			get { return _discount; }
-			set { _discount = value; }
-		}
+		public virtual float Discount { get; set; }
 
 		public override string ToString()
 		{

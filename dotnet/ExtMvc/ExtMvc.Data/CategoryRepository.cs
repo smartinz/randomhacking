@@ -36,22 +36,9 @@ namespace ExtMvc.Data
 			_northwind.GetCurrentSession().Delete(v);
 		}
 
-		public IPresentableSet<Category> Search(int? categoryId, string categoryName, string description)
+		public IPresentableSet<Category> SearchNormal()
 		{
 			IQueryable<Category> queryable = _northwind.GetCurrentSession().Linq<Category>();
-			if(categoryId != default(int?))
-			{
-				queryable = queryable.Where(x => x.CategoryId == categoryId);
-			}
-			if(categoryName != default(string))
-			{
-				queryable = queryable.Where(x => x.CategoryName.StartsWith(categoryName));
-			}
-			if(description != default(string))
-			{
-				queryable = queryable.Where(x => x.Description.StartsWith(description));
-			}
-
 			return new QueryablePresentableSet<Category>(queryable);
 		}
 	}

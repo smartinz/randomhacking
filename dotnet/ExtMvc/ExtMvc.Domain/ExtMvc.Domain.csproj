@@ -50,7 +50,6 @@
     <Compile Include="Region.cs" />
     <Compile Include="Shipper.cs" />
     <Compile Include="Supplier.cs" />
-    <Compile Include="Sysdiagram.cs" />
     <Compile Include="Territory.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,7 +63,6 @@
     <EmbeddedResource Include="Region.hbm.xml" />
     <EmbeddedResource Include="Shipper.hbm.xml" />
     <EmbeddedResource Include="Supplier.hbm.xml" />
-    <EmbeddedResource Include="Sysdiagram.hbm.xml" />
     <EmbeddedResource Include="Territory.hbm.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -20,55 +20,55 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 				text: 'Root Node',
 				children: [{
 					text: 'Category',
-					children: [{
-						text: 'Search Category',
+						children: [{
+						text: 'Search Category Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Category', ExtMvc.CategorySearchContainer);
+								this.openTab('Search Category Normal', ExtMvc.CategoryNormalSearchContainer);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'CustomerDemographic',
-					children: [{
-						text: 'Search CustomerDemographic',
+						children: [{
+						text: 'Search CustomerDemographic Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search CustomerDemographic', ExtMvc.CustomerDemographicSearchContainer);
+								this.openTab('Search CustomerDemographic Normal', ExtMvc.CustomerDemographicNormalSearchContainer);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Customer',
-					children: [{
-						text: 'Search Customer',
+						children: [{
+						text: 'Search Customer Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Customer', ExtMvc.CustomerSearchContainer);
+								this.openTab('Search Customer Normal', ExtMvc.CustomerNormalSearchContainer);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Employee',
-					children: [{
-						text: 'Search Employee',
+						children: [{
+						text: 'Search Employee Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Employee', ExtMvc.EmployeeSearchContainer);
+								this.openTab('Search Employee Normal', ExtMvc.EmployeeNormalSearchContainer);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'OrderDetail',
-					children: [{
+						children: [{
 						text: 'Search OrderDetail',
 						leaf: true,
 						listeners: {
@@ -80,84 +80,72 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'Order',
-					children: [{
-						text: 'Search Order',
+						children: [{
+						text: 'Search Order Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Order', ExtMvc.OrderSearchContainer);
+								this.openTab('Search Order Normal', ExtMvc.OrderNormalSearchContainer);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Product',
-					children: [{
-						text: 'Search Product',
+						children: [{
+						text: 'Search Product Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Product', ExtMvc.ProductSearchContainer);
+								this.openTab('Search Product Normal', ExtMvc.ProductNormalSearchContainer);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Region',
-					children: [{
-						text: 'Search Region',
+						children: [{
+						text: 'Search Region Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Region', ExtMvc.RegionSearchContainer);
+								this.openTab('Search Region Normal', ExtMvc.RegionNormalSearchContainer);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Shipper',
-					children: [{
-						text: 'Search Shipper',
+						children: [{
+						text: 'Search Shipper Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Shipper', ExtMvc.ShipperSearchContainer);
+								this.openTab('Search Shipper Normal', ExtMvc.ShipperNormalSearchContainer);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Supplier',
-					children: [{
-						text: 'Search Supplier',
+						children: [{
+						text: 'Search Supplier Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Supplier', ExtMvc.SupplierSearchContainer);
-							},
-							scope: this
-						}
-					}]
-				}, {
-					text: 'Sysdiagram',
-					children: [{
-						text: 'Search Sysdiagram',
-						leaf: true,
-						listeners: {
-							click: function () {
-								this.openTab('Search Sysdiagram', ExtMvc.SysdiagramSearchContainer);
+								this.openTab('Search Supplier Normal', ExtMvc.SupplierNormalSearchContainer);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Territory',
-					children: [{
-						text: 'Search Territory',
+						children: [{
+						text: 'Search Territory Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Territory', ExtMvc.TerritorySearchContainer);
+								this.openTab('Search Territory Normal', ExtMvc.TerritoryNormalSearchContainer);
 							},
 							scope: this
 						}
@@ -180,7 +168,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 		this.items = [this.treePanel, this.tabPanel];
 		ExtMvc.MainViewport.superclass.initComponent.call(this);
 	},
-
+	
 	openTab: function (title, Constructor) {
 		var tab;
 

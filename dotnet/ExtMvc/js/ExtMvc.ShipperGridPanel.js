@@ -10,13 +10,7 @@ ExtMvc.ShipperGridPanel = Ext.extend(Ext.grid.GridPanel, {
 		this.colModel = new Ext.grid.ColumnModel({
 			defaults: { width: 60, sortable: true },
 			columns: [
-
-								{ dataIndex: 'ShipperId', header: 'ShipperId' }
-								, 
-								{ dataIndex: 'CompanyName', header: 'CompanyName' }
-								, 
-								{ dataIndex: 'Phone', header: 'Phone' }
-								
+				{ dataIndex: 'ShipperId', header: 'ShipperId', xtype: 'numbercolumn' }, { dataIndex: 'CompanyName', header: 'CompanyName', xtype: 'gridcolumn' }, { dataIndex: 'Phone', header: 'Phone', xtype: 'gridcolumn' }
 			]
 		});
 		ExtMvc.ShipperGridPanel.superclass.initComponent.call(this);

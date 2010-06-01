@@ -46,7 +46,7 @@ ExtMvc.ProductFormPanel = Ext.extend(Ext.form.FormPanel, {
 								, 
 								{ name: 'Discontinued', fieldLabel: 'Discontinued', xtype: 'textfield', anchor: '100%' }
 								, 
-								{ name: 'Category', fieldLabel: 'Category', xtype: 'textfield', anchor: '100%' }
+								{ name: 'Category', fieldLabel: 'Category', xtype: 'ExtMvc.CategoryField', anchor: '100%' }
 								
 			]
 		}];

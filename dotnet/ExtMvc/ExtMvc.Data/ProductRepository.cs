@@ -36,40 +36,28 @@ namespace ExtMvc.Data
 			_northwind.GetCurrentSession().Delete(v);
 		}
 
-		public IPresentableSet<Product> Search(int? productId, string productName, string quantityPerUnit, decimal? unitPrice, short? unitsInStock, short? unitsOnOrder, short? reorderLevel, bool? discontinued)
+		public IPresentableSet<Product> SearchNormal(int? productId, string productName, bool? discontinued, Category category, Supplier supplier)
 		{
 			IQueryable<Product> queryable = _northwind.GetCurrentSession().Linq<Product>();
 			if(productId != default(int?))
 			{
 				queryable = queryable.Where(x => x.ProductId == productId);
 			}
-			if(productName != default(string))
+			if(!string.IsNullOrEmpty(productName))
 			{
 				queryable = queryable.Where(x => x.ProductName.StartsWith(productName));
-			}
-			if(quantityPerUnit != default(string))
-			{
-				queryable = queryable.Where(x => x.QuantityPerUnit.StartsWith(quantityPerUnit));
-			}
-			if(unitPrice != default(decimal?))
-			{
-				queryable = queryable.Where(x => x.UnitPrice == unitPrice);
-			}
-			if(unitsInStock != default(short?))
-			{
-				queryable = queryable.Where(x => x.UnitsInStock == unitsInStock);
-			}
-			if(unitsOnOrder != default(short?))
-			{
-				queryable = queryable.Where(x => x.UnitsOnOrder == unitsOnOrder);
-			}
-			if(reorderLevel != default(short?))
-			{
-				queryable = queryable.Where(x => x.ReorderLevel == reorderLevel);
 			}
 			if(discontinued != default(bool?))
 			{
 				queryable = queryable.Where(x => x.Discontinued == discontinued);
+			}
+			if(category != default(Category))
+			{
+				queryable = queryable.Where(x => x.Category == category);
+			}
+			if(supplier != default(Supplier))
+			{
+				queryable = queryable.Where(x => x.Supplier == supplier);
 			}
 
 			return new QueryablePresentableSet<Product>(queryable);

@@ -7,7 +7,7 @@ ExtMvc.ProductField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
 	hideTrigger: true,
 	onTriggerClick: function () {
-		var searchPanel = new ExtMvc.ProductSearchContainer();
+		var searchPanel = new ExtMvc.ProductNormalSearchContainer();
 		this.window = new Ext.Window({
 			modal: true,
 			title: 'Search Product',
@@ -25,3 +25,5 @@ ExtMvc.ProductField = Ext.extend(Ext.form.TriggerField, {
 		this.window.close();
 	}
 });
+
+Ext.reg('ExtMvc.ProductField', ExtMvc.ProductField);

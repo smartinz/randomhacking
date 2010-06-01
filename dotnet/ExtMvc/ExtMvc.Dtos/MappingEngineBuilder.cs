@@ -81,12 +81,6 @@ namespace ExtMvc.Dtos
 				.ForMember(d => d.StringId, o => o.ResolveUsing(s => sl.GetInstance<IStringConverter<Supplier>>().ToString(s)))
 				.ForMember(d => d.Description, o => o.ResolveUsing(s => s.ToString()));
 
-			Mapper.CreateMap<Sysdiagram, SysdiagramDto>()
-				.ForMember(d => d.StringId, o => o.ResolveUsing(s => sl.GetInstance<IStringConverter<Sysdiagram>>().ToString(s)));
-			Mapper.CreateMap<Sysdiagram, SysdiagramReferenceDto>()
-				.ForMember(d => d.StringId, o => o.ResolveUsing(s => sl.GetInstance<IStringConverter<Sysdiagram>>().ToString(s)))
-				.ForMember(d => d.Description, o => o.ResolveUsing(s => s.ToString()));
-
 			Mapper.CreateMap<Territory, TerritoryDto>()
 				.ForMember(d => d.StringId, o => o.ResolveUsing(s => sl.GetInstance<IStringConverter<Territory>>().ToString(s)));
 			Mapper.CreateMap<Territory, TerritoryReferenceDto>()
@@ -111,7 +105,6 @@ namespace ExtMvc.Dtos
 			Mapper.CreateMap<CustomerDemographicDto, CustomerDemographic>()
 				.ConstructUsing(s => sl.GetInstance<IStringConverter<CustomerDemographic>>().FromString(s.StringId))
 				.ForMember(d => d.CustomerTypeId, o => o.Ignore())
-				.ForMember(d => d.Customers, o => o.Ignore())
 				;
 			Mapper.CreateMap<CustomerDemographicReferenceDto, CustomerDemographic>()
 				.ConstructUsing(s => sl.GetInstance<IStringConverter<CustomerDemographic>>().FromString(s.StringId))
@@ -120,7 +113,6 @@ namespace ExtMvc.Dtos
 			Mapper.CreateMap<CustomerDto, Customer>()
 				.ConstructUsing(s => sl.GetInstance<IStringConverter<Customer>>().FromString(s.StringId))
 				.ForMember(d => d.CustomerId, o => o.Ignore())
-				.ForMember(d => d.Customerdemographics, o => o.Ignore())
 				.ForMember(d => d.Orders, o => o.Ignore())
 				;
 			Mapper.CreateMap<CustomerReferenceDto, Customer>()
@@ -131,7 +123,7 @@ namespace ExtMvc.Dtos
 				.ConstructUsing(s => sl.GetInstance<IStringConverter<Employee>>().FromString(s.StringId))
 				.ForMember(d => d.EmployeeId, o => o.Ignore())
 				.ForMember(d => d.Photo, o => o.Ignore())
-				.ForMember(d => d.Employee_1, o => o.Ignore())
+				.ForMember(d => d.RelatedEmployee, o => o.Ignore())
 				.ForMember(d => d.Employees, o => o.Ignore())
 				.ForMember(d => d.Territories, o => o.Ignore())
 				.ForMember(d => d.Orders, o => o.Ignore())
@@ -192,15 +184,6 @@ namespace ExtMvc.Dtos
 				;
 			Mapper.CreateMap<SupplierReferenceDto, Supplier>()
 				.ConstructUsing(s => sl.GetInstance<IStringConverter<Supplier>>().FromString(s.StringId))
-				.ForAllMembers(o => o.Ignore());
-
-			Mapper.CreateMap<SysdiagramDto, Sysdiagram>()
-				.ConstructUsing(s => sl.GetInstance<IStringConverter<Sysdiagram>>().FromString(s.StringId))
-				.ForMember(d => d.DiagramId, o => o.Ignore())
-				.ForMember(d => d.Definition, o => o.Ignore())
-				;
-			Mapper.CreateMap<SysdiagramReferenceDto, Sysdiagram>()
-				.ConstructUsing(s => sl.GetInstance<IStringConverter<Sysdiagram>>().FromString(s.StringId))
 				.ForAllMembers(o => o.Ignore());
 
 			Mapper.CreateMap<TerritoryDto, Territory>()

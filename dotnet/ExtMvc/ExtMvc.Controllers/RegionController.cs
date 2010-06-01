@@ -80,14 +80,14 @@ namespace ExtMvc.Controllers
 			}
 		}
 
-		public ActionResult Search(int? regionId, string regionDescription, int start, int limit, string sort, string dir)
+		public ActionResult SearchNormal(int? regionId, string regionDescription, int start, int limit, string sort, string dir)
 		{
-			Log.DebugFormat("Search called");
+			Log.DebugFormat("SearchNormal called");
 
 
 			using(_conversation.SetAsCurrent())
 			{
-				IPresentableSet<Region> set = _repository.Search(regionId, regionDescription);
+				var set = _repository.SearchNormal(regionId, regionDescription);
 				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
 				RegionDto[] items = _mapper.Map<IEnumerable<Region>, RegionDto[]>(set.AsEnumerable());
 				return Json(new{ items, count = set.Count() });

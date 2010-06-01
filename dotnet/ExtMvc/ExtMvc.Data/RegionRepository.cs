@@ -36,16 +36,16 @@ namespace ExtMvc.Data
 			_northwind.GetCurrentSession().Delete(v);
 		}
 
-		public IPresentableSet<Region> Search(int? regionId, string regionDescription)
+		public IPresentableSet<Region> SearchNormal(int? regionId, string regionDescription)
 		{
 			IQueryable<Region> queryable = _northwind.GetCurrentSession().Linq<Region>();
 			if(regionId != default(int?))
 			{
 				queryable = queryable.Where(x => x.RegionId == regionId);
 			}
-			if(regionDescription != default(string))
+			if(!string.IsNullOrEmpty(regionDescription))
 			{
-				queryable = queryable.Where(x => x.RegionDescription.StartsWith(regionDescription));
+				queryable = queryable.Where(x => x.RegionDescription == regionDescription);
 			}
 
 			return new QueryablePresentableSet<Region>(queryable);

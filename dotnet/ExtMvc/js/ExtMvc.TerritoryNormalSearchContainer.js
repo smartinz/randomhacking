@@ -4,7 +4,7 @@
 
 Ext.namespace('ExtMvc');
 
-ExtMvc.SysdiagramSearchContainer = Ext.extend(Ext.Container, {
+ExtMvc.TerritoryNormalSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'vbox',
 	layoutConfig: {
 		align: 'stretch',
@@ -13,12 +13,12 @@ ExtMvc.SysdiagramSearchContainer = Ext.extend(Ext.Container, {
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
-				url: '/Sysdiagram/Search'
+				url: '/Territory/SearchNormal'
 			}),
 			remoteSort: true,
-			reader: new ExtMvc.SysdiagramJsonReader()
+			reader: new ExtMvc.TerritoryJsonReader()
 		});
-		this.gridPanel = new ExtMvc.SysdiagramGridPanel({
+		this.gridPanel = new ExtMvc.TerritoryGridPanel({
 			flex: 1,
 			store: store,
 			bbar: new Ext.PagingToolbar({
@@ -39,27 +39,7 @@ ExtMvc.SysdiagramSearchContainer = Ext.extend(Ext.Container, {
 			labelWidth: 100,
 			border: false,
 			padding: 10,
-			items: [{
-				name: 'name',
-				xtype: 'textfield',
-				fieldLabel: 'name',
-				anchor: '100%'
-			}, {
-				name: 'principalId',
-				xtype: 'textfield',
-				fieldLabel: 'principalId',
-				anchor: '100%'
-			}, {
-				name: 'diagramId',
-				xtype: 'textfield',
-				fieldLabel: 'diagramId',
-				anchor: '100%'
-			}, {
-				name: 'version',
-				xtype: 'textfield',
-				fieldLabel: 'version',
-				anchor: '100%'
-			}],
+			items: [{ name: 'territoryDescription', xtype: 'textfield', fieldLabel: 'territoryDescription', anchor: '100%' }],
 			buttons: [{
 				xtype: 'button',
 				text: 'Search',
@@ -72,7 +52,7 @@ ExtMvc.SysdiagramSearchContainer = Ext.extend(Ext.Container, {
 
 		this.addEvents('itemselected');
 
-		ExtMvc.SysdiagramSearchContainer.superclass.initComponent.call(this);
+		ExtMvc.TerritoryNormalSearchContainer.superclass.initComponent.call(this);
 	},
 
 	gridPanel_rowDblClick: function (grid, rowIndex, event) {

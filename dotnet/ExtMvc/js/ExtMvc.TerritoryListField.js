@@ -61,3 +61,5 @@ ExtMvc.TerritoryListField = Ext.extend(Ext.form.Field, {
 		return this.gridPanel.getStore().proxy.data.items;
 	}
 });
+
+Ext.reg('ExtMvc.TerritoryListField', ExtMvc.TerritoryListField);

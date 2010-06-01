@@ -4,7 +4,7 @@
 
 Ext.namespace('ExtMvc');
 
-ExtMvc.OrderSearchContainer = Ext.extend(Ext.Container, {
+ExtMvc.CustomerDemographicNormalSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'vbox',
 	layoutConfig: {
 		align: 'stretch',
@@ -13,12 +13,12 @@ ExtMvc.OrderSearchContainer = Ext.extend(Ext.Container, {
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
-				url: '/Order/Search'
+				url: '/CustomerDemographic/SearchNormal'
 			}),
 			remoteSort: true,
-			reader: new ExtMvc.OrderJsonReader()
+			reader: new ExtMvc.CustomerDemographicJsonReader()
 		});
-		this.gridPanel = new ExtMvc.OrderGridPanel({
+		this.gridPanel = new ExtMvc.CustomerDemographicGridPanel({
 			flex: 1,
 			store: store,
 			bbar: new Ext.PagingToolbar({
@@ -39,62 +39,7 @@ ExtMvc.OrderSearchContainer = Ext.extend(Ext.Container, {
 			labelWidth: 100,
 			border: false,
 			padding: 10,
-			items: [{
-				name: 'orderId',
-				xtype: 'textfield',
-				fieldLabel: 'orderId',
-				anchor: '100%'
-			}, {
-				name: 'orderDate',
-				xtype: 'textfield',
-				fieldLabel: 'orderDate',
-				anchor: '100%'
-			}, {
-				name: 'requiredDate',
-				xtype: 'textfield',
-				fieldLabel: 'requiredDate',
-				anchor: '100%'
-			}, {
-				name: 'shippedDate',
-				xtype: 'textfield',
-				fieldLabel: 'shippedDate',
-				anchor: '100%'
-			}, {
-				name: 'freight',
-				xtype: 'textfield',
-				fieldLabel: 'freight',
-				anchor: '100%'
-			}, {
-				name: 'shipName',
-				xtype: 'textfield',
-				fieldLabel: 'shipName',
-				anchor: '100%'
-			}, {
-				name: 'shipAddress',
-				xtype: 'textfield',
-				fieldLabel: 'shipAddress',
-				anchor: '100%'
-			}, {
-				name: 'shipCity',
-				xtype: 'textfield',
-				fieldLabel: 'shipCity',
-				anchor: '100%'
-			}, {
-				name: 'shipRegion',
-				xtype: 'textfield',
-				fieldLabel: 'shipRegion',
-				anchor: '100%'
-			}, {
-				name: 'shipPostalCode',
-				xtype: 'textfield',
-				fieldLabel: 'shipPostalCode',
-				anchor: '100%'
-			}, {
-				name: 'shipCountry',
-				xtype: 'textfield',
-				fieldLabel: 'shipCountry',
-				anchor: '100%'
-			}],
+			items: [{ name: 'customerTypeId', xtype: 'textfield', fieldLabel: 'customerTypeId', anchor: '100%' }, { name: 'customerDesc', xtype: 'textfield', fieldLabel: 'customerDesc', anchor: '100%' }],
 			buttons: [{
 				xtype: 'button',
 				text: 'Search',
@@ -107,7 +52,7 @@ ExtMvc.OrderSearchContainer = Ext.extend(Ext.Container, {
 
 		this.addEvents('itemselected');
 
-		ExtMvc.OrderSearchContainer.superclass.initComponent.call(this);
+		ExtMvc.CustomerDemographicNormalSearchContainer.superclass.initComponent.call(this);
 	},
 
 	gridPanel_rowDblClick: function (grid, rowIndex, event) {

@@ -10,7 +10,7 @@ ExtMvc.ShipperJsonReader = Ext.extend(Ext.data.JsonReader, {
 			root: 'items',
 			idProperty: 'StringId',
 			totalProperty: 'count',
-			fields: ['StringId', 'ShipperId', 'CompanyName', 'Phone', 'Orders']
+			fields: ['StringId', 'ShipperId', 'CompanyName', 'Phone']
 		};
 		ExtMvc.ShipperJsonReader.superclass.constructor.call(this, Ext.apply(meta || {}, cfg), recordType);
 	}

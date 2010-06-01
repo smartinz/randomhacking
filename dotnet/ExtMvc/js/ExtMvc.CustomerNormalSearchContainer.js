@@ -4,7 +4,7 @@
 
 Ext.namespace('ExtMvc');
 
-ExtMvc.TerritorySearchContainer = Ext.extend(Ext.Container, {
+ExtMvc.CustomerNormalSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'vbox',
 	layoutConfig: {
 		align: 'stretch',
@@ -13,12 +13,12 @@ ExtMvc.TerritorySearchContainer = Ext.extend(Ext.Container, {
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
-				url: '/Territory/Search'
+				url: '/Customer/SearchNormal'
 			}),
 			remoteSort: true,
-			reader: new ExtMvc.TerritoryJsonReader()
+			reader: new ExtMvc.CustomerJsonReader()
 		});
-		this.gridPanel = new ExtMvc.TerritoryGridPanel({
+		this.gridPanel = new ExtMvc.CustomerGridPanel({
 			flex: 1,
 			store: store,
 			bbar: new Ext.PagingToolbar({
@@ -39,17 +39,7 @@ ExtMvc.TerritorySearchContainer = Ext.extend(Ext.Container, {
 			labelWidth: 100,
 			border: false,
 			padding: 10,
-			items: [{
-				name: 'territoryId',
-				xtype: 'textfield',
-				fieldLabel: 'territoryId',
-				anchor: '100%'
-			}, {
-				name: 'territoryDescription',
-				xtype: 'textfield',
-				fieldLabel: 'territoryDescription',
-				anchor: '100%'
-			}],
+			items: [{ name: 'contactName', xtype: 'textfield', fieldLabel: 'contactName', anchor: '100%' }],
 			buttons: [{
 				xtype: 'button',
 				text: 'Search',
@@ -62,7 +52,7 @@ ExtMvc.TerritorySearchContainer = Ext.extend(Ext.Container, {
 
 		this.addEvents('itemselected');
 
-		ExtMvc.TerritorySearchContainer.superclass.initComponent.call(this);
+		ExtMvc.CustomerNormalSearchContainer.superclass.initComponent.call(this);
 	},
 
 	gridPanel_rowDblClick: function (grid, rowIndex, event) {

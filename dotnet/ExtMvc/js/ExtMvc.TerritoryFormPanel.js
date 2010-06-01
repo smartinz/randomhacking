@@ -34,7 +34,7 @@ ExtMvc.TerritoryFormPanel = Ext.extend(Ext.form.FormPanel, {
 								, 
 								{ name: 'TerritoryDescription', fieldLabel: 'TerritoryDescription', xtype: 'textfield', anchor: '100%' }
 								, 
-								{ name: 'Region', fieldLabel: 'Region', xtype: 'textfield', anchor: '100%' }
+								{ name: 'Region', fieldLabel: 'Region', xtype: 'ExtMvc.RegionField', anchor: '100%' }
 								
 			]
 		}];
