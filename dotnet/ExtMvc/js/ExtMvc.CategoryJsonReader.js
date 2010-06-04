@@ -4,7 +4,7 @@
 
 Ext.namespace('ExtMvc');
 
-ExtMvc.CategoryJsonReader = Ext.extend(Ext.data.JsonReader, {
+ExtMvc.CategoryJsonReader = Ext.extend(Rpc.JsonReader, {
 	constructor: function (meta, recordType) {
 		var cfg = {
 			root: 'items',

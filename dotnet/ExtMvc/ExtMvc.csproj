@@ -127,6 +127,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\JsonValueProviderFactory.cs" />
+    <Compile Include="Infrastructure\DefaultToNullModelBinder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Shared\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -1011,6 +1012,7 @@
     <Content Include="ext\resources\images\yourtheme\window\right-corners.png" />
     <Content Include="ext\resources\images\yourtheme\window\top-bottom.png" />
     <Content Include="Global.asax" />
+    <Content Include="js\ExtMvc.Category.js" />
     <Content Include="js\ExtMvc.CategoryColumn.js" />
     <Content Include="js\ExtMvc.CategoryField.js" />
     <Content Include="js\ExtMvc.CategoryFormPanel.js" />
@@ -1018,7 +1020,9 @@
     <Content Include="js\ExtMvc.CategoryJsonReader.js" />
     <Content Include="js\ExtMvc.CategoryListField.js" />
     <Content Include="js\ExtMvc.CategoryNormalSearchContainer.js" />
+    <Content Include="js\ExtMvc.Customer.js" />
     <Content Include="js\ExtMvc.CustomerColumn.js" />
+    <Content Include="js\ExtMvc.CustomerDemographic.js" />
     <Content Include="js\ExtMvc.CustomerDemographicColumn.js" />
     <Content Include="js\ExtMvc.CustomerDemographicField.js" />
     <Content Include="js\ExtMvc.CustomerDemographicFormPanel.js" />
@@ -1032,6 +1036,7 @@
     <Content Include="js\ExtMvc.CustomerJsonReader.js" />
     <Content Include="js\ExtMvc.CustomerListField.js" />
     <Content Include="js\ExtMvc.CustomerNormalSearchContainer.js" />
+    <Content Include="js\ExtMvc.Employee.js" />
     <Content Include="js\ExtMvc.EmployeeColumn.js" />
     <Content Include="js\ExtMvc.EmployeeField.js" />
     <Content Include="js\ExtMvc.EmployeeFormPanel.js" />
@@ -1040,7 +1045,9 @@
     <Content Include="js\ExtMvc.EmployeeListField.js" />
     <Content Include="js\ExtMvc.EmployeeNormalSearchContainer.js" />
     <Content Include="js\ExtMvc.MainViewPort.js" />
+    <Content Include="js\ExtMvc.Order.js" />
     <Content Include="js\ExtMvc.OrderColumn.js" />
+    <Content Include="js\ExtMvc.OrderDetail.js" />
     <Content Include="js\ExtMvc.OrderDetailColumn.js" />
     <Content Include="js\ExtMvc.OrderDetailField.js" />
     <Content Include="js\ExtMvc.OrderDetailFormPanel.js" />
@@ -1054,6 +1061,7 @@
     <Content Include="js\ExtMvc.OrderJsonReader.js" />
     <Content Include="js\ExtMvc.OrderListField.js" />
     <Content Include="js\ExtMvc.OrderNormalSearchContainer.js" />
+    <Content Include="js\ExtMvc.Product.js" />
     <Content Include="js\ExtMvc.ProductColumn.js" />
     <Content Include="js\ExtMvc.ProductField.js" />
     <Content Include="js\ExtMvc.ProductFormPanel.js" />
@@ -1061,6 +1069,7 @@
     <Content Include="js\ExtMvc.ProductJsonReader.js" />
     <Content Include="js\ExtMvc.ProductListField.js" />
     <Content Include="js\ExtMvc.ProductNormalSearchContainer.js" />
+    <Content Include="js\ExtMvc.Region.js" />
     <Content Include="js\ExtMvc.RegionColumn.js" />
     <Content Include="js\ExtMvc.RegionField.js" />
     <Content Include="js\ExtMvc.RegionFormPanel.js" />
@@ -1068,6 +1077,7 @@
     <Content Include="js\ExtMvc.RegionJsonReader.js" />
     <Content Include="js\ExtMvc.RegionListField.js" />
     <Content Include="js\ExtMvc.RegionNormalSearchContainer.js" />
+    <Content Include="js\ExtMvc.Shipper.js" />
     <Content Include="js\ExtMvc.ShipperColumn.js" />
     <Content Include="js\ExtMvc.ShipperField.js" />
     <Content Include="js\ExtMvc.ShipperFormPanel.js" />
@@ -1075,6 +1085,7 @@
     <Content Include="js\ExtMvc.ShipperJsonReader.js" />
     <Content Include="js\ExtMvc.ShipperListField.js" />
     <Content Include="js\ExtMvc.ShipperNormalSearchContainer.js" />
+    <Content Include="js\ExtMvc.Supplier.js" />
     <Content Include="js\ExtMvc.SupplierColumn.js" />
     <Content Include="js\ExtMvc.SupplierField.js" />
     <Content Include="js\ExtMvc.SupplierFormPanel.js" />
@@ -1082,6 +1093,7 @@
     <Content Include="js\ExtMvc.SupplierJsonReader.js" />
     <Content Include="js\ExtMvc.SupplierListField.js" />
     <Content Include="js\ExtMvc.SupplierNormalSearchContainer.js" />
+    <Content Include="js\ExtMvc.Territory.js" />
     <Content Include="js\ExtMvc.TerritoryColumn.js" />
     <Content Include="js\ExtMvc.TerritoryField.js" />
     <Content Include="js\ExtMvc.TerritoryFormPanel.js" />

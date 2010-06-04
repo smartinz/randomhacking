@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage" %>
+<%@ Page Language="C#" Inherits="System.Web.Mvc.ViewPage" %>
 <!doctype html>
 <html>
 	<head>
@@ -85,6 +85,17 @@
 				<script type="text/javascript" src="/js/ExtMvc.ShipperColumn.js"></script>
 				<script type="text/javascript" src="/js/ExtMvc.SupplierColumn.js"></script>
 				<script type="text/javascript" src="/js/ExtMvc.TerritoryColumn.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.Category.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.CustomerDemographic.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.Customer.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.Employee.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.OrderDetail.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.Order.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.Product.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.Region.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.Shipper.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.Supplier.js"></script>
+				<script type="text/javascript" src="/js/ExtMvc.Territory.js"></script>
 				
 		<script type="text/javascript">
 			"use strict";

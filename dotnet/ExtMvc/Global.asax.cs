@@ -13,6 +13,7 @@ using ExtMvc.Controllers;
 using ExtMvc.Data;
 using ExtMvc.Domain;
 using ExtMvc.Dtos;
+using ExtMvc.Infrastructure;
 using log4net.Config;
 using Microsoft.Practices.ServiceLocation;
 using Microsoft.Web.Mvc;
@@ -65,6 +66,7 @@ namespace ExtMvc
 			AreaRegistration.RegisterAllAreas();
 			RegisterRoutes(RouteTable.Routes);
 			ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
+			ModelBinders.Binders.DefaultBinder = new DefaultToNullModelBinder(ModelBinders.Binders.DefaultBinder);
 			ServiceLocator.SetLocatorProvider(() => new WindsorServiceLocator(ioc));
 		}
 

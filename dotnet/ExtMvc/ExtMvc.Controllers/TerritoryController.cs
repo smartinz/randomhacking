@@ -83,11 +83,9 @@ namespace ExtMvc.Controllers
 		public ActionResult SearchNormal(string territoryDescription, int start, int limit, string sort, string dir)
 		{
 			Log.DebugFormat("SearchNormal called");
-
-
 			using(_conversation.SetAsCurrent())
 			{
-				var set = _repository.SearchNormal(territoryDescription);
+				IPresentableSet<Territory> set = _repository.SearchNormal(territoryDescription);
 				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
 				TerritoryDto[] items = _mapper.Map<IEnumerable<Territory>, TerritoryDto[]>(set.AsEnumerable());
 				return Json(new{ items, count = set.Count() });

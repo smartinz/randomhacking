@@ -7,8 +7,13 @@ ExtMvc.CustomerDemographicField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
 	hideTrigger: true,
 	onTriggerClick: function () {
-		var searchPanel = new ExtMvc.CustomerDemographicNormalSearchContainer();
-		this.window = new Ext.Window({
+		var searchPanel = new ExtMvc.CustomerDemographicNormalSearchContainer({
+			listeners: {
+				itemselected: this.searchPanel_itemSelected,
+				scope: this
+			}
+		});
+		this.window = this.window || new Ext.Window({
 			modal: true,
 			title: 'Search CustomerDemographic',
 			width: 600,
@@ -16,13 +21,21 @@ ExtMvc.CustomerDemographicField = Ext.extend(Ext.form.TriggerField, {
 			layout: 'fit',
 			items: searchPanel
 		});
-		searchPanel.on('itemselected', this.searchPanel_itemSelected, this);
 		this.window.show();
 	},
 
 	searchPanel_itemSelected: function (sender, item) {
-		this.setValue(item.StringId);
-		this.window.close();
+		this.setValue(item);
+		this.window.hide();
+	},
+
+	setValue: function (v) {
+		this.selectedItem = v;
+		return ExtMvc.CustomerDemographicField.superclass.setValue.call(this, ExtMvc.CustomerDemographic.getDescription(v));
+	},
+
+	getValue: function () {
+		return this.selectedItem;
 	}
 });
 

@@ -7,8 +7,13 @@ ExtMvc.SupplierField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
 	hideTrigger: true,
 	onTriggerClick: function () {
-		var searchPanel = new ExtMvc.SupplierNormalSearchContainer();
-		this.window = new Ext.Window({
+		var searchPanel = new ExtMvc.SupplierNormalSearchContainer({
+			listeners: {
+				itemselected: this.searchPanel_itemSelected,
+				scope: this
+			}
+		});
+		this.window = this.window || new Ext.Window({
 			modal: true,
 			title: 'Search Supplier',
 			width: 600,
@@ -16,13 +21,21 @@ ExtMvc.SupplierField = Ext.extend(Ext.form.TriggerField, {
 			layout: 'fit',
 			items: searchPanel
 		});
-		searchPanel.on('itemselected', this.searchPanel_itemSelected, this);
 		this.window.show();
 	},
 
 	searchPanel_itemSelected: function (sender, item) {
-		this.setValue(item.StringId);
-		this.window.close();
+		this.setValue(item);
+		this.window.hide();
+	},
+
+	setValue: function (v) {
+		this.selectedItem = v;
+		return ExtMvc.SupplierField.superclass.setValue.call(this, ExtMvc.Supplier.getDescription(v));
+	},
+
+	getValue: function () {
+		return this.selectedItem;
 	}
 });
 

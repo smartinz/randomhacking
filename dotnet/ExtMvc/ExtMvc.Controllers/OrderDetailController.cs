@@ -83,8 +83,6 @@ namespace ExtMvc.Controllers
 		public ActionResult Search(int? orderId, int? productId, decimal? unitPrice, short? quantity, float? discount, int start, int limit, string sort, string dir)
 		{
 			Log.DebugFormat("Search called");
-
-
 			using(_conversation.SetAsCurrent())
 			{
 				IPresentableSet<OrderDetail> set = _repository.Search(orderId, productId, unitPrice, quantity, discount);

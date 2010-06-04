@@ -5,11 +5,7 @@
 Ext.namespace('ExtMvc');
 
 ExtMvc.ShipperNormalSearchContainer = Ext.extend(Ext.Container, {
-	layout: 'vbox',
-	layoutConfig: {
-		align: 'stretch',
-		pack: 'start'
-	},
+	layout: 'border',
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
@@ -19,13 +15,20 @@ ExtMvc.ShipperNormalSearchContainer = Ext.extend(Ext.Container, {
 			reader: new ExtMvc.ShipperJsonReader()
 		});
 		this.gridPanel = new ExtMvc.ShipperGridPanel({
-			flex: 1,
+			region: 'center',
 			store: store,
 			bbar: new Ext.PagingToolbar({
 				store: store,
 				displayInfo: true,
 				pageSize: 25,
-				prependButtons: true
+				prependButtons: true,
+				// TODO check http://www.extjs.com/forum/showthread.php?100775
+				listeners: {
+					beforechange: function (paging, params) {
+						var lastParams = (paging.store.lastOptions || {}).params || {};
+						Ext.applyIf(params, lastParams);
+					}
+				}
 			}),
 			listeners: {
 				rowdblclick: {
@@ -36,6 +39,12 @@ ExtMvc.ShipperNormalSearchContainer = Ext.extend(Ext.Container, {
 		});
 
 		this.searchFormPanel = new Ext.form.FormPanel({
+			title: 'Search Filters',
+			region: 'north',
+			autoHeight: true,
+			collapsible: true,
+			titleCollapse: true,
+			floatable: false,
 			labelWidth: 100,
 			border: false,
 			padding: 10,
@@ -58,6 +67,11 @@ ExtMvc.ShipperNormalSearchContainer = Ext.extend(Ext.Container, {
 	gridPanel_rowDblClick: function (grid, rowIndex, event) {
 		var item = grid.getStore().getAt(rowIndex).data;
 		this.fireEvent('itemselected', this, item);
+	},
+
+	getSelectedItem: function () {
+		var sm = this.gridPanel.getSelectionModel();
+		return sm.getCount() === 1 ? sm.getSelected().data : null;
 	},
 
 	searchClick: function (b, e) {

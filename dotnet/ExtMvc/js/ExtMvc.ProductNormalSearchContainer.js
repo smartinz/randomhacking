@@ -5,11 +5,7 @@
 Ext.namespace('ExtMvc');
 
 ExtMvc.ProductNormalSearchContainer = Ext.extend(Ext.Container, {
-	layout: 'vbox',
-	layoutConfig: {
-		align: 'stretch',
-		pack: 'start'
-	},
+	layout: 'border',
 	initComponent: function () {
 		var store = new Ext.data.Store({
 			proxy: new Rpc.JsonPostHttpProxy({
@@ -19,13 +15,20 @@ ExtMvc.ProductNormalSearchContainer = Ext.extend(Ext.Container, {
 			reader: new ExtMvc.ProductJsonReader()
 		});
 		this.gridPanel = new ExtMvc.ProductGridPanel({
-			flex: 1,
+			region: 'center',
 			store: store,
 			bbar: new Ext.PagingToolbar({
 				store: store,
 				displayInfo: true,
 				pageSize: 25,
-				prependButtons: true
+				prependButtons: true,
+				// TODO check http://www.extjs.com/forum/showthread.php?100775
+				listeners: {
+					beforechange: function (paging, params) {
+						var lastParams = (paging.store.lastOptions || {}).params || {};
+						Ext.applyIf(params, lastParams);
+					}
+				}
 			}),
 			listeners: {
 				rowdblclick: {
@@ -36,6 +39,12 @@ ExtMvc.ProductNormalSearchContainer = Ext.extend(Ext.Container, {
 		});
 
 		this.searchFormPanel = new Ext.form.FormPanel({
+			title: 'Search Filters',
+			region: 'north',
+			autoHeight: true,
+			collapsible: true,
+			titleCollapse: true,
+			floatable: false,
 			labelWidth: 100,
 			border: false,
 			padding: 10,

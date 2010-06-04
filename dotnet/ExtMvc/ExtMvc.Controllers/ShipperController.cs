@@ -83,11 +83,9 @@ namespace ExtMvc.Controllers
 		public ActionResult SearchNormal(int? shipperId, string companyName, string phone, int start, int limit, string sort, string dir)
 		{
 			Log.DebugFormat("SearchNormal called");
-
-
 			using(_conversation.SetAsCurrent())
 			{
-				var set = _repository.SearchNormal(shipperId, companyName, phone);
+				IPresentableSet<Shipper> set = _repository.SearchNormal(shipperId, companyName, phone);
 				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
 				ShipperDto[] items = _mapper.Map<IEnumerable<Shipper>, ShipperDto[]>(set.AsEnumerable());
 				return Json(new{ items, count = set.Count() });

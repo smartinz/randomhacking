@@ -83,14 +83,12 @@ namespace ExtMvc.Controllers
 		public ActionResult SearchNormal(int? productId, string productName, bool? discontinued, CategoryReferenceDto category, SupplierReferenceDto supplier, int start, int limit, string sort, string dir)
 		{
 			Log.DebugFormat("SearchNormal called");
-
-			Category categoryMapped = _mapper.Map<CategoryReferenceDto, Category>(category);
-			Supplier supplierMapped = _mapper.Map<SupplierReferenceDto, Supplier>(supplier);
-
-
 			using(_conversation.SetAsCurrent())
 			{
-				var set = _repository.SearchNormal(productId, productName, discontinued, categoryMapped, supplierMapped);
+				Category categoryMapped = _mapper.Map<CategoryReferenceDto, Category>(category);
+				Supplier supplierMapped = _mapper.Map<SupplierReferenceDto, Supplier>(supplier);
+
+				IPresentableSet<Product> set = _repository.SearchNormal(productId, productName, discontinued, categoryMapped, supplierMapped);
 				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
 				ProductDto[] items = _mapper.Map<IEnumerable<Product>, ProductDto[]>(set.AsEnumerable());
 				return Json(new{ items, count = set.Count() });
