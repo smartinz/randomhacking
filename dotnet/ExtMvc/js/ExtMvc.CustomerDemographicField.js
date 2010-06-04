@@ -7,31 +7,59 @@ ExtMvc.CustomerDemographicField = Ext.extend(Ext.form.TriggerField, {
 	editable: false,
 	hideTrigger: true,
 	onTriggerClick: function () {
-		var searchPanel = new ExtMvc.CustomerDemographicNormalSearchContainer({
-			listeners: {
-				itemselected: this.searchPanel_itemSelected,
-				scope: this
-			}
-		});
+		this.getWindow().show(this.getEl());
+	},
+
+	getWindow: function () {
 		this.window = this.window || new Ext.Window({
-			modal: true,
 			title: 'Search CustomerDemographic',
 			width: 600,
 			height: 300,
 			layout: 'fit',
-			items: searchPanel
+			maximizable: true,
+			closeAction: 'hide',
+			items: new ExtMvc.CustomerDemographicNormalSearchContainer({
+				listeners: {
+					itemselected: this.searchPanel_itemSelected,
+					scope: this
+				}
+			}),
+			buttons: [
+				{ text: 'Select None', handler: this.selectNoneButton_click, scope: this },
+				{ text: 'Select', handler: this.selectButton_click, scope: this },
+				{ text: 'Cancel', handler: this.cancelButton_click, scope: this }
+			]
 		});
-		this.window.show();
+		return this.window;
+	},
+
+	getSearchPanel: function () {
+		return this.getWindow().get(0);
 	},
 
 	searchPanel_itemSelected: function (sender, item) {
 		this.setValue(item);
-		this.window.hide();
+		this.getWindow().hide();
+	},
+
+	selectNoneButton_click: function (button, event) {
+		this.setValue(null);
+		this.getWindow().hide();
+	},
+
+	selectButton_click: function (button, event) {
+		var selectedItem = this.getSearchPanel().getSelectedItem();
+		this.setValue(selectedItem);
+		this.getWindow().hide();
+	},
+
+	cancelButton_click: function (button, event) {
+		this.getWindow().hide();
 	},
 
 	setValue: function (v) {
 		this.selectedItem = v;
-		return ExtMvc.CustomerDemographicField.superclass.setValue.call(this, ExtMvc.CustomerDemographic.getDescription(v));
+		return ExtMvc.CustomerDemographicField.superclass.setValue.call(this, ExtMvc.CustomerDemographic.toString(v));
 	},
 
 	getValue: function () {

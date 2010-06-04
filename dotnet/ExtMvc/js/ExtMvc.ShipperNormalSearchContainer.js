@@ -8,6 +8,7 @@ ExtMvc.ShipperNormalSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'border',
 	initComponent: function () {
 		var store = new Ext.data.Store({
+			autoDestroy: true,
 			proxy: new Rpc.JsonPostHttpProxy({
 				url: '/Shipper/SearchNormal'
 			}),
@@ -71,7 +72,7 @@ ExtMvc.ShipperNormalSearchContainer = Ext.extend(Ext.Container, {
 
 	getSelectedItem: function () {
 		var sm = this.gridPanel.getSelectionModel();
-		return sm.getCount() === 1 ? sm.getSelected().data : null;
+		return sm.getSelected().data;
 	},
 
 	searchClick: function (b, e) {

@@ -5,8 +5,10 @@
 Ext.namespace('ExtMvc');
 
 ExtMvc.Order = {
-	getDescription: function (o) {
-		o = o || this;
-		return o.Description || o.StringId || 'unknown';
+	toString: function (o) {
+		if(o) {
+			return o.Description || o.StringId || 'Not a ExtMvc.Order';
+		}
+		return '';
 	}
 };

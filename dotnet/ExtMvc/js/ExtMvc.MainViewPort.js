@@ -20,7 +20,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 				text: 'Root Node',
 				children: [{
 					text: 'Category',
-						children: [{
+					children: [{
 						text: 'Search Category Normal',
 						leaf: true,
 						listeners: {
@@ -32,7 +32,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'CustomerDemographic',
-						children: [{
+					children: [{
 						text: 'Search CustomerDemographic Normal',
 						leaf: true,
 						listeners: {
@@ -44,7 +44,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'Customer',
-						children: [{
+					children: [{
 						text: 'Search Customer Normal',
 						leaf: true,
 						listeners: {
@@ -56,7 +56,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'Employee',
-						children: [{
+					children: [{
 						text: 'Search Employee Normal',
 						leaf: true,
 						listeners: {
@@ -68,7 +68,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'OrderDetail',
-						children: [{
+					children: [{
 						text: 'Search OrderDetail',
 						leaf: true,
 						listeners: {
@@ -80,7 +80,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'Order',
-						children: [{
+					children: [{
 						text: 'Search Order Normal',
 						leaf: true,
 						listeners: {
@@ -92,7 +92,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'Product',
-						children: [{
+					children: [{
 						text: 'Search Product Normal',
 						leaf: true,
 						listeners: {
@@ -104,7 +104,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'Region',
-						children: [{
+					children: [{
 						text: 'Search Region Normal',
 						leaf: true,
 						listeners: {
@@ -116,7 +116,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'Shipper',
-						children: [{
+					children: [{
 						text: 'Search Shipper Normal',
 						leaf: true,
 						listeners: {
@@ -128,7 +128,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'Supplier',
-						children: [{
+					children: [{
 						text: 'Search Supplier Normal',
 						leaf: true,
 						listeners: {
@@ -140,7 +140,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 					}]
 				}, {
 					text: 'Territory',
-						children: [{
+					children: [{
 						text: 'Search Territory Normal',
 						leaf: true,
 						listeners: {
@@ -168,7 +168,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 		this.items = [this.treePanel, this.tabPanel];
 		ExtMvc.MainViewport.superclass.initComponent.call(this);
 	},
-	
+
 	openTab: function (title, Constructor) {
 		var tab;
 

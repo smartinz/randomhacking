@@ -8,6 +8,7 @@ ExtMvc.OrderDetailSearchContainer = Ext.extend(Ext.Container, {
 	layout: 'border',
 	initComponent: function () {
 		var store = new Ext.data.Store({
+			autoDestroy: true,
 			proxy: new Rpc.JsonPostHttpProxy({
 				url: '/OrderDetail/Search'
 			}),
@@ -67,6 +68,11 @@ ExtMvc.OrderDetailSearchContainer = Ext.extend(Ext.Container, {
 	gridPanel_rowDblClick: function (grid, rowIndex, event) {
 		var item = grid.getStore().getAt(rowIndex).data;
 		this.fireEvent('itemselected', this, item);
+	},
+
+	getSelectedItem: function () {
+		var sm = this.gridPanel.getSelectionModel();
+		return sm.getSelected().data;
 	},
 
 	searchClick: function (b, e) {

@@ -9,6 +9,7 @@ ExtMvc.CategoryListField = Ext.extend(Ext.form.Field, {
 		var cfg = Ext.copyTo({
 			id: this.id + '-gridpanel',
 			store: new Ext.data.Store({
+				autoDestroy: true,
 				proxy: new Ext.data.MemoryProxy({ items: [] }),
 				reader: new ExtMvc.CategoryJsonReader()
 			})
