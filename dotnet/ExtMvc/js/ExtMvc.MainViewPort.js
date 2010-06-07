@@ -20,12 +20,16 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 				text: 'Root Node',
 				children: [{
 					text: 'Category',
-						children: [{
+					children: [{
 						text: 'Search Category Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Category Normal', ExtMvc.CategoryNormalSearchContainer);
+								var tab = this.openTab('Search Category Normal', ExtMvc.CategoryNormalSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.Category.toString(item);
+									this.openTab('Category ' + description, ExtMvc.CategoryFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -34,19 +38,23 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create Category', ExtMvc.CategoryFormPanel);
+								this.openTab('New Category', ExtMvc.CategoryFormPanel);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'CustomerDemographic',
-						children: [{
+					children: [{
 						text: 'Search CustomerDemographic Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search CustomerDemographic Normal', ExtMvc.CustomerDemographicNormalSearchContainer);
+								var tab = this.openTab('Search CustomerDemographic Normal', ExtMvc.CustomerDemographicNormalSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.CustomerDemographic.toString(item);
+									this.openTab('CustomerDemographic ' + description, ExtMvc.CustomerDemographicFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -55,19 +63,23 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create CustomerDemographic', ExtMvc.CustomerDemographicFormPanel);
+								this.openTab('New CustomerDemographic', ExtMvc.CustomerDemographicFormPanel);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Customer',
-						children: [{
+					children: [{
 						text: 'Search Customer Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Customer Normal', ExtMvc.CustomerNormalSearchContainer);
+								var tab = this.openTab('Search Customer Normal', ExtMvc.CustomerNormalSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.Customer.toString(item);
+									this.openTab('Customer ' + description, ExtMvc.CustomerFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -76,19 +88,23 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create Customer', ExtMvc.CustomerFormPanel);
+								this.openTab('New Customer', ExtMvc.CustomerFormPanel);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Employee',
-						children: [{
+					children: [{
 						text: 'Search Employee Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Employee Normal', ExtMvc.EmployeeNormalSearchContainer);
+								var tab = this.openTab('Search Employee Normal', ExtMvc.EmployeeNormalSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.Employee.toString(item);
+									this.openTab('Employee ' + description, ExtMvc.EmployeeFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -97,19 +113,23 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create Employee', ExtMvc.EmployeeFormPanel);
+								this.openTab('New Employee', ExtMvc.EmployeeFormPanel);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'OrderDetail',
-						children: [{
+					children: [{
 						text: 'Search OrderDetail',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search OrderDetail', ExtMvc.OrderDetailSearchContainer);
+								var tab = this.openTab('Search OrderDetail', ExtMvc.OrderDetailSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.OrderDetail.toString(item);
+									this.openTab('OrderDetail ' + description, ExtMvc.OrderDetailFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -118,19 +138,23 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create OrderDetail', ExtMvc.OrderDetailFormPanel);
+								this.openTab('New OrderDetail', ExtMvc.OrderDetailFormPanel);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Order',
-						children: [{
+					children: [{
 						text: 'Search Order Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Order Normal', ExtMvc.OrderNormalSearchContainer);
+								var tab = this.openTab('Search Order Normal', ExtMvc.OrderNormalSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.Order.toString(item);
+									this.openTab('Order ' + description, ExtMvc.OrderFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -139,19 +163,23 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create Order', ExtMvc.OrderFormPanel);
+								this.openTab('New Order', ExtMvc.OrderFormPanel);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Product',
-						children: [{
+					children: [{
 						text: 'Search Product Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Product Normal', ExtMvc.ProductNormalSearchContainer);
+								var tab = this.openTab('Search Product Normal', ExtMvc.ProductNormalSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.Product.toString(item);
+									this.openTab('Product ' + description, ExtMvc.ProductFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -160,19 +188,23 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create Product', ExtMvc.ProductFormPanel);
+								this.openTab('New Product', ExtMvc.ProductFormPanel);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Region',
-						children: [{
+					children: [{
 						text: 'Search Region Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Region Normal', ExtMvc.RegionNormalSearchContainer);
+								var tab = this.openTab('Search Region Normal', ExtMvc.RegionNormalSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.Region.toString(item);
+									this.openTab('Region ' + description, ExtMvc.RegionFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -181,19 +213,23 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create Region', ExtMvc.RegionFormPanel);
+								this.openTab('New Region', ExtMvc.RegionFormPanel);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Shipper',
-						children: [{
+					children: [{
 						text: 'Search Shipper Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Shipper Normal', ExtMvc.ShipperNormalSearchContainer);
+								var tab = this.openTab('Search Shipper Normal', ExtMvc.ShipperNormalSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.Shipper.toString(item);
+									this.openTab('Shipper ' + description, ExtMvc.ShipperFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -202,19 +238,23 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create Shipper', ExtMvc.ShipperFormPanel);
+								this.openTab('New Shipper', ExtMvc.ShipperFormPanel);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Supplier',
-						children: [{
+					children: [{
 						text: 'Search Supplier Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Supplier Normal', ExtMvc.SupplierNormalSearchContainer);
+								var tab = this.openTab('Search Supplier Normal', ExtMvc.SupplierNormalSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.Supplier.toString(item);
+									this.openTab('Supplier ' + description, ExtMvc.SupplierFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -223,19 +263,23 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create Supplier', ExtMvc.SupplierFormPanel);
+								this.openTab('New Supplier', ExtMvc.SupplierFormPanel);
 							},
 							scope: this
 						}
 					}]
 				}, {
 					text: 'Territory',
-						children: [{
+					children: [{
 						text: 'Search Territory Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Search Territory Normal', ExtMvc.TerritoryNormalSearchContainer);
+								var tab = this.openTab('Search Territory Normal', ExtMvc.TerritoryNormalSearchContainer);
+								tab.on('itemselected', function(sender, item) {
+									var description = ExtMvc.Territory.toString(item);
+									this.openTab('Territory ' + description, ExtMvc.TerritoryFormPanel);
+								}, this);
 							},
 							scope: this
 						}
@@ -244,7 +288,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 						leaf: true,
 						listeners: {
 							click: function () {
-								this.openTab('Create Territory', ExtMvc.TerritoryFormPanel);
+								this.openTab('New Territory', ExtMvc.TerritoryFormPanel);
 							},
 							scope: this
 						}
@@ -284,5 +328,6 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 		}));
 
 		tab.show();
+		return tab;
 	}
 });
