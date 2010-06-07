@@ -13,45 +13,24 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	initComponent: function () {
-		this.buttons = [{
-			text: 'Load',
-			handler: this.loadClick,
-			scope: this
-		}, {
-			text: 'Save',
-			handler: this.saveClick,
-			scope: this
-		}];
-
 		// see http://www.extjs.com/forum/showthread.php?98131
 		this.items = [{
 			layout: 'form',
 			border: false,
 			padding: 10,
 			items: [
-
-								{ name: 'CustomerId', fieldLabel: 'CustomerId', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'CompanyName', fieldLabel: 'CompanyName', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'ContactName', fieldLabel: 'ContactName', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'ContactTitle', fieldLabel: 'ContactTitle', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'Address', fieldLabel: 'Address', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'City', fieldLabel: 'City', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'Region', fieldLabel: 'Region', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'PostalCode', fieldLabel: 'PostalCode', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'Country', fieldLabel: 'Country', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'Phone', fieldLabel: 'Phone', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'Fax', fieldLabel: 'Fax', xtype: 'textfield', anchor: '100%' }
-								
+				{ name: 'StringId', xtype: 'hidden' },
+				{ name: 'CustomerId', fieldLabel: 'CustomerId', xtype: 'textfield', anchor: '100%' },
+				{ name: 'CompanyName', fieldLabel: 'CompanyName', xtype: 'textfield', anchor: '100%' },
+				{ name: 'ContactName', fieldLabel: 'ContactName', xtype: 'textfield', anchor: '100%' },
+				{ name: 'ContactTitle', fieldLabel: 'ContactTitle', xtype: 'textfield', anchor: '100%' },
+				{ name: 'Address', fieldLabel: 'Address', xtype: 'textfield', anchor: '100%' },
+				{ name: 'City', fieldLabel: 'City', xtype: 'textfield', anchor: '100%' },
+				{ name: 'Region', fieldLabel: 'Region', xtype: 'textfield', anchor: '100%' },
+				{ name: 'PostalCode', fieldLabel: 'PostalCode', xtype: 'textfield', anchor: '100%' },
+				{ name: 'Country', fieldLabel: 'Country', xtype: 'textfield', anchor: '100%' },
+				{ name: 'Phone', fieldLabel: 'Phone', xtype: 'textfield', anchor: '100%' },
+				{ name: 'Fax', fieldLabel: 'Fax', xtype: 'textfield', anchor: '100%' }
 			]
 		}, {
 			flex: 1,
@@ -65,27 +44,29 @@ ExtMvc.CustomerFormPanel = Ext.extend(Ext.form.FormPanel, {
 			]
 		}];
 
-		ExtMvc.CustomerFormPanel.superclass.initComponent.call(this);
+		this.buttons = [
+			{ text: 'Save', handler: this.saveItemButtonHandler, scope: this }
+		];
 
-		this.getForm().on('actionfailed', this.actionFailedHandler, this);
+		ExtMvc.CustomerFormPanel.superclass.initComponent.call(this);
 	},
 
-	loadClick: function () {
+	loadItem: function (stringId) {
 		this.el.mask('Loading...', 'x-mask-loading');
 		Rpc.call({
 			url: '/Customer/Read',
-			params: { stringId: 'ALFKI' },
-			scope: this,
+			params: { stringId: stringId },
 			success: function (ret) {
 				this.getForm().setValues(ret.data);
 			},
 			callback: function () {
 				this.el.unmask();
-			}
+			},
+			scope: this
 		});
 	},
 
-	saveClick: function () {
+	saveItemButtonHandler: function () {
 		if (!this.getForm().isValid()) {
 			return;
 		}

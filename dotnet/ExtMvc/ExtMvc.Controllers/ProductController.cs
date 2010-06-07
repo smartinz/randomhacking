@@ -89,9 +89,9 @@ namespace ExtMvc.Controllers
 				Supplier supplierMapped = _mapper.Map<SupplierReferenceDto, Supplier>(supplier);
 
 				IPresentableSet<Product> set = _repository.SearchNormal(productId, productName, discontinued, categoryMapped, supplierMapped);
-				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
-				ProductDto[] items = _mapper.Map<IEnumerable<Product>, ProductDto[]>(set.AsEnumerable());
-				return Json(new{ items, count = set.Count() });
+				IEnumerable<Product> items = set.Skip(start).Take(limit).Sort(sort, dir == "ASC").AsEnumerable();
+				ProductDto[] dtos = _mapper.Map<IEnumerable<Product>, ProductDto[]>(items);
+				return Json(new{ items = dtos, count = set.Count() });
 			}
 		}
 	}

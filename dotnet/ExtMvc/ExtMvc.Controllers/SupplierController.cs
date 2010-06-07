@@ -86,9 +86,9 @@ namespace ExtMvc.Controllers
 			using(_conversation.SetAsCurrent())
 			{
 				IPresentableSet<Supplier> set = _repository.SearchNormal(supplierId, companyName, contactName, contactTitle, address, city, region, postalCode, country, phone, fax, homePage);
-				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
-				SupplierDto[] items = _mapper.Map<IEnumerable<Supplier>, SupplierDto[]>(set.AsEnumerable());
-				return Json(new{ items, count = set.Count() });
+				IEnumerable<Supplier> items = set.Skip(start).Take(limit).Sort(sort, dir == "ASC").AsEnumerable();
+				SupplierDto[] dtos = _mapper.Map<IEnumerable<Supplier>, SupplierDto[]>(items);
+				return Json(new{ items = dtos, count = set.Count() });
 			}
 		}
 	}

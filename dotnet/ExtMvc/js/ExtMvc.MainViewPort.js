@@ -20,7 +20,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 				text: 'Root Node',
 				children: [{
 					text: 'Category',
-					children: [{
+						children: [{
 						text: 'Search Category Normal',
 						leaf: true,
 						listeners: {
@@ -29,10 +29,19 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 							},
 							scope: this
 						}
+					}, {
+						text: 'Create Category',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create Category', ExtMvc.CategoryFormPanel);
+							},
+							scope: this
+						}
 					}]
 				}, {
 					text: 'CustomerDemographic',
-					children: [{
+						children: [{
 						text: 'Search CustomerDemographic Normal',
 						leaf: true,
 						listeners: {
@@ -41,10 +50,19 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 							},
 							scope: this
 						}
+					}, {
+						text: 'Create CustomerDemographic',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create CustomerDemographic', ExtMvc.CustomerDemographicFormPanel);
+							},
+							scope: this
+						}
 					}]
 				}, {
 					text: 'Customer',
-					children: [{
+						children: [{
 						text: 'Search Customer Normal',
 						leaf: true,
 						listeners: {
@@ -53,10 +71,19 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 							},
 							scope: this
 						}
+					}, {
+						text: 'Create Customer',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create Customer', ExtMvc.CustomerFormPanel);
+							},
+							scope: this
+						}
 					}]
 				}, {
 					text: 'Employee',
-					children: [{
+						children: [{
 						text: 'Search Employee Normal',
 						leaf: true,
 						listeners: {
@@ -65,10 +92,19 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 							},
 							scope: this
 						}
+					}, {
+						text: 'Create Employee',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create Employee', ExtMvc.EmployeeFormPanel);
+							},
+							scope: this
+						}
 					}]
 				}, {
 					text: 'OrderDetail',
-					children: [{
+						children: [{
 						text: 'Search OrderDetail',
 						leaf: true,
 						listeners: {
@@ -77,10 +113,19 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 							},
 							scope: this
 						}
+					}, {
+						text: 'Create OrderDetail',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create OrderDetail', ExtMvc.OrderDetailFormPanel);
+							},
+							scope: this
+						}
 					}]
 				}, {
 					text: 'Order',
-					children: [{
+						children: [{
 						text: 'Search Order Normal',
 						leaf: true,
 						listeners: {
@@ -89,10 +134,19 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 							},
 							scope: this
 						}
+					}, {
+						text: 'Create Order',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create Order', ExtMvc.OrderFormPanel);
+							},
+							scope: this
+						}
 					}]
 				}, {
 					text: 'Product',
-					children: [{
+						children: [{
 						text: 'Search Product Normal',
 						leaf: true,
 						listeners: {
@@ -101,10 +155,19 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 							},
 							scope: this
 						}
+					}, {
+						text: 'Create Product',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create Product', ExtMvc.ProductFormPanel);
+							},
+							scope: this
+						}
 					}]
 				}, {
 					text: 'Region',
-					children: [{
+						children: [{
 						text: 'Search Region Normal',
 						leaf: true,
 						listeners: {
@@ -113,10 +176,19 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 							},
 							scope: this
 						}
+					}, {
+						text: 'Create Region',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create Region', ExtMvc.RegionFormPanel);
+							},
+							scope: this
+						}
 					}]
 				}, {
 					text: 'Shipper',
-					children: [{
+						children: [{
 						text: 'Search Shipper Normal',
 						leaf: true,
 						listeners: {
@@ -125,10 +197,19 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 							},
 							scope: this
 						}
+					}, {
+						text: 'Create Shipper',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create Shipper', ExtMvc.ShipperFormPanel);
+							},
+							scope: this
+						}
 					}]
 				}, {
 					text: 'Supplier',
-					children: [{
+						children: [{
 						text: 'Search Supplier Normal',
 						leaf: true,
 						listeners: {
@@ -137,15 +218,33 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 							},
 							scope: this
 						}
+					}, {
+						text: 'Create Supplier',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create Supplier', ExtMvc.SupplierFormPanel);
+							},
+							scope: this
+						}
 					}]
 				}, {
 					text: 'Territory',
-					children: [{
+						children: [{
 						text: 'Search Territory Normal',
 						leaf: true,
 						listeners: {
 							click: function () {
 								this.openTab('Search Territory Normal', ExtMvc.TerritoryNormalSearchContainer);
+							},
+							scope: this
+						}
+					}, {
+						text: 'Create Territory',
+						leaf: true,
+						listeners: {
+							click: function () {
+								this.openTab('Create Territory', ExtMvc.TerritoryFormPanel);
 							},
 							scope: this
 						}
@@ -168,7 +267,7 @@ ExtMvc.MainViewport = Ext.extend(Ext.Viewport, {
 		this.items = [this.treePanel, this.tabPanel];
 		ExtMvc.MainViewport.superclass.initComponent.call(this);
 	},
-
+	
 	openTab: function (title, Constructor) {
 		var tab;
 

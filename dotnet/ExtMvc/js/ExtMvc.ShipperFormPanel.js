@@ -13,53 +13,42 @@ ExtMvc.ShipperFormPanel = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	initComponent: function () {
-		this.buttons = [{
-			text: 'Load',
-			handler: this.loadClick,
-			scope: this
-		}, {
-			text: 'Save',
-			handler: this.saveClick,
-			scope: this
-		}];
-
 		// see http://www.extjs.com/forum/showthread.php?98131
 		this.items = [{
 			layout: 'form',
 			border: false,
 			padding: 10,
 			items: [
-
-								{ name: 'ShipperId', fieldLabel: 'ShipperId', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'CompanyName', fieldLabel: 'CompanyName', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'Phone', fieldLabel: 'Phone', xtype: 'textfield', anchor: '100%' }
-								
+				{ name: 'StringId', xtype: 'hidden' },
+				{ name: 'ShipperId', fieldLabel: 'ShipperId', xtype: 'textfield', anchor: '100%' },
+				{ name: 'CompanyName', fieldLabel: 'CompanyName', xtype: 'textfield', anchor: '100%' },
+				{ name: 'Phone', fieldLabel: 'Phone', xtype: 'textfield', anchor: '100%' }
 			]
 		}];
 
-		ExtMvc.ShipperFormPanel.superclass.initComponent.call(this);
+		this.buttons = [
+			{ text: 'Save', handler: this.saveItemButtonHandler, scope: this }
+		];
 
-		this.getForm().on('actionfailed', this.actionFailedHandler, this);
+		ExtMvc.ShipperFormPanel.superclass.initComponent.call(this);
 	},
 
-	loadClick: function () {
+	loadItem: function (stringId) {
 		this.el.mask('Loading...', 'x-mask-loading');
 		Rpc.call({
 			url: '/Shipper/Read',
-			params: { stringId: 'ALFKI' },
-			scope: this,
+			params: { stringId: stringId },
 			success: function (ret) {
 				this.getForm().setValues(ret.data);
 			},
 			callback: function () {
 				this.el.unmask();
-			}
+			},
+			scope: this
 		});
 	},
 
-	saveClick: function () {
+	saveItemButtonHandler: function () {
 		if (!this.getForm().isValid()) {
 			return;
 		}

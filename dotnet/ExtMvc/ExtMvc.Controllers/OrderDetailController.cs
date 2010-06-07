@@ -86,9 +86,9 @@ namespace ExtMvc.Controllers
 			using(_conversation.SetAsCurrent())
 			{
 				IPresentableSet<OrderDetail> set = _repository.Search(orderId, productId, unitPrice, quantity, discount);
-				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
-				OrderDetailDto[] items = _mapper.Map<IEnumerable<OrderDetail>, OrderDetailDto[]>(set.AsEnumerable());
-				return Json(new{ items, count = set.Count() });
+				IEnumerable<OrderDetail> items = set.Skip(start).Take(limit).Sort(sort, dir == "ASC").AsEnumerable();
+				OrderDetailDto[] dtos = _mapper.Map<IEnumerable<OrderDetail>, OrderDetailDto[]>(items);
+				return Json(new{ items = dtos, count = set.Count() });
 			}
 		}
 	}

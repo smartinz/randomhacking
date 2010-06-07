@@ -86,9 +86,9 @@ namespace ExtMvc.Controllers
 			using(_conversation.SetAsCurrent())
 			{
 				IPresentableSet<Category> set = _repository.SearchNormal();
-				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
-				CategoryDto[] items = _mapper.Map<IEnumerable<Category>, CategoryDto[]>(set.AsEnumerable());
-				return Json(new{ items, count = set.Count() });
+				IEnumerable<Category> items = set.Skip(start).Take(limit).Sort(sort, dir == "ASC").AsEnumerable();
+				CategoryDto[] dtos = _mapper.Map<IEnumerable<Category>, CategoryDto[]>(items);
+				return Json(new{ items = dtos, count = set.Count() });
 			}
 		}
 	}

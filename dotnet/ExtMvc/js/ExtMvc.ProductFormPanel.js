@@ -13,65 +13,48 @@ ExtMvc.ProductFormPanel = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	initComponent: function () {
-		this.buttons = [{
-			text: 'Load',
-			handler: this.loadClick,
-			scope: this
-		}, {
-			text: 'Save',
-			handler: this.saveClick,
-			scope: this
-		}];
-
 		// see http://www.extjs.com/forum/showthread.php?98131
 		this.items = [{
 			layout: 'form',
 			border: false,
 			padding: 10,
 			items: [
-
-								{ name: 'ProductId', fieldLabel: 'ProductId', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'ProductName', fieldLabel: 'ProductName', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'QuantityPerUnit', fieldLabel: 'QuantityPerUnit', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'UnitPrice', fieldLabel: 'UnitPrice', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'UnitsInStock', fieldLabel: 'UnitsInStock', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'UnitsOnOrder', fieldLabel: 'UnitsOnOrder', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'ReorderLevel', fieldLabel: 'ReorderLevel', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'Discontinued', fieldLabel: 'Discontinued', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'Category', fieldLabel: 'Category', xtype: 'ExtMvc.CategoryField', anchor: '100%' }
-								
+				{ name: 'StringId', xtype: 'hidden' },
+				{ name: 'ProductId', fieldLabel: 'ProductId', xtype: 'textfield', anchor: '100%' },
+				{ name: 'ProductName', fieldLabel: 'ProductName', xtype: 'textfield', anchor: '100%' },
+				{ name: 'QuantityPerUnit', fieldLabel: 'QuantityPerUnit', xtype: 'textfield', anchor: '100%' },
+				{ name: 'UnitPrice', fieldLabel: 'UnitPrice', xtype: 'textfield', anchor: '100%' },
+				{ name: 'UnitsInStock', fieldLabel: 'UnitsInStock', xtype: 'textfield', anchor: '100%' },
+				{ name: 'UnitsOnOrder', fieldLabel: 'UnitsOnOrder', xtype: 'textfield', anchor: '100%' },
+				{ name: 'ReorderLevel', fieldLabel: 'ReorderLevel', xtype: 'textfield', anchor: '100%' },
+				{ name: 'Discontinued', fieldLabel: 'Discontinued', xtype: 'textfield', anchor: '100%' },
+				{ name: 'Category', fieldLabel: 'Category', xtype: 'ExtMvc.CategoryField', anchor: '100%' }
 			]
 		}];
 
-		ExtMvc.ProductFormPanel.superclass.initComponent.call(this);
+		this.buttons = [
+			{ text: 'Save', handler: this.saveItemButtonHandler, scope: this }
+		];
 
-		this.getForm().on('actionfailed', this.actionFailedHandler, this);
+		ExtMvc.ProductFormPanel.superclass.initComponent.call(this);
 	},
 
-	loadClick: function () {
+	loadItem: function (stringId) {
 		this.el.mask('Loading...', 'x-mask-loading');
 		Rpc.call({
 			url: '/Product/Read',
-			params: { stringId: 'ALFKI' },
-			scope: this,
+			params: { stringId: stringId },
 			success: function (ret) {
 				this.getForm().setValues(ret.data);
 			},
 			callback: function () {
 				this.el.unmask();
-			}
+			},
+			scope: this
 		});
 	},
 
-	saveClick: function () {
+	saveItemButtonHandler: function () {
 		if (!this.getForm().isValid()) {
 			return;
 		}

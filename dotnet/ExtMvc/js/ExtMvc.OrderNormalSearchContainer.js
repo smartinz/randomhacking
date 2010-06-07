@@ -22,14 +22,7 @@ ExtMvc.OrderNormalSearchContainer = Ext.extend(Ext.Container, {
 				store: store,
 				displayInfo: true,
 				pageSize: 25,
-				prependButtons: true,
-				// TODO check http://www.extjs.com/forum/showthread.php?100775
-				listeners: {
-					beforechange: function (paging, params) {
-						var lastParams = (paging.store.lastOptions || {}).params || {};
-						Ext.applyIf(params, lastParams);
-					}
-				}
+				prependButtons: true
 			}),
 			listeners: {
 				rowdblclick: {
@@ -76,12 +69,13 @@ ExtMvc.OrderNormalSearchContainer = Ext.extend(Ext.Container, {
 	},
 
 	searchClick: function (b, e) {
-		var args = this.searchFormPanel.getForm().getFieldValues();
+		var params = this.searchFormPanel.getForm().getFieldValues();
+		Ext.apply(this.gridPanel.getStore().baseParams, params);
 		this.gridPanel.getStore().load({
-			params: Ext.apply({
+			params: {
 				start: 0,
 				limit: this.gridPanel.getBottomToolbar().pageSize
-			}, args)
+			}
 		});
 	}
 });

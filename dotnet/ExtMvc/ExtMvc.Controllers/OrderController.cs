@@ -45,14 +45,22 @@ namespace ExtMvc.Controllers
 			}
 		}
 
-		public ActionResult Read(string stringId)
+		public ActionResult Get(string stringId)
 		{
-			using(_conversation.SetAsCurrent())
+			Order item;
+			if(string.IsNullOrEmpty(stringId))
 			{
-				Order item = _stringConverter.FromString(stringId);
-				OrderDto itemDto = _mapper.Map<Order, OrderDto>(item);
-				return Json(itemDto);
+				item = new Order();
 			}
+			else
+			{
+				using(_conversation.SetAsCurrent())
+				{
+					item = _stringConverter.FromString(stringId);
+				}
+			}
+			OrderDto itemDto = _mapper.Map<Order, OrderDto>(item);
+			return Json(itemDto);
 		}
 
 		public ActionResult Update(OrderDto item)
@@ -91,9 +99,9 @@ namespace ExtMvc.Controllers
 				Shipper shipperMapped = _mapper.Map<ShipperReferenceDto, Shipper>(shipper);
 
 				IPresentableSet<Order> set = _repository.SearchNormal(orderId, orderDate, requiredDate, shippedDate, freight, shipName, shipAddress, shipCity, shipRegion, shipPostalCode, shipCountry, customerMapped, employeeMapped, shipperMapped);
-				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
-				OrderDto[] items = _mapper.Map<IEnumerable<Order>, OrderDto[]>(set.AsEnumerable());
-				return Json(new{ items, count = set.Count() });
+				IEnumerable<Order> items = set.Skip(start).Take(limit).Sort(sort, dir == "ASC").AsEnumerable();
+				OrderDto[] dtos = _mapper.Map<IEnumerable<Order>, OrderDto[]>(items);
+				return Json(new{ items = dtos, count = set.Count() });
 			}
 		}
 	}

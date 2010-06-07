@@ -86,9 +86,9 @@ namespace ExtMvc.Controllers
 			using(_conversation.SetAsCurrent())
 			{
 				IPresentableSet<Region> set = _repository.SearchNormal(regionId, regionDescription);
-				set = set.Skip(start).Take(limit).Sort(sort, dir == "ASC");
-				RegionDto[] items = _mapper.Map<IEnumerable<Region>, RegionDto[]>(set.AsEnumerable());
-				return Json(new{ items, count = set.Count() });
+				IEnumerable<Region> items = set.Skip(start).Take(limit).Sort(sort, dir == "ASC").AsEnumerable();
+				RegionDto[] dtos = _mapper.Map<IEnumerable<Region>, RegionDto[]>(items);
+				return Json(new{ items = dtos, count = set.Count() });
 			}
 		}
 	}

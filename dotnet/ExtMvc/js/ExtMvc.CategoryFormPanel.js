@@ -13,53 +13,42 @@ ExtMvc.CategoryFormPanel = Ext.extend(Ext.form.FormPanel, {
 	},
 
 	initComponent: function () {
-		this.buttons = [{
-			text: 'Load',
-			handler: this.loadClick,
-			scope: this
-		}, {
-			text: 'Save',
-			handler: this.saveClick,
-			scope: this
-		}];
-
 		// see http://www.extjs.com/forum/showthread.php?98131
 		this.items = [{
 			layout: 'form',
 			border: false,
 			padding: 10,
 			items: [
-
-								{ name: 'CategoryId', fieldLabel: 'CategoryId', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'CategoryName', fieldLabel: 'CategoryName', xtype: 'textfield', anchor: '100%' }
-								, 
-								{ name: 'Description', fieldLabel: 'Description', xtype: 'textfield', anchor: '100%' }
-								
+				{ name: 'StringId', xtype: 'hidden' },
+				{ name: 'CategoryId', fieldLabel: 'CategoryId', xtype: 'textfield', anchor: '100%' },
+				{ name: 'CategoryName', fieldLabel: 'CategoryName', xtype: 'textfield', anchor: '100%' },
+				{ name: 'Description', fieldLabel: 'Description', xtype: 'textfield', anchor: '100%' }
 			]
 		}];
 
-		ExtMvc.CategoryFormPanel.superclass.initComponent.call(this);
+		this.buttons = [
+			{ text: 'Save', handler: this.saveItemButtonHandler, scope: this }
+		];
 
-		this.getForm().on('actionfailed', this.actionFailedHandler, this);
+		ExtMvc.CategoryFormPanel.superclass.initComponent.call(this);
 	},
 
-	loadClick: function () {
+	loadItem: function (stringId) {
 		this.el.mask('Loading...', 'x-mask-loading');
 		Rpc.call({
 			url: '/Category/Read',
-			params: { stringId: 'ALFKI' },
-			scope: this,
+			params: { stringId: stringId },
 			success: function (ret) {
 				this.getForm().setValues(ret.data);
 			},
 			callback: function () {
 				this.el.unmask();
-			}
+			},
+			scope: this
 		});
 	},
 
-	saveClick: function () {
+	saveItemButtonHandler: function () {
 		if (!this.getForm().isValid()) {
 			return;
 		}
